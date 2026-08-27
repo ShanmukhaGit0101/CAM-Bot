@@ -1,0 +1,104 @@
+================================================================================
+UR5 EXPERIMENT 02 — +10% FOREARM MASS
+================================================================================
+
+STATUS
+--------------------------------------------------------------------------------
+Experiment status : COMPLETE
+
+OBJECTIVE
+--------------------------------------------------------------------------------
+Evaluate the recorded UR5 trajectory response after increasing only the
+forearm_link mass by 10%.
+
+MASS CONFIGURATION
+--------------------------------------------------------------------------------
+Baseline forearm mass : 2.3300 kg
+Experiment forearm    : 2.5630 kg
+Mass increase         : +0.2330 kg
+Percentage increase   : +10.00%
+
+OTHER ROBOT MASSES
+--------------------------------------------------------------------------------
+Upper arm mass        : 8.3930 kg
+Other link masses     : unchanged
+
+DATA
+--------------------------------------------------------------------------------
+Baseline samples      : 46318
+Experiment samples    : 46085
+
+Baseline duration     : 463.424474 s
+Experiment duration   : 461.082362 s
+
+EXPERIMENT VALIDATION
+--------------------------------------------------------------------------------
+URDF mass modification verified : YES
+Only forearm_link changed       : YES
+Baseline rosbag                 : YES
+Experiment rosbag               : YES
+Joint-state CSV extraction      : YES
+Numerical comparison            : YES
+Comparison plots                : YES
+
+KEY RESULTS
+--------------------------------------------------------------------------------
+Largest velocity increase:
+  Wrist 2 : +40.66%
+  Wrist 1 : +31.99%
+  Elbow   : +7.45%
+  Shoulder Lift : +4.95%
+
+Largest acceleration increases:
+  Wrist 2 : +517.48%
+  Wrist 1 : +478.34%
+  Elbow   : +355.48%
+  Shoulder Lift : +292.12%
+  Shoulder Pan : +95.13%
+
+Wrist 3 acceleration changed by:
+  -34.18%
+
+POSITION RANGE
+--------------------------------------------------------------------------------
+Position ranges remained broadly similar between the baseline and modified
+recordings. The largest range change was observed for Shoulder Lift at
+approximately +0.14%.
+
+INTERPRETATION
+--------------------------------------------------------------------------------
+The +10% forearm mass modification produced relatively small changes in
+recorded joint position ranges but substantially different peak velocity and
+especially peak acceleration statistics for several joints.
+
+The strongest recorded response occurred at Wrist 2, where the maximum
+absolute velocity increased by 40.66% and the derived maximum absolute
+acceleration increased by 517.48%.
+
+These results describe the recorded trajectory statistics. They should not
+be interpreted as a direct causal measurement of mechanical torque or
+dynamic load without additional synchronized dynamic measurements.
+
+LIMITATIONS
+--------------------------------------------------------------------------------
+The baseline and experiment recordings have slightly different durations
+and sample counts. Therefore the comparison is not a point-by-point
+time-synchronized trajectory error analysis.
+
+Acceleration was numerically derived from recorded joint velocity using
+numpy.gradient(). Consequently, acceleration peaks can be sensitive to
+sampling and measurement noise.
+
+CONCLUSION
+--------------------------------------------------------------------------------
+Experiment 02 successfully completed the intended +10% forearm-mass
+perturbation.
+
+The experiment provides a valid dataset for comparison with the 8.3930 kg
+baseline and demonstrates that the mass perturbation can be associated with
+substantial changes in recorded velocity and derived acceleration statistics,
+particularly in the wrist and elbow joints.
+
+================================================================================
+END OF EXPERIMENT 02
+================================================================================

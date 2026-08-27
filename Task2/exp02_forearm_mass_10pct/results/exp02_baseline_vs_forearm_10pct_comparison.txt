@@ -1,0 +1,55 @@
+================================================================================
+UR5 EXPERIMENT 02 — BASELINE vs +10% FOREARM MASS
+================================================================================
+
+MASS CONFIGURATION
+--------------------------------------------------------------------------------
+Baseline forearm mass : 2.3300 kg
+Experiment forearm    : 2.5630 kg
+Mass increase         : +0.2330 kg
+Percentage increase   : +10.00%
+
+DATASET
+--------------------------------------------------------------------------------
+Baseline samples      : 46318
+Experiment samples    : 46085
+Baseline duration     : 463.424474 s
+Experiment duration   : 461.082362 s
+
+COMPARISON
+--------------------------------------------------------------------------------
+Joint                    Base Range      Exp Range    Range Δ %    Base |v|max     Exp |v|max      v Δ %
+Shoulder Pan               6.566272       6.566240        -0.00       3.472289       3.469994      -0.07
+Shoulder Lift              1.138493       1.140085         0.14       0.604930       0.634899       4.95
+Elbow                      2.631935       2.631289        -0.02       1.550026       1.665426       7.45
+Wrist 1                    3.679080       3.675240        -0.10       3.507782       4.629905      31.99
+Wrist 2                    2.970425       2.971365         0.03       1.705844       2.399376      40.66
+Wrist 3                    4.712705       4.713011         0.01       4.559066       4.556982      -0.05
+
+ACCELERATION COMPARISON
+--------------------------------------------------------------------------------
+Joint                      Base |a|max        Exp |a|max         Δ %
+Shoulder Pan                 19.132660         37.332711       95.13
+Shoulder Lift                 3.325265         13.038913      292.12
+Elbow                         8.739328         39.805616      355.48
+Wrist 1                      19.782641        114.411862      478.34
+Wrist 2                       9.603439         59.299274      517.48
+Wrist 3                      24.777831         16.307705      -34.18
+
+INTERPRETATION
+--------------------------------------------------------------------------------
+The experiment changes only the forearm mass.
+The upper-arm mass remains at the 8.3930 kg baseline value.
+Position, velocity and acceleration metrics are calculated independently
+for the recorded baseline and modified trials.
+
+NOTE
+--------------------------------------------------------------------------------
+Acceleration is numerically derived using numpy.gradient().
+The two recordings have slightly different durations and sample counts.
+Therefore this comparison evaluates recorded trajectory statistics,
+not point-by-point synchronized trajectory error.
+
+================================================================================
+END OF EXPERIMENT 02 COMPARISON
+================================================================================

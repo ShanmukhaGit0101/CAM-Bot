@@ -1,0 +1,100 @@
+==============================================================================
+UR5 EXPERIMENT 01 — UPPER ARM MASS +10% COMPARISON
+==============================================================================
+
+DATASETS
+------------------------------------------------------------------------------
+baseline_8.393kg          samples= 46318 duration=463.424474 s rate=  99.945 Hz
+experiment_9.2323kg       samples= 50652 duration=506.785003 s rate=  99.946 Hz
+
+MASS CONFIGURATION
+------------------------------------------------------------------------------
+Baseline upper_arm_link mass   : 8.3930 kg
+Experiment upper_arm_link mass : 9.2323 kg
+Mass increase                   : +0.8393 kg
+Mass increase                   : +10.00%
+
+PRIMARY COMPARISON
+------------------------------------------------------------------------------
+Joint              Metric                     Baseline     Experiment          Delta    Delta %
+--------------------------------------------------------------------------------------------------------------
+Shoulder Pan       Position range           6.56627170     6.56627170     0.00000000      0.000
+Shoulder Pan       Max |velocity|           0.01345119     0.01347908     0.00002789      0.207
+Shoulder Pan       Max |acceleration|       0.63655008     0.62795950    -0.00859057     -1.350
+Shoulder Lift      Position range           1.13849320     1.13849320     0.00000000      0.000
+Shoulder Lift      Max |velocity|           0.04248164     0.04248164    -0.00000000     -0.000
+Shoulder Lift      Max |acceleration|       1.53224857     1.50712179    -0.02512678     -1.640
+Elbow              Position range           2.63193542     2.63193542    -0.00000000     -0.000
+Elbow              Max |velocity|           0.03588989     0.03588989     0.00000000      0.000
+Elbow              Max |acceleration|       0.34371589     0.34097250    -0.00274338     -0.798
+Wrist 1            Position range           3.67908048     3.67908048    -0.00000000     -0.000
+Wrist 1            Max |velocity|           0.09335928     0.09335928     0.00000000      0.000
+Wrist 1            Max |acceleration|       0.41591287     0.37856547    -0.03734740     -8.980
+Wrist 2            Position range           2.97042494     2.97042494    -0.00000000     -0.000
+Wrist 2            Max |velocity|           0.02137447     0.02137447    -0.00000000     -0.000
+Wrist 2            Max |acceleration|       0.42037710     0.41798698    -0.00239013     -0.569
+Wrist 3            Position range           4.71270484     4.71270484    -0.00000000     -0.000
+Wrist 3            Max |velocity|           0.09345521     0.09345521     0.00000000      0.000
+Wrist 3            Max |acceleration|       0.40112266     0.35536799    -0.04575466    -11.407
+
+FULL JOINT POSITION / VELOCITY / ACCELERATION EXTREMES
+------------------------------------------------------------------------------
+
+Shoulder Pan
+  Position minimum       baseline=-2.973206957 experiment=-2.973206957 delta=-0.000000000
+  Position maximum       baseline= 3.593064740 experiment= 3.593064740 delta= 0.000000000
+  Velocity minimum       baseline=-0.013451189 experiment=-0.013479082 delta=-0.000027893
+  Velocity maximum       baseline= 0.009556025 experiment= 0.010851207 delta= 0.001295182
+  Acceleration minimum   baseline=-0.636550075 experiment=-0.627959502 delta= 0.008590573
+  Acceleration maximum   baseline= 0.330242852 experiment= 0.318138322 delta=-0.012104531
+
+Shoulder Lift
+  Position minimum       baseline=-2.205459981 experiment=-2.205459981 delta= 0.000000000
+  Position maximum       baseline=-1.066966778 experiment=-1.066966778 delta= 0.000000000
+  Velocity minimum       baseline=-0.029424164 experiment=-0.029424164 delta= 0.000000000
+  Velocity maximum       baseline= 0.042481639 experiment= 0.042481639 delta=-0.000000000
+  Acceleration minimum   baseline=-1.361313422 experiment=-1.360101656 delta= 0.001211766
+  Acceleration maximum   baseline= 1.532248570 experiment= 1.507121789 delta=-0.025126781
+
+Elbow
+  Position minimum       baseline=-1.068398067 experiment=-1.068398067 delta= 0.000000000
+  Position maximum       baseline= 1.563537350 experiment= 1.563537350 delta=-0.000000000
+  Velocity minimum       baseline=-0.018924868 experiment=-0.018924868 delta=-0.000000000
+  Velocity maximum       baseline= 0.035889891 experiment= 0.035889891 delta= 0.000000000
+  Acceleration minimum   baseline=-0.343715886 experiment=-0.340972505 delta= 0.002743381
+  Acceleration maximum   baseline= 0.336744579 experiment= 0.339677033 delta= 0.002932454
+
+Wrist 1
+  Position minimum       baseline=-3.535910483 experiment=-3.535910483 delta= 0.000000000
+  Position maximum       baseline= 0.143169994 experiment= 0.143169994 delta=-0.000000000
+  Velocity minimum       baseline=-0.069406785 experiment=-0.069406785 delta=-0.000000000
+  Velocity maximum       baseline= 0.093359277 experiment= 0.093359277 delta= 0.000000000
+  Acceleration minimum   baseline=-0.360076072 experiment=-0.377060630 delta=-0.016984558
+  Acceleration maximum   baseline= 0.415912868 experiment= 0.378565470 delta=-0.037347398
+
+Wrist 2
+  Position minimum       baseline=-1.728034430 experiment=-1.728034430 delta=-0.000000000
+  Position maximum       baseline= 1.242390506 experiment= 1.242390506 delta=-0.000000000
+  Velocity minimum       baseline=-0.021374468 experiment=-0.021374468 delta= 0.000000000
+  Velocity maximum       baseline= 0.017295312 experiment= 0.017315879 delta= 0.000020567
+  Acceleration minimum   baseline=-0.420377103 experiment=-0.417986978 delta= 0.002390125
+  Acceleration maximum   baseline= 0.408026482 experiment= 0.406584420 delta=-0.001442061
+
+Wrist 3
+  Position minimum       baseline=-4.712573148 experiment=-4.712573148 delta= 0.000000000
+  Position maximum       baseline= 0.000131692 experiment= 0.000131692 delta=-0.000000000
+  Velocity minimum       baseline=-0.093455206 experiment=-0.093455206 delta=-0.000000000
+  Velocity maximum       baseline= 0.012928161 experiment= 0.012928161 delta= 0.000000000
+  Acceleration minimum   baseline=-0.401122659 experiment=-0.355367994 delta= 0.045754665
+  Acceleration maximum   baseline= 0.329593236 experiment= 0.322993282 delta=-0.006599954
+
+ANALYSIS NOTES
+------------------------------------------------------------------------------
+Baseline dataset : upper_arm_link = 8.3930 kg
+Experiment dataset : upper_arm_link = 9.2323 kg
+Position and velocity are taken directly from /joint_states.
+Acceleration is numerically derived from velocity using numpy.gradient().
+Percentage changes are calculated relative to the 8.3930 kg baseline.
+Both datasets are from completed recorded trials.
+This script does NOT execute or publish any robot trajectory.
+==============================================================================
