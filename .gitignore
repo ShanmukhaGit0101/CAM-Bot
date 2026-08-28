@@ -1,0 +1,33 @@
+# ---- ROS 2 / colcon ----
+build/
+install/
+log/
+.colcon/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+plot_env/
+
+# ---- Generated URDF / xacro output ----
+*.urdf.generated
+/tmp_urdf/
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# ---- Generated artifacts ----
+# Plots are regenerable from data/ + scripts/. Commit only figures used in
+# reports; delete this line if you want all plots versioned.
+# experiments/**/plots/
+
+# ---- Never commit ----
+*.bag
+rosbag2_*/
