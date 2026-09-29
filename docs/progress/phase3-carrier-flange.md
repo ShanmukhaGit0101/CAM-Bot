@@ -1,4 +1,4 @@
-# Phase 4 — Carrier Flange & Bimanual Placeholder
+# Phase 3 — Carrier Flange & Bimanual Placeholder
 
 **Status:** 🔧 In progress
 **Goal:** define a clean, parameterized mechanical and TF interface between the
