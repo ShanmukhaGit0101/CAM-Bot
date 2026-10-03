@@ -1,51 +1,52 @@
 <?xml version="1.0"?>
 
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
        name="ur5_with_test_tool">
 
-  <!-- ===================================================== -->
-  <!-- WORLD                                                 -->
-  <!-- ===================================================== -->
-
-  <link name="world"/>
-
-
-  <!-- ===================================================== -->
-  <!-- OFFICIAL UR5 MACRO                                    -->
-  <!-- ===================================================== -->
-
+  <!-- Import the Universal Robots description -->
   <xacro:include
     filename="$(find ur_description)/urdf/ur_macro.xacro"/>
 
+  <!-- UR5 configuration -->
+  <xacro:arg name="ur_type" default="ur5"/>
 
-  <!-- ===================================================== -->
-  <!-- UR5                                                   -->
-  <!-- ===================================================== -->
+  <xacro:arg
+    name="joint_limit_params"
+    default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml"/>
 
+  <xacro:arg
+    name="kinematics_params"
+    default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml"/>
+
+  <xacro:arg
+    name="physical_params"
+    default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml"/>
+
+  <xacro:arg
+    name="visual_params"
+    default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml"/>
+
+  <xacro:arg name="tf_prefix" default=""/>
+
+  <!-- World -->
+  <link name="world"/>
+
+  <!-- UR5 -->
   <xacro:ur_robot
     name="ur5"
-    tf_prefix=""
+    tf_prefix="$(arg tf_prefix)"
     parent="world"
 
-    joint_limits_parameters_file="$(find ur_description)/config/ur5/joint_limits.yaml"
+    joint_limits_parameters_file="$(arg joint_limit_params)"
+    kinematics_parameters_file="$(arg kinematics_params)"
+    physical_parameters_file="$(arg physical_params)"
+    visual_parameters_file="$(arg visual_params)"
 
-    kinematics_parameters_file="$(find ur_description)/config/ur5/default_kinematics.yaml"
+    safety_limits="false"
+    safety_pos_margin="0.15"
+    safety_k_position="20"
 
-    physical_parameters_file="$(find ur_description)/config/ur5/physical_parameters.yaml"
-
-    visual_parameters_file="$(find ur_description)/config/ur5/visual_parameters.yaml"
-
-    ur_type="ur5"
-
-    generate_ros2_control_tag="false"
-
-    use_fake_hardware="true"
-
-    fake_sensor_commands="false"
-
-    sim_gazebo="false"
-
-    sim_ignition="false">
+    force_abs_paths="false">
 
     <origin
       xyz="0 0 0"
@@ -53,15 +54,22 @@
 
   </xacro:ur_robot>
 
-
-  <!-- ===================================================== -->
-  <!-- TEST TOOL                                             -->
-  <!-- ===================================================== -->
-
+  <!-- CAM-BOT Phase 4: carrier flange + bimanual placeholder -->
   <xacro:include
-    filename="$(find carrier_description)/urdf/test_tool.xacro"/>
+    filename="$(find carrier_description)/urdf/carrier_flange.xacro"/>
+  <xacro:include
+    filename="$(find carrier_description)/urdf/dual_arm.xacro"/>
 
-  <xacro:test_tool
-    parent_link="tool0"/>
+  <xacro:carrier_flange
+    parent_link="tool0"
+    flange_length="0.60"
+    flange_width="0.40"
+    flange_thickness="0.05"
+    mount_spacing="0.25"
+    mount_height="0.06"
+    tilt_angle="0.0"/>
+
+  <xacro:dual_arm
+    parent_link="carrier_flange_interface"/>
 
 </robot>

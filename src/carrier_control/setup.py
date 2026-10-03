@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'dual_arm_cycle = carrier_control.dual_arm_cycle:main',
 		'machine_shop_trajectory = carrier_control.machine_shop_trajectory:main',
 		'machine_shop_joint_cycle = carrier_control.machine_shop_joint_cycle:main',
 		'plot_machine_shop_path = carrier_control.plot_machine_shop_path:main',
