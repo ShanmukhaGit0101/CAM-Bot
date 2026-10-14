@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable
 
 from carrier_control.machine_tending_fsm import FSMError, MachineTendingFSM
+from carrier_control.reachability import validate_workspace
 from carrier_control.waypoints import UR5_JOINT_NAMES
 from carrier_control.workcell_model import (
     STATION_IDS, WorkcellError, station_for_target, validate_workcell,
@@ -84,6 +85,19 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
         validate_workcell(workcell)
     except WorkcellError as exc:
         raise WorkflowError(str(exc)) from exc
+    workspace = plan.get("workspace")
+    try:
+        validate_workspace(workspace)
+    except ValueError as exc:
+        raise WorkflowError(str(exc)) from exc
+    if workspace.get("status") != "geometric_proxy_assumption_not_ik_or_collision_checked":
+        raise WorkflowError("workspace must retain its geometric-proxy warning")
+    if workspace.get("required_arms") not in ("left", "right", "both"):
+        raise WorkflowError("workspace.required_arms must be left, right or both")
+    timeout = workspace.get("tf_timeout_s")
+    if (isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or
+            not math.isfinite(timeout) or not 0 < timeout <= 10):
+        raise WorkflowError("workspace.tf_timeout_s must be in (0, 10]")
 
     carrier = plan.get("carrier")
     if not isinstance(carrier, dict):

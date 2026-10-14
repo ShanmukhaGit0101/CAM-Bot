@@ -2,6 +2,24 @@
   "schema_version": "1.0",
   "assumption_status": "configurable_visual_simulation_only",
   "assumption_note": "Station poses are layout assumptions, not measured cell or Tanmay dimensions. Legacy P1-P4 joint targets have not been validated against these named station poses.",
+  "workspace": {
+    "status": "geometric_proxy_assumption_not_ik_or_collision_checked",
+    "frame": "dual_arm_base_link",
+    "units": "m",
+    "required_arms": "both",
+    "tf_timeout_s": 2.0,
+    "max_reposition_attempts": 1,
+    "left": {
+      "center_xyz_m": [-0.22, 0.0, 0.05],
+      "max_radius_m": 0.40,
+      "bounds_xyz_m": [[-0.45, 0.02], [0.02, 0.40], [-0.15, 0.25]]
+    },
+    "right": {
+      "center_xyz_m": [0.22, 0.0, 0.05],
+      "max_radius_m": 0.40,
+      "bounds_xyz_m": [[-0.02, 0.45], [0.02, 0.40], [-0.15, 0.25]]
+    }
+  },
   "fsm": {
     "state_timeout_s": {
       "HOME": 30.0,
