@@ -88,7 +88,7 @@ CAM-Bot/
 │   └── carrier_control/          trajectory nodes and cycle controllers
 │
 ├── config/
-│   └── waypoints.yaml            authoritative machine-shop waypoints
+│   └── waypoints.yaml            source mirror of installed carrier-control waypoints
 │
 ├── docs/
 │   ├── STATUS.md                 ← single source of truth for progress
@@ -166,7 +166,10 @@ and validated and an external trajectory controller is active. See
 ## Waypoints
 
 Machine-shop stations are stored as **joint configurations**, not Cartesian
-poses, in [`config/waypoints.yaml`](config/waypoints.yaml):
+poses, in the installed [`carrier_control/config/waypoints.yaml`](src/carrier_control/config/waypoints.yaml).
+The root [`config/waypoints.yaml`](config/waypoints.yaml) is kept as a byte-identical
+source mirror for older documentation; the controller resolves the installed
+package-share asset, not the current working directory.
 
 | Station | Purpose |
 |---|---|

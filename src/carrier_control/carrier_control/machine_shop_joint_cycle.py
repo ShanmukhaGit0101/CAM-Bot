@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 
 import time
+from pathlib import Path
 
 import rclpy
+from ament_index_python.packages import get_package_share_directory
 from rclpy.node import Node
 from rclpy.action import ActionClient
 
 from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
+from carrier_control.waypoints import load_waypoints
 
 
 class MachineShopJointCycle(Node):
@@ -28,6 +31,10 @@ class MachineShopJointCycle(Node):
             'wrist_2_joint',
             'wrist_3_joint'
         ]
+
+        waypoint_file = Path(get_package_share_directory('carrier_control')) / 'config' / 'waypoints.yaml'
+        self.waypoints = load_waypoints(waypoint_file)
+        self.get_logger().info(f'Loaded taught waypoints from {waypoint_file}')
 
         # =====================================================
         # CONTROLLER ACTION
@@ -225,81 +232,14 @@ class MachineShopJointCycle(Node):
     # =========================================================
 
     def run_cycle(self):
-
-        # =====================================================
-        # HOME
-        # =====================================================
-
-        HOME = [
-             0.0,
-            -1.5707,
-             0.0,
-             0.0,
-             0.0,
-             0.0
-        ]
-
-        # =====================================================
-        # P1
-        # =====================================================
-
-        P1 = [
-             3.5930650931,
-            -2.2054793584,
-            -1.0675882483,
-             0.1313373823,
-             1.2420101306,
-            -4.7123874695
-        ]
-
-        # =====================================================
-        # P2
-        # =====================================================
-
-        P2 = [
-            -2.9731800422,
-            -1.0697884970,
-             0.4051854970,
-            -2.4787475769,
-            -1.7109676751,
-            -0.0003444654
-        ]
-
-        # =====================================================
-        # P3
-        # =====================================================
-
-        P3 = [
-            -0.4911844575,
-            -1.2432532203,
-             1.0138335850,
-            -2.9107543219,
-            -1.5139363170,
-            -0.0006938361
-        ]
-
-        # =====================================================
-        # P4
-        # =====================================================
-
-        P4 = [
-            -1.9124223037,
-            -1.1707189683,
-             1.5631410256,
-            -3.5347189241,
-            -1.7280385900,
-            -0.0015613844
-        ]
+        HOME = self.waypoints['home']
 
         # =====================================================
         # STATIONS
         # =====================================================
 
         stations = [
-            ('P1', P1),
-            ('P2', P2),
-            ('P3', P3),
-            ('P4', P4)
+            (name, self.waypoints[name]) for name in ('P1', 'P2', 'P3', 'P4')
         ]
 
         # =====================================================
@@ -315,7 +255,7 @@ class MachineShopJointCycle(Node):
 
         self.dwell(
             'HOME',
-            3.0
+            self.waypoints['dwell_time']
         )
 
         # =====================================================
@@ -346,7 +286,7 @@ class MachineShopJointCycle(Node):
 
             self.dwell(
                 name,
-                3.0
+                self.waypoints['dwell_time']
             )
 
             # -------------------------------------------------
@@ -371,7 +311,7 @@ class MachineShopJointCycle(Node):
 
             self.dwell(
                 'HOME',
-                3.0
+                self.waypoints['dwell_time']
             )
 
         # =====================================================

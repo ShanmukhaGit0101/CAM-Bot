@@ -5,6 +5,10 @@ from setuptools import find_packages, setup
 
 package_name = 'carrier_control'
 
+
+def asset_files(directory):
+    return [path for path in glob(os.path.join(directory, '*')) if os.path.isfile(path)]
+
 setup(
     name=package_name,
     version='0.0.0',
@@ -13,7 +17,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'config'), glob('config/*')),
+        (os.path.join('share', package_name, 'config'), asset_files('config')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

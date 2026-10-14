@@ -6,7 +6,7 @@
   <version>0.0.1</version>
 
   <description>
-    UR5 carrier manipulator with custom bin manipulator.
+    UR5 carrier with flange and visual dual-arm placeholder.
   </description>
 
   <maintainer email="shanmukha@example.com">
