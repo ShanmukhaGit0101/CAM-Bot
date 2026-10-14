@@ -20,6 +20,7 @@ def _assemble(context):
     results_file = LaunchConfiguration("results_file")
     auto_start = LaunchConfiguration("auto_start")
     fault_injection_step = LaunchConfiguration("fault_injection_step")
+    enable_coordination = LaunchConfiguration("enable_coordination")
     xacro_file = (
         Path(get_package_share_directory("carrier_description")) /
         "urdf" / "ur5_with_test_tool.xacro"
@@ -54,6 +55,9 @@ def _assemble(context):
                 "fault_injection_step": ParameterValue(
                     fault_injection_step, value_type=str
                 ),
+                "enable_coordination": ParameterValue(
+                    enable_coordination, value_type=bool
+                ),
             }],
         ),
         Node(
@@ -72,6 +76,7 @@ def generate_launch_description():
         DeclareLaunchArgument("visual_time_scale", default_value="1.0"),
         DeclareLaunchArgument("auto_start", default_value="true"),
         DeclareLaunchArgument("fault_injection_step", default_value=""),
+        DeclareLaunchArgument("enable_coordination", default_value="false"),
         DeclareLaunchArgument("config_file", default_value=PathJoinSubstitution([
             FindPackageShare("carrier_control"), "config", "machine_tending.json"
         ])),

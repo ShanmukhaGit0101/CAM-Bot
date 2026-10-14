@@ -199,6 +199,12 @@ approach that produced planning failures — see
 
 ---
 
+The current machine-tending coordinator includes a configurable, visual-only
+geometric workspace proxy and TF-gated carrier/local decision policy. It is
+not bimanual IK or verified grasp control; see
+[`docs/INTERFACES.md`](docs/INTERFACES.md) and
+[`docs/VALIDATION.md`](docs/VALIDATION.md) for limits and tests.
+
 ## Experiments
 
 Three 10% link-mass perturbations of the UR5, comparing recorded joint

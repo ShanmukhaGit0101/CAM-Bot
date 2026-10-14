@@ -42,6 +42,7 @@ def _assemble(context):
         name="machine_tending_coordinator", output="screen",
         parameters=[{
             "mode": "controller", "config_file": config_file,
+            "enable_coordination": True,
             "results_file": LaunchConfiguration("results_file"),
             "trial_count": LaunchConfiguration("trial_count"),
             "auto_start": ParameterValue(

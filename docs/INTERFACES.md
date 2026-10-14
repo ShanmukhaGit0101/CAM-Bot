@@ -74,8 +74,9 @@ Xacro expansion uses checked fallback geometry in the wrapper; launch does not
 use those fallback coordinates. The `world` frame is parent of the station
 frames and UR5 base. The coordinator transforms target offsets into world
 coordinates and includes the resulting *visual* XYZ in task-state messages.
-No IK/reachability, collision, grasp, or material-removal claim follows from
-this transform.
+The coordinator now applies a bounded geometric-proxy reachability test to
+the current `world -> dual_arm_base_link` TF. This is **not** IK, collision,
+grasp, or material-removal validation.
 
 The workpiece topic adds `process_phase` (`RAW`, `STAGED`, `IN_MACHINE`,
 `PROCESSED`, `FINISHED`) and `simulated_attachment`. A `true` attachment is a
@@ -91,6 +92,38 @@ single three-prismatic-joint visual object; it is not Gazebo physics.
 | `results_file` | `~/.ros/cambot/machine_tending_trials.csv` | append-only CSV |
 | `trial_count` | 1 | 1–25 |
 | `visual_time_scale` | 1.0 | 0.01–10.0 |
+| `enable_coordination` | false in visual demo; true in controller launch | Boolean; false preserves scripted visual replay |
+
+## AY-06/07 coordination contract
+
+`workspace` in installed `machine_tending.json` defines two arm-specific,
+inclusive axis-aligned boxes and conservative radius checks (metres) in
+`dual_arm_base_link`. Each target is resolved from the canonical workcell
+config into `world`, then transformed using live TF. `required_arms: both`
+requires both arm proxies to pass; an unknown/missing/invalid TF is `UNKNOWN`,
+not reachable. The arm geometry and station poses are simulation assumptions.
+
+The pure policy takes target XYZ, workpiece state, current base transform,
+reachability result, step ID, and a candidate station. It returns
+`LOCAL_MANIPULATION`, `CARRIER_REPOSITION`, `UNREACHABLE`, or `ERROR` with a
+reason and attempt count. It issues at most one reposition request per trial
+step. After carrier action feedback and a changed TF (or visual-only joint
+animation and changed TF), it reevaluates reachability before any local step.
+`/cambot/coordination_decision` emits timestamped JSON with trial/step,
+target/world/local poses, arm results, decision, reason, attempts, and outcome.
+No target or TF assumption is treated as a measured fact.
+
+The local arm adapter is a visual placeholder. Controller mode fails with
+`BM_ACTUATION_UNAVAILABLE` before any non-HOME step, rather than advancing a
+workpiece on an unverified BM actuation. Full controller-backed AY-08 requires
+an authoritative BM action/feedback interface as well as validated carrier
+station targets and actual ROS TF/controller evidence.
+
+The existing `dual_arm_demo.launch.py` defaults to
+`enable_coordination:=false` to preserve its scripted visual-only entry point.
+Set `enable_coordination:=true` for the TF/reachability-gated visual prototype;
+the controller launch always enables it. Scripted replay is not adaptive
+coordination evidence.
 
 ## Inputs still required for controller validation
 

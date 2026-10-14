@@ -15,13 +15,17 @@ from control_msgs.action import FollowJointTrajectory
 import rclpy
 from rclpy.action import ActionClient
 from rclpy.node import Node
+from rclpy.time import Time
 from sensor_msgs.msg import JointState
 from std_srvs.srv import Trigger
 from std_msgs.msg import String
 from trajectory_msgs.msg import JointTrajectoryPoint
+from tf2_ros import Buffer, TransformListener
 
+from carrier_control.coordination_policy import CoordinationPolicy
 from carrier_control.metrics import append_trial
 from carrier_control.machine_tending_fsm import FSMError, MachineTendingFSM, StepOutcome
+from carrier_control.reachability import evaluate_reachability
 from carrier_control.workflow import PROCESS_PHASES, WorkflowError, load_plan
 from carrier_control.waypoints import UR5_JOINT_NAMES
 from carrier_control.workcell_model import station_for_target, target_world_xyz
@@ -55,6 +59,7 @@ class MachineTendingCoordinator(Node):
         self.declare_parameter("visual_time_scale", 1.0)
         self.declare_parameter("auto_start", True)
         self.declare_parameter("fault_injection_step", "")
+        self.declare_parameter("enable_coordination", False)
 
         self.mode = self.get_parameter("mode").value
         if self.mode not in ("controller", "visual_simulation"):
@@ -68,6 +73,11 @@ class MachineTendingCoordinator(Node):
         self.trial_count = int(self.get_parameter("trial_count").value)
         self.visual_time_scale = float(self.get_parameter("visual_time_scale").value)
         self.fault_injection_step = self.get_parameter("fault_injection_step").value
+        self.enable_coordination = self.get_parameter("enable_coordination").value
+        if not isinstance(self.enable_coordination, bool):
+            raise WorkflowError("enable_coordination must be true or false")
+        if self.mode == "controller" and not self.enable_coordination:
+            raise WorkflowError("controller mode requires enable_coordination=true")
         auto_value = self.get_parameter("auto_start").value
         if isinstance(auto_value, bool):
             self.auto_start = auto_value
@@ -95,6 +105,14 @@ class MachineTendingCoordinator(Node):
         self.coordinator_publisher = self.create_publisher(
             String, "/cambot/coordinator_state", 10
         )
+        self.decision_publisher = self.create_publisher(
+            String, "/cambot/coordination_decision", 10
+        )
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self, spin_thread=False)
+        self.policy = CoordinationPolicy(
+            self.plan["workspace"]["max_reposition_attempts"]
+        )
 
         self.custom_positions = list(self.plan["bimanual_poses"]["HOME"])
         self.visual_carrier_positions = list(
@@ -110,6 +128,7 @@ class MachineTendingCoordinator(Node):
         self.carrier_joint_sample: Optional[tuple[float, ...]] = None
         self.client = None
         self.last_motion_failure = None
+        self.last_local_decision = None
         self.start_requested = False
         self.fsm = MachineTendingFSM(
             self.plan,
@@ -219,6 +238,7 @@ class MachineTendingCoordinator(Node):
             response.message = str(exc)
             return response
         self.start_requested = False
+        self.policy.reset()
         self._publish_coordinator("READY")
         response.success = True
         response.message = "FSM reset to IDLE and raw workpiece"
@@ -462,18 +482,149 @@ class MachineTendingCoordinator(Node):
             rclpy.spin_once(self, timeout_sec=min(0.1, end - time.monotonic()))
         return not cancelled() and time.monotonic() < deadline
 
+    def _current_base_transform(self, deadline, cancelled, previous=None):
+        """Read current world->BM TF; after reposition require a changed pose."""
+        until = min(deadline, time.monotonic() + self.plan["workspace"]["tf_timeout_s"])
+        while time.monotonic() < until and not cancelled():
+            try:
+                if self.tf_buffer.can_transform("world", "dual_arm_base_link", Time()):
+                    tf = self.tf_buffer.lookup_transform(
+                        "world", "dual_arm_base_link", Time()
+                    ).transform
+                    pose = (
+                        (tf.translation.x, tf.translation.y, tf.translation.z),
+                        (tf.rotation.x, tf.rotation.y, tf.rotation.z, tf.rotation.w),
+                    )
+                    if previous is None or self._transform_changed(previous, pose):
+                        return pose
+            except Exception:
+                pass
+            rclpy.spin_once(self, timeout_sec=min(0.1, until - time.monotonic()))
+        return None
+
+    @staticmethod
+    def _transform_changed(before, after):
+        distance = sum((a - b) ** 2 for a, b in zip(before[0], after[0]))
+        dot = abs(sum(a * b for a, b in zip(before[1], after[1])))
+        return distance > 1e-8 or dot < 1 - 1e-6
+
+    def _animate_carrier_visual(self, station, duration_s, deadline, cancelled):
+        if self.mode != "visual_simulation":
+            return True
+        start = list(self.visual_carrier_positions)
+        goal = self.plan["stations"][station]["visual_carrier_joints"]
+        ticks = max(1, int(duration_s * self.visual_time_scale * 20))
+        interval = duration_s * self.visual_time_scale / ticks
+        for tick in range(1, ticks + 1):
+            if cancelled() or time.monotonic() >= deadline:
+                return False
+            alpha = tick / ticks
+            smooth = 3 * alpha * alpha - 2 * alpha * alpha * alpha
+            self.visual_carrier_positions = [
+                a + (b - a) * smooth for a, b in zip(start, goal)
+            ]
+            self._publish_visual_joints()
+            rclpy.spin_once(self, timeout_sec=min(
+                interval, max(0.0, deadline - time.monotonic())
+            ))
+        return not cancelled() and time.monotonic() < deadline
+
+    def _emit_decision(self, step, target_xyz, transform, reach, decision,
+                       outcome="PENDING"):
+        self._publish_json(self.decision_publisher, {
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "trial_id": self.fsm.trial_id,
+            "step": step["name"], "target": step.get("target"),
+            "target_world_xyz_m": target_xyz,
+            "workpiece_state": self.fsm.workpiece_state,
+            "world_from_dual_arm_base": transform,
+            "local_xyz_m": reach.local_xyz_m,
+            "reachability": reach.status, "arm_results": reach.arms,
+            "decision": decision.decision, "reason": decision.reason,
+            "attempts": decision.attempts, "outcome": outcome,
+            "mode": self.mode,
+        })
+
+    def _coordinate_target(self, step, deadline, cancelled):
+        """Policy selects; carrier adapter moves; TF recheck precedes BM adapter."""
+        target_xyz = target_world_xyz(self.plan["workcell"], step["target"])
+        command_id = (self.fsm.trial_id, step["name"])
+        before = self._current_base_transform(deadline, cancelled)
+        workspace = self.plan["workspace"]
+        reach = evaluate_reachability(
+            target_xyz, before, workspace, workspace["required_arms"]
+        )
+        decision = self.policy.choose(
+            command_id, target_xyz, self.fsm.workpiece_state, before,
+            reach, step["station"]
+        )
+        self._emit_decision(step, target_xyz, before, reach, decision)
+        if decision.decision == "LOCAL_MANIPULATION":
+            self.last_local_decision = (step, target_xyz, before, reach, decision)
+            return StepOutcome(True)
+        if decision.decision != "CARRIER_REPOSITION":
+            return StepOutcome(False, decision.reason)
+        station = step["station"]
+        if not self._move_carrier(station, step["duration_s"], cancelled):
+            self._emit_decision(step, target_xyz, before, reach, decision,
+                                self.last_motion_failure or "CARRIER_ACTION_FAILED")
+            return StepOutcome(False, self.last_motion_failure or "CARRIER_ACTION_FAILED")
+        self._emit_decision(
+            step, target_xyz, before, reach, decision,
+            "CARRIER_ACTION_SUCCEEDED_WITH_FEEDBACK" if self.mode == "controller"
+            else "CARRIER_VISUAL_ONLY",
+        )
+        if not self._animate_carrier_visual(station, step["duration_s"],
+                                            deadline, cancelled):
+            return StepOutcome(False, "CARRIER_VISUAL_UPDATE_CANCELLED_OR_TIMEOUT")
+        after = self._current_base_transform(deadline, cancelled, previous=before)
+        if after is None:
+            self._emit_decision(step, target_xyz, before, reach, decision,
+                                "TF_NOT_UPDATED")
+            return StepOutcome(False, "TF_NOT_UPDATED")
+        updated = evaluate_reachability(
+            target_xyz, after, workspace, workspace["required_arms"]
+        )
+        recheck = self.policy.choose(
+            command_id, target_xyz, self.fsm.workpiece_state, after,
+            updated, station
+        )
+        self._emit_decision(step, target_xyz, after, updated, recheck,
+                            "RECHECKED_AFTER_CARRIER")
+        if recheck.decision != "LOCAL_MANIPULATION":
+            return StepOutcome(False, recheck.reason)
+        self.last_local_decision = (step, target_xyz, after, updated, recheck)
+        return StepOutcome(True)
+
     def _execute_fsm_step(self, step, deadline, cancelled) -> StepOutcome:
+        self.last_local_decision = None
         if step["name"] == self.fault_injection_step:
             return StepOutcome(False, "INJECTED_VISUAL_TEST_FAILURE")
         if step["name"] == "MACHINE_DWELL":
             completed = self._wait_machine_dwell(step["duration_s"], deadline, cancelled)
             return StepOutcome(completed, None if completed else "DWELL_CANCELLED_OR_TIMEOUT")
-        if step["station"] is not None and not self._move_carrier(
-                step["station"], step["duration_s"], cancelled):
-            return StepOutcome(False, self.last_motion_failure or "CARRIER_ACTION_FAILED")
-        if not self._animate_visual_state(
-                step["bimanual_pose"], step["to_state"], step["duration_s"],
-                step["station"], deadline, cancelled):
+        if self.mode == "controller" and step["bimanual_pose"] != "HOME":
+            return StepOutcome(False, "BM_ACTUATION_UNAVAILABLE")
+        if step.get("target") and self.enable_coordination:
+            coordinated = self._coordinate_target(step, deadline, cancelled)
+            if not coordinated.success:
+                return coordinated
+        elif step["station"] is not None:
+            if not self._move_carrier(step["station"], step["duration_s"], cancelled):
+                return StepOutcome(False, self.last_motion_failure or "CARRIER_ACTION_FAILED")
+            if not self._animate_carrier_visual(
+                    step["station"], step["duration_s"], deadline, cancelled):
+                return StepOutcome(False, "CARRIER_VISUAL_UPDATE_CANCELLED_OR_TIMEOUT")
+        local_completed = self._animate_visual_state(
+            step["bimanual_pose"], step["to_state"], step["duration_s"],
+            None, deadline, cancelled)
+        if self.last_local_decision is not None:
+            self._emit_decision(
+                *self.last_local_decision,
+                outcome=("BM_VISUAL_UPDATE_ONLY" if local_completed else
+                         "BM_VISUAL_UPDATE_FAILED"),
+            )
+        if not local_completed:
             return StepOutcome(False, "VISUAL_UPDATE_CANCELLED_OR_TIMEOUT")
         return StepOutcome(True)
 
@@ -481,6 +632,7 @@ class MachineTendingCoordinator(Node):
         trial_id = f"{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}-{trial_number:03d}"
         started = time.monotonic()
         self.carrier_motion_count = 0
+        self.policy.reset()
         self.feedback_count = 0
         self.feedback_joint_travel = 0.0
         self._last_feedback_positions = None

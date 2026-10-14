@@ -108,3 +108,21 @@ unvalidated station configuration. In each case the coordinator must publish or
 log failure, stop the cycle, and must not advance the workpiece state for the
 failed step.
 
+## AY-06–08 coordination/reachability checks
+
+```bash
+PYTHONPATH=src/carrier_control python3 -m unittest \
+  src/carrier_control/test/test_reachability.py \
+  src/carrier_control/test/test_coordination.py -v
+```
+
+These are offline geometric-proxy and synthetic-TF tests, not robot
+execution. In a sourced Ubuntu 22.04/Humble GUI workspace, run
+`bash tools/capture_ay0608_humble.sh` for a fail-closed **visual-simulation**
+probe that checks live TF, both decision branches, joint-state animation,
+FSM state visits, and workpiece updates. A successful visual probe still does
+not verify UR5 actuation or grasp. A real carrier/BM end-to-end test requires
+the missing selected controller stack, validated station targets, and BM
+action/feedback interface; record actual action results and TF/joint-state
+changes before claiming runtime/end-to-end verification.
+
