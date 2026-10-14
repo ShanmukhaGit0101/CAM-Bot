@@ -1,4 +1,6 @@
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.substitutions import Command, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
@@ -6,6 +8,9 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
+    mode = LaunchConfiguration("mode")
+    trial_count = LaunchConfiguration("trial_count")
+    visual_time_scale = LaunchConfiguration("visual_time_scale")
     xacro_file = PathJoinSubstitution([
         FindPackageShare("carrier_description"), "urdf", "ur5_with_test_tool.xacro"
     ])
@@ -14,9 +19,20 @@ def generate_launch_description():
     ])
     description = ParameterValue(Command(["xacro ", xacro_file]), value_type=str)
 
-    # IMPORTANT: do not launch joint_state_publisher_gui here. dual_arm_cycle
-    # is the single /joint_states publisher for both UR5-at-home and custom joints.
+    # Do not launch a second joint-state publisher. In visual mode the coordinator
+    # publishes explicitly labelled visual positions; in controller mode the
+    # external controller owns carrier feedback.
     return LaunchDescription([
+        DeclareLaunchArgument(
+            "mode",
+            default_value="visual_simulation",
+            description=(
+                "visual_simulation or controller; controller requires an external "
+                "active trajectory controller and validated targets"
+            ),
+        ),
+        DeclareLaunchArgument("trial_count", default_value="1"),
+        DeclareLaunchArgument("visual_time_scale", default_value="1.0"),
         Node(
             package="robot_state_publisher",
             executable="robot_state_publisher",
@@ -26,9 +42,14 @@ def generate_launch_description():
         ),
         Node(
             package="carrier_control",
-            executable="dual_arm_cycle",
-            name="dual_arm_cycle",
+            executable="machine_tending_coordinator",
+            name="machine_tending_coordinator",
             output="screen",
+            parameters=[{
+                "mode": mode,
+                "trial_count": trial_count,
+                "visual_time_scale": visual_time_scale,
+            }],
         ),
         Node(
             package="rviz2",

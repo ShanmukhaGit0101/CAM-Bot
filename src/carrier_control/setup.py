@@ -18,7 +18,7 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='shanmukha',
-    maintainer_email='shanmukha@todo.todo',
+    maintainer_email='shanmukha@example.com',
     description='Bounded carrier control and CAM-BOT machine-tending coordination',
     license='Apache-2.0',
     extras_require={
@@ -29,9 +29,10 @@ setup(
     entry_points={
         'console_scripts': [
             'dual_arm_cycle = carrier_control.dual_arm_cycle:main',
-		'machine_shop_trajectory = carrier_control.machine_shop_trajectory:main',
-		'machine_shop_joint_cycle = carrier_control.machine_shop_joint_cycle:main',
-		'plot_machine_shop_path = carrier_control.plot_machine_shop_path:main',
+            'machine_shop_trajectory = carrier_control.machine_shop_trajectory:main',
+            'machine_shop_joint_cycle = carrier_control.machine_shop_joint_cycle:main',
+            'plot_machine_shop_path = carrier_control.plot_machine_shop_path:main',
+            'machine_tending_coordinator = carrier_control.machine_tending_coordinator:main',
         ],
     },
 )

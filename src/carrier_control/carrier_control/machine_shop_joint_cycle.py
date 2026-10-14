@@ -39,6 +39,8 @@ class MachineShopJointCycle(Node):
             '/joint_trajectory_controller/follow_joint_trajectory'
         )
 
+        self.feedback_count = 0
+
         self.get_logger().info(
             'Waiting for joint trajectory controller...'
         )
@@ -111,14 +113,23 @@ class MachineShopJointCycle(Node):
         # SEND
         # -----------------------------------------------------
 
+        feedback_before = self.feedback_count
         send_future = self.client.send_goal_async(
-            goal
+            goal,
+            feedback_callback=self._feedback
         )
 
         rclpy.spin_until_future_complete(
             self,
-            send_future
+            send_future,
+            timeout_sec=5.0
         )
+
+        if not send_future.done() or send_future.result() is None:
+            self.get_logger().error(
+                f'{name}: goal response timed out after 5.0 seconds.'
+            )
+            return False
 
         goal_handle = send_future.result()
 
@@ -144,8 +155,21 @@ class MachineShopJointCycle(Node):
 
         rclpy.spin_until_future_complete(
             self,
-            result_future
+            result_future,
+            timeout_sec=move_time + 5.0
         )
+
+        if not result_future.done() or result_future.result() is None:
+            self.get_logger().error(
+                f'{name}: controller result timed out; cancelling goal.'
+            )
+            cancel_future = goal_handle.cancel_goal_async()
+            rclpy.spin_until_future_complete(
+                self,
+                cancel_future,
+                timeout_sec=2.0
+            )
+            return False
 
         result = result_future.result().result
 
@@ -154,6 +178,12 @@ class MachineShopJointCycle(Node):
         # -----------------------------------------------------
 
         if result.error_code == 0:
+
+            if self.feedback_count <= feedback_before:
+                self.get_logger().error(
+                    f'{name}: success result had no actual-position feedback.'
+                )
+                return False
 
             self.get_logger().info(
                 f'{name}: motion completed successfully.'
@@ -167,6 +197,11 @@ class MachineShopJointCycle(Node):
         )
 
         return False
+
+    def _feedback(self, message):
+        """Count only feedback that includes all six actual joint positions."""
+        if len(message.feedback.actual.positions) == len(self.joint_names):
+            self.feedback_count += 1
 
     # =========================================================
     # HOLD

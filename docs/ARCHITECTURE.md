@@ -80,7 +80,12 @@ know nothing else about the carrier.
 | `right_shoulder_joint` | Z |
 | `right_elbow_joint` | X |
 
-Driven by direct `/joint_states` publication, or `joint_state_publisher_gui`.
+Driven by direct `/joint_states` publication. This is predefined visual motion,
+not force-controlled grasping.
+
+**Visual workpiece, 3 DOF** — three world-referenced prismatic joints provide an
+observable kinematic position. Logical ownership/state is published separately;
+there is no Gazebo attachment or grasp physics.
 
 ## Runtime topology
 
@@ -96,16 +101,16 @@ carrier_description/urdf/*.xacro
             │
       /joint_states
             ▲
-     ┌──────┴───────┐
-     │              │
-joint_state_    dual_arm_cycle
-broadcaster     (4 custom joints)
-(UR5 joints)
+     ┌──────┴────────────┐
+     │                   │
+joint_state_    machine_tending_coordinator
+broadcaster     (4 custom + 3 workpiece joints)
+(UR5 feedback)  + task/workpiece/coordinator state
 ```
 
-> ⚠️ `dual_arm_cycle` and `joint_state_publisher_gui` both publish
-> `/joint_states`. Running them together causes contention — this is the
-> suspected cause of the current Phase 4 launch problem.
+In visual mode only, the coordinator also publishes assumed UR5 joint values for
+RViz animation and labels the run `visual_simulation`. In controller mode, it
+never publishes carrier joints; the controller/broadcaster owns carrier feedback.
 
 ## Planning
 
@@ -130,5 +135,8 @@ broadcaster     (4 custom joints)
 machine_shop_trajectory     Cartesian trajectory (superseded — see DECISIONS D-01)
 machine_shop_joint_cycle    joint-space machine-shop cycle  ← primary
 plot_machine_shop_path      records /joint_states, renders 3D path
-dual_arm_cycle              bimanual placeholder motion  (not yet committed)
+dual_arm_cycle              legacy generic bimanual visual cycle
+machine_tending_coordinator named, bounded machine-tending visual/coordinator cycle
 ```
+
+Runtime contracts and proof gates are specified in [`INTERFACES.md`](INTERFACES.md).

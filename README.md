@@ -143,29 +143,23 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-**Run the machine-shop cycle:**
+**Run the complete visual machine-tending sequence:**
 
 ```bash
-# terminal 1 — simulation + MoveIt
-ros2 launch carrier_description ur5_machine_shop.launch.py
-
-# terminal 2 — automated cycle
-ros2 run carrier_control machine_shop_joint_cycle
+ros2 launch carrier_description dual_arm_demo.launch.py
 ```
 
-The carrier executes:
+This launches the robot description, state publisher, coordinator, and RViz. It
+is explicitly a **visual simulation**, not Gazebo actuation. The displayed flow is:
 
 ```text
-HOME → P1 → HOME → P2 → HOME → P3 → HOME → P4 → HOME
+HOME → S1 pick → S2 stage → S3 load/dwell/re-grasp → S4 unload → S5 place → HOME
 ```
 
-holding ~3 s at each station.
-
-> **Note:** `ur5_machine_shop.launch.py` and the Phase 4 dual-arm files are
-> described in `docs/progress/phase4-carrier-flange.md` but are **not yet
-> committed**. See [`AUDIT.md`](AUDIT.md) §2.1. Until they land, the simulation
-> must be started from the stock `ur_simulation_gazebo` and `ur_moveit_config`
-> launch files.
+Controller mode exists but fails closed until all five named targets are taught
+and validated and an external trajectory controller is active. See
+[`docs/VALIDATION.md`](docs/VALIDATION.md) and
+[`docs/INTERFACES.md`](docs/INTERFACES.md).
 
 ---
 

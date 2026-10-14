@@ -48,7 +48,9 @@ def validate_trial_record(record: Dict[str, Any]) -> None:
             record["mode"] == "controller"
             and record["success"]
             and record["runtime_verified"]):
-        raise TrialRecordError("end-to-end verification requires successful controller runtime evidence")
+        raise TrialRecordError(
+            "end-to-end verification requires successful controller runtime evidence"
+        )
 
 
 def append_trial(path: Path | str, record: Dict[str, Any]) -> None:

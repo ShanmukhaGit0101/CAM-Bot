@@ -9,6 +9,7 @@ from carrier_control.workflow import (
     REQUIRED_STATIONS,
     WorkflowError,
     load_plan,
+    simulate_state_sequence,
     stations_used_by,
     validate_plan,
 )
@@ -42,6 +43,18 @@ class TestWorkflow(unittest.TestCase):
         broken["bimanual_poses"]["GRASP"][1] = -2.0
         with self.assertRaisesRegex(WorkflowError, "exceeds placeholder joint limits"):
             validate_plan(broken)
+
+    def test_positive_state_sequence_reaches_finished(self):
+        self.assertEqual(
+            simulate_state_sequence(self.plan),
+            (True, "FINISHED_AT_S5", None),
+        )
+
+    def test_negative_failed_dependency_does_not_advance_workpiece(self):
+        self.assertEqual(
+            simulate_state_sequence(self.plan, failed_step="S3_LOAD"),
+            (False, "HELD_RAW_AT_S2", "S3_LOAD"),
+        )
 
 
 if __name__ == "__main__":

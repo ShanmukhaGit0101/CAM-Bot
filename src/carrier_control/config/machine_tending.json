@@ -21,6 +21,7 @@
     "HOME": {
       "label": "Home",
       "visual_xyz": [0.0, 0.0, 0.0],
+      "visual_carrier_joints": [0.0, -1.5707, 0.0, 0.0, 0.0, 0.0],
       "carrier_joints": [0.0, -1.5707, 0.0, 0.0, 0.0, 0.0],
       "controller_validated": true,
       "source": "config/waypoints.yaml:1"
@@ -28,6 +29,7 @@
     "S1_RAW": {
       "label": "Raw / Input",
       "visual_xyz": [0.75, 0.85, 0.76],
+      "visual_carrier_joints": [3.593065, -2.205479, -1.067588, 0.131337, 1.24201, -4.712387],
       "carrier_joints": [3.593065, -2.205479, -1.067588, 0.131337, 1.24201, -4.712387],
       "controller_validated": false,
       "source": "legacy P1; named-station mapping is an unvalidated simulation assumption"
@@ -35,6 +37,7 @@
     "S2_STAGING": {
       "label": "Staging / Inspection",
       "visual_xyz": [0.15, 1.05, 0.76],
+      "visual_carrier_joints": [-2.97318, -1.069788, 0.405185, -2.478748, -1.710968, -0.000344],
       "carrier_joints": [-2.97318, -1.069788, 0.405185, -2.478748, -1.710968, -0.000344],
       "controller_validated": false,
       "source": "legacy P2; named-station mapping is an unvalidated simulation assumption"
@@ -42,6 +45,7 @@
     "S3_MACHINE": {
       "label": "CNC / Machine",
       "visual_xyz": [-0.65, 0.75, 0.95],
+      "visual_carrier_joints": [-0.491184, -1.243253, 1.013834, -2.910754, -1.513936, -0.000694],
       "carrier_joints": [-0.491184, -1.243253, 1.013834, -2.910754, -1.513936, -0.000694],
       "controller_validated": false,
       "source": "legacy P3; named-station mapping is an unvalidated simulation assumption"
@@ -49,6 +53,7 @@
     "S4_OUTPUT": {
       "label": "Output / Unloading",
       "visual_xyz": [-0.75, -0.45, 0.76],
+      "visual_carrier_joints": [-1.912422, -1.170719, 1.563141, -3.534719, -1.728039, -0.001561],
       "carrier_joints": [-1.912422, -1.170719, 1.563141, -3.534719, -1.728039, -0.001561],
       "controller_validated": false,
       "source": "legacy P4; named-station mapping is an unvalidated simulation assumption"
@@ -56,6 +61,7 @@
     "S5_FINISHED": {
       "label": "Finished Part",
       "visual_xyz": [0.35, -0.95, 0.76],
+      "visual_carrier_joints": [1.2, -1.2, 1.0, -2.9, -1.5, 0.0],
       "carrier_joints": null,
       "controller_validated": false,
       "source": "no taught carrier target available"

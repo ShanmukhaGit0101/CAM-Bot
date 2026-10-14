@@ -83,6 +83,11 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
         if not isinstance(station, dict):
             raise WorkflowError(f"station {name} must be an object")
         _numbers(station.get("visual_xyz"), 3, f"stations.{name}.visual_xyz")
+        _numbers(
+            station.get("visual_carrier_joints"),
+            6,
+            f"stations.{name}.visual_carrier_joints",
+        )
         joints = station.get("carrier_joints")
         if joints is not None:
             _numbers(joints, 6, f"stations.{name}.carrier_joints")
@@ -102,8 +107,13 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
 
     workflow = plan.get("workflow")
     if not isinstance(workflow, list) or tuple(
-            step.get("name") for step in workflow if isinstance(step, dict)) != REQUIRED_STEPS:
-        raise WorkflowError("workflow names/order do not match the required machine-tending sequence")
+            step.get("name")
+            for step in workflow
+            if isinstance(step, dict)
+    ) != REQUIRED_STEPS:
+        raise WorkflowError(
+            "workflow names/order do not match the required machine-tending sequence"
+        )
     previous_to = None
     for index, step in enumerate(workflow):
         if not isinstance(step, dict):
@@ -114,7 +124,10 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
         if step.get("bimanual_pose") not in poses:
             raise WorkflowError(f"workflow[{index}] references unknown bimanual pose")
         duration = step.get("duration_s")
-        if isinstance(duration, bool) or not isinstance(duration, (int, float)) or not 0 < duration <= 120:
+        if (
+                isinstance(duration, bool)
+                or not isinstance(duration, (int, float))
+                or not 0 < duration <= 120):
             raise WorkflowError(f"workflow[{index}].duration_s must be in (0, 120]")
         from_state = step.get("from_state")
         to_state = step.get("to_state")
@@ -130,3 +143,20 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
 def stations_used_by(workflow: Iterable[Dict[str, Any]]) -> tuple[str, ...]:
     """Return carrier station names in execution order."""
     return tuple(step["station"] for step in workflow if step.get("station") is not None)
+
+
+def simulate_state_sequence(
+        plan: Dict[str, Any], failed_step: str | None = None
+) -> tuple[bool, str, str | None]:
+    """Exercise state gating offline; a failed dependency never advances state."""
+    validate_plan(plan)
+    state = plan["workflow"][0]["from_state"]
+    for step in plan["workflow"]:
+        if step["from_state"] != state:
+            raise WorkflowError(
+                f"step {step['name']} expected {step['from_state']}, got {state}"
+            )
+        if step["name"] == failed_step:
+            return False, state, step["name"]
+        state = step["to_state"]
+    return state == "FINISHED_AT_S5", state, None
