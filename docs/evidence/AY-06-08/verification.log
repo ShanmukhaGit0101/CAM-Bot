@@ -1,4 +1,10 @@
 AY-06/07/08 verification, 2026-10-15.
+Source commits: AY-07 `4b43e8a`; AY-06/08 `113a5bd`.
+
+Command: PYTHONPATH=src/carrier_control python3 -m unittest src/carrier_control/test/test_reachability.py -q
+Actual result: exit 0; Ran 4 tests in 0.001s; OK.
+Command: PYTHONPATH=src/carrier_control python3 -m unittest src/carrier_control/test/test_coordination.py -q
+Actual result: exit 0; Ran 6 tests in 0.001s; OK.
 
 Command: PYTHONPATH=src/carrier_control python3 -m unittest src/carrier_control/test/test_reachability.py src/carrier_control/test/test_coordination.py src/carrier_control/test/test_machine_tending_fsm.py src/carrier_control/test/test_workflow.py src/carrier_control/test/test_action_safety.py src/carrier_control/test/test_package_integration.py src/carrier_control/test/test_metrics.py src/carrier_control/test/test_workcell_contract.py src/carrier_control/test/test_launch_preflight.py src/carrier_description/test/test_launch_contract.py src/carrier_description/test/test_cell_model.py src/carrier_description/test/test_phase4_contract.py -q
 Actual result (final run): exit 0; Ran 50 tests in 0.066s; OK.
