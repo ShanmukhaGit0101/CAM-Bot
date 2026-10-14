@@ -38,6 +38,15 @@ timeout 20s ros2 launch carrier_description dual_arm_demo.launch.py \
 
 The last command is a visual simulation check, not Gazebo actuation.
 
+For the five-station cell, run
+`PYTHONPATH=src/carrier_control python3 -m unittest
+src/carrier_control/test/test_workcell_contract.py -v` for positive and
+failure-path config/transform tests. In Humble, run
+`bash tools/capture_ay04_humble.sh` to expand/check the configured URDF,
+inspect station TF frames and workpiece state, and capture an RViz screenshot.
+The supplied cell geometry is temporary simulation-only, and no screenshot or
+TF runtime evidence was available on the implementation host.
+
 ## Controller-mode gate and five-trial run
 
 Before changing `controller_validated` to `true`, teach each named target against

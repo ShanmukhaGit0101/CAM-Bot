@@ -20,7 +20,8 @@ from std_msgs.msg import String
 from trajectory_msgs.msg import JointTrajectoryPoint
 
 from carrier_control.metrics import append_trial
-from carrier_control.workflow import WorkflowError, load_plan
+from carrier_control.workflow import PROCESS_PHASES, WorkflowError, load_plan
+from carrier_control.workcell_model import station_for_target, target_world_xyz
 
 
 CUSTOM_JOINTS = (
@@ -42,7 +43,6 @@ VISUAL_CARRIER_JOINTS = (
     "wrist_2_joint",
     "wrist_3_joint",
 )
-
 
 class MachineTendingCoordinator(Node):
     """Run one bounded, traceable workflow in controller or visual mode."""
@@ -87,7 +87,7 @@ class MachineTendingCoordinator(Node):
         self.visual_carrier_positions = list(
             self.plan["stations"]["HOME"]["visual_carrier_joints"]
         )
-        self.workpiece_positions = list(self.plan["stations"]["S1_RAW"]["visual_xyz"])
+        self.workpiece_positions = target_world_xyz(self.plan["workcell"], "RAW_PICK")
         self.workpiece_state = "RAW_AT_S1"
         self.coordinator_state = "INITIALIZING"
         self.carrier_motion_count = 0
@@ -152,6 +152,8 @@ class MachineTendingCoordinator(Node):
             self.workpiece_publisher,
             {
                 "state": self.workpiece_state,
+                "process_phase": PROCESS_PHASES[self.workpiece_state],
+                "simulated_attachment": self.workpiece_state.startswith("HELD_"),
                 "mode": self.mode,
                 "visual_xyz": self.workpiece_positions,
             },
@@ -249,17 +251,17 @@ class MachineTendingCoordinator(Node):
         return True
 
     @staticmethod
-    def _state_station(state: str) -> Optional[str]:
+    def _state_target(state: str) -> Optional[str]:
         if state.endswith("AT_S1"):
-            return "S1_RAW"
+            return "RAW_PICK"
         if state.endswith("AT_S2"):
-            return "S2_STAGING"
+            return "STAGE_INSPECT"
         if state.endswith("AT_S3") or state.endswith("IN_MACHINE"):
-            return "S3_MACHINE"
+            return "MACHINE_UNLOAD" if "PROCESSED" in state else "MACHINE_LOAD"
         if state.endswith("AT_S4"):
-            return "S4_OUTPUT"
+            return "OUTPUT_UNLOAD"
         if state.endswith("AT_S5"):
-            return "S5_FINISHED"
+            return "FINISHED_PLACE"
         return None
 
     def _animate_visual_state(
@@ -279,11 +281,9 @@ class MachineTendingCoordinator(Node):
             target_carrier = list(
                 self.plan["stations"][station_name]["visual_carrier_joints"]
             )
-        workpiece_station = self._state_station(next_state)
-        if workpiece_station is not None:
-            target_workpiece = list(
-                self.plan["stations"][workpiece_station]["visual_xyz"]
-            )
+        workpiece_target = self._state_target(next_state)
+        if workpiece_target is not None:
+            target_workpiece = target_world_xyz(self.plan["workcell"], workpiece_target)
         scaled_duration = duration_s * self.visual_time_scale
         ticks = max(1, int(scaled_duration * 20.0))
         for tick in range(1, ticks + 1):
@@ -313,12 +313,24 @@ class MachineTendingCoordinator(Node):
         self.feedback_joint_travel = 0.0
         self._last_feedback_positions = None
         self.workpiece_state = "RAW_AT_S1"
-        self.workpiece_positions = list(self.plan["stations"]["S1_RAW"]["visual_xyz"])
+        self.workpiece_positions = target_world_xyz(self.plan["workcell"], "RAW_PICK")
         self._publish_coordinator("RUNNING", trial_id=trial_id)
         self._publish_workpiece()
 
         for step in self.plan["workflow"]:
-            self._publish_task("STARTED", step=step["name"], trial_id=trial_id)
+            target_details = {}
+            if step.get("target"):
+                target_id = step["target"]
+                station_id = station_for_target(self.plan["workcell"], target_id)
+                target_details = {
+                    "target": target_id,
+                    "target_frame": self.plan["workcell"]["stations"][station_id]["frame"],
+                    "visual_target_world_xyz_m": target_world_xyz(
+                        self.plan["workcell"], target_id
+                    ),
+                }
+            self._publish_task("STARTED", step=step["name"], trial_id=trial_id,
+                               **target_details)
             if self.workpiece_state != step["from_state"]:
                 failure_stage = step["name"]
                 self.get_logger().error(
@@ -338,7 +350,8 @@ class MachineTendingCoordinator(Node):
             )
             self.workpiece_state = step["to_state"]
             self._publish_workpiece()
-            self._publish_task("COMPLETED", step=step["name"], trial_id=trial_id)
+            self._publish_task("COMPLETED", step=step["name"], trial_id=trial_id,
+                               **target_details)
 
         success = failure_stage is None and self.workpiece_state == "FINISHED_AT_S5"
         terminal = "COMPLETE" if success else "FAILED"

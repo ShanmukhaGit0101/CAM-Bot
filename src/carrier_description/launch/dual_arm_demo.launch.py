@@ -1,40 +1,34 @@
 from pathlib import Path
 
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch.substitutions import Command, PathJoinSubstitution
+from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
-from launch_ros.parameter_descriptions import ParameterValue
+
+from carrier_control.workflow import load_plan
+from carrier_control.workcell_model import render_workcell_xacro
 
 
-def generate_launch_description():
+def _assemble(context):
     trial_count = LaunchConfiguration("trial_count")
     visual_time_scale = LaunchConfiguration("visual_time_scale")
     config_file = LaunchConfiguration("config_file")
     results_file = LaunchConfiguration("results_file")
-    xacro_file = PathJoinSubstitution([
-        FindPackageShare("carrier_description"), "urdf", "ur5_with_test_tool.xacro"
-    ])
+    xacro_file = (
+        Path(get_package_share_directory("carrier_description")) /
+        "urdf" / "ur5_with_test_tool.xacro"
+    )
     rviz_config = PathJoinSubstitution([
         FindPackageShare("carrier_description"), "rviz", "dual_arm.rviz"
     ])
-    description = ParameterValue(
-        Command(["xacro ", xacro_file, " include_workcell:=true"]),
-        value_type=str,
-    )
+    plan = load_plan(config_file.perform(context))
+    description = render_workcell_xacro(xacro_file, plan["workcell"])
 
     # Visual-only: one joint-state publisher, with no controller or actuation.
-    return LaunchDescription([
-        DeclareLaunchArgument("trial_count", default_value="1"),
-        DeclareLaunchArgument("visual_time_scale", default_value="1.0"),
-        DeclareLaunchArgument("config_file", default_value=PathJoinSubstitution([
-            FindPackageShare("carrier_control"), "config", "machine_tending.json"
-        ])),
-        DeclareLaunchArgument("results_file", default_value=str(
-            Path.home() / ".ros" / "cambot" / "machine_tending_trials.csv"
-        )),
+    return [
         Node(
             package="robot_state_publisher",
             executable="robot_state_publisher",
@@ -62,4 +56,18 @@ def generate_launch_description():
             output="screen",
             arguments=["-d", rviz_config],
         ),
+    ]
+
+
+def generate_launch_description():
+    return LaunchDescription([
+        DeclareLaunchArgument("trial_count", default_value="1"),
+        DeclareLaunchArgument("visual_time_scale", default_value="1.0"),
+        DeclareLaunchArgument("config_file", default_value=PathJoinSubstitution([
+            FindPackageShare("carrier_control"), "config", "machine_tending.json"
+        ])),
+        DeclareLaunchArgument("results_file", default_value=str(
+            Path.home() / ".ros" / "cambot" / "machine_tending_trials.csv"
+        )),
+        OpaqueFunction(function=_assemble),
     ])

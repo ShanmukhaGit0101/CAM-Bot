@@ -40,6 +40,24 @@ The controller bring-up file must include one authoritative broadcaster for
 those six UR5 joints; the coordinator's second publisher owns disjoint joint
 names. The launch never starts `dual_arm_cycle` alongside a UR5 controller.
 
+## Visual workcell and targets
+
+`carrier_control/config/machine_tending.json` is the runtime source for five
+station IDs, unique TF frames, metres/radians poses, box dimensions and named
+station-local interaction targets. Both launch files expand the workcell Xacro
+from this installed config with a bounded 30-second Xacro call. Direct manual
+Xacro expansion uses checked fallback geometry in the wrapper; launch does not
+use those fallback coordinates. The `world` frame is parent of the station
+frames and UR5 base. The coordinator transforms target offsets into world
+coordinates and includes the resulting *visual* XYZ in task-state messages.
+No IK/reachability, collision, grasp, or material-removal claim follows from
+this transform.
+
+The workpiece topic adds `process_phase` (`RAW`, `STAGED`, `IN_MACHINE`,
+`PROCESSED`, `FINISHED`) and `simulated_attachment`. A `true` attachment is a
+declared visual/logical state, not a gripper result. The moving workpiece is a
+single three-prismatic-joint visual object; it is not Gazebo physics.
+
 ## Parameters
 
 | Parameter | Default | Constraint |

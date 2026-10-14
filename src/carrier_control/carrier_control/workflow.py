@@ -3,8 +3,13 @@
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 from typing import Any, Dict, Iterable
+
+from carrier_control.workcell_model import (
+    STATION_IDS, WorkcellError, station_for_target, validate_workcell,
+)
 
 
 REQUIRED_STATIONS = (
@@ -29,6 +34,18 @@ REQUIRED_STEPS = (
     "S5_RELEASE",
     "HOME_END",
 )
+PROCESS_PHASES = {
+    "RAW_AT_S1": "RAW",
+    "HELD_RAW_AT_S1": "RAW",
+    "HELD_RAW_AT_S2": "STAGED",
+    "HELD_RAW_AT_S3": "STAGED",
+    "RAW_IN_MACHINE": "IN_MACHINE",
+    "PROCESSED_IN_MACHINE": "PROCESSED",
+    "HELD_PROCESSED_AT_S3": "PROCESSED",
+    "HELD_PROCESSED_AT_S4": "PROCESSED",
+    "HELD_PROCESSED_AT_S5": "PROCESSED",
+    "FINISHED_AT_S5": "FINISHED",
+}
 
 
 class WorkflowError(ValueError):
@@ -38,9 +55,10 @@ class WorkflowError(ValueError):
 def _numbers(values: Any, count: int, field: str) -> None:
     if not isinstance(values, list) or len(values) != count:
         raise WorkflowError(f"{field} must contain {count} values")
-    if any(isinstance(value, bool) or not isinstance(value, (int, float))
+    if any(isinstance(value, bool) or not isinstance(value, (int, float)) or
+           not math.isfinite(value)
            for value in values):
-        raise WorkflowError(f"{field} must contain only numbers")
+        raise WorkflowError(f"{field} must contain only finite numbers")
 
 
 def load_plan(path: Path | str, require_controller_ready: bool = False) -> Dict[str, Any]:
@@ -59,6 +77,12 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
     if not isinstance(plan, dict) or plan.get("schema_version") != "1.0":
         raise WorkflowError("schema_version must be '1.0'")
 
+    workcell = plan.get("workcell")
+    try:
+        validate_workcell(workcell)
+    except WorkcellError as exc:
+        raise WorkflowError(str(exc)) from exc
+
     carrier = plan.get("carrier")
     if not isinstance(carrier, dict):
         raise WorkflowError("carrier must be an object")
@@ -73,16 +97,19 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
         "feedback_timeout_s",
     ):
         value = carrier.get(field)
-        if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 < value <= 120:
+        if (isinstance(value, bool) or not isinstance(value, (int, float)) or
+                not math.isfinite(value) or not 0 < value <= 120):
             raise WorkflowError(f"carrier.{field} must be in (0, 120]")
 
     stations = plan.get("stations")
     if not isinstance(stations, dict) or tuple(stations) != REQUIRED_STATIONS:
         raise WorkflowError("stations must contain HOME and S1_RAW through S5_FINISHED in order")
-    for name, station in stations.items():
+    for index, (name, station) in enumerate(stations.items()):
         if not isinstance(station, dict):
             raise WorkflowError(f"station {name} must be an object")
-        _numbers(station.get("visual_xyz"), 3, f"stations.{name}.visual_xyz")
+        expected_id = None if index == 0 else STATION_IDS[index - 1]
+        if station.get("workcell_station_id") != expected_id:
+            raise WorkflowError(f"station {name} must map to {expected_id}")
         _numbers(
             station.get("visual_carrier_joints"),
             6,
@@ -121,12 +148,23 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
         station = step.get("station")
         if station is not None and station not in stations:
             raise WorkflowError(f"workflow[{index}] references unknown station {station}")
+        target = step.get("target")
+        if station not in (None, "HOME") and target is None:
+            raise WorkflowError(f"workflow[{index}] requires an interaction target")
+        if target is not None:
+            try:
+                target_station = station_for_target(workcell, target)
+            except WorkcellError as exc:
+                raise WorkflowError(f"workflow[{index}] {exc}") from exc
+            if station is not None and stations[station]["workcell_station_id"] != target_station:
+                raise WorkflowError(f"workflow[{index}] target {target} is at a different station")
         if step.get("bimanual_pose") not in poses:
             raise WorkflowError(f"workflow[{index}] references unknown bimanual pose")
         duration = step.get("duration_s")
         if (
                 isinstance(duration, bool)
                 or not isinstance(duration, (int, float))
+                or not math.isfinite(duration)
                 or not 0 < duration <= 120):
             raise WorkflowError(f"workflow[{index}].duration_s must be in (0, 120]")
         from_state = step.get("from_state")
@@ -137,6 +175,8 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
             raise WorkflowError(
                 f"workflow[{index}] state discontinuity: expected {previous_to}, got {from_state}"
             )
+        if from_state not in PROCESS_PHASES or to_state not in PROCESS_PHASES:
+            raise WorkflowError(f"workflow[{index}] has an unknown workpiece process state")
         previous_to = to_state
 
 

@@ -164,6 +164,13 @@ It cannot yet launch an unattended controlled-carrier system. See
 [`docs/VALIDATION.md`](docs/VALIDATION.md) and
 [`docs/INTERFACES.md`](docs/INTERFACES.md).
 
+The five visible stations and interaction targets are configured in the
+installed [`machine_tending.json`](src/carrier_control/config/machine_tending.json).
+Their positions, orientations and box sizes are **temporary visual-simulation
+assumptions in metres/radians**, not measured cell geometry. Both launch modes
+expand the existing workcell Xacro from this file; editing a station pose in
+the config changes its TF frame and corresponding visual target together.
+
 ---
 
 ## Waypoints

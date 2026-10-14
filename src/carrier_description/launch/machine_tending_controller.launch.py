@@ -15,28 +15,27 @@ from launch.actions import (DeclareLaunchArgument, EmitEvent,
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
-from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 
 from ament_index_python.packages import get_package_share_directory
 from carrier_control.launch_preflight import validate_controller_launch
+from carrier_control.workcell_model import render_workcell_xacro
 
 
 def _assemble(context):
     config_file = LaunchConfiguration("config_file").perform(context)
     controller_file = LaunchConfiguration("controller_bringup_file").perform(context)
-    _, bringup = validate_controller_launch(config_file, controller_file)
-    xacro_file = PathJoinSubstitution([
-        FindPackageShare("carrier_description"), "urdf", "ur5_with_test_tool.xacro"
-    ])
+    plan, bringup = validate_controller_launch(config_file, controller_file)
+    xacro_file = (
+        Path(get_package_share_directory("carrier_description")) /
+        "urdf" / "ur5_with_test_tool.xacro"
+    )
     rviz_file = PathJoinSubstitution([
         FindPackageShare("carrier_description"), "rviz", "dual_arm.rviz"
     ])
-    description = ParameterValue(
-        Command(["xacro ", xacro_file, " include_workcell:=true"]), value_type=str
-    )
+    description = render_workcell_xacro(xacro_file, plan["workcell"])
     coordinator = Node(
         package="carrier_control", executable="machine_tending_coordinator",
         name="machine_tending_coordinator", output="screen",
