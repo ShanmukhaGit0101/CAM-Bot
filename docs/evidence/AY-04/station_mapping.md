@@ -34,3 +34,5 @@ pose update those values and Xacro frame placement without source edits.
 
 Unknown geometry input still requested: Tanmay's final station poses,
 coordinate convention, and dimensions. No measured values have been assumed.
+The supplied dual-arm CAD ZIP was inspected separately; it does not establish
+those five station placements. See `tanmay_zip_audit.md`.
