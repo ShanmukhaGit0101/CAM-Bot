@@ -1,27 +1,25 @@
 # AY-01…AY-13 traceability
 
-Neither repository PDF contains literal `AY-*` identifiers. To keep reporting
-auditable, this file defines the project-local mapping used by implementation
-and verification. The acceptance basis is the current completion plan, not a
-claim that these labels occur in the historical PDFs.
+The authoritative mapping is
+`/home/ayush/TOPS/CAM-BOT_Ayush_Individual_Task_Document.pdf`. The earlier
+project-local inferred mapping is superseded and must not be used for acceptance.
 
-| ID | Implementation unit | Acceptance basis |
+| ID | PDF-defined task | Current disposition after first gate |
 |---|---|---|
-| AY-01 | Reproducible inventory and repository preservation | Definition of Done; current repository audit |
-| AY-02 | Correct ROS package metadata and installed assets | Software Definition of Done |
-| AY-03 | Preserve UR5 through `tool0`; validate flange and four custom joints | Single-launch acceptance criteria |
-| AY-04 | Five named, simple visual stations | P1 environment components |
-| AY-05 | Visual/kinematic workpiece with explicit state updates | P1 workpiece and Decision 3 |
-| AY-06 | Named machine-tending workflow and predefined bimanual poses | P2 and coordinated-bimanual minimum |
-| AY-07 | Carrier controller integration with bounded waits and result/feedback gates | P2 execution; software Definition of Done |
-| AY-08 | Coordinator that stops safely on a failed dependency | P2 complete workflow |
-| AY-09 | Traceable task, workpiece, and coordinator states | P3 demonstration requirements |
-| AY-10 | One-command launch for the available visual stack; explicit controller-mode dependency | P0 single launch |
-| AY-11 | Trial schema, metrics recorder, and five-trial procedure | P4 quantitative metrics |
-| AY-12 | Positive and negative tests plus evidence artifacts | Definition of Done and proof definitions |
-| AY-13 | Current architecture, limitations, verification, and handoff documentation | P6 documentation |
+| AY-01 | Obtain and integrate Phase 4 source | BLOCKED — source found; clean Humble reproduction not run |
+| AY-02 | Repository / GitHub integration | BLOCKED — clean checkout/build/launch not verified |
+| AY-03 | Single-command launch | BLOCKED — launch/TF/joints/motion/shutdown not runtime-tested |
+| AY-04 | Five-station workcell integration | BLOCKED — assumed geometry exists; Tanmay geometry and runtime launch missing |
+| AY-05 | Machine-tending state machine | BLOCKED — offline transitions exist; execution/reset not runtime-tested |
+| AY-06 | Carrier ↔ dual-arm coordination | BUILD required — current fixed sequence has no reachability/re-check decision |
+| AY-07 | Workspace / reachability decision logic | BUILD required — no explicit tested workspace rule exists |
+| AY-08 | Integrate coordination with simulation | BLOCKED on AY-06/07 and ROS runtime |
+| AY-09 | Experiment logger | REPAIR required — schema/CSV exist but lack all PDF fields and runtime proof |
+| AY-10 | Run at least five trials | BLOCKED — no qualifying measured trials |
+| AY-11 | Calculate performance metrics | BUILD required after AY-10 dataset |
+| AY-12 | Result plots and tables | BUILD required after AY-11 metrics |
+| AY-13 | Technical documentation | REPAIR required — traceability corrected; runtime/results records pending |
 
-The five-station locations and all placeholder dimensions are configurable
-simulation assumptions. They are not measurements from Tanmay, a real cell, or
-manufacturing CAD.
+The five-station locations and placeholder dimensions remain configurable visual
+simulation assumptions, not measurements from Tanmay or a real cell.
 

@@ -369,7 +369,10 @@ def main() -> int:
     evidence = {
         "schema_version": "1.0",
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "proof_level": "STATIC VALID",
+        "acceptance_status": (
+            "SUPERSEDED MAPPING — OFFLINE COMPONENT CHECKS ONLY"
+        ),
+        "proof_level": "STATIC COMPONENT CHECKS",
         "command": (
             "python3 tools/verify_ay.py --output "
             "artifacts/verification/ay_verification.json"

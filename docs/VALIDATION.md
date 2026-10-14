@@ -17,9 +17,10 @@ python3 -m compileall -q \
 python3 tools/verify_ay.py --output artifacts/verification/ay_verification.json
 ```
 
-Each AY entry in the generated JSON has a positive check and a negative check.
-A negative check passes only when malformed, unsafe, or overstated input is
-rejected.
+The generated JSON contains legacy offline component checks created before the
+PDF-defined AY mapping was supplied. It is useful static evidence but is not
+AY-01…AY-13 acceptance evidence. The current runtime gate is recorded in
+`artifacts/verification/first_execution_gate.json`.
 
 ## ROS 2 Humble static checks
 
