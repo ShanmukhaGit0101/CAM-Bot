@@ -29,7 +29,7 @@ mkdir -p "$evidence_dir"
   command -v ros2 rosdep colcon xacro check_urdf
 } > "$evidence_dir/environment.log"
 
-ros2 pkg list > "$evidence_dir/packages-before-build.log"
+timeout 20s ros2 pkg list > "$evidence_dir/packages-before-build.log"
 timeout 300s rosdep install --from-paths src --ignore-src -r -y \
   > "$evidence_dir/rosdep.log" 2>&1
 timeout 600s colcon build --symlink-install \
@@ -37,13 +37,13 @@ timeout 600s colcon build --symlink-install \
   > "$evidence_dir/colcon.log" 2>&1
 source install/setup.bash
 {
-  ros2 pkg prefix carrier_description
-  ros2 pkg prefix carrier_control
+  timeout 10s ros2 pkg prefix carrier_description
+  timeout 10s ros2 pkg prefix carrier_control
 } > "$evidence_dir/package-prefixes.log"
 
-xacro src/carrier_description/urdf/ur5_with_test_tool.xacro \
+timeout 30s xacro src/carrier_description/urdf/ur5_with_test_tool.xacro \
   include_workcell:=false > "$evidence_dir/phase4_generated.urdf"
-check_urdf "$evidence_dir/phase4_generated.urdf" \
+timeout 30s check_urdf "$evidence_dir/phase4_generated.urdf" \
   > "$evidence_dir/check_urdf.log" 2>&1
 python3 tools/phase4_contract.py --urdf "$evidence_dir/phase4_generated.urdf" \
   > "$evidence_dir/contract.json"
