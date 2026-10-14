@@ -1,3 +1,6 @@
+from glob import glob
+import os
+
 from setuptools import find_packages, setup
 
 package_name = 'carrier_control'
@@ -10,12 +13,13 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'config'), glob('config/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='shanmukha',
     maintainer_email='shanmukha@todo.todo',
-    description='TODO: Package description',
+    description='Bounded carrier control and CAM-BOT machine-tending coordination',
     license='Apache-2.0',
     extras_require={
         'test': [

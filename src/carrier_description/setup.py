@@ -40,6 +40,11 @@ setup(
             os.path.join('share', package_name, 'meshes'),
             glob('meshes/*')
         ),
+
+        (
+            os.path.join('share', package_name, 'rviz'),
+            glob('rviz/*')
+        ),
     ],
 
     install_requires=['setuptools'],

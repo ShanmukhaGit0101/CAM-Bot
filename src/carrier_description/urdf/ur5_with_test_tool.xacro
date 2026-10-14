@@ -31,6 +31,11 @@
   <!-- World -->
   <link name="world"/>
 
+  <!-- Simple visual machine-tending cell; it does not alter the UR5 chain. -->
+  <xacro:include
+    filename="$(find carrier_description)/urdf/machine_tending_cell.xacro"/>
+  <xacro:machine_tending_cell parent_link="world"/>
+
   <!-- UR5 -->
   <xacro:ur_robot
     name="ur5"

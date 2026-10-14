@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "assumption_status": "configurable_visual_simulation_only",
+  "assumption_note": "Station poses are layout assumptions, not measured cell or Tanmay dimensions. Legacy P1-P4 joint targets have not been validated against these named station poses.",
+  "carrier": {
+    "action_name": "/joint_trajectory_controller/follow_joint_trajectory",
+    "joint_names": [
+      "shoulder_pan_joint",
+      "shoulder_lift_joint",
+      "elbow_joint",
+      "wrist_1_joint",
+      "wrist_2_joint",
+      "wrist_3_joint"
+    ],
+    "server_timeout_s": 10.0,
+    "goal_response_timeout_s": 5.0,
+    "result_margin_s": 5.0,
+    "feedback_timeout_s": 2.0
+  },
+  "stations": {
+    "HOME": {
+      "label": "Home",
+      "visual_xyz": [0.0, 0.0, 0.0],
+      "carrier_joints": [0.0, -1.5707, 0.0, 0.0, 0.0, 0.0],
+      "controller_validated": true,
+      "source": "config/waypoints.yaml:1"
+    },
+    "S1_RAW": {
+      "label": "Raw / Input",
+      "visual_xyz": [0.75, 0.85, 0.76],
+      "carrier_joints": [3.593065, -2.205479, -1.067588, 0.131337, 1.24201, -4.712387],
+      "controller_validated": false,
+      "source": "legacy P1; named-station mapping is an unvalidated simulation assumption"
+    },
+    "S2_STAGING": {
+      "label": "Staging / Inspection",
+      "visual_xyz": [0.15, 1.05, 0.76],
+      "carrier_joints": [-2.97318, -1.069788, 0.405185, -2.478748, -1.710968, -0.000344],
+      "controller_validated": false,
+      "source": "legacy P2; named-station mapping is an unvalidated simulation assumption"
+    },
+    "S3_MACHINE": {
+      "label": "CNC / Machine",
+      "visual_xyz": [-0.65, 0.75, 0.95],
+      "carrier_joints": [-0.491184, -1.243253, 1.013834, -2.910754, -1.513936, -0.000694],
+      "controller_validated": false,
+      "source": "legacy P3; named-station mapping is an unvalidated simulation assumption"
+    },
+    "S4_OUTPUT": {
+      "label": "Output / Unloading",
+      "visual_xyz": [-0.75, -0.45, 0.76],
+      "carrier_joints": [-1.912422, -1.170719, 1.563141, -3.534719, -1.728039, -0.001561],
+      "controller_validated": false,
+      "source": "legacy P4; named-station mapping is an unvalidated simulation assumption"
+    },
+    "S5_FINISHED": {
+      "label": "Finished Part",
+      "visual_xyz": [0.35, -0.95, 0.76],
+      "carrier_joints": null,
+      "controller_validated": false,
+      "source": "no taught carrier target available"
+    }
+  },
+  "bimanual_poses": {
+    "HOME": [0.0, 0.0, 0.0, 0.0],
+    "APPROACH": [-0.45, 0.0, 0.45, 0.0],
+    "GRASP": [-0.45, -1.2, 0.45, 1.2],
+    "HOLD": [-0.45, -1.2, 0.45, 1.2],
+    "PLACE": [-1.0, -1.2, 1.0, 1.2],
+    "RELEASE": [-1.0, 0.0, 1.0, 0.0]
+  },
+  "workflow": [
+    {"name": "HOME_START", "station": "HOME", "bimanual_pose": "HOME", "duration_s": 2.0, "from_state": "RAW_AT_S1", "to_state": "RAW_AT_S1"},
+    {"name": "S1_APPROACH", "station": "S1_RAW", "bimanual_pose": "APPROACH", "duration_s": 2.0, "from_state": "RAW_AT_S1", "to_state": "RAW_AT_S1"},
+    {"name": "S1_GRASP", "station": null, "bimanual_pose": "GRASP", "duration_s": 1.5, "from_state": "RAW_AT_S1", "to_state": "HELD_RAW_AT_S1"},
+    {"name": "S2_STAGE", "station": "S2_STAGING", "bimanual_pose": "HOLD", "duration_s": 2.0, "from_state": "HELD_RAW_AT_S1", "to_state": "HELD_RAW_AT_S2"},
+    {"name": "S3_LOAD", "station": "S3_MACHINE", "bimanual_pose": "HOLD", "duration_s": 2.0, "from_state": "HELD_RAW_AT_S2", "to_state": "HELD_RAW_AT_S3"},
+    {"name": "S3_RELEASE", "station": null, "bimanual_pose": "RELEASE", "duration_s": 1.0, "from_state": "HELD_RAW_AT_S3", "to_state": "RAW_IN_MACHINE"},
+    {"name": "MACHINE_DWELL", "station": null, "bimanual_pose": "RELEASE", "duration_s": 3.0, "from_state": "RAW_IN_MACHINE", "to_state": "PROCESSED_IN_MACHINE"},
+    {"name": "S3_REGRASP", "station": null, "bimanual_pose": "GRASP", "duration_s": 1.5, "from_state": "PROCESSED_IN_MACHINE", "to_state": "HELD_PROCESSED_AT_S3"},
+    {"name": "S4_UNLOAD", "station": "S4_OUTPUT", "bimanual_pose": "HOLD", "duration_s": 2.0, "from_state": "HELD_PROCESSED_AT_S3", "to_state": "HELD_PROCESSED_AT_S4"},
+    {"name": "S5_PLACE", "station": "S5_FINISHED", "bimanual_pose": "PLACE", "duration_s": 2.0, "from_state": "HELD_PROCESSED_AT_S4", "to_state": "HELD_PROCESSED_AT_S5"},
+    {"name": "S5_RELEASE", "station": null, "bimanual_pose": "RELEASE", "duration_s": 1.0, "from_state": "HELD_PROCESSED_AT_S5", "to_state": "FINISHED_AT_S5"},
+    {"name": "HOME_END", "station": "HOME", "bimanual_pose": "HOME", "duration_s": 2.0, "from_state": "FINISHED_AT_S5", "to_state": "FINISHED_AT_S5"}
+  ]
+}
