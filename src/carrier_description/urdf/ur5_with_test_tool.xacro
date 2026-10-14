@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<robot xmlns:xacro="http://wiki.ros.org/xacro"
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
        name="ur5_with_test_tool">
 
   <!-- Import the Universal Robots description -->
@@ -27,14 +27,17 @@
     default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml"/>
 
   <xacro:arg name="tf_prefix" default=""/>
+  <xacro:arg name="include_workcell" default="true"/>
 
   <!-- World -->
   <link name="world"/>
 
-  <!-- Simple visual machine-tending cell; it does not alter the UR5 chain. -->
-  <xacro:include
-    filename="$(find carrier_description)/urdf/machine_tending_cell.xacro"/>
-  <xacro:machine_tending_cell parent_link="world"/>
+  <!-- The Phase-4 viewer disables the later visual machine-tending cell. -->
+  <xacro:if value="$(arg include_workcell)">
+    <xacro:include
+      filename="$(find carrier_description)/urdf/machine_tending_cell.xacro"/>
+    <xacro:machine_tending_cell parent_link="world"/>
+  </xacro:if>
 
   <!-- UR5 -->
   <xacro:ur_robot

@@ -17,7 +17,10 @@ def generate_launch_description():
     rviz_config = PathJoinSubstitution([
         FindPackageShare("carrier_description"), "rviz", "dual_arm.rviz"
     ])
-    description = ParameterValue(Command(["xacro ", xacro_file]), value_type=str)
+    description = ParameterValue(
+        Command(["xacro ", xacro_file, " include_workcell:=true"]),
+        value_type=str,
+    )
 
     # Do not launch a second joint-state publisher. In visual mode the coordinator
     # publishes explicitly labelled visual positions; in controller mode the
