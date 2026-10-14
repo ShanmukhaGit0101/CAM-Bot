@@ -27,8 +27,8 @@ All state payloads are compact JSON strings in `std_msgs/msg/String`.
 
 | Topic | Publisher | Meaning |
 |---|---|---|
-| `/cambot/coordinator_state` | coordinator | `READY`, `RUNNING`, `COMPLETE`, or `FAILED`, with mode/trial |
-| `/cambot/task_state` | coordinator | step-level `STARTED`/`COMPLETED`; `CARRIER_NOT_COMMANDED` in visual mode |
+| `/cambot/coordinator_state` | coordinator | `READY`, `RUNNING`, `SUCCESS`, or `FAILURE`, with mode/trial and failure cause |
+| `/cambot/task_state` | coordinator | timestamped FSM `STARTED`/`ENTERED`/`STEP_STARTED`/`STEP_COMPLETED`/`COMPLETED`/terminal events, with trial ID; `CARRIER_NOT_COMMANDED` in visual mode |
 | `/cambot/workpiece_state` | coordinator | logical workpiece state and visual world position |
 | `/joint_states` | controller/broadcaster plus coordinator | carrier feedback plus partial placeholder/workpiece joint updates |
 
@@ -39,6 +39,30 @@ three visual workpiece joints, leaving UR5 joint feedback to the controller.
 The controller bring-up file must include one authoritative broadcaster for
 those six UR5 joints; the coordinator's second publisher owns disjoint joint
 names. The launch never starts `dual_arm_cycle` alongside a UR5 controller.
+
+## Machine-tending FSM commands
+
+The one-shot application sequence is `HOME → PICK_RAW → STAGE → LOAD_MACHINE →
+MACHINE_DWELL → UNLOAD_MACHINE → PLACE_FINISHED → HOME`. The second `HOME` is
+the return phase, not a new physical station. Each state has an explicit
+timeout in `machine_tending.json` and zero automatic retries. Logical
+workpiece state advances only after its underlying step returns success.
+Carrier steps require action acceptance, result success, and actual-position
+feedback; visual placeholder movement is never treated as actuator feedback.
+
+`auto_start:=true` (default) runs one trial from the launch command and exits.
+For an interactive FSM session, launch with `auto_start:=false` and use
+`std_srvs/srv/Trigger` services
+`/machine_tending_coordinator/start`, `/machine_tending_coordinator/reset`,
+and `/machine_tending_coordinator/cancel`. Start is accepted only in `IDLE`;
+reset is required after `SUCCESS` or `FAILURE`. Reset while running is
+rejected—cancel first. Cancellation stops logical progress and requests a
+bounded controller goal cancellation if one is active; an unconfirmed action
+cancel is reported as such, never as successful execution.
+
+`fault_injection_step` is a visual-simulation-only test parameter. It fails
+the named step before motion, and is rejected in controller mode. It is not a
+production fault-recovery or retry mechanism.
 
 ## Visual workcell and targets
 

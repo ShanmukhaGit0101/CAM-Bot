@@ -157,6 +157,12 @@ RViz, but no actuator, controller, or Gazebo physics. The displayed flow is:
 HOME → S1 pick → S2 stage → S3 load/dwell/re-grasp → S4 unload → S5 place → HOME
 ```
 
+The coordinator uses a one-shot, feedback-gated application FSM with explicit
+`HOME → PICK_RAW → STAGE → LOAD_MACHINE → MACHINE_DWELL → UNLOAD_MACHINE →
+PLACE_FINISHED → HOME` states. `dual_arm_cycle` remains a separate generic
+viewer and is not launched alongside this FSM. See
+[`docs/INTERFACES.md`](docs/INTERFACES.md) for start/reset/cancel services.
+
 The separate `machine_tending_controller.launch.py` entry point requires an
 absolute `controller_bringup_file` and a controller-validated `config_file`.
 The supplied plan deliberately fails that gate (unvalidated S1–S4, missing S5).

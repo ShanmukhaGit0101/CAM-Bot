@@ -7,6 +7,8 @@ import math
 from pathlib import Path
 from typing import Any, Dict, Iterable
 
+from carrier_control.machine_tending_fsm import FSMError, MachineTendingFSM
+from carrier_control.waypoints import UR5_JOINT_NAMES
 from carrier_control.workcell_model import (
     STATION_IDS, WorkcellError, station_for_target, validate_workcell,
 )
@@ -90,6 +92,8 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
     if not isinstance(joint_names, list) or len(joint_names) != 6 or not all(
             isinstance(name, str) and name for name in joint_names):
         raise WorkflowError("carrier.joint_names must contain six names")
+    if tuple(joint_names) != UR5_JOINT_NAMES:
+        raise WorkflowError("carrier.joint_names must match the UR5 driver joint order")
     for field in (
         "server_timeout_s",
         "goal_response_timeout_s",
@@ -178,6 +182,10 @@ def validate_plan(plan: Any, require_controller_ready: bool = False) -> None:
         if from_state not in PROCESS_PHASES or to_state not in PROCESS_PHASES:
             raise WorkflowError(f"workflow[{index}] has an unknown workpiece process state")
         previous_to = to_state
+    try:
+        MachineTendingFSM(plan)
+    except FSMError as exc:
+        raise WorkflowError(str(exc)) from exc
 
 
 def stations_used_by(workflow: Iterable[Dict[str, Any]]) -> tuple[str, ...]:

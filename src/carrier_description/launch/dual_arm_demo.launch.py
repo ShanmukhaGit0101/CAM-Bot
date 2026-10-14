@@ -5,6 +5,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 
@@ -17,6 +18,8 @@ def _assemble(context):
     visual_time_scale = LaunchConfiguration("visual_time_scale")
     config_file = LaunchConfiguration("config_file")
     results_file = LaunchConfiguration("results_file")
+    auto_start = LaunchConfiguration("auto_start")
+    fault_injection_step = LaunchConfiguration("fault_injection_step")
     xacro_file = (
         Path(get_package_share_directory("carrier_description")) /
         "urdf" / "ur5_with_test_tool.xacro"
@@ -47,6 +50,10 @@ def _assemble(context):
                 "results_file": results_file,
                 "trial_count": trial_count,
                 "visual_time_scale": visual_time_scale,
+                "auto_start": ParameterValue(auto_start, value_type=bool),
+                "fault_injection_step": ParameterValue(
+                    fault_injection_step, value_type=str
+                ),
             }],
         ),
         Node(
@@ -63,6 +70,8 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument("trial_count", default_value="1"),
         DeclareLaunchArgument("visual_time_scale", default_value="1.0"),
+        DeclareLaunchArgument("auto_start", default_value="true"),
+        DeclareLaunchArgument("fault_injection_step", default_value=""),
         DeclareLaunchArgument("config_file", default_value=PathJoinSubstitution([
             FindPackageShare("carrier_control"), "config", "machine_tending.json"
         ])),

@@ -82,6 +82,26 @@ target. Use `bash tools/capture_ay03_humble.sh` in a sourced Ubuntu 22.04/Humble
 GUI session for three visual launch/stop checks and the default fail-closed
 controller check. Do not label those visual trials as controlled motion.
 
+## AY-05 FSM checks
+
+The offline FSM tests cover ordered transitions, one-shot success, reset,
+invalid lifecycle, state timeout, zero retry, cancellation, and a failed
+`LOAD_MACHINE` step with no later state or workpiece advance:
+
+```bash
+PYTHONPATH=src/carrier_control python3 -m unittest \
+  src/carrier_control/test/test_machine_tending_fsm.py -v
+```
+
+In a sourced Ubuntu 22.04/Humble GUI workspace, run
+`bash tools/capture_ay05_humble.sh`. It launches the **visual-only** coordinator
+in manual-start mode for three cases: successful one-shot, injected `S3_LOAD`
+failure, and early cancel. Its observer records trial IDs, timestamps, state
+order, terminal event, and workpiece topic updates. It does not simulate a
+trajectory controller or prove physical picking/placing. Controller-mode FSM
+integration remains blocked by AY-03's missing controller stack and validated
+station targets.
+
 Failure tests include an unavailable action server, rejected goal, result
 timeout, missing feedback, discontinuous workpiece state, and invalid or
 unvalidated station configuration. In each case the coordinator must publish or

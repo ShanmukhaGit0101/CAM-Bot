@@ -17,6 +17,7 @@ from launch.events import Shutdown
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 
 from ament_index_python.packages import get_package_share_directory
@@ -43,6 +44,9 @@ def _assemble(context):
             "mode": "controller", "config_file": config_file,
             "results_file": LaunchConfiguration("results_file"),
             "trial_count": LaunchConfiguration("trial_count"),
+            "auto_start": ParameterValue(
+                LaunchConfiguration("auto_start"), value_type=bool
+            ),
         }],
     )
     return [
@@ -73,5 +77,6 @@ def generate_launch_description():
             Path.home() / ".ros" / "cambot" / "machine_tending_trials.csv"
         )),
         DeclareLaunchArgument("trial_count", default_value="1"),
+        DeclareLaunchArgument("auto_start", default_value="true"),
         OpaqueFunction(function=_assemble),
     ])

@@ -10,7 +10,7 @@ from rclpy.action import ActionClient
 
 from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
-from carrier_control.waypoints import load_waypoints
+from carrier_control.waypoints import UR5_JOINT_NAMES, load_waypoints
 
 
 class MachineShopJointCycle(Node):
@@ -23,14 +23,7 @@ class MachineShopJointCycle(Node):
         # UR5 JOINT ORDER
         # =====================================================
 
-        self.joint_names = [
-            'shoulder_pan_joint',
-            'shoulder_lift_joint',
-            'elbow_joint',
-            'wrist_1_joint',
-            'wrist_2_joint',
-            'wrist_3_joint'
-        ]
+        self.joint_names = list(UR5_JOINT_NAMES)
 
         waypoint_file = Path(get_package_share_directory('carrier_control')) / 'config' / 'waypoints.yaml'
         self.waypoints = load_waypoints(waypoint_file)

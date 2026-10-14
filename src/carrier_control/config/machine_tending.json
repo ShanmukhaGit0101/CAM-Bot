@@ -2,6 +2,18 @@
   "schema_version": "1.0",
   "assumption_status": "configurable_visual_simulation_only",
   "assumption_note": "Station poses are layout assumptions, not measured cell or Tanmay dimensions. Legacy P1-P4 joint targets have not been validated against these named station poses.",
+  "fsm": {
+    "state_timeout_s": {
+      "HOME": 30.0,
+      "PICK_RAW": 30.0,
+      "STAGE": 20.0,
+      "LOAD_MACHINE": 30.0,
+      "MACHINE_DWELL": 10.0,
+      "UNLOAD_MACHINE": 30.0,
+      "PLACE_FINISHED": 30.0
+    },
+    "retry_count": 0
+  },
   "workcell": {
     "world_frame": "world",
     "base_frame": "base_link",
