@@ -1,0 +1,1 @@
+schema_version,trial_id,timestamp_utc,mode,cycle_time_s,success,failure_stage,carrier_motion_count,carrier_joint_travel_rad,workpiece_final_state,runtime_verified,end_to_end_verified,notes

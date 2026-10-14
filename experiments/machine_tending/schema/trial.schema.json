@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cambot.local/schema/machine-tending-trial-1.0.json",
+  "title": "CAM-BOT machine-tending trial",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "trial_id",
+    "timestamp_utc",
+    "mode",
+    "cycle_time_s",
+    "success",
+    "carrier_motion_count",
+    "carrier_joint_travel_rad",
+    "workpiece_final_state",
+    "runtime_verified",
+    "end_to_end_verified"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "trial_id": {"type": "string", "minLength": 1},
+    "timestamp_utc": {"type": "string", "format": "date-time"},
+    "mode": {"enum": ["controller", "visual_simulation"]},
+    "cycle_time_s": {"type": "number", "minimum": 0},
+    "success": {"type": "boolean"},
+    "failure_stage": {"type": ["string", "null"]},
+    "carrier_motion_count": {"type": "integer", "minimum": 0},
+    "carrier_joint_travel_rad": {"type": ["number", "null"], "minimum": 0},
+    "workpiece_final_state": {"type": "string", "minLength": 1},
+    "runtime_verified": {"type": "boolean"},
+    "end_to_end_verified": {"type": "boolean"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"mode": {"const": "visual_simulation"}}},
+      "then": {
+        "properties": {
+          "runtime_verified": {"const": false},
+          "end_to_end_verified": {"const": false},
+          "carrier_joint_travel_rad": {"type": "null"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"end_to_end_verified": {"const": true}}},
+      "then": {
+        "properties": {
+          "mode": {"const": "controller"},
+          "success": {"const": true},
+          "runtime_verified": {"const": true}
+        }
+      }
+    }
+  ]
+}
