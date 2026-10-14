@@ -1,6 +1,6 @@
 {
   "command": "python3 tools/verify_ay.py --output artifacts/verification/ay_verification.json",
-  "generated_at": "2026-10-14T19:46:04.922238+00:00",
+  "generated_at": "2026-10-14T19:46:56.032114+00:00",
   "proof_level": "STATIC VALID",
   "runtime_note": "ROS 2, Gazebo, xacro, check_urdf, and controller runtime were unavailable.",
   "schema_version": "1.0",
