@@ -23,7 +23,9 @@ from trajectory_msgs.msg import JointTrajectoryPoint
 from tf2_ros import Buffer, TransformListener
 
 from carrier_control.coordination_policy import CoordinationPolicy
-from carrier_control.metrics import append_trial
+from carrier_control.metrics import (
+    ExperimentLogger, TrialRecordError, resolve_git_commit,
+)
 from carrier_control.machine_tending_fsm import FSMError, MachineTendingFSM, StepOutcome
 from carrier_control.reachability import evaluate_reachability
 from carrier_control.workflow import PROCESS_PHASES, WorkflowError, load_plan
@@ -55,6 +57,7 @@ class MachineTendingCoordinator(Node):
         self.declare_parameter("mode", "visual_simulation")
         self.declare_parameter("config_file", default_config)
         self.declare_parameter("results_file", default_results)
+        self.declare_parameter("experiment_id", "cambot-machine-tending")
         self.declare_parameter("trial_count", 1)
         self.declare_parameter("visual_time_scale", 1.0)
         self.declare_parameter("auto_start", True)
@@ -70,6 +73,13 @@ class MachineTendingCoordinator(Node):
             require_controller_ready=self.mode == "controller",
         )
         self.results_file = self.get_parameter("results_file").value
+        self.experiment_id = self.get_parameter("experiment_id").value
+        if not isinstance(self.experiment_id, str) or not self.experiment_id:
+            raise WorkflowError("experiment_id must be a nonempty string")
+        self.experiment_logger = ExperimentLogger(
+            self.results_file, self.experiment_id,
+            resolve_git_commit(Path(__file__)), str(config_file), self.plan,
+        )
         self.trial_count = int(self.get_parameter("trial_count").value)
         self.visual_time_scale = float(self.get_parameter("visual_time_scale").value)
         self.fault_injection_step = self.get_parameter("fault_injection_step").value
@@ -122,6 +132,7 @@ class MachineTendingCoordinator(Node):
         self.workpiece_state = "RAW_AT_S1"
         self.coordinator_state = "INITIALIZING"
         self.carrier_motion_count = 0
+        self.carrier_reposition_count = 0
         self.feedback_count = 0
         self.feedback_joint_travel = 0.0
         self._last_feedback_positions: Optional[list[float]] = None
@@ -207,6 +218,16 @@ class MachineTendingCoordinator(Node):
                     ),
                 })
         self._publish_json(self.task_publisher, payload)
+        if self.experiment_logger.active is not None:
+            self.experiment_logger.log_event(
+                state=event.get("state") or "FSM",
+                target=payload.get("target"), action=event.get("step") or "FSM",
+                result=event["event"], details={
+                    "workpiece_state": event["workpiece_state"],
+                    "failure_step": event.get("failure_step"),
+                    "cause": event.get("cause"),
+                },
+            )
         if event["event"] in ("STEP_COMPLETED", "RESET"):
             self.workpiece_state = event["workpiece_state"]
             if event["event"] == "RESET":
@@ -531,7 +552,7 @@ class MachineTendingCoordinator(Node):
 
     def _emit_decision(self, step, target_xyz, transform, reach, decision,
                        outcome="PENDING"):
-        self._publish_json(self.decision_publisher, {
+        payload = {
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
             "trial_id": self.fsm.trial_id,
             "step": step["name"], "target": step.get("target"),
@@ -543,7 +564,20 @@ class MachineTendingCoordinator(Node):
             "decision": decision.decision, "reason": decision.reason,
             "attempts": decision.attempts, "outcome": outcome,
             "mode": self.mode,
-        })
+        }
+        self._publish_json(self.decision_publisher, payload)
+        if self.experiment_logger.active is not None:
+            self.experiment_logger.log_event(
+                state=self.fsm.current_state or "COORDINATION",
+                target=step.get("target"), reachability=reach.status,
+                decision=decision.decision, action=step["name"], result=outcome,
+                details={"reason": decision.reason,
+                         "attempts": decision.attempts,
+                         "target_world_xyz_m": target_xyz,
+                         "world_from_dual_arm_base": transform,
+                         "local_xyz_m": reach.local_xyz_m,
+                         "arm_results": reach.arms},
+            )
 
     def _coordinate_target(self, step, deadline, cancelled):
         """Policy selects; carrier adapter moves; TF recheck precedes BM adapter."""
@@ -569,6 +603,7 @@ class MachineTendingCoordinator(Node):
             self._emit_decision(step, target_xyz, before, reach, decision,
                                 self.last_motion_failure or "CARRIER_ACTION_FAILED")
             return StepOutcome(False, self.last_motion_failure or "CARRIER_ACTION_FAILED")
+        self.carrier_reposition_count += 1
         self._emit_decision(
             step, target_xyz, before, reach, decision,
             "CARRIER_ACTION_SUCCEEDED_WITH_FEEDBACK" if self.mode == "controller"
@@ -629,49 +664,49 @@ class MachineTendingCoordinator(Node):
         return StepOutcome(True)
 
     def run_trial(self, trial_number: int) -> Dict[str, Any]:
-        trial_id = f"{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}-{trial_number:03d}"
-        started = time.monotonic()
+        trial_id = self.experiment_logger.begin_trial(self.mode)
         self.carrier_motion_count = 0
+        self.carrier_reposition_count = 0
         self.policy.reset()
         self.feedback_count = 0
         self.feedback_joint_travel = 0.0
         self._last_feedback_positions = None
         self.workpiece_state = "RAW_AT_S1"
         self.workpiece_positions = target_world_xyz(self.plan["workcell"], "RAW_PICK")
-        self._publish_coordinator("RUNNING", trial_id=trial_id)
-        self._publish_workpiece()
-        self.fsm.start(trial_id)
-        outcome = self.fsm.run(self._execute_fsm_step)
-        self._publish_coordinator(
-            outcome.terminal, trial_id=trial_id,
-            failure_state=outcome.failure_state,
-            failure_stage=outcome.failure_step,
-            failure_cause=outcome.cause,
-        )
-        runtime_verified = False
-        return {
-            "schema_version": "1.0",
-            "trial_id": trial_id,
-            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-            "mode": self.mode,
-            "cycle_time_s": round(time.monotonic() - started, 6),
-            "success": outcome.success,
-            "failure_stage": outcome.failure_step,
-            "carrier_motion_count": self.carrier_motion_count,
-            "carrier_joint_travel_rad": (
-                round(self.feedback_joint_travel, 6)
-                if self.mode == "controller" else None
-            ),
-            "workpiece_final_state": outcome.workpiece_state,
-            "runtime_verified": runtime_verified,
-            "end_to_end_verified": False,
-            "notes": (
-                "carrier result and actual-position feedback observed; "
-                "TF/runtime validation and bimanual motion remain unverified"
-                if self.mode == "controller" and outcome.success else
-                "visual state-machine exercise only; no carrier actuation or verified grasp"
-            ),
-        }
+        try:
+            self._publish_coordinator("RUNNING", trial_id=trial_id)
+            self._publish_workpiece()
+            self.fsm.start(trial_id)
+            outcome = self.fsm.run(self._execute_fsm_step)
+            self._publish_coordinator(
+                outcome.terminal, trial_id=trial_id,
+                failure_state=outcome.failure_state,
+                failure_stage=outcome.failure_step,
+                failure_cause=outcome.cause,
+            )
+            return self.experiment_logger.finalize(
+                success=outcome.success, failure_state=outcome.failure_state,
+                failure_reason=outcome.cause,
+                carrier_repositions=self.carrier_reposition_count,
+                workpiece_final_state=outcome.workpiece_state,
+                runtime_verified=False, end_to_end_verified=False,
+                notes=(
+                    "carrier results/feedback observed but BM/TF runtime unverified"
+                    if self.mode == "controller" and outcome.success else
+                    "controller trial failed; no end-to-end verification claim"
+                    if self.mode == "controller" else
+                    "visual state-machine exercise only; no actuation or verified grasp"
+                ),
+            )
+        except BaseException as exc:
+            if self.experiment_logger.active is not None:
+                self.experiment_logger.finalize_incomplete(
+                    reason=f"{type(exc).__name__}:{exc}",
+                    state=self.fsm.current_state or "INTERRUPTED",
+                    workpiece_state=self.fsm.workpiece_state,
+                    notes="trial interrupted before a durable final summary",
+                )
+            raise
 
     def run_trials(self) -> bool:
         all_successful = True
@@ -679,7 +714,6 @@ class MachineTendingCoordinator(Node):
             if trial_number > 1:
                 self.fsm.reset()
             record = self.run_trial(trial_number)
-            append_trial(self.results_file, record)
             all_successful = all_successful and record["success"]
             if not record["success"]:
                 break
@@ -700,7 +734,7 @@ def main(args=None) -> None:
                 if node.start_requested:
                     node.start_requested = False
                     node.run_trials()
-    except (RuntimeError, WorkflowError, FSMError) as exc:
+    except (RuntimeError, WorkflowError, FSMError, TrialRecordError) as exc:
         if node is not None:
             node.get_logger().error(str(exc))
         else:

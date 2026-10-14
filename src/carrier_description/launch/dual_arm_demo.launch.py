@@ -18,6 +18,7 @@ def _assemble(context):
     visual_time_scale = LaunchConfiguration("visual_time_scale")
     config_file = LaunchConfiguration("config_file")
     results_file = LaunchConfiguration("results_file")
+    experiment_id = LaunchConfiguration("experiment_id")
     auto_start = LaunchConfiguration("auto_start")
     fault_injection_step = LaunchConfiguration("fault_injection_step")
     enable_coordination = LaunchConfiguration("enable_coordination")
@@ -49,6 +50,7 @@ def _assemble(context):
                 "mode": "visual_simulation",
                 "config_file": config_file,
                 "results_file": results_file,
+                "experiment_id": experiment_id,
                 "trial_count": trial_count,
                 "visual_time_scale": visual_time_scale,
                 "auto_start": ParameterValue(auto_start, value_type=bool),
@@ -83,5 +85,6 @@ def generate_launch_description():
         DeclareLaunchArgument("results_file", default_value=str(
             Path.home() / ".ros" / "cambot" / "machine_tending_trials.csv"
         )),
+        DeclareLaunchArgument("experiment_id", default_value="cambot-machine-tending"),
         OpaqueFunction(function=_assemble),
     ])

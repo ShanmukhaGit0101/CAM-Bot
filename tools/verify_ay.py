@@ -17,7 +17,9 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTROL_ROOT = ROOT / "src" / "carrier_control"
 sys.path.insert(0, str(CONTROL_ROOT))
 
-from carrier_control.metrics import TrialRecordError, validate_trial_record  # noqa: E402
+from carrier_control.metrics import (  # noqa: E402
+    TrialRecordError, parameter_hash, validate_trial_record,
+)
 from carrier_control.workflow import (  # noqa: E402
     WorkflowError,
     load_plan,
@@ -49,15 +51,22 @@ def expect_failure(function, exception_type, contains: str = "") -> None:
 
 def visual_record():
     return {
-        "schema_version": "1.0",
+        "schema_version": "2.0",
+        "experiment_id": "offline-verifier",
         "trial_id": "offline-check",
-        "timestamp_utc": "2026-10-15T00:00:00Z",
-        "mode": "visual_simulation",
+        "git_commit": "UNKNOWN",
+        "parameter_config": "offline-fixture",
+        "parameter_hash_sha256": parameter_hash({"fixture": True}),
+        "start_timestamp_utc": "2026-10-15T00:00:00Z",
+        "end_timestamp_utc": "2026-10-15T00:00:01Z",
+        "time_source": "monotonic_duration+utc_wall_timestamps",
         "cycle_time_s": 0.0,
+        "status": "COMPLETE",
         "success": True,
-        "failure_stage": None,
-        "carrier_motion_count": 0,
-        "carrier_joint_travel_rad": None,
+        "failure_state": None,
+        "failure_reason": None,
+        "carrier_repositions": 0,
+        "mode": "visual_simulation",
         "workpiece_final_state": "FINISHED_AT_S5",
         "runtime_verified": False,
         "end_to_end_verified": False,
@@ -275,11 +284,11 @@ def metrics_positive():
 
 
 def metrics_negative():
-    record = {**visual_record(), "carrier_joint_travel_rad": 1.0}
+    record = {**visual_record(), "runtime_verified": True}
     expect_failure(
         lambda: validate_trial_record(record),
         TrialRecordError,
-        "cannot claim carrier joint travel",
+        "visual simulation",
     )
 
 

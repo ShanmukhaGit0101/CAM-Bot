@@ -207,6 +207,12 @@ not bimanual IK or verified grasp control; see
 
 ## Experiments
 
+Machine-tending trials use a separate versioned CSV-summary/JSONL-event logger
+with UUID trial IDs, Git/config provenance, monotonic durations, and durable
+failure/interruption records. See
+[`experiments/machine_tending/README.md`](experiments/machine_tending/README.md).
+These records do not alter the archived mass-sensitivity datasets below.
+
 Three 10% link-mass perturbations of the UR5, comparing recorded joint
 trajectory statistics against a baseline run:
 

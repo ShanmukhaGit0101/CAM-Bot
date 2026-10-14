@@ -44,6 +44,7 @@ def _assemble(context):
             "mode": "controller", "config_file": config_file,
             "enable_coordination": True,
             "results_file": LaunchConfiguration("results_file"),
+            "experiment_id": LaunchConfiguration("experiment_id"),
             "trial_count": LaunchConfiguration("trial_count"),
             "auto_start": ParameterValue(
                 LaunchConfiguration("auto_start"), value_type=bool
@@ -78,6 +79,7 @@ def generate_launch_description():
             Path.home() / ".ros" / "cambot" / "machine_tending_trials.csv"
         )),
         DeclareLaunchArgument("trial_count", default_value="1"),
+        DeclareLaunchArgument("experiment_id", default_value="cambot-machine-tending"),
         DeclareLaunchArgument("auto_start", default_value="true"),
         OpaqueFunction(function=_assemble),
     ])

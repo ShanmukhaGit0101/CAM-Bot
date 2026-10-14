@@ -126,3 +126,23 @@ the missing selected controller stack, validated station targets, and BM
 action/feedback interface; record actual action results and TF/joint-state
 changes before claiming runtime/end-to-end verification.
 
+## AY-09 experiment logger checks
+
+```bash
+PYTHONPATH=src/carrier_control python3 -m unittest \
+  src/carrier_control/test/test_metrics.py -v
+python3 -m json.tool experiments/machine_tending/schema/trial.schema.json >/dev/null
+python3 -m json.tool experiments/machine_tending/schema/event.schema.json >/dev/null
+```
+
+The tests create temporary successful, failed, interrupted, duplicate, and
+invalid-claim datasets. They verify unique IDs, one final row, nonnegative
+steady-clock durations, complete failure context, chronological event
+sequences, schema/template parity, and direct coordinator logger hooks.
+
+In a sourced Ubuntu 22.04/Humble GUI workspace, run
+`bash tools/capture_ay09_humble.sh`. It writes a genuine **visual runtime** CSV
+and JSONL pair plus validation output under `docs/evidence/AY-09/runtime/`.
+That sample may establish live FSM/logger integration, but is not measured
+carrier actuation, grasp, Gazebo physics, or end-to-end controller evidence.
+

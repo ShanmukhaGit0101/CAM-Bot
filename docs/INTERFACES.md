@@ -90,9 +90,28 @@ single three-prismatic-joint visual object; it is not Gazebo physics.
 | `mode` | `visual_simulation` | `visual_simulation` or `controller` |
 | `config_file` | installed `machine_tending.json` | valid schema and continuous state sequence |
 | `results_file` | `~/.ros/cambot/machine_tending_trials.csv` | append-only CSV |
+| `experiment_id` | `cambot-machine-tending` | nonempty experiment grouping identifier |
 | `trial_count` | 1 | 1–25 |
 | `visual_time_scale` | 1.0 | 0.01–10.0 |
 | `enable_coordination` | false in visual demo; true in controller launch | Boolean; false preserves scripted visual replay |
+
+## AY-09 experiment records
+
+`results_file` names the append-only CSV summary. A sibling file with suffix
+`.events.jsonl` receives events directly from FSM and coordinator callbacks;
+the logger does not scrape console output. Schema 2.0 records experiment/trial
+IDs, source commit, config path and canonical JSON SHA-256, UTC start/end,
+steady-clock duration, terminal/failure context, coordinator reposition count,
+mode, workpiece state, and verification flags. Events record sequence,
+monotonic elapsed time, state, target, reachability, decision, action/result,
+and structured details.
+
+Every row/line is flushed and `fsync`ed. A `START/INCOMPLETE_PENDING` event is
+written before the FSM starts. Exceptions and interrupts attempt a final
+`INCOMPLETE` summary, and duplicate trial/final IDs are rejected. Cycle time is
+`time.monotonic()` elapsed duration; UTC is only for cross-stream correlation.
+ROS simulation time is not used by this logger and would need a separately
+named field if introduced later.
 
 ## AY-06/07 coordination contract
 
