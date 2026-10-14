@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
@@ -8,9 +10,10 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    mode = LaunchConfiguration("mode")
     trial_count = LaunchConfiguration("trial_count")
     visual_time_scale = LaunchConfiguration("visual_time_scale")
+    config_file = LaunchConfiguration("config_file")
+    results_file = LaunchConfiguration("results_file")
     xacro_file = PathJoinSubstitution([
         FindPackageShare("carrier_description"), "urdf", "ur5_with_test_tool.xacro"
     ])
@@ -22,20 +25,16 @@ def generate_launch_description():
         value_type=str,
     )
 
-    # Do not launch a second joint-state publisher. In visual mode the coordinator
-    # publishes explicitly labelled visual positions; in controller mode the
-    # external controller owns carrier feedback.
+    # Visual-only: one joint-state publisher, with no controller or actuation.
     return LaunchDescription([
-        DeclareLaunchArgument(
-            "mode",
-            default_value="visual_simulation",
-            description=(
-                "visual_simulation or controller; controller requires an external "
-                "active trajectory controller and validated targets"
-            ),
-        ),
         DeclareLaunchArgument("trial_count", default_value="1"),
         DeclareLaunchArgument("visual_time_scale", default_value="1.0"),
+        DeclareLaunchArgument("config_file", default_value=PathJoinSubstitution([
+            FindPackageShare("carrier_control"), "config", "machine_tending.json"
+        ])),
+        DeclareLaunchArgument("results_file", default_value=str(
+            Path.home() / ".ros" / "cambot" / "machine_tending_trials.csv"
+        )),
         Node(
             package="robot_state_publisher",
             executable="robot_state_publisher",
@@ -49,7 +48,9 @@ def generate_launch_description():
             name="machine_tending_coordinator",
             output="screen",
             parameters=[{
-                "mode": mode,
+                "mode": "visual_simulation",
+                "config_file": config_file,
+                "results_file": results_file,
                 "trial_count": trial_count,
                 "visual_time_scale": visual_time_scale,
             }],

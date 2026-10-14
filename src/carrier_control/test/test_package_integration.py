@@ -53,6 +53,7 @@ class TestPackageIntegration(unittest.TestCase):
         validate_assets(DESCRIPTION, description, {
             "share/carrier_description/rviz/dual_arm.rviz",
             "share/carrier_description/launch/dual_arm_demo.launch.py",
+            "share/carrier_description/launch/machine_tending_controller.launch.py",
             "share/carrier_description/urdf/ur5_with_test_tool.xacro",
             "share/carrier_description/urdf/carrier_flange.xacro",
             "share/carrier_description/urdf/dual_arm.xacro",

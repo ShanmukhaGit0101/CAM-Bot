@@ -15,7 +15,9 @@ define force control, a production gripper, or a physical CNC interface.
 | Retry policy | zero automatic retries |
 
 Controller mode is rejected before connecting when any named target is missing
-or is not marked `controller_validated`. Current S1–S4 mappings are legacy P1–P4
+or is not marked `controller_validated`. It also requires a complete UR5
+`/joint_states` sample in addition to the action server before proceeding.
+Current S1–S4 mappings are legacy P1–P4
 assumptions, and S5 has no taught target, so controller mode is intentionally
 blocked until targets are taught against the displayed cell geometry.
 
@@ -34,6 +36,9 @@ The coordinator publishes UR5 joint values only in `visual_simulation` mode.
 Those values animate RViz and are not commands, controller results, or Gazebo
 actuation. In `controller` mode it publishes only the four placeholder arm and
 three visual workpiece joints, leaving UR5 joint feedback to the controller.
+The controller bring-up file must include one authoritative broadcaster for
+those six UR5 joints; the coordinator's second publisher owns disjoint joint
+names. The launch never starts `dual_arm_cycle` alongside a UR5 controller.
 
 ## Parameters
 

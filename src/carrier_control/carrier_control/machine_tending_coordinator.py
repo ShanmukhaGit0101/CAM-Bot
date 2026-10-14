@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 import json
+import math
 from pathlib import Path
 import time
 from typing import Any, Dict, Optional
@@ -93,6 +94,7 @@ class MachineTendingCoordinator(Node):
         self.feedback_count = 0
         self.feedback_joint_travel = 0.0
         self._last_feedback_positions: Optional[list[float]] = None
+        self.carrier_joint_sample: Optional[tuple[float, ...]] = None
         self.client = None
 
         if self.mode == "controller":
@@ -106,6 +108,17 @@ class MachineTendingCoordinator(Node):
                 raise RuntimeError(
                     f"carrier controller unavailable after {timeout:.1f}s"
                 )
+            self.carrier_joint_subscription = self.create_subscription(
+                JointState, "/joint_states", self._carrier_joint_state, 10
+            )
+            joint_deadline = time.monotonic() + timeout
+            while self.carrier_joint_sample is None:
+                remaining = joint_deadline - time.monotonic()
+                if remaining <= 0:
+                    raise RuntimeError(
+                        f"carrier /joint_states unavailable after {timeout:.1f}s"
+                    )
+                rclpy.spin_once(self, timeout_sec=min(0.1, remaining))
         else:
             self.get_logger().warning(
                 "VISUAL SIMULATION ONLY: carrier joints are not commanded; "
@@ -165,6 +178,14 @@ class MachineTendingCoordinator(Node):
             )
         self._last_feedback_positions = positions
         self.feedback_count += 1
+
+    def _carrier_joint_state(self, message: JointState) -> None:
+        """Accept a complete UR5 sample, never our custom-only joint update."""
+        positions = dict(zip(message.name, message.position))
+        names = self.plan["carrier"]["joint_names"]
+        if (len(message.name) == len(message.position) and
+                all(name in positions and math.isfinite(positions[name]) for name in names)):
+            self.carrier_joint_sample = tuple(float(positions[name]) for name in names)
 
     def _cancel_bounded(self, goal_handle) -> None:
         cancel_future = goal_handle.cancel_goal_async()

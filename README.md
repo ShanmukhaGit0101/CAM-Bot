@@ -149,15 +149,18 @@ source install/setup.bash
 ros2 launch carrier_description dual_arm_demo.launch.py
 ```
 
-This launches the robot description, state publisher, coordinator, and RViz. It
-is explicitly a **visual simulation**, not Gazebo actuation. The displayed flow is:
+This entry point is fixed to **visual simulation**. It launches the robot
+description, state publisher, coordinator, workpiece/task state, CSV logger, and
+RViz, but no actuator, controller, or Gazebo physics. The displayed flow is:
 
 ```text
 HOME → S1 pick → S2 stage → S3 load/dwell/re-grasp → S4 unload → S5 place → HOME
 ```
 
-Controller mode exists but fails closed until all five named targets are taught
-and validated and an external trajectory controller is active. See
+The separate `machine_tending_controller.launch.py` entry point requires an
+absolute `controller_bringup_file` and a controller-validated `config_file`.
+The supplied plan deliberately fails that gate (unvalidated S1–S4, missing S5).
+It cannot yet launch an unattended controlled-carrier system. See
 [`docs/VALIDATION.md`](docs/VALIDATION.md) and
 [`docs/INTERFACES.md`](docs/INTERFACES.md).
 

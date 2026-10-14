@@ -33,7 +33,7 @@ source install/setup.bash
 xacro $(ros2 pkg prefix carrier_description)/share/carrier_description/urdf/ur5_with_test_tool.xacro > /tmp/cambot.urdf
 check_urdf /tmp/cambot.urdf
 timeout 20s ros2 launch carrier_description dual_arm_demo.launch.py \
-  mode:=visual_simulation visual_time_scale:=0.05
+  visual_time_scale:=0.05
 ```
 
 The last command is a visual simulation check, not Gazebo actuation.
@@ -41,8 +41,12 @@ The last command is a visual simulation check, not Gazebo actuation.
 ## Controller-mode gate and five-trial run
 
 Before changing `controller_validated` to `true`, teach each named target against
-the actual cell, add the missing S5 target, and review the mapping. Then start the
-selected UR5 simulation/controller stack and verify the action exists:
+the actual cell, add the missing S5 target, and review the mapping. Supply a
+single selected ROS launch file that starts the UR5 trajectory controller and
+its joint-state broadcaster, without a second robot-state publisher or a
+publisher of fabricated UR5 positions. The gated entry point includes that
+file and waits for both the action server and a complete UR5 `/joint_states`
+sample before proceeding:
 
 ```bash
 timeout 10s ros2 action info \
@@ -53,14 +57,21 @@ timeout 10s ros2 topic hz /joint_states
 Run five trials only after both commands show the expected controller and stream:
 
 ```bash
-timeout 300s ros2 launch carrier_description dual_arm_demo.launch.py \
-  mode:=controller trial_count:=5
+timeout 300s ros2 launch carrier_description machine_tending_controller.launch.py \
+  controller_bringup_file:=/absolute/path/to/selected_controller.launch.py \
+  config_file:=/absolute/path/to/validated_machine_tending.json trial_count:=5
 ```
 
 Inspect the CSV and state topics. Carrier movement may be marked **RUNTIME
 VERIFIED** only when every carrier action has a successful result and actual
 position feedback. The overall cycle remains below **END-TO-END VERIFIED** while
 the bimanual module has no selected controller/feedback interface.
+
+The current repository cannot pass this run: there is no selected controller
+bring-up file, S1–S4 are unvalidated mappings, and S5 lacks a taught carrier
+target. Use `bash tools/capture_ay03_humble.sh` in a sourced Ubuntu 22.04/Humble
+GUI session for three visual launch/stop checks and the default fail-closed
+controller check. Do not label those visual trials as controlled motion.
 
 Failure tests include an unavailable action server, rejected goal, result
 timeout, missing feedback, discontinuous workpiece state, and invalid or
