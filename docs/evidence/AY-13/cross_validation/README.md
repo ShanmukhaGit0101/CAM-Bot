@@ -3,8 +3,8 @@
 Run on 2026-10-15 from CachyOS x86_64 in the `cambot-humble` Ubuntu 22.04 /
 ROS 2 Humble Distrobox. Source under test is the cross-validation repair
 commit; the archived AY-10 five-trial capture identifies its **own earlier**
-base commit plus source patch/snapshot. The final machine-readable report is a
-snapshot of these checks, not the authoritative AY status matrix.
+base commit plus source patch/snapshot. The [machine-readable build report](../../../../artifacts/verification/cambot_build_report.json)
+is a snapshot of these checks, not the authoritative AY status matrix.
 
 | Gate | Observed result | Evidence and boundary |
 |---|---|---|

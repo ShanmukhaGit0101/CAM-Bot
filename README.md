@@ -64,6 +64,8 @@ cycles, raw observations, metrics and plots are in the
 prove controller or physical execution. The [status matrix](docs/STATUS.md)
 defines every task's scope and evidence level; the [AY ledger](docs/ayush/ledger.json)
 records each change, test and limitation.
+The [G0–G10 build report](artifacts/verification/cambot_build_report.json)
+records current visual and controller verification boundaries.
 
 ---
 

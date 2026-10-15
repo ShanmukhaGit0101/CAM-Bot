@@ -357,7 +357,12 @@
         "docs/evidence/AY-06-08/runtime/probe.jsonl",
         "docs/evidence/AY-13/cross_validation/live_recheck/visual_rosbag/metadata.yaml",
         "tools/capture_ay01_humble.sh",
-        "tools/capture_ay02_humble.sh"
+        "tools/capture_ay02_humble.sh",
+        "tools/generate_build_report.py",
+        "artifacts/verification/cambot_build_report.json",
+        "tools/test_generate_build_report.py",
+        "docs/evidence/AY-13/cross_validation/build_report_tests.log",
+        "docs/evidence/AY-13/cross_validation/build_report_generation.log"
       ],
       "tests": [
         {
@@ -389,6 +394,16 @@
           "command": "bash -n tools/capture_ay01_humble.sh tools/capture_ay02_humble.sh tools/capture_ay0608_humble.sh",
           "environment": "CachyOS host Bash",
           "result": "PASS: capture script syntax valid after scoped-build and setup-sourcing repairs"
+        },
+        {
+          "command": "python3 tools/generate_build_report.py; python3 -m json.tool artifacts/verification/cambot_build_report.json >/dev/null",
+          "environment": "CachyOS host Python 3; committed cross-validation evidence and f2e753f source commit",
+          "result": "PASS: 13 AY records, 11 gates, five qualifying visual attempts and explicit NOT RUN controller scenarios"
+        },
+        {
+          "command": "python3 -m unittest tools/test_generate_build_report.py -v",
+          "environment": "CachyOS host Python 3; committed AY-10 raw/derived evidence",
+          "result": "PASS: two tests; report paths/results complete and altered trial qualification rejected"
         }
       ],
       "evidence": [
@@ -404,7 +419,10 @@
         "docs/evidence/AY-13/cross_validation/live_recheck/probe.jsonl",
         "docs/evidence/AY-13/cross_validation/live_recheck/residual_nodes.txt",
         "docs/evidence/AY-06-08/runtime/probe.jsonl",
-        "docs/evidence/AY-13/cross_validation/live_recheck/visual_rosbag/metadata.yaml"
+        "docs/evidence/AY-13/cross_validation/live_recheck/visual_rosbag/metadata.yaml",
+        "artifacts/verification/cambot_build_report.json",
+        "docs/evidence/AY-13/cross_validation/build_report_tests.log",
+        "docs/evidence/AY-13/cross_validation/build_report_generation.log"
       ],
       "limitations": "Selected controller/validated targets and second-person clean-checkout repeat remain unavailable; G6/G7 are visual-only and S2/S4 controller cases are NOT RUN.",
       "next": "Obtain independent replay record; then mark AY-13 complete.",
