@@ -32,10 +32,12 @@ mkdir -p "$evidence_dir"
 timeout 20s ros2 pkg list > "$evidence_dir/packages-before-build.log"
 timeout 300s rosdep install --from-paths src --ignore-src -r -y \
   > "$evidence_dir/rosdep.log" 2>&1
-timeout 600s colcon build --symlink-install \
+timeout 600s colcon build --base-paths src --symlink-install \
   --packages-select carrier_description carrier_control \
   > "$evidence_dir/colcon.log" 2>&1
+set +u
 source install/setup.bash
+set -u
 {
   timeout 10s ros2 pkg prefix carrier_description
   timeout 10s ros2 pkg prefix carrier_control

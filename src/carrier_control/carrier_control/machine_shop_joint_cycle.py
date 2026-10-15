@@ -25,7 +25,8 @@ class MachineShopJointCycle(Node):
 
         self.joint_names = list(UR5_JOINT_NAMES)
 
-        waypoint_file = Path(get_package_share_directory('carrier_control')) / 'config' / 'waypoints.yaml'
+        waypoint_file = (Path(get_package_share_directory('carrier_control')) /
+                         'config' / 'waypoints.yaml')
         self.waypoints = load_waypoints(waypoint_file)
         self.get_logger().info(f'Loaded taught waypoints from {waypoint_file}')
 

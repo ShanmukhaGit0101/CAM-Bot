@@ -54,7 +54,8 @@ def _rotate(q, vector):
 
 def evaluate_reachability(target_world_xyz_m, world_from_base, workspace,
                           required_arms="both"):
-    """Transform world XYZ by current TF (xyz, xyzw) and test inclusive proxy bounds.
+    """
+    Transform world XYZ by current TF (xyz, xyzw) and test inclusive proxy bounds.
 
     Unknown or malformed TF is UNKNOWN, never reachable. A single-arm pass
     cannot satisfy a both-arm requirement.

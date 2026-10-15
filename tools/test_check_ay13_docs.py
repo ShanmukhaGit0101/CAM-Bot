@@ -3,6 +3,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 
@@ -89,6 +90,25 @@ class DocCheckTests(unittest.TestCase):
             )
             errors, _, _ = CHECK.source_contract_errors(root, ["README.md"])
             self.assertIn("phantom", " ".join(errors))
+
+    def test_source_inventory_detects_changed_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "src/carrier_control/node.py"
+            source.parent.mkdir(parents=True)
+            source.write_text("value = 1\n", encoding="utf-8")
+            subprocess.run(["git", "init", "-q", str(root)], check=True)
+            subprocess.run(["git", "-C", str(root), "add", "src"], check=True)
+            import hashlib
+            inventory = root / "docs/evidence/AY-13/cross_validation/source_inventory.json"
+            inventory.parent.mkdir(parents=True)
+            inventory.write_text(json.dumps({"files": [{
+                "path": "src/carrier_control/node.py",
+                "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+            }]}), encoding="utf-8")
+            self.assertEqual([], CHECK.inventory_errors(root))
+            source.write_text("value = 2\n", encoding="utf-8")
+            self.assertIn("hash mismatch", " ".join(CHECK.inventory_errors(root)))
 
 
 if __name__ == "__main__":

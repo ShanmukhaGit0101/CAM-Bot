@@ -141,3 +141,18 @@ captures 01 and 02 remain separate. AY-11/12 derive descriptive metrics and
 plots from that raw set. A visual carrier move counts as completed only when
 its exact goal publication is observed; it is not a controller action result.
 No optimization, grasp or physical-CNC claim follows from this dataset.
+
+---
+
+## D-10 — Scope Colcon discovery and own capture process groups
+
+**Date:** 2026-10-15 · **Status:** Adopted
+
+The immutable AY-10 evidence contains nested snapshots of both ROS packages.
+Colcon's repository-wide package discovery therefore reports duplicate
+package names. Build and test with `--base-paths src` so the tracked source
+packages are the only candidates. The first AY-06–08 probe also left child
+nodes after the launch parent stopped. The capture script now starts launch
+and rosbag in process groups, signals the groups, and checks the ROS domain
+for residual nodes before declaring a clean shutdown. These repairs do not
+change the controller or visual reachability logic.

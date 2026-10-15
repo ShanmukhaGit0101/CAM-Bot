@@ -3,6 +3,7 @@
 
 import argparse
 import ast
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -24,6 +25,8 @@ DOCUMENTS = [
     "docs/progress/phase_4.md",
     "docs/progress/phase3-carrier-flange.md",
     "docs/progress/phase1-carrier-baseline.md",
+    "docs/evidence/AY-13/README.md",
+    "docs/evidence/AY-13/cross_validation/README.md",
 ]
 LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 LAUNCH = re.compile(r"ros2\s+launch\s+carrier_description\s+([\w.-]+\.launch\.py)")
@@ -148,8 +151,31 @@ def installed_errors(executables, launches):
     return errors
 
 
+def inventory_errors(root=ROOT):
+    """Check the G0 source map against all tracked source paths and bytes."""
+    path = root / "docs/evidence/AY-13/cross_validation/source_inventory.json"
+    if not path.is_file():
+        return ["missing G0 source inventory"]
+    data = json.loads(path.read_text(encoding="utf-8"))
+    rows = data.get("files", [])
+    mapped = {item["path"]: item for item in rows}
+    tracked = set(subprocess.check_output(
+        ["git", "-C", str(root), "ls-files", "src"], text=True
+    ).splitlines())
+    errors = []
+    if set(mapped) != tracked or len(rows) != len(mapped):
+        errors.append("G0 source inventory does not map each tracked src file once")
+    for name, item in mapped.items():
+        file_path = root / name
+        if not file_path.is_file():
+            errors.append(f"G0 source inventory missing path: {name}")
+        elif hashlib.sha256(file_path.read_bytes()).hexdigest() != item.get("sha256"):
+            errors.append(f"G0 source inventory hash mismatch: {name}")
+    return errors
+
+
 def check(root=ROOT, installed=False):
-    errors = local_link_errors(root) + ledger_errors(root)
+    errors = local_link_errors(root) + ledger_errors(root) + inventory_errors(root)
     contract_errors, executables, launches = source_contract_errors(root)
     errors.extend(contract_errors)
     if installed:
@@ -167,6 +193,9 @@ def check(root=ROOT, installed=False):
     for name in ("README.md", "docs/AY_TRACEABILITY.md"):
         if AY_ROW.search((root / name).read_text(encoding="utf-8")):
             errors.append(f"{name}: duplicates authoritative AY status table")
+    for name in ("README.md", "docs/ayush/README.md", "docs/VALIDATION.md"):
+        if "colcon build --base-paths src" not in (root / name).read_text(encoding="utf-8"):
+            errors.append(f"{name}: build must exclude archived source snapshots")
     config = json.loads(
         (root / "src/carrier_control/config/machine_tending.json").read_text(encoding="utf-8")
     )

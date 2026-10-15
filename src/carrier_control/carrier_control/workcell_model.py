@@ -1,4 +1,5 @@
-"""Canonical, ROS-independent workcell geometry and target transforms.
+"""
+Canonical, ROS-independent workcell geometry and target transforms.
 
 All positions are metres and all RPY angles are radians in the ``world``
 frame. Geometry is explicitly a temporary visual-simulation assumption.

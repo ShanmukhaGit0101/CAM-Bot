@@ -40,7 +40,9 @@ timeout 900s rosdep install --from-paths src/CAM-BOT/src --ignore-src -r -y \
 timeout 900s colcon build --symlink-install --base-paths src/CAM-BOT/src \
   --packages-select carrier_description carrier_control \
   > "$evidence_dir/clean_build.log" 2>&1
+set +u
 source install/setup.bash
+set -u
 description_prefix="$(timeout 10s ros2 pkg prefix carrier_description)"
 control_prefix="$(timeout 10s ros2 pkg prefix carrier_control)"
 {

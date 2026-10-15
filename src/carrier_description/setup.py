@@ -8,6 +8,7 @@ package_name = 'carrier_description'
 def asset_files(directory):
     return [path for path in glob(os.path.join(directory, '*')) if os.path.isfile(path)]
 
+
 setup(
     name=package_name,
     version='0.0.1',

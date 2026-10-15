@@ -17,3 +17,9 @@ The checks do not constitute the requested **second-person** clean-checkout
 repeat. [Reviewer instructions](../../ayush/README.md) specify that remaining
 acceptance step. The earlier [48-test baseline](../AY-10/final_tests.log) is
 retained; no CAM-BOT ROS behavior source was changed in AY-13.
+
+The later [cross-validation run](cross_validation/README.md) found that
+repository-wide Colcon discovery sees archived AY-10 source copies as duplicate
+packages. The reproducible build now uses `--base-paths src`. It also
+identified preexisting lint failures and an AY-06–08 capture shutdown leak;
+both repairs and their before/after logs are retained there.

@@ -61,14 +61,19 @@ distrobox enter cambot-humble -- bash
 cd /path/to/CAM-BOT
 source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
-colcon build --symlink-install --packages-select carrier_description carrier_control
+colcon build --base-paths src --symlink-install --packages-select carrier_description carrier_control
 export COLCON_TRACE=
 set +u
 source install/setup.bash
 set -u
+colcon test --base-paths src --packages-select carrier_description carrier_control
+colcon test-result --verbose
 ```
 
 The `set +u` bracket is required if the caller enabled Bash `nounset`.
+The `--base-paths src` restriction is required because the immutable AY-10
+raw archives contain source snapshots with duplicate ROS package names;
+Colcon's default repository-wide discovery would reject them.
 On Wayland/niri, use `export QT_QPA_PLATFORM=xcb` and
 `export LIBGL_ALWAYS_SOFTWARE=1` for RViz.
 
@@ -110,6 +115,12 @@ reset gates, preliminary captures and nonpooling rule. Capture 03 records base
 commit `6e77292e4fceca0636a4cd86a037bf9e7d64f93a` plus
 `raw/source.patch` and per-file hashes; that commit by itself is not the
 executed source version.
+
+The [cross-validation record](../evidence/AY-13/cross_validation/README.md)
+retains the failing unscoped build, passing scoped build and Colcon tests,
+48-test regression, model/installed-asset checks, live visual probe and exact
+analysis regeneration comparison. The build and script repairs did not add a
+controller stack; controller smoke cases remain unverified.
 
 ## Independent quick-start repeat
 

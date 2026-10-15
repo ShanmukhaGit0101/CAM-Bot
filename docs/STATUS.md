@@ -31,7 +31,7 @@ Controller targets S1–S4 are unvalidated and S5 has no taught target.
 | AY-10 | COMPLETE | Five actual visual attempts; [acceptance](evidence/AY-10/acceptance.json), [raw manifest](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/manifest.json) |
 | AY-11 | COMPLETE | Event-derived visual metrics; [metrics](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw_analysis/metrics.json), [tests](evidence/AY-10/analysis_tests.log) |
 | AY-12 | COMPLETE | Reproducible visual tables/plots; [artifacts](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw_analysis/artifacts.json), [regeneration](evidence/AY-10/regeneration.log) |
-| AY-13 | IN PROGRESS | Documentation reconciliation and automated checks [pass](evidence/AY-13/humble_contract.log); independent second-person repeat pending. [Guide](ayush/README.md) |
+| AY-13 | IN PROGRESS | Documentation and [G0–G10 cross-validation](evidence/AY-13/cross_validation/README.md) recorded; controller gates and independent second-person repeat remain open. [Guide](ayush/README.md) |
 
 AY-01…09 completion refers to visual ROS scope. Original AY-06–08 and AY-09
 runtime capture directories are absent here; the later AY-10 raw dataset

@@ -1,4 +1,5 @@
-"""Load the intentionally small, fixed-schema machine-shop waypoint file.
+"""
+Load the intentionally small, fixed-schema machine-shop waypoint file.
 
 This accepts only the flat YAML subset used by config/waypoints.yaml.  It does
 not silently accept new keys or malformed trajectories.  No ROS installation

@@ -1,4 +1,5 @@
-"""Gated integration entry point for a supplied UR5 controller stack.
+"""
+Gated integration entry point for a supplied UR5 controller stack.
 
 The repository does not contain that stack or validated station targets.
 Preflight deliberately rejects the supplied default config before any node

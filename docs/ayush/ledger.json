@@ -41,7 +41,7 @@
       ],
       "tests": [
         {
-          "command": "colcon build --symlink-install --packages-select carrier_description carrier_control",
+          "command": "colcon build --base-paths src --symlink-install --packages-select carrier_description carrier_control",
           "environment": "Ubuntu 22.04 / ROS 2 Humble Distrobox for ROS checks; host Python for offline/analysis checks",
           "result": "PASS; both packages in clean build log."
         }
@@ -50,7 +50,7 @@
         "docs/evidence/AY-02/clean_build.log",
         "docs/evidence/AY-02/installed_assets.txt"
       ],
-      "limitations": "Build success does not show controller execution.",
+      "limitations": "Build success does not show controller execution. Current clean checkouts must scope Colcon discovery to src because archived AY-10 snapshots contain duplicate package names.",
       "next": "Rebuild after ROS source changes.",
       "source_commit_or_change": "ac6c7bd",
       "change_summary": "Installed package assets and waypoint configuration through the ROS package setup files."
@@ -338,7 +338,26 @@
         "docs/evidence/AY-13/doc_checker_tests.log",
         "docs/evidence/AY-13/source_contract.log",
         "docs/progress/phase1-carrier-baseline.md",
-        "docs/evidence/AY-13/README.md"
+        "docs/evidence/AY-13/README.md",
+        "tools/capture_ay0608_humble.sh",
+        "docs/evidence/AY-13/cross_validation/README.md",
+        "docs/evidence/AY-13/cross_validation/source_inventory.json",
+        "src/carrier_control/setup.py",
+        "src/carrier_description/setup.py",
+        "src/carrier_control/carrier_control/dual_arm_cycle.py",
+        "src/carrier_control/carrier_control/machine_shop_joint_cycle.py",
+        "src/carrier_control/carrier_control/machine_shop_trajectory.py",
+        "src/carrier_control/carrier_control/machine_tending_coordinator.py",
+        "src/carrier_control/carrier_control/machine_tending_fsm.py",
+        "src/carrier_control/carrier_control/plot_machine_shop_path.py",
+        "src/carrier_control/carrier_control/reachability.py",
+        "src/carrier_control/carrier_control/waypoints.py",
+        "src/carrier_control/carrier_control/workcell_model.py",
+        "src/carrier_description/launch/machine_tending_controller.launch.py",
+        "docs/evidence/AY-06-08/runtime/probe.jsonl",
+        "docs/evidence/AY-13/cross_validation/live_recheck/visual_rosbag/metadata.yaml",
+        "tools/capture_ay01_humble.sh",
+        "tools/capture_ay02_humble.sh"
       ],
       "tests": [
         {
@@ -350,6 +369,26 @@
           "command": "python3 tools/check_ay13_docs.py --installed; xacro src/carrier_description/urdf/ur5_with_test_tool.xacro > /tmp/cambot-ay13.urdf; check_urdf /tmp/cambot-ay13.urdf; ros2 pkg executables carrier_control",
           "environment": "Ubuntu 22.04 ROS 2 Humble in cambot-humble Distrobox, workspace sourced",
           "result": "PASS: 13 records/statuses, links, installed assets/executables/launches, Xacro/URDF; docs/evidence/AY-13/humble_contract.log"
+        },
+        {
+          "command": "rosdep check --from-paths src --ignore-src; colcon build --base-paths src --symlink-install --packages-select carrier_description carrier_control; colcon test --base-paths src --packages-select carrier_description carrier_control; colcon test-result --verbose",
+          "environment": "Ubuntu 22.04 ROS 2 Humble in cambot-humble Distrobox",
+          "result": "PASS: dependencies satisfied, two packages built, 59 package tests with 0 failures and 2 skipped; see cross_validation logs"
+        },
+        {
+          "command": "PYTHONPATH=src/carrier_control python3 -m unittest src/carrier_control/test/test_workflow.py src/carrier_control/test/test_metrics.py src/carrier_control/test/test_action_safety.py src/carrier_control/test/test_machine_tending_fsm.py src/carrier_control/test/test_reachability.py src/carrier_control/test/test_coordination.py src/carrier_control/test/test_launch_preflight.py src/carrier_control/test/test_package_integration.py -v; python3 -m unittest src/carrier_description/test/test_cell_model.py src/carrier_description/test/test_launch_contract.py src/carrier_description/test/test_phase4_contract.py -v",
+          "environment": "Ubuntu 22.04 ROS 2 Humble in cambot-humble Distrobox",
+          "result": "PASS: 35 carrier-control plus 13 carrier-description regression tests; cross_validation/regression_48.log"
+        },
+        {
+          "command": "ROS_DOMAIN_ID=95 QT_QPA_PLATFORM=xcb LIBGL_ALWAYS_SOFTWARE=1 bash tools/capture_ay0608_humble.sh docs/evidence/AY-13/cross_validation/live_recheck",
+          "environment": "Ubuntu 22.04 ROS 2 Humble in cambot-humble Distrobox; isolated domain 95",
+          "result": "VISUAL_SIMULATION_PASS, five rechecks, one joint-state publisher, no residual nodes; controller verification false"
+        },
+        {
+          "command": "bash -n tools/capture_ay01_humble.sh tools/capture_ay02_humble.sh tools/capture_ay0608_humble.sh",
+          "environment": "CachyOS host Bash",
+          "result": "PASS: capture script syntax valid after scoped-build and setup-sourcing repairs"
         }
       ],
       "evidence": [
@@ -358,12 +397,19 @@
         "docs/evidence/AY-13/humble_contract.log",
         "docs/evidence/AY-13/doc_checker_tests.log",
         "docs/evidence/AY-13/source_contract.log",
-        "docs/evidence/AY-13/README.md"
+        "docs/evidence/AY-13/README.md",
+        "docs/evidence/AY-13/cross_validation/README.md",
+        "docs/evidence/AY-13/cross_validation/colcon_retest.log",
+        "docs/evidence/AY-13/cross_validation/regression_48.log",
+        "docs/evidence/AY-13/cross_validation/live_recheck/probe.jsonl",
+        "docs/evidence/AY-13/cross_validation/live_recheck/residual_nodes.txt",
+        "docs/evidence/AY-06-08/runtime/probe.jsonl",
+        "docs/evidence/AY-13/cross_validation/live_recheck/visual_rosbag/metadata.yaml"
       ],
-      "limitations": "Independent second-person clean-checkout quick-start repeat has not been observed; AY-13 remains IN PROGRESS.",
+      "limitations": "Selected controller/validated targets and second-person clean-checkout repeat remain unavailable; G6/G7 are visual-only and S2/S4 controller cases are NOT RUN.",
       "next": "Obtain independent replay record; then mark AY-13 complete.",
       "source_commit_or_change": "current documentation change; see Git history",
-      "change_summary": "Reconciled status/architecture/decisions/quick start, marked archival claims, added evidence ledger, clean-checkout guide, document checker and negative fixtures."
+      "change_summary": "Reconciled status/architecture/decisions/quick start, marked archival claims, added evidence ledger, clean-checkout guide, document checker and negative fixtures. Cross-validation repaired Colcon discovery instructions, preexisting package lint, and visual capture process-group shutdown without altering the sealed AY-10 raw data."
     }
   ]
 }

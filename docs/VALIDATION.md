@@ -2,6 +2,10 @@
 
 **Current entry point (2026-10-15):** Follow the [clean-checkout and independent
 repeat guide](ayush/README.md), then the [experiment methods](../experiments/machine_tending/README.md).
+The [cross-validation record](evidence/AY-13/cross_validation/README.md)
+includes actual G0–G10 results and scenario evidence. Use
+`--base-paths src` for both Colcon build and test: archived AY-10 source
+snapshots otherwise appear as duplicate packages.
 The commands below include historical component probes. References to
 uncommitted AY-04/AY-06–09 capture outputs describe how those scripts write
 evidence, not files presently retained in this checkout. The AY-10 raw
@@ -60,7 +64,7 @@ earlier offline implementation shell, but the later Distrobox/Humble build,
 Xacro and runtime captures succeeded; see the AY-10 logs and raw evidence:
 
 ```bash
-timeout 120s colcon build --symlink-install --packages-select carrier_description carrier_control
+timeout 120s colcon build --base-paths src --symlink-install --packages-select carrier_description carrier_control
 export COLCON_TRACE=
 set +u
 source install/setup.bash
@@ -155,7 +159,8 @@ PYTHONPATH=src/carrier_control python3 -m unittest \
 
 These are offline geometric-proxy and synthetic-TF tests, not robot
 execution. In a sourced Ubuntu 22.04/Humble GUI workspace, run
-`bash tools/capture_ay0608_humble.sh` for a fail-closed **visual-simulation**
+`bash tools/capture_ay0608_humble.sh /absolute/new/evidence-directory`
+for a fail-closed **visual-simulation**
 probe that checks live TF, both decision branches, joint-state animation,
 FSM state visits, and workpiece updates. A successful visual probe still does
 not verify UR5 actuation or grasp. A real carrier/BM end-to-end test requires

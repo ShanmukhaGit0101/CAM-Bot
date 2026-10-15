@@ -46,6 +46,7 @@ WORKPIECE_JOINTS = (
 )
 VISUAL_CARRIER_JOINTS = UR5_JOINT_NAMES
 
+
 class MachineTendingCoordinator(Node):
     """Run one bounded, traceable workflow in controller or visual mode."""
 
@@ -531,7 +532,8 @@ class MachineTendingCoordinator(Node):
         return distance > 1e-8 or dot < 1 - 1e-6
 
     def _settled_base_transform(self, deadline, cancelled, previous=None):
-        """Wait for a newer world->dual_arm_base_link TF to settle.
+        """
+        Wait for a newer world->dual_arm_base_link TF to settle.
 
         Visual carrier motion publishes multiple intermediate joint states.
         Require several nearly-identical samples from a transform that is

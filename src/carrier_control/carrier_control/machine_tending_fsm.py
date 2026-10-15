@@ -1,4 +1,5 @@
-"""Dependency-light, one-shot machine-tending application state machine.
+"""
+Dependency-light, one-shot machine-tending application state machine.
 
 The FSM owns logical state. Adapters own ROS actions and visual-only updates.
 No step, workpiece transition, or subsequent state commits after failure.

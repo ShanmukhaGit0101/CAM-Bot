@@ -131,7 +131,7 @@ git clone --branch feature/ay10-ay12-visual-experiments https://github.com/voidA
 cd CAM-BOT
 source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
-colcon build --symlink-install --packages-select carrier_description carrier_control
+colcon build --base-paths src --symlink-install --packages-select carrier_description carrier_control
 export COLCON_TRACE=
 set +u
 source install/setup.bash
