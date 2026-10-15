@@ -32,6 +32,7 @@ class TestCellModel(unittest.TestCase):
     def test_positive_ur5_wrapper_preserves_tool0_attachment_contract(self):
         text = (URDF_DIR / "ur5_with_test_tool.xacro").read_text(encoding="utf-8")
         self.assertIn('<xacro:ur_robot', text)
+        self.assertNotIn('force_abs_paths=', text)
         self.assertIn('parent_link="tool0"', text)
         self.assertIn('parent_link="carrier_flange_interface"', text)
 

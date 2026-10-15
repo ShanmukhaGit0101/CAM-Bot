@@ -77,7 +77,7 @@
     safety_pos_margin="0.15"
     safety_k_position="20"
 
-    force_abs_paths="false">
+    >
 
     <origin
       xyz="0 0 0"

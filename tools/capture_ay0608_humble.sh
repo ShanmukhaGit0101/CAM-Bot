@@ -15,7 +15,9 @@ done
 [[ -f "$repo_root/install/setup.bash" ]] || {
   printf 'Build the workspace first\n' >&2; exit 2;
 }
+set +u
 source "$repo_root/install/setup.bash"
+set -u
 mkdir -p "$evidence_dir"
 ros2 bag record -o "$evidence_dir/visual_rosbag" \
   /joint_states /tf /tf_static /cambot/task_state \

@@ -91,42 +91,42 @@
     "S1_RAW": {
       "label": "Raw / Input",
       "workcell_station_id": "RAW_INPUT",
-      "visual_carrier_joints": [3.593065, -2.205479, -1.067588, 0.131337, 1.24201, -4.712387],
+      "visual_carrier_joints": [4.14379989790734, -2.601572782352827, -0.0011403497327275738, -0.9697176492935128, 1.3348811011396422, -3.1453336367520204],
       "carrier_joints": [3.593065, -2.205479, -1.067588, 0.131337, 1.24201, -4.712387],
       "controller_validated": false,
-      "source": "legacy P1; named-station mapping is an unvalidated simulation assumption"
+      "source": "visual pose calibrated for five-station simulation on 2026-10-15; controller carrier_joints remain legacy P1 and unvalidated"
     },
     "S2_STAGING": {
       "label": "Staging / Inspection",
       "workcell_station_id": "STAGING_INSPECTION",
-      "visual_carrier_joints": [-2.97318, -1.069788, 0.405185, -2.478748, -1.710968, -0.000344],
+      "visual_carrier_joints": [-5.018432574192238, -0.5717668807858146, 0.006819504420831884, -0.9826347085614247, 1.3085720467961368, -3.1411705666800254],
       "carrier_joints": [-2.97318, -1.069788, 0.405185, -2.478748, -1.710968, -0.000344],
       "controller_validated": false,
-      "source": "legacy P2; named-station mapping is an unvalidated simulation assumption"
+      "source": "visual pose calibrated for five-station simulation on 2026-10-15; controller carrier_joints remain legacy P2 and unvalidated"
     },
     "S3_MACHINE": {
       "label": "CNC / Machine",
       "workcell_station_id": "CNC_MACHINE",
-      "visual_carrier_joints": [-0.491184, -1.243253, 1.013834, -2.910754, -1.513936, -0.000694],
+      "visual_carrier_joints": [5.6031575450977025, -2.419395157605122, 0.0009535924786663888, -0.9726635291378096, 1.3367156743535458, -3.1411270948632617],
       "carrier_joints": [-0.491184, -1.243253, 1.013834, -2.910754, -1.513936, -0.000694],
       "controller_validated": false,
-      "source": "legacy P3; named-station mapping is an unvalidated simulation assumption"
+      "source": "visual pose calibrated for five-station simulation on 2026-10-15; controller carrier_joints remain legacy P3 and unvalidated"
     },
     "S4_OUTPUT": {
       "label": "Output / Unloading",
       "workcell_station_id": "OUTPUT_UNLOADING",
-      "visual_carrier_joints": [-1.912422, -1.170719, 1.563141, -3.534719, -1.728039, -0.001561],
+      "visual_carrier_joints": [-5.405318252398965, -2.574346038001332, 0.2926637792053955, -3.6952148217057204, -1.5847038638155235, 0.8256780966393559],
       "carrier_joints": [-1.912422, -1.170719, 1.563141, -3.534719, -1.728039, -0.001561],
       "controller_validated": false,
-      "source": "legacy P4; named-station mapping is an unvalidated simulation assumption"
+      "source": "visual pose calibrated for five-station simulation on 2026-10-15; controller carrier_joints remain legacy P4 and unvalidated"
     },
     "S5_FINISHED": {
       "label": "Finished Part",
       "workcell_station_id": "FINISHED_PART",
-      "visual_carrier_joints": [1.2, -1.2, 1.0, -2.9, -1.5, 0.0],
+      "visual_carrier_joints": [2.0985209678404364, -2.5536859955144933, 0.055607345603007764, -2.651437520767342, -2.1017720091078473, 2.067684137734014],
       "carrier_joints": null,
       "controller_validated": false,
-      "source": "no taught carrier target available"
+      "source": "visual pose calibrated for five-station simulation on 2026-10-15; no taught controller carrier target available"
     }
   },
   "bimanual_poses": {

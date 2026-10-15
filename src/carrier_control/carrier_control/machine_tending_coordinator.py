@@ -300,7 +300,7 @@ class MachineTendingCoordinator(Node):
         message.position = self.custom_positions + self.workpiece_positions
         if self.mode == "visual_simulation":
             message.name = list(VISUAL_CARRIER_JOINTS) + message.name
-            message.position = self.visual_carrier_positions + message.position
+            message.position = list(self.visual_carrier_positions) + list(message.position)
         self.joint_publisher.publish(message)
 
     def _feedback(self, message) -> None:
@@ -529,6 +529,84 @@ class MachineTendingCoordinator(Node):
         dot = abs(sum(a * b for a, b in zip(before[1], after[1])))
         return distance > 1e-8 or dot < 1 - 1e-6
 
+    def _settled_base_transform(self, deadline, cancelled, previous=None):
+        """Wait for a newer world->dual_arm_base_link TF to settle.
+
+        Visual carrier motion publishes multiple intermediate joint states.
+        Require several nearly-identical samples from a transform that is
+        newer than ``previous`` before using it for a reachability recheck.
+        """
+        timeout = self.plan["workspace"]["tf_timeout_s"]
+        until = min(deadline, time.monotonic() + timeout)
+
+        latest = None
+        stable_samples = 0
+        required_stable_samples = 4
+        translation_tol_sq = 1e-8
+        quaternion_dot_tol = 1.0 - 1e-6
+
+        while time.monotonic() < until and not cancelled():
+            try:
+                if self.tf_buffer.can_transform(
+                    "world", "dual_arm_base_link", Time()
+                ):
+                    tf = self.tf_buffer.lookup_transform(
+                        "world", "dual_arm_base_link", Time()
+                    ).transform
+                    pose = (
+                        (
+                            tf.translation.x,
+                            tf.translation.y,
+                            tf.translation.z,
+                        ),
+                        (
+                            tf.rotation.x,
+                            tf.rotation.y,
+                            tf.rotation.z,
+                            tf.rotation.w,
+                        ),
+                    )
+
+                    if previous is not None and not self._transform_changed(
+                        previous, pose
+                    ):
+                        rclpy.spin_once(self, timeout_sec=0.05)
+                        continue
+
+                    if latest is None:
+                        latest = pose
+                        stable_samples = 1
+                    else:
+                        translation_delta_sq = sum(
+                            (a - b) ** 2
+                            for a, b in zip(latest[0], pose[0])
+                        )
+                        quaternion_dot = abs(
+                            sum(a * b for a, b in zip(latest[1], pose[1]))
+                        )
+                        if (
+                            translation_delta_sq <= translation_tol_sq
+                            and quaternion_dot >= quaternion_dot_tol
+                        ):
+                            stable_samples += 1
+                        else:
+                            latest = pose
+                            stable_samples = 1
+
+                    if stable_samples >= required_stable_samples:
+                        return latest
+            except Exception:
+                pass
+
+            rclpy.spin_once(
+                self,
+                timeout_sec=min(
+                    0.05, max(0.0, until - time.monotonic())
+                ),
+            )
+
+        return latest
+
     def _animate_carrier_visual(self, station, duration_s, deadline, cancelled):
         if self.mode != "visual_simulation":
             return True
@@ -548,6 +626,22 @@ class MachineTendingCoordinator(Node):
             rclpy.spin_once(self, timeout_sec=min(
                 interval, max(0.0, deadline - time.monotonic())
             ))
+
+        # Publish the exact final carrier pose repeatedly so
+        # robot_state_publisher consumes it and emits the corresponding final
+        # TF before the reachability recheck.
+        self.visual_carrier_positions = list(goal)
+        for _ in range(4):
+            if cancelled() or time.monotonic() >= deadline:
+                return False
+            self._publish_visual_joints()
+            rclpy.spin_once(
+                self,
+                timeout_sec=min(
+                    0.05, max(0.0, deadline - time.monotonic())
+                ),
+            )
+
         return not cancelled() and time.monotonic() < deadline
 
     def _emit_decision(self, step, target_xyz, transform, reach, decision,
@@ -612,14 +706,39 @@ class MachineTendingCoordinator(Node):
         if not self._animate_carrier_visual(station, step["duration_s"],
                                             deadline, cancelled):
             return StepOutcome(False, "CARRIER_VISUAL_UPDATE_CANCELLED_OR_TIMEOUT")
-        after = self._current_base_transform(deadline, cancelled, previous=before)
-        if after is None:
-            self._emit_decision(step, target_xyz, before, reach, decision,
-                                "TF_NOT_UPDATED")
-            return StepOutcome(False, "TF_NOT_UPDATED")
-        updated = evaluate_reachability(
-            target_xyz, after, workspace, workspace["required_arms"]
+        # First accept any post-animation TF that already proves the target
+        # reachable. If that first update is still outside the proxy, require
+        # a newer settled transform so an intermediate visual carrier pose
+        # cannot be mistaken for the final station pose.
+        first_after = self._current_base_transform(
+            deadline, cancelled, previous=before
         )
+        if first_after is None:
+            self._emit_decision(
+                step, target_xyz, before, reach, decision, "TF_NOT_UPDATED"
+            )
+            return StepOutcome(False, "TF_NOT_UPDATED")
+
+        first_updated = evaluate_reachability(
+            target_xyz, first_after, workspace, workspace["required_arms"]
+        )
+        if first_updated.status == "REACHABLE":
+            after = first_after
+            updated = first_updated
+        else:
+            settled_after = self._settled_base_transform(
+                deadline, cancelled, previous=first_after
+            )
+            if settled_after is None:
+                self._emit_decision(
+                    step, target_xyz, first_after, first_updated, decision,
+                    "FINAL_TF_NOT_OBSERVED",
+                )
+                return StepOutcome(False, "FINAL_TF_NOT_OBSERVED")
+            after = settled_after
+            updated = evaluate_reachability(
+                target_xyz, after, workspace, workspace["required_arms"]
+            )
         recheck = self.policy.choose(
             command_id, target_xyz, self.fsm.workpiece_state, after,
             updated, station

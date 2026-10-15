@@ -15,7 +15,9 @@ done
 [[ -f "$repo_root/install/setup.bash" ]] || {
   printf 'Build the workspace first\n' >&2; exit 2;
 }
+set +u
 source "$repo_root/install/setup.bash"
+set -u
 mkdir -p "$evidence_dir"
 summary="$evidence_dir/trials.csv"
 ros2 launch carrier_description dual_arm_demo.launch.py \
