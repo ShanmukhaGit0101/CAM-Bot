@@ -1,5 +1,13 @@
 # Validation procedure
 
+**Current entry point (2026-10-15):** Follow the [clean-checkout and independent
+repeat guide](ayush/README.md), then the [experiment methods](../experiments/machine_tending/README.md).
+The commands below include historical component probes. References to
+uncommitted AY-04/AY-06–09 capture outputs describe how those scripts write
+evidence, not files presently retained in this checkout. The AY-10 raw
+capture is the retained live visual evidence. Controller execution remains
+unverified.
+
 ## AY-10…AY-12 visual experiment acceptance
 
 The user selected visual ROS trials as the qualifying scope. Five observed
@@ -47,12 +55,16 @@ AY-01…AY-13 acceptance evidence. The current runtime gate is recorded in
 
 ## ROS 2 Humble static checks
 
-Run in a sourced Humble workspace; these commands were not available in the
-implementation shell:
+Run in a sourced Humble workspace. These commands were unavailable in an
+earlier offline implementation shell, but the later Distrobox/Humble build,
+Xacro and runtime captures succeeded; see the AY-10 logs and raw evidence:
 
 ```bash
-timeout 120s colcon build --symlink-install
+timeout 120s colcon build --symlink-install --packages-select carrier_description carrier_control
+export COLCON_TRACE=
+set +u
 source install/setup.bash
+set -u
 xacro $(ros2 pkg prefix carrier_description)/share/carrier_description/urdf/ur5_with_test_tool.xacro > /tmp/cambot.urdf
 check_urdf /tmp/cambot.urdf
 timeout 20s ros2 launch carrier_description dual_arm_demo.launch.py \
@@ -67,8 +79,10 @@ src/carrier_control/test/test_workcell_contract.py -v` for positive and
 failure-path config/transform tests. In Humble, run
 `bash tools/capture_ay04_humble.sh` to expand/check the configured URDF,
 inspect station TF frames and workpiece state, and capture an RViz screenshot.
-The supplied cell geometry is temporary simulation-only, and no screenshot or
-TF runtime evidence was available on the implementation host.
+The supplied cell geometry is temporary simulation-only. A later genuine
+[RViz screenshot](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/rviz_runtime.png)
+and [TF-containing rosbag](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/visual_rosbag/metadata.yaml)
+are retained from the Humble visual run.
 
 ## Controller-mode gate and five-trial run
 
@@ -163,9 +177,11 @@ invalid-claim datasets. They verify unique IDs, one final row, nonnegative
 steady-clock durations, complete failure context, chronological event
 sequences, schema/template parity, and direct coordinator logger hooks.
 
-In a sourced Ubuntu 22.04/Humble GUI workspace, run
-`bash tools/capture_ay09_humble.sh`. It writes a genuine **visual runtime** CSV
-and JSONL pair plus validation output under `docs/evidence/AY-09/runtime/`.
-That sample may establish live FSM/logger integration, but is not measured
-carrier actuation, grasp, Gazebo physics, or end-to-end controller evidence.
+In a sourced Ubuntu 22.04/Humble GUI workspace,
+`bash tools/capture_ay09_humble.sh` can create a **visual runtime** CSV
+and JSONL pair under `docs/evidence/AY-09/runtime/`; that directory is not
+present in this checkout. The retained [AY-10 CSV](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/trials.csv)
+and [event JSONL](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/trials.events.jsonl)
+show the live logger integrated with five visual cycles. They are not carrier
+actuation, grasp, Gazebo physics, or end-to-end controller evidence.
 

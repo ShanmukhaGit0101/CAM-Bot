@@ -1,5 +1,11 @@
 # CAMBOT — Architecture
 
+**Evidence scope (2026-10-15):** This is the implemented visual ROS 2 Humble
+topology. The [status matrix](STATUS.md) separates available source, observed
+visual runs, unverified actuated simulation, and measured visual cycles.
+Station geometry is an assumption; the four-joint module is a visual
+placeholder, not a validated gripper.
+
 ## Hierarchy
 
 ```text
@@ -68,8 +74,11 @@ know nothing else about the carrier.
 ## Joints
 
 **Carrier (UR5), 6 DOF** — `shoulder_pan`, `shoulder_lift`, `elbow`,
-`wrist_1`, `wrist_2`, `wrist_3`. Controlled through MoveIt 2 →
-`joint_trajectory_controller`.
+`wrist_1`, `wrist_2`, `wrist_3`. The current visual launch publishes
+assumed carrier joint values from the coordinator. A separate controller
+entry point exists but fails closed with the supplied unvalidated targets.
+Historical MoveIt 2/controller descriptions have no selected live controller
+bring-up in this checkout.
 
 **Bimanual placeholder, 4 DOF**
 
@@ -101,18 +110,20 @@ carrier_description/urdf/*.xacro
             │
       /joint_states
             ▲
-     ┌──────┴────────────┐
-     │                   │
-joint_state_    machine_tending_coordinator
-broadcaster     (4 custom + 3 workpiece joints)
-(UR5 feedback)  + task/workpiece/coordinator state
+     machine_tending_coordinator
+     (assumed UR5 + 4 custom + 3 workpiece joints)
+     + task/workpiece/coordination state
 ```
 
-In visual mode only, the coordinator also publishes assumed UR5 joint values for
-RViz animation and labels the run `visual_simulation`. In controller mode, it
-never publishes carrier joints; the controller/broadcaster owns carrier feedback.
+This is **visual mode**, with exactly one authoritative `/joint_states`
+publisher observed in the AY-10 capture. Controller mode would instead require
+a selected controller and joint-state broadcaster; in that mode the coordinator
+must not publish UR5 joints. It is not demonstrated here.
 
-## Planning
+## Historical planning interface
+
+The following comes from the Phase 1 record and must not be read as current
+controller acceptance evidence.
 
 | Property | Value |
 |---|---|
@@ -133,7 +144,7 @@ never publishes carrier joints; the controller/broadcaster owns carrier feedback
 
 ```text
 machine_shop_trajectory     Cartesian trajectory (superseded — see DECISIONS D-01)
-machine_shop_joint_cycle    joint-space machine-shop cycle  ← primary
+machine_shop_joint_cycle    legacy joint-space machine-shop cycle
 plot_machine_shop_path      records /joint_states, renders 3D path
 dual_arm_cycle              legacy generic bimanual visual cycle
 machine_tending_coordinator named, bounded machine-tending visual/coordinator cycle

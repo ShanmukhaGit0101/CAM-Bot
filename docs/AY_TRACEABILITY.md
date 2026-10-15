@@ -1,58 +1,14 @@
 # AY-01…AY-13 traceability
 
-The authoritative mapping is the Ayush individual task document. This table includes the AY-10…AY-12 visual experiment execution on 2026-10-15; the user explicitly selected visual ROS trials as the qualifying scope.
+The [status matrix](STATUS.md) is the authoritative disposition for all
+thirteen tasks. The [versioned evidence ledger](ayush/ledger.json) maps each
+requirement to prior state, approach, exact files, commands, results, evidence,
+limits and next action. The [reproducibility guide](ayush/README.md) provides
+clean-checkout instructions and the pending independent-repeat protocol.
 
-| ID | Task | Current disposition |
-|---|---|---|
-| AY-01 | Obtain and integrate Phase 4 source | COMPLETE for source integration; Humble visual runtime reproduced. |
-| AY-02 | Repository / GitHub integration | COMPLETE for package/build integration used by the Humble workspace. |
-| AY-03 | Single-command launch | COMPLETE for visual launch; RViz, TF and one authoritative `/joint_states` publisher observed. |
-| AY-04 | Five-station workcell integration | COMPLETE for the configurable visual workcell; station geometry remains a simulation assumption, not a surveyed real cell. |
-| AY-05 | Machine-tending state machine | COMPLETE for visual runtime; full HOME → PICK_RAW → STAGE → LOAD_MACHINE → MACHINE_DWELL → UNLOAD_MACHINE → PLACE_FINISHED → HOME cycle demonstrated. |
-| AY-06 | Carrier ↔ dual-arm coordination | COMPLETE for visual runtime; both `CARRIER_REPOSITION` and `LOCAL_MANIPULATION` branches observed. |
-| AY-07 | Workspace / reachability decision logic | COMPLETE for the documented geometric proxy; both-arm reachability rechecks observed live. This is not IK or collision checking. |
-| AY-08 | Integrate coordination with simulation | COMPLETE for visual ROS integration; five post-carrier TF rechecks passed and the workpiece finished at S5. |
-| AY-09 | Experiment logger | COMPLETE for visual runtime; structured CSV/JSONL capture validated with `validation: PASS`. |
-| AY-10 | Run at least five trials | COMPLETE for visual runtime — capture 03 has five actual attempts, verified resets, unique final rows and observed terminal outcomes. |
-| AY-11 | Calculate performance metrics | COMPLETE for visual runtime — event-derived durations and requested/accepted/completed visual move counts; failures remain in the denominator. |
-| AY-12 | Result plots and tables | COMPLETE for visual runtime — reproducible CSV tables and three PNG plots from immutable raw data. |
-| AY-13 | Technical documentation | IN PROGRESS — experiment methods/results through AY-12 documented; final integrated technical report remains. |
-
-## AY-10…AY-12 evidence
-
-See the [experiment record and reproducible commands](../experiments/machine_tending/README.md).
-The qualifying batch contains five successes out of five attempts, mean cycle time
-19.579117 s, and 25 completed visual carrier repositions. All five post-carrier
-reachability rechecks and four already-reachable local steps passed in each trial.
-An earlier one-trial capture is retained separately after a subsequent reset gate
-blocked its batch; a second capture was stopped by occupied-domain preflight with
-zero attempts. Across all captures, six actual attempts are retained, all successful.
-No physical/controller, grasp, IK or collision-planning verification is claimed.
-
-## Runtime acceptance snapshot
-
-The successful AY-06…AY-08 visual probe reported:
-
-- `probe_result = VISUAL_SIMULATION_PASS`
-- state sequence `HOME, PICK_RAW, STAGE, LOAD_MACHINE, MACHINE_DWELL, UNLOAD_MACHINE, PLACE_FINISHED, HOME`
-- decisions containing both `CARRIER_REPOSITION` and `LOCAL_MANIPULATION`
-- five successful post-carrier reachability rechecks
-- final workpiece state `FINISHED_AT_S5`
-- `actuation_verified = false`
-- `grasp_verified = false`
-
-The successful AY-09 logger capture reported one complete visual trial, 44 structured events, final state `FINISHED_AT_S5`, and dataset validation `PASS`. Its summary intentionally records `runtime_verified = false` and `end_to_end_verified = false`, because the run does not prove physical/controller-backed carrier actuation or grasp feedback.
-
-## Finalized runtime repairs
-
-The Humble bring-up required the following compatibility/runtime repairs, now part of the source tree:
-
-- remove the unsupported Humble `ur_robot` `force_abs_paths` Xacro argument;
-- make visual `JointState.position` construction robust to ROS `array.array` conversion;
-- calibrate **visual-only** carrier station poses S1…S5 against the current five-station geometry and both-arm proxy;
-- keep controller validation flags false for those visual-only poses;
-- republish the exact final visual carrier joint state before TF-based reachability rechecks;
-- use a two-stage TF handshake so an intermediate carrier transform is not mistaken for the final station pose;
-- make AY-06…AY-09 capture scripts safe when generated ROS setup scripts are sourced under Bash `nounset`.
-
-These repairs do **not** convert the project into a controller-verified, collision-checked, IK-planned or grasp-verified system.
+The [AY-10–12 experiment record](../experiments/machine_tending/README.md)
+contains the fixed five-attempt visual scenario, raw source/config identity,
+per-trial metrics, plots and preliminary capture history. Earlier
+[AY-01–09 runtime finalization](progress/AY01_AY09_RUNTIME_FINALIZATION.md)
+is historical context; the later raw visual capture independently backs the
+integrated coordinator/logger paths.

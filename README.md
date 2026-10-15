@@ -57,23 +57,13 @@ flange, workspace, and placement questions are settled. See
 
 ## Current status
 
-**AY-01 through AY-12 complete for the integrated visual ROS 2 Humble scope.**
-The five-trial dataset, metrics, and plots are in
-[`experiments/machine_tending/README.md`](experiments/machine_tending/README.md).
-AY-13 final reporting remains in progress; physical/controller verification is
-outside this accepted visual scope.
-
-| Phase | Scope | Status |
-|---|---|---|
-| 1 | UR5 carrier baseline (Gazebo, MoveIt 2, ros2_control, machine-shop cycle) | ✅ Complete |
-| 2 | Mass sensitivity study (EXP01–03) | ✅ Complete |
-| 3 | Carrier workspace characterization | ⏸ Planned |
-| 4 | Carrier flange + dual-arm placeholder | ✅ Visual ROS integration complete |
-| 5 | Quantitative baseline logging & metrics | ✅ Visual trials, metrics and plots complete |
-| 6 | Carrier placement analysis | ⏸ Planned |
-
-Full breakdown: [`docs/STATUS.md`](docs/STATUS.md) — the single source of truth.
-Do not duplicate status tables into other documents.
+**AY-01 through AY-12 have accepted visual ROS 2 Humble evidence; AY-13 is in
+progress pending an independent quick-start repeat.** Five measured visual
+cycles, raw observations, metrics and plots are in the
+[experiment record](experiments/machine_tending/README.md). These results do not
+prove controller or physical execution. The [status matrix](docs/STATUS.md)
+defines every task's scope and evidence level; the [AY ledger](docs/ayush/ledger.json)
+records each change, test and limitation.
 
 ---
 
@@ -87,7 +77,7 @@ CAM-Bot/
 ├── .gitignore
 ├── .gitattributes                Git LFS rules for CSV / video
 │
-├── src/                          ROS 2 packages (copy into your ws src/)
+├── src/                          ROS 2 packages built in this checkout
 │   ├── carrier_description/      URDF, Xacro, meshes, launch, rviz
 │   └── carrier_control/          trajectory nodes and cycle controllers
 │
@@ -103,7 +93,9 @@ CAM-Bot/
 │   ├── progress/
 │   │   ├── phase1-carrier-baseline.md
 │   │   ├── phase2-mass-sensitivity.md
-│   │   └── phase4-carrier-flange.md
+│   │   ├── phase3-carrier-flange.md
+│   │   └── phase_4.md             archived narrative with provenance caveat
+│   ├── ayush/                    AY evidence ledger and repeat guide
 │   └── reference/
 │       ├── TOPS_Team_2.pdf
 │       └── task_split.pdf
@@ -128,29 +120,28 @@ CAM-Bot/
 
 ## Quick start
 
-**Requirements:** Ubuntu 22.04 · ROS 2 Humble · Gazebo · MoveIt 2 ·
-`ros2_control` · Universal Robots ROS 2 packages.
+**Visual quick-start requirements:** Ubuntu 22.04 · ROS 2 Humble · colcon ·
+rosdep · RViz · Universal Robots description package. See the
+[clean-checkout guide](docs/ayush/README.md) for Distrobox, Wayland and LFS
+details.
 
 ```bash
-# 1. Create a workspace and clone
-mkdir -p ~/tops_ws/src && cd ~/tops_ws/src
-git clone https://github.com/ShanmukhaGit0101/CAM-Bot.git
-ln -s CAM-Bot/src/carrier_description .
-ln -s CAM-Bot/src/carrier_control .
-
-# 2. Dependencies
-cd ~/tops_ws
+# Clone the current work branch (use main after merge)
+git clone --branch feature/ay10-ay12-visual-experiments https://github.com/voidAyush-tsx/CAM-BOT.git
+cd CAM-BOT
+source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
-
-# 3. Build
-colcon build --symlink-install
+colcon build --symlink-install --packages-select carrier_description carrier_control
+export COLCON_TRACE=
+set +u
 source install/setup.bash
+set -u
 ```
 
 **Run the complete visual machine-tending sequence:**
 
 ```bash
-ros2 launch carrier_description dual_arm_demo.launch.py
+ros2 launch carrier_description dual_arm_demo.launch.py auto_start:=false trial_count:=1
 ```
 
 This entry point is fixed to **visual simulation**. It launches the robot
@@ -160,6 +151,9 @@ RViz, but no actuator, controller, or Gazebo physics. The displayed flow is:
 ```text
 HOME → S1 pick → S2 stage → S3 load/dwell/re-grasp → S4 unload → S5 place → HOME
 ```
+
+In another sourced terminal, start one trial with
+`ros2 service call /machine_tending_coordinator/start std_srvs/srv/Trigger "{}"`.
 
 The coordinator uses a one-shot, feedback-gated application FSM with explicit
 `HOME → PICK_RAW → STAGE → LOAD_MACHINE → MACHINE_DWELL → UNLOAD_MACHINE →
