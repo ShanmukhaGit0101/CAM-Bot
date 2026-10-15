@@ -14,15 +14,21 @@ Last updated: 2026-10-15 · See `artifacts/inventory.json` for the implementatio
 | 1 | UR5 carrier baseline | ✅ Complete |
 | 2 | Mass sensitivity study | ✅ Complete |
 | 3 | Carrier workspace characterization | ⏸ Planned |
-| 4 | Carrier flange + bimanual placeholder | ✅ Source present; runtime recheck blocked |
-| 5 | Machine-tending logging & metrics | 🔧 Schema/recorder built; measured trials pending |
+| 4 | Carrier flange + bimanual placeholder | ✅ Integrated visual Humble runtime demonstrated |
+| 5 | Machine-tending logging & metrics | ✅ AY-09…AY-12 visual trials, metrics and plots complete; controller evidence remains unavailable |
 | 6 | Carrier placement analysis | ⏸ Planned |
 
 > **Phase ordering note.** The original plan in `Task2_aim.md` put quantitative
 > baseline logging at Phase 2 and mass sensitivity was unplanned. In practice
 > the mass study was done first and logging was deferred. The numbering above
-> reflects what actually happened. Phase 5 (logging) is still outstanding and
-> should not be forgotten — it is what makes every later claim measurable.
+> reflects what actually happened. Phase 5 now includes measured visual-runtime
+> timing and publication counts; physical/controller performance is unverified.
+
+The [AY traceability table](AY_TRACEABILITY.md) records task-level acceptance.
+The [AY-10…AY-12 experiment record](../experiments/machine_tending/README.md)
+contains five qualifying visual trials, raw evidence, reproducible analysis,
+and the complete history of preliminary attempts. AY-13 final reporting remains
+in progress.
 
 ---
 
@@ -62,11 +68,11 @@ Rationale for skipping EXP04: [`DECISIONS.md`](DECISIONS.md) §D-03
 
 | Item | Current evidence |
 |---|---|
-| `tool0` → flange → interface → four-joint module source | STATIC VALID offline |
-| Five visual stations + movable visual workpiece source | STATIC VALID offline |
-| Named machine-tending workflow and state validation | STATIC VALID offline |
+| `tool0` → flange → interface → four-joint module source | Humble Xacro/URDF and visual runtime accepted through AY-09 |
+| Five visual stations + movable visual workpiece source | Integrated visual TF/workpiece progression observed |
+| Named machine-tending workflow and state validation | Five complete coordinated visual trials recorded in AY-10 |
 | Bounded carrier action/result/feedback gates | STATIC VALID offline |
-| One-command visual launch | FOUND and Python syntax valid; ROS runtime blocked here |
+| One-command visual launch | Humble launch and single authoritative joint publisher observed |
 | Controller-mode named workflow | BLOCKED: unvalidated S1–S4 mappings and missing S5 target |
 | End-to-end grasp/placement | BLOCKED: no bimanual/gripper controller feedback interface |
 
@@ -81,7 +87,7 @@ Tracked from the audit. Roughly ordered by cost of leaving it.
 | # | Item | Severity |
 |---|---|---|
 | 1 | Teach/validate named carrier targets, including S5 | 🔴 Critical |
-| 2 | Run ROS Humble build, Xacro/check_urdf, launch, TF, and controller tests | 🔴 Critical |
+| 2 | Supply selected controller stack and controller-backed integration evidence | 🔴 Critical |
 | 3 | Select bimanual/gripper controller interface for end-to-end feedback | 🟠 High |
 | 4 | Legacy `waypoints.yaml` remains duplicated in old controller | 🟠 High |
 | 5 | Historical filenames containing `:` are not Windows-compatible | 🟠 High |
@@ -92,7 +98,7 @@ Tracked from the audit. Roughly ordered by cost of leaving it.
 
 ## Next actions
 
-1. Teach and validate all named carrier targets against the actual cell geometry.
-2. Run the ROS-only checks in `docs/VALIDATION.md` on ROS 2 Humble.
-3. Select a bimanual/gripper controller feedback interface if end-to-end proof is required.
-4. Run five controller trials and retain the generated CSV without editing it.
+1. Finish AY-13's integrated technical report using the AY-10…AY-12 visual results.
+2. If controller/hardware scope is pursued, teach and validate all named carrier targets.
+3. Select carrier and bimanual/gripper controller feedback interfaces before claiming actuation.
+4. Keep any later controller trials in a separate scenario from the visual dataset.

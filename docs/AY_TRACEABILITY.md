@@ -1,6 +1,6 @@
 # AY-01…AY-13 traceability
 
-The authoritative mapping is the Ayush individual task document. This table reflects the repository state after the Humble visual-runtime bring-up and the AY-06…AY-09 acceptance runs completed on 2026-10-15.
+The authoritative mapping is the Ayush individual task document. This table includes the AY-10…AY-12 visual experiment execution on 2026-10-15; the user explicitly selected visual ROS trials as the qualifying scope.
 
 | ID | Task | Current disposition |
 |---|---|---|
@@ -13,10 +13,21 @@ The authoritative mapping is the Ayush individual task document. This table refl
 | AY-07 | Workspace / reachability decision logic | COMPLETE for the documented geometric proxy; both-arm reachability rechecks observed live. This is not IK or collision checking. |
 | AY-08 | Integrate coordination with simulation | COMPLETE for visual ROS integration; five post-carrier TF rechecks passed and the workpiece finished at S5. |
 | AY-09 | Experiment logger | COMPLETE for visual runtime; structured CSV/JSONL capture validated with `validation: PASS`. |
-| AY-10 | Run at least five trials | NOT YET COMPLETE — next experimental phase. |
-| AY-11 | Calculate performance metrics | NOT YET COMPLETE — depends on the AY-10 qualifying dataset. |
-| AY-12 | Result plots and tables | NOT YET COMPLETE — depends on AY-11 metrics. |
-| AY-13 | Technical documentation | IN PROGRESS — implementation/runtime traceability through AY-09 is now documented; AY-10…AY-12 results remain pending. |
+| AY-10 | Run at least five trials | COMPLETE for visual runtime — capture 03 has five actual attempts, verified resets, unique final rows and observed terminal outcomes. |
+| AY-11 | Calculate performance metrics | COMPLETE for visual runtime — event-derived durations and requested/accepted/completed visual move counts; failures remain in the denominator. |
+| AY-12 | Result plots and tables | COMPLETE for visual runtime — reproducible CSV tables and three PNG plots from immutable raw data. |
+| AY-13 | Technical documentation | IN PROGRESS — experiment methods/results through AY-12 documented; final integrated technical report remains. |
+
+## AY-10…AY-12 evidence
+
+See the [experiment record and reproducible commands](../experiments/machine_tending/README.md).
+The qualifying batch contains five successes out of five attempts, mean cycle time
+19.579117 s, and 25 completed visual carrier repositions. All five post-carrier
+reachability rechecks and four already-reachable local steps passed in each trial.
+An earlier one-trial capture is retained separately after a subsequent reset gate
+blocked its batch; a second capture was stopped by occupied-domain preflight with
+zero attempts. Across all captures, six actual attempts are retained, all successful.
+No physical/controller, grasp, IK or collision-planning verification is claimed.
 
 ## Runtime acceptance snapshot
 

@@ -1,5 +1,28 @@
 # Validation procedure
 
+## AY-10…AY-12 visual experiment acceptance
+
+The user selected visual ROS trials as the qualifying scope. Five observed
+attempts, reset/readiness evidence, raw ROS events/bag and derived metrics/plots
+are retained under `experiments/machine_tending/runs/ay10-visual-20261015-03/`.
+See [methods, evidence and exact commands](../experiments/machine_tending/README.md).
+Controller gates below remain requirements for a future controller experiment.
+
+```bash
+python3 -m unittest discover -s experiments/machine_tending/tests -v
+python3 experiments/machine_tending/scripts/analyze_trials.py \
+  experiments/machine_tending/runs/ay10-visual-20261015-03/raw/trials.csv \
+  --output experiments/machine_tending/runs/ay10-visual-20261015-03/raw_analysis \
+  --qualify
+```
+
+Run analysis with Matplotlib available (the Humble container has 3.5.1).
+Qualification checks raw checksums, source/config identity, five unique finals,
+terminal outcomes, state and adapter event order, observed resets, both
+coordination cases, and completed goals against observed joint publications.
+The original 48-test regression suite also passed after the coordinator's
+logging additions. These results establish visual runtime evidence only.
+
 ## Offline checks
 
 These checks are valid without ROS and establish only **STATIC VALID** evidence:

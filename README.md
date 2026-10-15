@@ -57,15 +57,19 @@ flange, workspace, and placement questions are settled. See
 
 ## Current status
 
-**Phase 4 of 6 — Carrier Flange & Bimanual Placeholder.**
+**AY-01 through AY-12 complete for the integrated visual ROS 2 Humble scope.**
+The five-trial dataset, metrics, and plots are in
+[`experiments/machine_tending/README.md`](experiments/machine_tending/README.md).
+AY-13 final reporting remains in progress; physical/controller verification is
+outside this accepted visual scope.
 
 | Phase | Scope | Status |
 |---|---|---|
 | 1 | UR5 carrier baseline (Gazebo, MoveIt 2, ros2_control, machine-shop cycle) | ✅ Complete |
 | 2 | Mass sensitivity study (EXP01–03) | ✅ Complete |
 | 3 | Carrier workspace characterization | ⏸ Planned |
-| 4 | Carrier flange + dual-arm placeholder | 🔧 In progress |
-| 5 | Quantitative baseline logging & metrics | ⏸ Planned |
+| 4 | Carrier flange + dual-arm placeholder | ✅ Visual ROS integration complete |
+| 5 | Quantitative baseline logging & metrics | ✅ Visual trials, metrics and plots complete |
 | 6 | Carrier placement analysis | ⏸ Planned |
 
 Full breakdown: [`docs/STATUS.md`](docs/STATUS.md) — the single source of truth.
