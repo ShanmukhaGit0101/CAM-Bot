@@ -88,7 +88,7 @@ CAM-Bot/
 │   └── carrier_control/          trajectory nodes and cycle controllers
 │
 ├── config/
-│   └── waypoints.yaml            authoritative machine-shop waypoints
+│   └── waypoints.yaml            source mirror of installed carrier-control waypoints
 │
 ├── docs/
 │   ├── STATUS.md                 ← single source of truth for progress
@@ -143,36 +143,49 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-**Run the machine-shop cycle:**
+**Run the complete visual machine-tending sequence:**
 
 ```bash
-# terminal 1 — simulation + MoveIt
-ros2 launch carrier_description ur5_machine_shop.launch.py
-
-# terminal 2 — automated cycle
-ros2 run carrier_control machine_shop_joint_cycle
+ros2 launch carrier_description dual_arm_demo.launch.py
 ```
 
-The carrier executes:
+This entry point is fixed to **visual simulation**. It launches the robot
+description, state publisher, coordinator, workpiece/task state, CSV logger, and
+RViz, but no actuator, controller, or Gazebo physics. The displayed flow is:
 
 ```text
-HOME → P1 → HOME → P2 → HOME → P3 → HOME → P4 → HOME
+HOME → S1 pick → S2 stage → S3 load/dwell/re-grasp → S4 unload → S5 place → HOME
 ```
 
-holding ~3 s at each station.
+The coordinator uses a one-shot, feedback-gated application FSM with explicit
+`HOME → PICK_RAW → STAGE → LOAD_MACHINE → MACHINE_DWELL → UNLOAD_MACHINE →
+PLACE_FINISHED → HOME` states. `dual_arm_cycle` remains a separate generic
+viewer and is not launched alongside this FSM. See
+[`docs/INTERFACES.md`](docs/INTERFACES.md) for start/reset/cancel services.
 
-> **Note:** `ur5_machine_shop.launch.py` and the Phase 4 dual-arm files are
-> described in `docs/progress/phase4-carrier-flange.md` but are **not yet
-> committed**. See [`AUDIT.md`](AUDIT.md) §2.1. Until they land, the simulation
-> must be started from the stock `ur_simulation_gazebo` and `ur_moveit_config`
-> launch files.
+The separate `machine_tending_controller.launch.py` entry point requires an
+absolute `controller_bringup_file` and a controller-validated `config_file`.
+The supplied plan deliberately fails that gate (unvalidated S1–S4, missing S5).
+It cannot yet launch an unattended controlled-carrier system. See
+[`docs/VALIDATION.md`](docs/VALIDATION.md) and
+[`docs/INTERFACES.md`](docs/INTERFACES.md).
+
+The five visible stations and interaction targets are configured in the
+installed [`machine_tending.json`](src/carrier_control/config/machine_tending.json).
+Their positions, orientations and box sizes are **temporary visual-simulation
+assumptions in metres/radians**, not measured cell geometry. Both launch modes
+expand the existing workcell Xacro from this file; editing a station pose in
+the config changes its TF frame and corresponding visual target together.
 
 ---
 
 ## Waypoints
 
 Machine-shop stations are stored as **joint configurations**, not Cartesian
-poses, in [`config/waypoints.yaml`](config/waypoints.yaml):
+poses, in the installed [`carrier_control/config/waypoints.yaml`](src/carrier_control/config/waypoints.yaml).
+The root [`config/waypoints.yaml`](config/waypoints.yaml) is kept as a byte-identical
+source mirror for older documentation; the controller resolves the installed
+package-share asset, not the current working directory.
 
 | Station | Purpose |
 |---|---|
@@ -186,7 +199,19 @@ approach that produced planning failures — see
 
 ---
 
+The current machine-tending coordinator includes a configurable, visual-only
+geometric workspace proxy and TF-gated carrier/local decision policy. It is
+not bimanual IK or verified grasp control; see
+[`docs/INTERFACES.md`](docs/INTERFACES.md) and
+[`docs/VALIDATION.md`](docs/VALIDATION.md) for limits and tests.
+
 ## Experiments
+
+Machine-tending trials use a separate versioned CSV-summary/JSONL-event logger
+with UUID trial IDs, Git/config provenance, monotonic durations, and durable
+failure/interruption records. See
+[`experiments/machine_tending/README.md`](experiments/machine_tending/README.md).
+These records do not alter the archived mass-sensitivity datasets below.
 
 Three 10% link-mass perturbations of the UR5, comparing recorded joint
 trajectory statistics against a baseline run:

@@ -90,3 +90,19 @@ drift.
 
 **Action:** move `waypoints.yaml` inside `carrier_description`, install it via
 `setup.py` `data_files`, and load it at node startup.
+
+---
+
+## D-07 — Separate visual assumptions from controller-validated targets
+
+**Date:** 2026-10-15 · **Status:** Adopted
+
+The five station poses are configurable visual assumptions. Legacy P1–P4 joint
+values are retained as provenance but are not declared valid for the newly named
+stations; S5 has no taught target. Controller mode therefore fails closed until
+all targets are explicitly validated.
+
+Visual mode may animate assumed carrier joints and workpiece joints, but its
+records always set `runtime_verified=false` and `end_to_end_verified=false`.
+This prevents an RViz sequence from being reported as Gazebo actuation, verified
+grasping, or a measured experiment.
