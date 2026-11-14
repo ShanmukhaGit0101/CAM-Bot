@@ -117,3 +117,7 @@ carrier action methods are exercised, not a complete coordinator/BM cycle.
 Task 7's mock integration can be verified while Task 6 remains pending; robot-
 specific driver selection and hardware acceptance require the actual robot,
 calibration, mounted geometry, validated targets and supervised operation.
+
+The [remaining controller/manipulation milestones](CONTROLLER_NEXT_STEPS.md)
+list the inputs and acceptance dependencies for Tasks 7–15 and the optional
+20-cycle synthetic carrier benchmark.

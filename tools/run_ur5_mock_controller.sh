@@ -38,6 +38,9 @@ cleanup() {
 }
 trap cleanup EXIT
 python3 tools/probe_ur5_mock_controller.py "$out/probe" > "$out/probe.log" 2>&1
+if [[ "${CAMBOT_RUN_BENCHMARK:-0}" == 1 ]]; then
+  python3 tools/benchmark_mock_controller.py "$out/benchmark" > "$out/benchmark.log" 2>&1
+fi
 cleanup
 trap - EXIT
 [[ ! -e "$out/shutdown_failure.txt" ]]
