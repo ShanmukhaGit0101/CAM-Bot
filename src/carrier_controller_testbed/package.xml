@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>carrier_controller_testbed</name>
+  <version>0.1.0</version>
+  <description>Optional UR5 ros2_control mock testbed, without a hardware driver.</description>
+  <maintainer email="shanmukha@example.com">CAM-BOT contributors</maintainer>
+  <license>Apache-2.0</license>
+  <exec_depend>carrier_control</exec_depend>
+  <exec_depend>carrier_description</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>hardware_interface</exec_depend>
+  <exec_depend>joint_trajectory_controller</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

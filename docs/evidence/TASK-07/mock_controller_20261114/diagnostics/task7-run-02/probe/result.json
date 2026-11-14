@@ -1,0 +1,9 @@
+{
+  "result": "FAIL",
+  "scope": "ros2_control GenericSystem mock only",
+  "cases": {},
+  "station_targets_validated": false,
+  "physical_operation_verified": false,
+  "grasp_verified": false,
+  "end_to_end_verified": false
+}

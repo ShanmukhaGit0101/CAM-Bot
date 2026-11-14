@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "kinematic_tree_unchanged": true,
+  "physical_control_block_replaced": true,
+  "mock_plugin_only": true,
+  "controlled_joints": [
+    "shoulder_pan_joint",
+    "shoulder_lift_joint",
+    "elbow_joint",
+    "wrist_1_joint",
+    "wrist_2_joint",
+    "wrist_3_joint"
+  ]
+}
