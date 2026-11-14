@@ -1,0 +1,55 @@
+{
+  "result": "PASS",
+  "scope": "ros2_control GenericSystem mock only",
+  "cases": {
+    "production_adapter_success": {
+      "status": 4,
+      "error_code": 0,
+      "feedback_samples": 40,
+      "final_positions": {
+        "shoulder_pan_joint": 0.1,
+        "shoulder_lift_joint": -0.1,
+        "elbow_joint": 0.1,
+        "wrist_1_joint": 0.0,
+        "wrist_2_joint": 0.0,
+        "wrist_3_joint": 0.0
+      }
+    },
+    "invalid_joints_rejected": true,
+    "production_adapter_rejection": "GOAL_REJECTED",
+    "path_tolerance_abort": {
+      "status": 6,
+      "error_code": -4
+    },
+    "production_adapter_controller_error": "CONTROLLER_ERROR_-4",
+    "production_adapter_cancel": {
+      "status": 5,
+      "cause": "CANCEL_REQUEST_ACCEPTED",
+      "held_positions": {
+        "shoulder_pan_joint": 0.09847565478948642,
+        "shoulder_lift_joint": -0.1,
+        "elbow_joint": 0.09847565478948642,
+        "wrist_1_joint": -0.0007621726052567899,
+        "wrist_2_joint": -0.0007621726052567899,
+        "wrist_3_joint": -0.0007621726052567899
+      }
+    },
+    "production_adapter_timeout": {
+      "status": 5,
+      "cause": "RESULT_TIMEOUT_CANCEL_REQUEST_ACCEPTED",
+      "note": "test-only shortened deadline, not a production configuration"
+    },
+    "absent_server_bounded": true
+  },
+  "station_targets_validated": false,
+  "physical_operation_verified": false,
+  "grasp_verified": false,
+  "end_to_end_verified": false,
+  "controllers": {
+    "joint_state_broadcaster": "active",
+    "ur5_trajectory_controller": "active"
+  },
+  "joint_state_publishers": [
+    "joint_state_broadcaster"
+  ]
+}

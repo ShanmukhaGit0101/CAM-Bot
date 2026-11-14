@@ -1,0 +1,15 @@
+b192146c52d18adcdff31eb47d6b1468af3aab4d
+ M src/carrier_description/package.xml
+?? src/carrier_control/carrier_control/mock_controller_model.py
+?? src/carrier_control/test/test_mock_controller_model.py
+?? src/carrier_description/config/
+?? src/carrier_description/launch/ur5_mock_controller.launch.py
+?? tools/cloud/Dockerfile.controller_humble
+?? tools/probe_ur5_mock_controller.py
+?? tools/run_ur5_mock_controller.sh
+ros-humble-controller-manager	2.54.3-1jammy.20261005.213325
+ros-humble-hardware-interface	2.54.3-1jammy.20261005.211947
+ros-humble-joint-state-broadcaster	2.54.1-1jammy.20261005.215610
+ros-humble-joint-trajectory-controller	2.54.1-1jammy.20261005.215624
+ros-humble-ur-description	2.14.0-1jammy.20260922.040002
+ROS_DOMAIN_ID=117

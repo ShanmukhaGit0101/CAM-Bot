@@ -1,6 +1,6 @@
 # CAM-BOT status and evidence levels
 
-Updated 2026-11-12 (Asia/Calcutta). This is the only project status matrix. Each AY record,
+Updated 2026-11-14 (Asia/Calcutta). This is the only project status matrix. Each AY record,
 including prior state, options, exact files, commands, results, limitations and
 next action, is in the [versioned evidence ledger](ayush/ledger.json).
 The [2026-11-05 documentation repair](evidence/AY-13/reproducibility_repair.md)
@@ -31,6 +31,17 @@ Task 6 (measured geometry and station-target validation) remains pending.
 The [survey and candidate-target intake](WORKCELL_SURVEY.md) supplies separate
 blank records for measurements, provenance and validation; it does not change
 the working demonstration or establish controller readiness.
+
+Task 7 (UR5 controller integration) is **PARTIAL**: an isolated
+[ros2_control mock testbed](TASK7_CONTROLLER.md) now verifies the production
+carrier action method against the real joint trajectory controller, including
+feedback, rejection, controller errors, cancellation and timeout. A fresh
+checkout passed 73 package results (0 failures, 2 skips) and all eight live
+protocol checks, with one broadcaster and clean shutdown; see
+[retained evidence](evidence/TASK-07/mock_controller_20261114/README.md).
+GenericSystem supplies mock state, not physical feedback or dynamics. Actual
+UR driver/hardware validation and complete controller-backed tending remain
+unverified. No station validation flags or bimanual feedback claims changed.
 
 ## AY task matrix
 
