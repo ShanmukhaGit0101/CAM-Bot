@@ -1,0 +1,5 @@
+[ERROR] [1794676056.390965506] [cambot_testbed.task7_probe]: PROBE: trajectory rejected
+[ERROR] [1794676056.503610602] [cambot_testbed.task7_probe]: PROBE: controller error -4
+[ERROR] [1794676057.007649512] [cambot_testbed.task7_probe]: PROBE: cancellation requested
+[ERROR] [1794676057.866161184] [cambot_testbed.task7_probe]: PROBE: result timed out; cancelling
+TASK7_MOCK_CONTROLLER_PASS

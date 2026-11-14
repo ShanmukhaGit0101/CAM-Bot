@@ -43,6 +43,13 @@ GenericSystem supplies mock state, not physical feedback or dynamics. Actual
 UR driver/hardware validation and complete controller-backed tending remain
 unverified. No station validation flags or bimanual feedback claims changed.
 
+Task 13 now also has a separate [20-cycle synthetic carrier baseline](evidence/TASK-13/carrier_mock_20261114/README.md):
+20 successes, zero attempted failures, with controller feedback and return-position
+checks. These are mock carrier cycles, not complete tending cycles; the full
+10–20-cycle tending baseline remains pending. The
+[Tasks 7–15 dependency record](CONTROLLER_NEXT_STEPS.md) identifies the missing
+interfaces, geometry and hardware evidence needed for subsequent milestones.
+
 ## AY task matrix
 
 | ID | Status | Accepted scope and evidence |
