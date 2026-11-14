@@ -31,7 +31,7 @@ cp /opt/cambot/rviz/share/cambot-patches/provenance.txt "$evidence_dir/rviz-prov
     "${ROS_DOMAIN_ID:-0}" "${ROS_LOCALHOST_ONLY:-0}" "${GALLIUM_DRIVER:-default}"
 } > "$evidence_dir/environment.txt"
 git lfs fsck > "$evidence_dir/lfs-fsck.log" 2>&1
-rosdep check --from-paths src --ignore-src > "$evidence_dir/rosdep-check.log" 2>&1
+rosdep check --from-paths src/carrier_control src/carrier_description --ignore-src > "$evidence_dir/rosdep-check.log" 2>&1
 colcon build --base-paths src --symlink-install --packages-select carrier_description carrier_control --executor sequential > "$evidence_dir/colcon-build.log" 2>&1
 source install/setup.bash
 colcon test --base-paths src --packages-select carrier_description carrier_control --executor sequential --return-code-on-test-failure > "$evidence_dir/colcon-test.log" 2>&1

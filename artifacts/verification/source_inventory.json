@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_commit": "c375343532aaf15cdeb50e2212588261ea5f02cf",
-  "scope": "current tracked src bytes only; runtime evidence is recorded separately",
+  "source_commit": "b192146c52d18adcdff31eb47d6b1468af3aab4d",
+  "scope": "current tracked src bytes including Task-7 mock testbed additions; hashes authoritative, runtime evidence separate",
   "historical_inventory": "docs/evidence/AY-13/cross_validation/source_inventory.json",
-  "count": 57,
+  "count": 66,
   "files": [
     {
       "path": "src/carrier_control/LICENSE",
@@ -64,6 +64,12 @@
       "kind": "python_source_or_test",
       "sha256": "8d1861a3abdea20974b08d1b176ad50957c2efb55aa460fab5376c9c226479f9",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_control/carrier_control/mock_controller_model.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "ff4085f7482964def85047a12ea9a6bd86a10ee99f8f0537a15fba8cf38129af"
     },
     {
       "path": "src/carrier_control/carrier_control/plot_machine_shop_path.py",
@@ -180,6 +186,12 @@
       "evidence_level": "available_code"
     },
     {
+      "path": "src/carrier_control/test/test_mock_controller_model.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "25cf3660e84b9b57a43cc0e7d62745b61ed0f28d0df9e15db3ceefc027243a7b"
+    },
+    {
       "path": "src/carrier_control/test/test_package_integration.py",
       "kind": "python_source_or_test",
       "sha256": "ab9fe3715fec02d6fd23202192a37918b87d5ec07d1ca89296f05e40d4c94462",
@@ -208,6 +220,48 @@
       "kind": "python_source_or_test",
       "sha256": "d618ee79daf45225a62cfb91873d80acfd140bb6ff0d72fe7fac19aa4cbb1f78",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_controller_testbed/carrier_controller_testbed/__init__.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/carrier_controller_testbed/config/ur5_mock_controllers.yaml",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "024e7e0bcc86063801bd0c6a41a443e632d63f8c116bf75ed71c2959bff550f7"
+    },
+    {
+      "path": "src/carrier_controller_testbed/launch/ur5_mock_controller.launch.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "d231e3975f9e7af612cba5aa0ea2dcbbc543a5626257a61378ecc8c61a053edf"
+    },
+    {
+      "path": "src/carrier_controller_testbed/package.xml",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "4debcda3d926fbefce26b946c90759c0d2b37d0ff27385ca36afcb357e659024"
+    },
+    {
+      "path": "src/carrier_controller_testbed/resource/carrier_controller_testbed",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/carrier_controller_testbed/setup.cfg",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "af8e4469999d40f813f09b5baa8c8032988ede0d4488942a6d11c53b73e106f1"
+    },
+    {
+      "path": "src/carrier_controller_testbed/setup.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "50b997d9dde68efea22aaa44bfd1303985024b2c1ba34faab8be24f132847d17"
     },
     {
       "path": "src/carrier_description/LICENSE",
