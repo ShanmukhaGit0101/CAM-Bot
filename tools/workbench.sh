@@ -9,6 +9,7 @@ case "$command_name" in
     echo 'Usage: bash tools/workbench.sh COMMAND [argument]'
     echo 'Host: doctor, offline-test, analysis, analyze-run CSV, workspace, presentation'
     echo 'Humble: build, test, launch, start, cancel, observe, graph, mock-build, mock-test'
+    echo 'New scenes: bash tools/workbench.sh launch compact (or tiered / precision)'
     echo 'ROS commands use native Humble or the running cambot-vscode container.'
     exit 0 ;;
   doctor)
@@ -83,7 +84,7 @@ case "$command_name" in
     python3 -m unittest discover -s experiments/machine_tending/tests -v ;;
   launch|start|cancel)
     export CAMBOT_PRESENTATION_OUTPUT_ROOT="$root/.cambot-runs"
-    exec bash tools/present_demo.sh "$command_name" ;;
+    exec bash tools/present_demo.sh "$command_name" "${2:-original}" ;;
   observe)
     # Subscribe before pressing Start. Ctrl-C stops only these observers.
     new_output observers
@@ -109,7 +110,11 @@ case "$command_name" in
     fi
     new_output analysis
     python3 experiments/machine_tending/scripts/analyze_trials.py "$raw" \
-      --output "$output/analysis" "${qualify[@]}" | tee "$output/runner.log" ;;
+      --output "$output/analysis" "${qualify[@]}" | tee "$output/runner.log"
+    if [[ "$command_name" == analyze-run ]]; then
+      python3 tools/analyze_demo_motion.py "$raw" --output "$output/motion" \
+        | tee -a "$output/runner.log"
+    fi ;;
   workspace)
     new_output workspace
     python3 tools/analyze_workspace.py \

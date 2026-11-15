@@ -205,3 +205,40 @@ class VisualRoutingTests(unittest.TestCase):
         self.assertTrue(result)
         self.assertEqual(node.visual_carrier_positions, [0.0] * 6)
         self.assertEqual(node.samples, [])
+
+
+class BimanualTelemetryTests(unittest.TestCase):
+    def node(self):
+        return SimpleNamespace(
+            mode='visual_simulation', visual_time_scale=0.0,
+            custom_positions=[0.0] * 4, workpiece_positions=[0.0] * 3,
+            visual_carrier_positions=[0.0] * 6,
+            plan={'bimanual_poses': {'HOLD': [.2, .4, -.2, -.4]}},
+            fsm=SimpleNamespace(current_state='PICK_RAW'),
+            experiment_logger=SimpleNamespace(log_event=Mock()),
+            get_clock=lambda: SimpleNamespace(now=lambda: SimpleNamespace(nanoseconds=1)),
+            _state_target=lambda state: None, _publish_visual_joints=Mock(),
+        )
+
+    def test_success_records_actual_local_start_and_final_publications(self):
+        node = self.node()
+        with patch.object(coordinator.time, 'monotonic', return_value=0):
+            result = coordinator.MachineTendingCoordinator._animate_visual_state(
+                node, 'HOLD', 'HELD_RAW_AT_S1', .2, None, 1.0, lambda: False)
+        self.assertTrue(result)
+        calls = node.experiment_logger.log_event.call_args_list
+        self.assertEqual([c.kwargs['result'] for c in calls], ['REQUESTED', 'COMPLETED'])
+        self.assertEqual(calls[-1].kwargs['details']['start_joints_rad'], [0.0] * 4)
+        self.assertEqual(calls[-1].kwargs['details']['final_joints_rad'], [.2, .4, -.2, -.4])
+        node._publish_visual_joints.assert_called_once()
+
+    def test_cancellation_records_failure_without_a_false_local_completion(self):
+        node = self.node()
+        with patch.object(coordinator.time, 'monotonic', return_value=0):
+            result = coordinator.MachineTendingCoordinator._animate_visual_state(
+                node, 'HOLD', 'HELD_RAW_AT_S1', .2, None, 1.0, lambda: True)
+        self.assertFalse(result)
+        results = [c.kwargs['result'] for c in node.experiment_logger.log_event.call_args_list]
+        self.assertEqual(results, ['REQUESTED', 'FAILED'])
+        self.assertEqual(node.custom_positions, [0.0] * 4)
+        node._publish_visual_joints.assert_not_called()

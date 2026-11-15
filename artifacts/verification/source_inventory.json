@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_commit": "e93ef2a0a85a8b7e527cb11b9bd0a528a5c59848",
-  "scope": "current src bytes including visual nearest-angle routing and optional exchanged/mirrored arm profile; hashes authoritative",
+  "source_commit": "eb65d61427be1a25dbff64f46b6c25c27721c61e",
+  "scope": "current src bytes with three additional assumed visual scenarios and local-motion logging; hashes authoritative",
   "historical_inventory": "docs/evidence/AY-13/cross_validation/source_inventory.json",
-  "count": 71,
+  "count": 74,
   "files": [
     {
       "path": "src/carrier_control/LICENSE",
@@ -50,7 +50,7 @@
     {
       "path": "src/carrier_control/carrier_control/machine_tending_coordinator.py",
       "kind": "python_source_or_test",
-      "sha256": "7a16f8a715ce93a28ea0137cc4b178d32c34a38ab6d263d3390e857cebec181c",
+      "sha256": "920d5e438eac245e12a65ad3d9b6ae4989eb705070fde2f383bcdad25cb45437",
       "evidence_level": "available_code"
     },
     {
@@ -114,6 +114,24 @@
       "evidence_level": "available_code"
     },
     {
+      "path": "src/carrier_control/config/scenario_compact.json",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "26d921a88feac3e608dca0d04eb8c8b0c3a91915744d757e4d20f266b43e801c"
+    },
+    {
+      "path": "src/carrier_control/config/scenario_precision.json",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "5a4482a9011b22ddda2f0558f7cb29c386054e6857957d1c43ce791fd8e2db49"
+    },
+    {
+      "path": "src/carrier_control/config/scenario_tiered.json",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "d22b43cdd26a24c67cd37617aec92b9dea731bf95cd793dd2c5765a3d5e6d5c7"
+    },
+    {
       "path": "src/carrier_control/config/waypoints.yaml",
       "kind": "runtime_config_or_visualization",
       "sha256": "629bc26ae4bfc93a3d8b6d2973ac6d21ffad816d4a01dfb7d8829d387650e07f",
@@ -159,7 +177,7 @@
       "path": "src/carrier_control/test/test_coordinator_runtime.py",
       "kind": "python_source_or_test",
       "evidence_level": "available_code",
-      "sha256": "9a41a9e34f13cca81d73c1d0bed943a052de05dcfb19030aabe7b3bd2610e820"
+      "sha256": "85d1cf593b057e28f48f599e0a6d5c28f3fab64411658dcea8ed3cb7f3fbf786"
     },
     {
       "path": "src/carrier_control/test/test_copyright.py",

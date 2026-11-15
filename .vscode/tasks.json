@@ -279,6 +279,63 @@
         "panel": "dedicated",
         "clear": false
       }
+    },
+    {
+      "label": "CAM-BOT: 13 Scenario 1: compact shared workspace",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "launch",
+        "compact"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 14 Scenario 2: stepped-height cell",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "launch",
+        "tiered"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 15 Scenario 3: precision transfer cell",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "launch",
+        "precision"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
     }
   ],
   "inputs": [
