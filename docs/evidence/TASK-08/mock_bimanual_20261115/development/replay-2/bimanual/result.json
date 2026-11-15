@@ -1,0 +1,69 @@
+{
+  "scope": "four-joint GenericSystem controller protocol only",
+  "cases": {
+    "four_joint_motion_feedback": {
+      "status": 4,
+      "feedback_samples": 20
+    },
+    "unknown_joint_rejected": true,
+    "tracking_fault_aborted": {
+      "status": 6,
+      "error_code": -4
+    },
+    "cancellation_and_hold": {
+      "status": 5,
+      "held_positions": {
+        "left_shoulder_joint": 0.13320020568,
+        "left_elbow_joint": -0.08880013712000001,
+        "right_shoulder_joint": -0.13320020568,
+        "right_elbow_joint": 0.08880013712000001
+      }
+    },
+    "deadline_cancel_and_hold": {
+      "status": 5,
+      "held_positions": {
+        "left_shoulder_joint": 0.1338049403229495,
+        "left_elbow_joint": -0.08920329354863302,
+        "right_shoulder_joint": -0.1338049403229495,
+        "right_elbow_joint": 0.08920329354863302
+      }
+    },
+    "recovery_and_carrier_isolation": {
+      "status": 4,
+      "carrier_positions": {
+        "shoulder_pan_joint": 0.09837582433743869,
+        "shoulder_lift_joint": -0.1,
+        "elbow_joint": 0.09837582433743869,
+        "wrist_1_joint": -0.0008120878312806667,
+        "wrist_2_joint": -0.0008120878312806667,
+        "wrist_3_joint": -0.0008120878312806667
+      }
+    },
+    "absent_server_bounded": true
+  },
+  "gripper_interface_available": false,
+  "grasp_verified": false,
+  "physical_actuation_verified": false,
+  "complete_tending_cycle_verified": false,
+  "passed": true,
+  "controllers": {
+    "joint_state_broadcaster": "active",
+    "ur5_trajectory_controller": "active",
+    "bimanual_trajectory_controller": "active"
+  },
+  "joint_state_publishers": [
+    "joint_state_broadcaster"
+  ],
+  "final_positions": {
+    "shoulder_pan_joint": 0.09837582433743869,
+    "shoulder_lift_joint": -0.1,
+    "elbow_joint": 0.09837582433743869,
+    "wrist_2_joint": -0.0008120878312806667,
+    "wrist_1_joint": -0.0008120878312806667,
+    "left_shoulder_joint": 0.0,
+    "wrist_3_joint": -0.0008120878312806667,
+    "left_elbow_joint": 0.0,
+    "right_shoulder_joint": 0.0,
+    "right_elbow_joint": 0.0
+  }
+}

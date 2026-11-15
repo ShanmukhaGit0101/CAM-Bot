@@ -14,6 +14,12 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCUMENTS = [
+    "docs/VSCODE.md",
+    "docs/PROJECT_CLOSEOUT.md",
+    "presentation/README.md",
+    "presentation/DEMO_GUIDE.md",
+    "presentation/FINAL_REPORT.md",
+    "presentation/CONTRIBUTIONS.md",
     "README.md",
     "docs/STATUS.md",
     "docs/ARCHITECTURE.md",

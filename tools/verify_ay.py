@@ -135,7 +135,10 @@ def require_package_assets(package_root, expected):
 
 def packages_positive():
     manifests = sorted((ROOT / "src").glob("*/package.xml"))
-    require(len(manifests) == 2, "expected exactly two ROS packages")
+    names = {manifest.parent.name for manifest in manifests}
+    core = {"carrier_control", "carrier_description"}
+    require(core <= names, "missing core ROS package")
+    require(names <= core | {"carrier_controller_testbed"}, "unexpected ROS package")
     for manifest in manifests:
         root = ET.parse(manifest).getroot()
         description = root.findtext("description", "")
@@ -147,6 +150,12 @@ def packages_positive():
     require_package_assets(ROOT / "src/carrier_description", {
         "share/carrier_description/rviz/dual_arm.rviz",
     })
+
+    if "carrier_controller_testbed" in names:
+        require_package_assets(ROOT / "src/carrier_controller_testbed", {
+            "share/carrier_controller_testbed/config/ur5_mock_controllers.yaml",
+            "share/carrier_controller_testbed/launch/ur5_mock_controller.launch.py",
+        })
 
 
 def packages_negative():

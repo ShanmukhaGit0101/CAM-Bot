@@ -1,0 +1,47 @@
+test_ik_recovers_pose_with_orientation (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_ik_recovers_pose_with_orientation) ... ok
+test_incompatible_orientation_and_distant_point_fail (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_incompatible_orientation_and_distant_point_fail) ... ok
+test_known_placeholder_endpoint (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_known_placeholder_endpoint) ... ok
+test_obstacle_and_self_collision_are_reported (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_obstacle_and_self_collision_are_reported) ... ok
+test_refuses_overwriting_evidence (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_refuses_overwriting_evidence) ... ok
+test_rejects_invalid_ik_input_and_out_of_limits (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_rejects_invalid_ik_input_and_out_of_limits) ... ok
+test_rotated_box_and_rigid_transform_invariance (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_rotated_box_and_rigid_transform_invariance) ... ok
+test_separated_touching_and_overlapping_boxes (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_separated_touching_and_overlapping_boxes) ... ok
+test_unsupported_geometry_fails_closed (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_unsupported_geometry_fails_closed) ... ok
+test_limits_and_nonfinite_configurations_rejected (tools.test_analyze_workspace.WorkspaceTests.test_limits_and_nonfinite_configurations_rejected) ... ok
+test_missing_chain_rejected (tools.test_analyze_workspace.WorkspaceTests.test_missing_chain_rejected) ... ok
+test_origin_rotation_precedes_joint_rotation (tools.test_analyze_workspace.WorkspaceTests.test_origin_rotation_precedes_joint_rotation) ... ok
+test_proxy_can_accept_both_arms_and_reject_one_arm (tools.test_analyze_workspace.WorkspaceTests.test_proxy_can_accept_both_arms_and_reject_one_arm) ... ok
+test_refuses_existing_output_before_reading_inputs (tools.test_analyze_workspace.WorkspaceTests.test_refuses_existing_output_before_reading_inputs) ... ok
+test_two_link_analytic_positions (tools.test_analyze_workspace.WorkspaceTests.test_two_link_analytic_positions) ... ok
+test_unsupported_or_unbounded_joint_rejected (tools.test_analyze_workspace.WorkspaceTests.test_unsupported_or_unbounded_joint_rejected) ... ok
+test_vectorized_proxy_agrees_with_runtime_evaluator (tools.test_analyze_workspace.WorkspaceTests.test_vectorized_proxy_agrees_with_runtime_evaluator) ... ok
+test_broken_local_link (tools.test_check_ay13_docs.DocCheckTests.test_broken_local_link) ... ok
+test_missing_and_duplicate_ay_status (tools.test_check_ay13_docs.DocCheckTests.test_missing_and_duplicate_ay_status) ... ok
+test_phantom_launch_and_executable (tools.test_check_ay13_docs.DocCheckTests.test_phantom_launch_and_executable) ... ok
+test_source_inventory_detects_changed_bytes (tools.test_check_ay13_docs.DocCheckTests.test_source_inventory_detects_changed_bytes) ... ok
+test_valid_local_link (tools.test_check_ay13_docs.DocCheckTests.test_valid_local_link) ... ok
+test_changed_raw_qualification_cannot_generate_report (tools.test_generate_build_report.BuildReportTests.test_changed_raw_qualification_cannot_generate_report) ... ok
+test_cli_refuses_to_overwrite_an_existing_report (tools.test_generate_build_report.BuildReportTests.test_cli_refuses_to_overwrite_an_existing_report) ... ok
+test_historical_source_hash_is_still_enforced (tools.test_generate_build_report.BuildReportTests.test_historical_source_hash_is_still_enforced) ... ok
+test_report_has_all_gates_tasks_and_real_paths (tools.test_generate_build_report.BuildReportTests.test_report_has_all_gates_tasks_and_real_paths) ... ok
+test_active_accepts_one_incomplete_raw_trial (tools.test_probe_visual_shutdown.ShutdownTrialTests.test_active_accepts_one_incomplete_raw_trial) ... ok
+test_active_rejects_success_missing_fields_and_wrong_workpiece (tools.test_probe_visual_shutdown.ShutdownTrialTests.test_active_rejects_success_missing_fields_and_wrong_workpiece) ... ok
+test_idle_has_no_trials (tools.test_probe_visual_shutdown.ShutdownTrialTests.test_idle_has_no_trials) ... ok
+test_idle_rejects_any_trial (tools.test_probe_visual_shutdown.ShutdownTrialTests.test_idle_rejects_any_trial) ... ok
+test_background_session_restores_sigint_and_owns_process_group (tools.test_ros_shutdown.ShutdownCaptureTests.test_background_session_restores_sigint_and_owns_process_group) ... ok
+test_clean_children (tools.test_ros_shutdown.ShutdownCaptureTests.test_clean_children) ... ok
+test_forced_termination_is_not_a_clean_shutdown (tools.test_ros_shutdown.ShutdownCaptureTests.test_forced_termination_is_not_a_clean_shutdown) ... ok
+test_missing_child_exit_fails (tools.test_ros_shutdown.ShutdownCaptureTests.test_missing_child_exit_fails) ... ok
+test_rviz_crash_is_not_hidden_by_successful_probe (tools.test_ros_shutdown.ShutdownCaptureTests.test_rviz_crash_is_not_hidden_by_successful_probe) ... ok
+test_current_packages (tools.test_verify_ay.PackageAssetChecks.test_current_packages) ... ok
+test_helper_based_setup_is_accepted (tools.test_verify_ay.PackageAssetChecks.test_helper_based_setup_is_accepted) ... ok
+test_missing_source_fails (tools.test_verify_ay.PackageAssetChecks.test_missing_source_fails) ... ok
+test_omitted_asset_fails_even_with_old_glob_text (tools.test_verify_ay.PackageAssetChecks.test_omitted_asset_fails_even_with_old_glob_text) ... ok
+test_optional_package_cannot_replace_missing_core (tools.test_verify_ay.PackageAssetChecks.test_optional_package_cannot_replace_missing_core) ... ok
+test_setup_exception_restores_working_directory (tools.test_verify_ay.PackageAssetChecks.test_setup_exception_restores_working_directory) ... ok
+test_unexpected_package_rejected (tools.test_verify_ay.PackageAssetChecks.test_unexpected_package_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.747s
+
+OK

@@ -1,0 +1,48 @@
+test_analytic_mass_centre_and_gravity_envelope (test_assess_module_loads.StaticLoadTests.test_analytic_mass_centre_and_gravity_envelope) ... ok
+test_current_unknown_template_retains_partial_result_and_units (test_assess_module_loads.StaticLoadTests.test_current_unknown_template_retains_partial_result_and_units) ... ok
+test_fail_and_static_pass_do_not_authorize_hardware (test_assess_module_loads.StaticLoadTests.test_fail_and_static_pass_do_not_authorize_hardware) ... ok
+test_mount_rotation_translation_changes_flange_moment (test_assess_module_loads.StaticLoadTests.test_mount_rotation_translation_changes_flange_moment) ... ok
+test_nonfinite_negative_missing_groups_and_bad_transforms_rejected (test_assess_module_loads.StaticLoadTests.test_nonfinite_negative_missing_groups_and_bad_transforms_rejected) ... ok
+test_provenance_and_mount_are_required (test_assess_module_loads.StaticLoadTests.test_provenance_and_mount_are_required) ... ok
+test_unknown_mass_cannot_be_treated_as_zero (test_assess_module_loads.StaticLoadTests.test_unknown_mass_cannot_be_treated_as_zero) ... ok
+test_impossible_wall_and_nonfinite_dimension_rejected (test_build_module_concept.ConceptTests.test_impossible_wall_and_nonfinite_dimension_rejected) ... ok
+test_valid_parts_and_symmetric_link_volumes (test_build_module_concept.ConceptTests.test_valid_parts_and_symmetric_link_volumes) ... ok
+test_cube_units_volume_and_no_fabricated_kinematics (test_inspect_step.StepInspectionTests.test_cube_units_volume_and_no_fabricated_kinematics) ... ok
+test_missing_units_rejected_before_import (test_inspect_step.StepInspectionTests.test_missing_units_rejected_before_import) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.222s
+
+OK
+{
+  "status": "INCOMPLETE_INPUTS",
+  "known_subtotal_in_module_frame": {
+    "mass_kg": 1.021657531828086,
+    "center_of_mass_m": [
+      -2.037540081995353e-17,
+      0.12671314600730976,
+      0.03112592752955217
+    ],
+    "first_moment_kg_m": [
+      -2.0816681711721685e-17,
+      0.12945743999999998,
+      0.031800038295702146
+    ],
+    "max_static_gravity_moment_Nm": 1.3072846070341306,
+    "static_gravity_force_N": 10.0190378345019
+  },
+  "unknown_inputs": [
+    "component_groups.adapter: mass, centre and provenance required",
+    "component_groups.shoulder_brackets: mass, centre and provenance required",
+    "component_groups.actuators_and_gearboxes: mass, centre and provenance required",
+    "component_groups.bearings_and_fasteners: mass, centre and provenance required",
+    "component_groups.grippers: mass, centre and provenance required",
+    "component_groups.cables_and_guards: mass, centre and provenance required",
+    "component_groups.workpieces: mass, centre and provenance required",
+    "module_pose_in_flange",
+    "carrier_limits.model",
+    "carrier_limits.source",
+    "carrier_limits.mass_limit_kg",
+    "carrier_limits.static_moment_limit_Nm"
+  ]
+}

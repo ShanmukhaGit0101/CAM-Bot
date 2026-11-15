@@ -1,0 +1,19 @@
+b117d1805d1a9617a1583583f95c5aedc8d5804c
+ M artifacts/verification/source_inventory.json
+ M src/carrier_control/carrier_control/mock_controller_model.py
+ M src/carrier_control/test/test_mock_controller_model.py
+ M src/carrier_controller_testbed/config/ur5_mock_controllers.yaml
+ M src/carrier_controller_testbed/launch/ur5_mock_controller.launch.py
+ M tools/run_ur5_mock_controller.sh
+?? docs/BIMANUAL_MOCK.md
+?? experiments/workspace/FEASIBILITY.md
+?? experiments/workspace/requirements-feasibility.txt
+?? tools/analyze_module_feasibility.py
+?? tools/probe_bimanual_mock_controller.py
+?? tools/test_analyze_module_feasibility.py
+ros-humble-controller-manager	2.54.3-1jammy.20261005.213325
+ros-humble-hardware-interface	2.54.3-1jammy.20261005.211947
+ros-humble-joint-state-broadcaster	2.54.1-1jammy.20261005.215610
+ros-humble-joint-trajectory-controller	2.54.1-1jammy.20261005.215624
+ros-humble-ur-description	2.14.0-1jammy.20260922.040002
+ROS_DOMAIN_ID=118

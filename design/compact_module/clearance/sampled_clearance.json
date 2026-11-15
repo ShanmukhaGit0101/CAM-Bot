@@ -1,0 +1,4413 @@
+{
+  "scope": "81 discrete original-concept joint configurations; module self-clearance only",
+  "joint_order": [
+    "left_shoulder",
+    "left_elbow",
+    "right_shoulder",
+    "right_elbow"
+  ],
+  "parameter_sha256": "29b1db96ae7b748877b3d071a3961d5362db73f8d327058e250e0458aba71154",
+  "generator_sha256": "c41ed43eec726463ed39f5d733d2342f476efbec6f736a9aaed712241ac09c82",
+  "checker_sha256": "29e1db4ae4c2734bb2b153f91c18707b3668d686fab5bf9a789731864b35f326",
+  "passed": 70,
+  "attempted": 81,
+  "clearance_margin_mm": 5,
+  "records": [
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 135.46743637392845
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 19.830547752892137
+        }
+      ],
+      "minimum_clearance_mm": 19.830547752892137,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 70.90006113224042
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 73.00245615708556
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.498711305964302
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 0.0
+        }
+      ],
+      "minimum_clearance_mm": 0.0,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.49871130596431
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.498711305964302
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 0.0
+        }
+      ],
+      "minimum_clearance_mm": 0.0,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        -45,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.498711305964302
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.636043614493477
+        }
+      ],
+      "minimum_clearance_mm": 4.617314097820184,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 129.884572681199
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 130.88637515990584
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 129.884572681199
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 129.884572681199
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 129.884572681199
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 130.88637515990584
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 58.19322973010907
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 49.33056721572259
+        }
+      ],
+      "minimum_clearance_mm": 49.33056721572259,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 58.19322973010907
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 3.1435935394490144
+        }
+      ],
+      "minimum_clearance_mm": 3.1435935394490144,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 58.19322973010907
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 49.33056721572258
+        }
+      ],
+      "minimum_clearance_mm": 49.33056721572258,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.49871130596431
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 0.0
+        }
+      ],
+      "minimum_clearance_mm": 0.0,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.49871130596431
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.49871130596431
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 0.0
+        }
+      ],
+      "minimum_clearance_mm": 0.0,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        0,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.49871130596431
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 0.0
+        }
+      ],
+      "minimum_clearance_mm": 0.0,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 135.4674363739284
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 73.00245615708556
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 70.90006113224042
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 19.830547752892123
+        }
+      ],
+      "minimum_clearance_mm": 19.830547752892123,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.636043614493477
+        }
+      ],
+      "minimum_clearance_mm": 4.617314097820184,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.49871130596431
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 0.0
+        }
+      ],
+      "minimum_clearance_mm": 0.0,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        -30,
+        45,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 4.617314097820184
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 7.498711305964304
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 0.0
+        }
+      ],
+      "minimum_clearance_mm": 0.0,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 160.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 160.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 19.830547752892137
+        }
+      ],
+      "minimum_clearance_mm": 19.830547752892137,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 58.19322973010907
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 49.33056721572259
+        }
+      ],
+      "minimum_clearance_mm": 49.33056721572259,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        -45,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 73.00245615708556
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 160.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 160.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 70.90006113224042
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 58.19322973010907
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 3.1435935394490144
+        }
+      ],
+      "minimum_clearance_mm": 3.1435935394490144,
+      "passes_5mm_screen": false
+    },
+    {
+      "joint_degrees": [
+        0,
+        0,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 70.90006113224042
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 160.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 160.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 154.0001298700751
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 148.0
+        }
+      ],
+      "minimum_clearance_mm": 85.4148835350125,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 73.00245615708556
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 58.19322973010907
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 49.33056721572258
+        }
+      ],
+      "minimum_clearance_mm": 49.33056721572258,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        0,
+        45,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 77.26424461048077
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.63451327902162
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 82.46738409255148
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 19.830547752892123
+        }
+      ],
+      "minimum_clearance_mm": 19.830547752892123,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 135.46743637392845
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 129.884572681199
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 130.88637515990584
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        -45,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 129.884572681199
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 129.884572681199
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        0,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        -30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        -30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        -30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 247.97406794300082
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 292.6794919243112
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        0,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        0,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        0,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 85.4148835350125
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 148.0
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 198.00934559032697
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 221.19360703416663
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 226.68007186168543
+        }
+      ],
+      "minimum_clearance_mm": 79.65834564184989,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        30,
+        -45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 142.7201200969242
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        30,
+        0
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 129.884572681199
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 130.88637515990584
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    },
+    {
+      "joint_degrees": [
+        30,
+        45,
+        30,
+        45
+      ],
+      "pairs": [
+        {
+          "links": [
+            "base",
+            "left_forearm"
+          ],
+          "clearance_mm": 79.65834564184989
+        },
+        {
+          "links": [
+            "base",
+            "right_forearm"
+          ],
+          "clearance_mm": 67.30856884227632
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_upper"
+          ],
+          "clearance_mm": 127.88457268119896
+        },
+        {
+          "links": [
+            "left_upper",
+            "right_forearm"
+          ],
+          "clearance_mm": 133.88457268119896
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_upper"
+          ],
+          "clearance_mm": 148.82766908066404
+        },
+        {
+          "links": [
+            "left_forearm",
+            "right_forearm"
+          ],
+          "clearance_mm": 135.4674363739284
+        }
+      ],
+      "minimum_clearance_mm": 67.30856884227632,
+      "passes_5mm_screen": true
+    }
+  ],
+  "excluded_adjacent_pairs": [
+    [
+      "base",
+      "left_upper"
+    ],
+    [
+      "base",
+      "right_upper"
+    ],
+    [
+      "left_forearm",
+      "left_upper"
+    ],
+    [
+      "right_forearm",
+      "right_upper"
+    ]
+  ],
+  "continuous_path_checked": false,
+  "carrier_or_workcell_checked": false,
+  "actual_actuator_cable_or_workpiece_geometry_checked": false,
+  "hardware_execution_authorized": false
+}

@@ -58,6 +58,20 @@ model. See [architecture](docs/ARCHITECTURE.md) and
 
 ---
 
+## Run from VS Code
+
+Follow [the VS Code execution guide](docs/VSCODE.md). Included tasks build and
+test the core packages, launch RViz, observe/start a coordinated cycle, and
+regenerate analysis into fresh folders. CachyOS uses the prepared Humble container.
+
+## Present the project
+
+Start with the [final presentation package](presentation/README.md): editable
+slides, an offline recorded-event replay, PDF, speaking notes and a one-cycle
+demo guide. The project is closed at its accepted visual-demonstrator scope;
+Tasks 7–15 are deferred extensions, not prerequisites for this delivery. See the
+[scope decision](docs/PROJECT_CLOSEOUT.md).
+
 ## Current status
 
 **AY-01–AY-13 are complete for their stated visual ROS 2 Humble scope.**

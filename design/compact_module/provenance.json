@@ -1,0 +1,9 @@
+{
+  "source_commit": "bab8861050479a64c5ddb914947f5bf9a26e5e4a",
+  "qualification": "Artifacts and tests generated before this code commit; recorded generator/checker hashes match its exact committed bytes. Not a clean-checkout or ROS runtime replay.",
+  "step_roundtrip": "14 solids, all valid",
+  "tests": "17 CAD/load tests passed",
+  "preview": "QtSvg rendering of original generated SVG, inspected visually",
+  "no_reference_cad_imported": true,
+  "physical_operation_verified": false
+}

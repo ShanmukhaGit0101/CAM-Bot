@@ -1,0 +1,17 @@
+test_container_mount_guard_and_exit_propagation (tools.test_workbench.WorkbenchTests.test_container_mount_guard_and_exit_propagation) ... ok
+test_help_and_unknown_command_need_no_ros (tools.test_workbench.WorkbenchTests.test_help_and_unknown_command_need_no_ros) ... ok
+test_missing_trial_does_not_create_an_output (tools.test_workbench.WorkbenchTests.test_missing_trial_does_not_create_an_output) ... ok
+test_tasks_have_no_automatic_motion_dependency (tools.test_workbench.WorkbenchTests.test_tasks_have_no_automatic_motion_dependency) ... ok
+test_existing_output_refused (tools.test_build_presentation.PresentationEvidenceTests.test_existing_output_refused) ... ok
+test_modified_capture_is_rejected_before_deck_generation (tools.test_build_presentation.PresentationEvidenceTests.test_modified_capture_is_rejected_before_deck_generation) ... ok
+test_replay_is_actual_first_trial_and_metric_excludes_initial_home (tools.test_build_presentation.PresentationEvidenceTests.test_replay_is_actual_first_trial_and_metric_excludes_initial_home) ... ok
+test_broken_local_link (tools.test_check_ay13_docs.DocCheckTests.test_broken_local_link) ... ok
+test_missing_and_duplicate_ay_status (tools.test_check_ay13_docs.DocCheckTests.test_missing_and_duplicate_ay_status) ... ok
+test_phantom_launch_and_executable (tools.test_check_ay13_docs.DocCheckTests.test_phantom_launch_and_executable) ... ok
+test_source_inventory_detects_changed_bytes (tools.test_check_ay13_docs.DocCheckTests.test_source_inventory_detects_changed_bytes) ... ok
+test_valid_local_link (tools.test_check_ay13_docs.DocCheckTests.test_valid_local_link) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.171s
+
+OK

@@ -3,6 +3,7 @@
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from tools.verify_ay import packages_positive, require_package_assets
 
@@ -10,6 +11,28 @@ from tools.verify_ay import packages_positive, require_package_assets
 class PackageAssetChecks(unittest.TestCase):
     def test_current_packages(self):
         packages_positive()
+
+    def test_optional_package_cannot_replace_missing_core(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ('carrier_control', 'carrier_controller_testbed'):
+                package = root / 'src' / name
+                package.mkdir(parents=True)
+                (package / 'package.xml').write_text('<package/>')
+            with patch('tools.verify_ay.ROOT', root):
+                with self.assertRaisesRegex(AssertionError, 'missing core ROS package'):
+                    packages_positive()
+
+    def test_unexpected_package_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ('carrier_control', 'carrier_description', 'unexpected'):
+                package = root / 'src' / name
+                package.mkdir(parents=True)
+                (package / 'package.xml').write_text('<package/>')
+            with patch('tools.verify_ay.ROOT', root):
+                with self.assertRaisesRegex(AssertionError, 'unexpected ROS package'):
+                    packages_positive()
 
     def test_helper_based_setup_is_accepted(self):
         with tempfile.TemporaryDirectory() as directory:

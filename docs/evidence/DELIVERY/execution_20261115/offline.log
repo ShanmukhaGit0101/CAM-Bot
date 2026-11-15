@@ -1,0 +1,52 @@
+AY-13 DOC CHECK PASS: 13 statuses/ledger records, evidence paths, links and ROS source contracts
+test_existing_output_refused (tools.test_build_presentation.PresentationEvidenceTests.test_existing_output_refused) ... ok
+test_modified_capture_is_rejected_before_deck_generation (tools.test_build_presentation.PresentationEvidenceTests.test_modified_capture_is_rejected_before_deck_generation) ... ok
+test_replay_is_actual_first_trial_and_metric_excludes_initial_home (tools.test_build_presentation.PresentationEvidenceTests.test_replay_is_actual_first_trial_and_metric_excludes_initial_home) ... ok
+test_container_mount_guard_and_exit_propagation (tools.test_workbench.WorkbenchTests.test_container_mount_guard_and_exit_propagation) ... ok
+test_help_and_unknown_command_need_no_ros (tools.test_workbench.WorkbenchTests.test_help_and_unknown_command_need_no_ros) ... ok
+test_missing_trial_does_not_create_an_output (tools.test_workbench.WorkbenchTests.test_missing_trial_does_not_create_an_output) ... ok
+test_tasks_have_no_automatic_motion_dependency (tools.test_workbench.WorkbenchTests.test_tasks_have_no_automatic_motion_dependency) ... ok
+test_limits_and_nonfinite_configurations_rejected (tools.test_analyze_workspace.WorkspaceTests.test_limits_and_nonfinite_configurations_rejected) ... ok
+test_missing_chain_rejected (tools.test_analyze_workspace.WorkspaceTests.test_missing_chain_rejected) ... ok
+test_origin_rotation_precedes_joint_rotation (tools.test_analyze_workspace.WorkspaceTests.test_origin_rotation_precedes_joint_rotation) ... ok
+test_proxy_can_accept_both_arms_and_reject_one_arm (tools.test_analyze_workspace.WorkspaceTests.test_proxy_can_accept_both_arms_and_reject_one_arm) ... ok
+test_refuses_existing_output_before_reading_inputs (tools.test_analyze_workspace.WorkspaceTests.test_refuses_existing_output_before_reading_inputs) ... ok
+test_two_link_analytic_positions (tools.test_analyze_workspace.WorkspaceTests.test_two_link_analytic_positions) ... ok
+test_unsupported_or_unbounded_joint_rejected (tools.test_analyze_workspace.WorkspaceTests.test_unsupported_or_unbounded_joint_rejected) ... ok
+test_vectorized_proxy_agrees_with_runtime_evaluator (tools.test_analyze_workspace.WorkspaceTests.test_vectorized_proxy_agrees_with_runtime_evaluator) ... ok
+test_ik_recovers_pose_with_orientation (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_ik_recovers_pose_with_orientation) ... ok
+test_incompatible_orientation_and_distant_point_fail (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_incompatible_orientation_and_distant_point_fail) ... ok
+test_known_placeholder_endpoint (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_known_placeholder_endpoint) ... ok
+test_obstacle_and_self_collision_are_reported (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_obstacle_and_self_collision_are_reported) ... ok
+test_refuses_overwriting_evidence (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_refuses_overwriting_evidence) ... ok
+test_rejects_invalid_ik_input_and_out_of_limits (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_rejects_invalid_ik_input_and_out_of_limits) ... ok
+test_rotated_box_and_rigid_transform_invariance (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_rotated_box_and_rigid_transform_invariance) ... ok
+test_separated_touching_and_overlapping_boxes (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_separated_touching_and_overlapping_boxes) ... ok
+test_unsupported_geometry_fails_closed (tools.test_analyze_module_feasibility.ModuleFeasibilityTests.test_unsupported_geometry_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.333s
+
+OK
+test_changed_scenarios_are_separate (test_analysis.AnalysisTests.test_changed_scenarios_are_separate) ... ok
+test_cli_regenerates_tables_plots_and_preserves_raw_bytes (test_analysis.AnalysisTests.test_cli_regenerates_tables_plots_and_preserves_raw_bytes) ... {"attempts": 3, "scenarios": 1, "output": "/tmp/tmpxh3uz6zx/derived"}
+{"attempts": 3, "scenarios": 1, "output": "/tmp/tmpxh3uz6zx/derived"}
+{"attempts": 0, "scenarios": 0, "output": "/tmp/tmpxh3uz6zx/derived"}
+ok
+test_completed_motion_must_reach_recorded_goal (test_analysis.AnalysisTests.test_completed_motion_must_reach_recorded_goal) ... ok
+test_dangling_attempt_not_silently_dropped (test_analysis.AnalysisTests.test_dangling_attempt_not_silently_dropped) ... ok
+test_duplicate_ids_rejected (test_analysis.AnalysisTests.test_duplicate_ids_rejected) ... ok
+test_duplicate_terminal_rejected (test_analysis.AnalysisTests.test_duplicate_terminal_rejected) ... ok
+test_empty_dataset_is_explicit_and_has_no_success_percentage (test_analysis.AnalysisTests.test_empty_dataset_is_explicit_and_has_no_success_percentage) ... ok
+test_independent_mixed_arithmetic_and_motion_totals (test_analysis.AnalysisTests.test_independent_mixed_arithmetic_and_motion_totals) ... ok
+test_malformed_boolean_rejected (test_analysis.AnalysisTests.test_malformed_boolean_rejected) ... ok
+test_missing_adapter_evidence_rejected (test_analysis.AnalysisTests.test_missing_adapter_evidence_rejected) ... ok
+test_missing_duration_is_reported_when_failure_precedes_pick (test_analysis.AnalysisTests.test_missing_duration_is_reported_when_failure_precedes_pick) ... ok
+test_nontrivial_threshold_home_exclusion_and_failed_completion (test_analysis.AnalysisTests.test_nontrivial_threshold_home_exclusion_and_failed_completion) ... ok
+test_raw_checksum_tampering_rejected (test_analysis.AnalysisTests.test_raw_checksum_tampering_rejected) ... ok
+test_time_rollback_rejected (test_analysis.AnalysisTests.test_time_rollback_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 2.189s
+
+OK

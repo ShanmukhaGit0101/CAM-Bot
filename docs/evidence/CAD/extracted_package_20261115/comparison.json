@@ -1,0 +1,90 @@
+{
+  "source_commit": "ec9e88d350a5fdcb7aca07b89302a9ba956973da",
+  "provided_file_count": 11,
+  "all_identical_to_previous": true,
+  "previous_package_manifest_sha256": "036d2b67e50e976289b83865ca2882268452c39429de75a0df306f97451808f1",
+  "previous_package_manifest": "docs/evidence/CAD/SDA20D/package_manifest.json",
+  "files": [
+    {
+      "name": "SDA_20D.stp.SLDPRT",
+      "bytes": 3798242,
+      "sha256": "80e608d96ae65329fb81542290c00892d99761eeed8e4cacb2d6a514bf597cb1",
+      "identical_to_previous": true,
+      "header_hex": "db85335300000004e087926155c1140006000800dfbff47fa404000029010000"
+    },
+    {
+      "name": "Assem2.SLDASM",
+      "bytes": 5652128,
+      "sha256": "0e4a16d60e66b48b9187690709217952e7bf1b7f5faad9500693dfbd670e9f56",
+      "identical_to_previous": true,
+      "header_hex": "1d84eb0d00000004157a6a7147b29e825126d085b9d3140006000800dfbffd7f"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTq.SLDPRT",
+      "bytes": 8520330,
+      "sha256": "50d668e725cb4f0e1ecefaca8d409135ddc72ce71603887f01fdcd90782a0a84",
+      "identical_to_previous": true,
+      "header_hex": "1719a192000000041dcfcb4c57c250e3140006000800dfbff47f400600009001"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRT",
+      "bytes": 8056769,
+      "sha256": "a3adfbf1d81ed21922a37b7d2eccbbaa5a9e662fa8440109d2ec68c5bad98feb",
+      "identical_to_previous": true,
+      "header_hex": "30d557b000000004fde1dc2ce8140006000800df3fec7f84030000e1000000c2"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRT2.SLDPRT",
+      "bytes": 7247974,
+      "sha256": "6aa0e91b128e70db77354d28abfed7e952a371b05afbe7f49046629efcf94f93",
+      "identical_to_previous": true,
+      "header_hex": "28f8d29100000004d278a3bcd7140006000800dfbff47fd4030000f5000000ea"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRTs.SLDPRT",
+      "bytes": 7444273,
+      "sha256": "2993f606ad03e9e440387f41389bb2099b077b9278e2a49bd3959bcda34d7b8a",
+      "identical_to_previous": true,
+      "header_hex": "0031e524000000041dcfcb4c57c250e3140006000800dfbff47fa00500006801"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRTs.SLDPRTw.SLDPRT",
+      "bytes": 7117026,
+      "sha256": "66fea72353747a650e2956b6d67d2a4bdb8fe66cd6fc8585c552469cf7572875",
+      "identical_to_previous": true,
+      "header_hex": "544d49cd00000004d278a3bcd7140006000800dfbff47f98030000e6000000cc"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRTsww.SLDPRT",
+      "bytes": 7519402,
+      "sha256": "7007a410b28de1f8b5a79824c09eb86b9f928effb15b8ba7ddefd9c4ec38d558",
+      "identical_to_previous": true,
+      "header_hex": "70b2ea7900000004d278a3bcd7140006000800dfbff47f66030000d9000000b3"
+    },
+    {
+      "name": "SDA_20D.stp",
+      "bytes": 20548068,
+      "sha256": "f9ba3a690854f2d98fbba69be7bf02fbec57cdbcf4fbf2aae58225367804f859",
+      "identical_to_previous": true,
+      "header_hex": "49534f2d31303330332d32313b0d0a4845414445523b0d0a2f2a2047656e6572"
+    },
+    {
+      "name": "ssss.SLDASM",
+      "bytes": 5391200,
+      "sha256": "10c6f738b24448782e3b5f31eba37fbe02bc573cb042655f40a3ad496c0232c7",
+      "identical_to_previous": true,
+      "header_hex": "b09557f50000000406ab52cb8887140006000800dfbfe77fb00400002c010000"
+    },
+    {
+      "name": "w.SLDPRT",
+      "bytes": 8670115,
+      "sha256": "d1dac53e1bb88c64a2f642527a3c8b37292b042ceb3227a5089b525fb335548c",
+      "identical_to_previous": true,
+      "header_hex": "4b3fe89100000004d278a3bcd7140006000800dfbff47f8e030000e3000000c7"
+    }
+  ],
+  "total_bytes": 89965527,
+  "native_assembly_mates_or_features_decoded": false,
+  "neutral_geometry_assessment_reused_by_exact_sha256": true,
+  "new_robot_controller_or_gripper_specifications_established": false
+}

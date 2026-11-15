@@ -7,7 +7,7 @@ RUN --mount=type=secret,id=ca,required=true \
     ros-humble-joint-trajectory-controller ros-humble-joint-state-broadcaster \
     ros-humble-ur-description ros-humble-robot-state-publisher ros-humble-xacro \
     ros-humble-moveit-msgs ros-humble-tf2-ros \
-    python3-colcon-common-extensions python3-pytest python3-yaml \
+    python3-colcon-common-extensions python3-pytest python3-yaml git-lfs \
     ros-humble-ament-copyright ros-humble-ament-flake8 ros-humble-ament-pep257 \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /workspace/CAM-BOT

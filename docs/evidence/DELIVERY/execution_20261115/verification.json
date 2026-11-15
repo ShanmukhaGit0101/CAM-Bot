@@ -1,0 +1,32 @@
+{
+  "base_commit": "b5d47f2c150385dfd57928aaaf95e7fd18a620e8",
+  "working_tree_changes": "new execution/presentation helpers tested before commit; source hashes below",
+  "ros_source_changed": false,
+  "execution_copy": "/workspace/cambot-vscode-execution-check",
+  "image_id": "sha256:2e84a6c6578634cfd3983b7968ea19a793213e18dcb62689a5b170ff06d01856",
+  "container_addition": "Installed git-lfs 3.0.2-1ubuntu0.3 after initial runner failed. Docker recipe now includes git-lfs; full image rebuild was not run.",
+  "hashes": {
+    "tools/workbench.sh": "5725add7f14d0af4456bda8beb17683274e911611f9b8ea59da7b4f17fcc6708",
+    "tools/present_demo.sh": "750b20b943a012702491e8b88b34f08f0e0c1a8f559382ede06fffcd4ec1eb9f",
+    "tools/test_workbench.py": "d913b03f77e4ccb8b5d99e1f90317aedd2178457653408adb6e8544374bb8d12",
+    "tools/cloud/Dockerfile.controller_humble": "dd954c1565339c4283af1c5f9163c9af25b69742f8aad6381c316985fd4572bd",
+    ".vscode/tasks.json": "c07489a33913fae43d43cbb48ca3c375b21c4483c7e1e778404ff1a86cb4a0db",
+    ".vscode/launch.json": "47e60a49f2fb28cd3b7fe474ca59037225a8bd5ec3202e97b146b293b8c8c83c"
+  },
+  "fresh_gui_pass": false,
+  "ros_core_results": {
+    "tests": 75,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 2
+  },
+  "offline_workbench_tests": 38,
+  "additional_doc_checker_tests": 5,
+  "mock_cases": {
+    "carrier": 8,
+    "bimanual": 7,
+    "passed": true
+  },
+  "archived_metrics_exact_match": true,
+  "workspace_comparison": "numerical fields match; source paths/hashes, checkout SHA and NumPy version metadata differ"
+}

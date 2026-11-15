@@ -1,0 +1,2828 @@
+{
+  "classification": "ASSUMED_PLACEHOLDER_DIAGNOSTIC_NOT_MOTION_APPROVAL",
+  "source_commit": "b117d1805d1a9617a1583583f95c5aedc8d5804c",
+  "source_status": " M src/carrier_control/carrier_control/mock_controller_model.py\n M src/carrier_control/test/test_mock_controller_model.py\n M src/carrier_controller_testbed/config/ur5_mock_controllers.yaml\n M src/carrier_controller_testbed/launch/ur5_mock_controller.launch.py\n?? tools/analyze_module_feasibility.py\n?? tools/test_analyze_module_feasibility.py\n",
+  "input_sha256": {
+    "experiments/workspace/runs/model-study-20261107/model.urdf": "97c160ecc8087defe65caa8069bc356c13d08fb39d216e79ec7cdb05cae8039a",
+    "/workspace/CAM-BOT-ay13-acceptance/src/carrier_control/config/machine_tending.json": "a973226b7e02b7da1cdb96954990e61abe12a07867bfad678bbd07b3f3c8a64e",
+    "/workspace/CAM-BOT-ay13-acceptance/experiments/workspace/placements.json": "aecf3cec0ea11378c1da21c19abd4bedd4e72dea3b639dce311cb454d48de6fb",
+    "/workspace/CAM-BOT-ay13-acceptance/tools/analyze_module_feasibility.py": "203a471480c845dad90d8924bc764c6bdd353664ebcc28c08eca3d542ad97019"
+  },
+  "position_tolerance_m": 0.001,
+  "required_box_margin_m": 0.005,
+  "orientation_requirements_available": false,
+  "continuous_collision_checked": false,
+  "carrier_collision_checked": false,
+  "gripper_collision_checked": false,
+  "actuation_verified": false,
+  "grasp_verified": false,
+  "physical_placement_recommendation": null,
+  "collision_scope": "existing module boxes vs nonadjacent module boxes and solid station boxes; excludes UR5, flange, tools, cables and workpieces",
+  "ik_scope": "bounded numerical IK to distal forearm centres; common target is a proxy diagnostic, not a specified two-contact grasp",
+  "path_scope": "straight simultaneous joint interpolation at <=0.05 rad increments; sampled only, not the live timing law",
+  "placements": [
+    {
+      "placement": {
+        "name": "current",
+        "xyz_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "targets": [
+        {
+          "station": "S1_RAW",
+          "target": "RAW_PICK",
+          "target_in_module_m": [
+            -5.642978459801199e-05,
+            0.30839567557804437,
+            0.09108280832966881
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.6195211162974934,
+                0.3087826895798511
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.08481468214927566,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.6197636485741099,
+                0.30863543106291963
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.08475223805894445,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.21196021053198116,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.05351092685217694
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.21196021053198116
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.12365554935511264
+              },
+              {
+                "first": "left_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.03807477441571394
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.15163067956691337
+              },
+              {
+                "first": "right_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.05032390537183801
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S2_STAGING",
+          "target": "STAGE_INSPECT",
+          "target_in_module_m": [
+            0.00011306966576524629,
+            0.2575946011089756,
+            0.05526871645320404
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.7070973524199767,
+                0.059248170471586134
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.13101539995931188,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.7065897293494509,
+                0.0593461778537077
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.13116200508097658,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.047217151781367,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.047217151781367
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.045073281454056924
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.017015332900242597
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_LOAD",
+          "target_in_module_m": [
+            0.00011304651880558167,
+            0.30565315063441056,
+            0.08904869268170261
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.6241152215009989,
+                0.2990481988344313
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.08745626935293499,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.6236279568635721,
+                0.29934207424060943
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.08758248107592276,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.42325044851716415,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.05335927917516388
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.42325044851716415
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.30477819525932687
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3599538007124347
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.29088491027350744
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.36665228826479346
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_UNLOAD",
+          "target_in_module_m": [
+            0.00011304651880558167,
+            0.30565315063441056,
+            0.08904869268170261
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.6241152215009989,
+                0.2990481988344313
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.08745626935293499,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.6236279568635721,
+                0.29934207424060943
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.08758248107592276,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.42325044851716415,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.05335927917516388
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.42325044851716415
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.30477819525932687
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3599538007124347
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.29088491027350744
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.36665228826479346
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S4_OUTPUT",
+          "target": "OUTPUT_UNLOAD",
+          "target_in_module_m": [
+            -2.9780662718141357e-05,
+            0.2500582931398993,
+            0.05007610444292276
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.7214728478557816,
+                0.0009138879691771692
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.136959355946443,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.7216071083841048,
+                0.0009134603022457294
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.13692001326025924,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.2477026127574063,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.04503615813709567
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.2477026127574063
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.2354802707255464
+              },
+              {
+                "first": "left_forearm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.02770718582277376
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S5_FINISHED",
+          "target": "FINISHED_PLACE",
+          "target_in_module_m": [
+            -7.443666902255912e-05,
+            0.2502449937838735,
+            0.05022297053360337
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.7210015241307179,
+                0.002676846033901749
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.1368483685932538,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.7213370809186712,
+                0.0026737294139426554
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.13675007336647874,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.1414508844917256,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.045105709175713014
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.1414508844917256
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.11640263942144585
+              },
+              {
+                "first": "left_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.009727910282777363
+              },
+              {
+                "first": "right_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.0029500874253057807
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        }
+      ],
+      "both_endpoint_matches": 0
+    },
+    {
+      "placement": {
+        "name": "east_0.2m",
+        "xyz_m": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "targets": [
+        {
+          "station": "S1_RAW",
+          "target": "RAW_PICK",
+          "target_in_module_m": [
+            0.14110469470339654,
+            0.26394913197542863,
+            -0.04344615396122851
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.9395997315742113,
+                -0.44235092531212516
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.0017011651364046232,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.29045047969890053,
+                -1.304514562426457
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.12314020673684387,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.287166527158429,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.01632057761363967
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.04054602857124963
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.287166527158429
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.110485383109269
+              },
+              {
+                "first": "left_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.08931502627642252
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.24130314875038952
+              },
+              {
+                "first": "right_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.021650202278142627
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S2_STAGING",
+          "target": "STAGE_INSPECT",
+          "target_in_module_m": [
+            -0.1844623790426787,
+            0.19743105027802327,
+            0.10335458636826324
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.17809297962578152,
+                1.5699999999999998
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.1738619547484173,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                1.1166880748771284,
+                0.2606064021655677
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.012931632620783347,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.045073281454056924,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -0.021740262890815983
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.00650780506737238
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": 0.0002903874864787562
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.045073281454056924
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.029802278468068377
+              },
+              {
+                "first": "left_forearm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": 0.003286313953553943
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_LOAD",
+          "target_in_module_m": [
+            0.15741762462052836,
+            0.3439805020138101,
+            0.20646369957809144
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.8317154551555249,
+                0.5406214740270098
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.08400815574190701,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.17996737328127646,
+                1.0037971947783153
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.034510223979441854,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.33225217226948656,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2854111481721423
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.12479592659992605
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.31028151911130664
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.23995915182271488
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.33225217226948656
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_UNLOAD",
+          "target_in_module_m": [
+            0.15741762462052836,
+            0.3439805020138101,
+            0.20646369957809144
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.8317154551555249,
+                0.5406214740270098
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.08400815574190701,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.17996737328127646,
+                1.0037971947783153
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.034510223979441854,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.33225217226948656,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2854111481721423
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.12479592659992605
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.31028151911130664
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.23995915182271488
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.33225217226948656
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S4_OUTPUT",
+          "target": "OUTPUT_UNLOAD",
+          "target_in_module_m": [
+            -0.13381905970007044,
+            0.33827208066621384,
+            0.16973711106131834
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.2494612590690305,
+                0.8795350802786864
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.06458654464713084,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.8078581604464137,
+                0.46359475509387693
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.04776856363648204,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.16465059068301033,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.005099292773752304
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.11686999321824737
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.16465059068301033
+              },
+              {
+                "first": "left_forearm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.07672310526478876
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S5_FINISHED",
+          "target": "FINISHED_PLACE",
+          "target_in_module_m": [
+            0.14087072184415558,
+            0.3187523345787449,
+            -0.07403968093058522
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.8472921637147011,
+                -0.49190386446427453
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.042626261434842785,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.2433280061246636,
+                -1.0069825623619815
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.07324617781376035,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.012957560916697197,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": 0.0016050889188117257
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.008995288049104308
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.012957560916697197
+              },
+              {
+                "first": "left_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": 0.00044194706359568237
+              },
+              {
+                "first": "right_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.010683086115702123
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        }
+      ],
+      "both_endpoint_matches": 0
+    },
+    {
+      "placement": {
+        "name": "west_0.2m",
+        "xyz_m": [
+          -0.2,
+          0.0,
+          0.0
+        ],
+        "rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "targets": [
+        {
+          "station": "S1_RAW",
+          "target": "RAW_PICK",
+          "target_in_module_m": [
+            -0.1412175542725926,
+            0.3528422191806601,
+            0.22561177062056612
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.2196762744963749,
+                1.0049691934809573
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.011965033409869623,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.7971268036792866,
+                0.6031724661461058
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.08957976021844205,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.08716652715842893,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.07100589472815783
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.08716652715842893
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.07400854209131763
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.08200118576432266
+              },
+              {
+                "first": "right_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.05564050446156327
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S2_STAGING",
+          "target": "STAGE_INSPECT",
+          "target_in_module_m": [
+            0.18468851837420924,
+            0.3177581519399279,
+            0.007182846538144828
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.9051501518118306,
+                -0.16046829033384943
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.04797465587970327,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.11067283145502363,
+                -0.5507873104135413
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.13818696508980927,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.08724533146505553,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.0055249730592152185
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": 0.0028392950742735165
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.08724533146505553
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.0701382874389831
+              },
+              {
+                "first": "right_forearm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.03956961048752028
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_LOAD",
+          "target_in_module_m": [
+            -0.15719153158291724,
+            0.267325799255011,
+            -0.028366314214686262
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.23076553979976758,
+                -1.2665619064095266
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.1378617479330234,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.954237338599047,
+                -0.35358930028965896
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.006317409825792528,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.42325044851716415,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -0.01830435890339613
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.03269401342964923
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.42325044851716415
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3310792836663327
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.31630017286277096
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2492268811469015
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3742572483039774
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_UNLOAD",
+          "target_in_module_m": [
+            -0.15719153158291724,
+            0.267325799255011,
+            -0.028366314214686262
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.23076553979976758,
+                -1.2665619064095266
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.1378617479330234,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.954237338599047,
+                -0.35358930028965896
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.006317409825792528,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.42325044851716415,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -0.01830435890339613
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.03269401342964923
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.42325044851716415
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3310792836663327
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.31630017286277096
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2492268811469015
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3742572483039774
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S4_OUTPUT",
+          "target": "OUTPUT_UNLOAD",
+          "target_in_module_m": [
+            0.13375949837463413,
+            0.1618445056135848,
+            -0.06958490217547278
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -1.1417240176444428,
+                -0.7103723670339728
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.036620247758408095,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.4895894042265168,
+                -1.5699999999999998
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.12059742863292472,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.21398047707931217,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.06255778456724333
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.21398047707931217
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.12952948523729088
+              },
+              {
+                "first": "left_forearm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.05493108886780246
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S5_FINISHED",
+          "target": "FINISHED_PLACE",
+          "target_in_module_m": [
+            -0.14101959518220075,
+            0.18173765298900202,
+            0.174485621997792
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.4099606081934131,
+                1.5699999999999998
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.10876029277127837,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                1.1044315595489718,
+                0.6792307755074556
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.02183592438076745,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.16614877567622835,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -0.017506263862140922
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.16614877567622835
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.15471000241930594
+              },
+              {
+                "first": "left_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.035291550431825136
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.003590953352147208
+              },
+              {
+                "first": "right_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": 0.000265876681416366
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        }
+      ],
+      "both_endpoint_matches": 0
+    },
+    {
+      "placement": {
+        "name": "north_0.2m",
+        "xyz_m": [
+          0.0,
+          0.2,
+          0.0
+        ],
+        "rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "targets": [
+        {
+          "station": "S1_RAW",
+          "target": "RAW_PICK",
+          "target_in_module_m": [
+            -0.14028978057847005,
+            0.23748600556057023,
+            -0.03263633337094183
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.3238266921209249,
+                -1.5646663175954179
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.1373621166668684,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.988013710234172,
+                -0.42721112536652506
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.0205563313561985,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.30812218570486366,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -0.026329326525225627
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.05011376933196879
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.30812218570486366
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.2029470308722483
+              },
+              {
+                "first": "left_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.0012261844323481208
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.1387982261278618
+              },
+              {
+                "first": "right_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.09827786851110754
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S2_STAGING",
+          "target": "STAGE_INSPECT",
+          "target_in_module_m": [
+            0.057082882877588254,
+            0.06691531178358741,
+            0.03537276196554765
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -1.3338342274010992,
+                -0.3953435009780935
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.18202177567092087,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                1.181073578652327,
+                -1.5699999999999998
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.21831520567479495,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.16401190412095074,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.0707644473782664
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -0.05001791735099147
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "right_upper_arm",
+                "sat_gap_m": -0.029219976601420523
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.015594485249691165
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_upper_arm",
+                "sat_gap_m": -0.048264447378266406
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": 0.0027901060219190955
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.045073281454056924
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.01292975877371183
+              },
+              {
+                "first": "right_forearm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.16401190412095074
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_LOAD",
+          "target_in_module_m": [
+            0.12310129615537868,
+            0.27454105849852495,
+            -0.06556672755269757
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.8959487239417571,
+                -0.5478153702506159
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.0018922922763828086,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.3392986384080301,
+                -1.2288030177087597
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.0973292253878052,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.41723565976847904,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.00869494924432597
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.03944866175495079
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.41723565976847904
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.22328314607135247
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.37035805964076074
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3421135512534607
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.34014023313371045
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_UNLOAD",
+          "target_in_module_m": [
+            0.12310129615537868,
+            0.27454105849852495,
+            -0.06556672755269757
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.8959487239417571,
+                -0.5478153702506159
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.0018922922763828086,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.3392986384080301,
+                -1.2288030177087597
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.0973292253878052,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.41723565976847904,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.00869494924432597
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.03944866175495079
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.41723565976847904
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.22328314607135247
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.37035805964076074
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.3421135512534607
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.34014023313371045
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S4_OUTPUT",
+          "target": "OUTPUT_UNLOAD",
+          "target_in_module_m": [
+            0.05110423596834892,
+            0.1262036248733836,
+            0.19855281471010613
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -1.135113669700322,
+                1.2519430313382451
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.06356199140311641,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.929071849260666,
+                1.5699999999999998
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.08155989798362658,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.26782425538802007,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.007053251883105488
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -1.1147809863207292e-05
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_upper_arm",
+                "sat_gap_m": -0.022881614286900775
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.018482527077546624
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.26782425538802007
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.16238004670198003
+              },
+              {
+                "first": "left_forearm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.0531346760777659
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.0255458789798379
+              },
+              {
+                "first": "right_forearm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.016400886594721553
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S5_FINISHED",
+          "target": "FINISHED_PLACE",
+          "target_in_module_m": [
+            -0.0786311330208914,
+            0.4337741597974437,
+            0.062301491992941285
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.31504959683278405,
+                0.05957899018408783
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.013404131870393509,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.6029310771331094,
+                0.04443982148133365
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.05690472852084957,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.08917630737755608,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.006275969071930676
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.08917630737755608
+              },
+              {
+                "first": "left_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.05515178844543167
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        }
+      ],
+      "both_endpoint_matches": 0
+    },
+    {
+      "placement": {
+        "name": "south_0.2m",
+        "xyz_m": [
+          0.0,
+          -0.2,
+          0.0
+        ],
+        "rpy_rad": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "targets": [
+        {
+          "station": "S1_RAW",
+          "target": "RAW_PICK",
+          "target_in_module_m": [
+            0.140176921009274,
+            0.3793053455955185,
+            0.21480195003027938
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.7595366130198536,
+                0.5430029560800971
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.09894470530761754,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.20741877843431147,
+                0.8750612059560603
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.0052974763768656435,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.09768952217754456,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.07007335118173674
+              },
+              {
+                "first": "left_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.04087032061081319
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.09768952217754456
+              },
+              {
+                "first": "right_forearm",
+                "second": "RAW_INPUT",
+                "sat_gap_m": -0.021799492402260645
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S2_STAGING",
+          "target": "STAGE_INSPECT",
+          "target_in_module_m": [
+            -0.05685674354605776,
+            0.4482738904343638,
+            0.07516467094086042
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.349036112484896,
+                0.1103884711600271
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.008428304038871843,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.5532647634079055,
+                0.09063876811611743
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.05801800276042073,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.017430706196482126,
+            "pairs_below_margin": [
+              {
+                "first": "left_upper_arm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.017430706196482126
+              },
+              {
+                "first": "left_forearm",
+                "second": "STAGING_INSPECTION",
+                "sat_gap_m": -0.006530164858101539
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_LOAD",
+          "target_in_module_m": [
+            -0.12287520311776749,
+            0.3367652427702961,
+            0.2436641129161027
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.2807855752796601,
+                1.092147954942124
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.0018159897050870294,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.7943879092198249,
+                0.6985626535242109
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.08113307419826096,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.323509080930992,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2232504485171642
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.24631509250624845
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.323509080930992
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.10403594717248221
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2882250982264143
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S3_MACHINE",
+          "target": "MACHINE_UNLOAD",
+          "target_in_module_m": [
+            -0.12287520311776749,
+            0.3367652427702961,
+            0.2436641129161027
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.2807855752796601,
+                1.092147954942124
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.0018159897050870294,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.7943879092198249,
+                0.6985626535242109
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.08113307419826096,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.323509080930992,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2232504485171642
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.24631509250624845
+              },
+              {
+                "first": "left_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.323509080930992
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.10403594717248221
+              },
+              {
+                "first": "right_forearm",
+                "second": "CNC_MACHINE",
+                "sat_gap_m": -0.2882250982264143
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S4_OUTPUT",
+          "target": "OUTPUT_UNLOAD",
+          "target_in_module_m": [
+            -0.05116379729378518,
+            0.373912961406415,
+            -0.09840060582426059
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -0.42413284036805404,
+                -0.746982431342433
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.001580001157763242,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                0.6274429841853066,
+                -0.6109757815822358
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.038687742966447794,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.07507053334789118,
+            "pairs_below_margin": [
+              {
+                "first": "left_forearm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.017358631489335252
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.04770261275740634
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.07507053334789118
+              },
+              {
+                "first": "left_forearm",
+                "second": "OUTPUT_UNLOADING",
+                "sat_gap_m": -0.06288833374909708
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        },
+        {
+          "station": "S5_FINISHED",
+          "target": "FINISHED_PLACE",
+          "target_in_module_m": [
+            0.07848225968284628,
+            0.06671582777030326,
+            0.03814444907426546
+          ],
+          "inverse": {
+            "left": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                -1.3508939774651956,
+                -0.20916707722537484
+              ],
+              "joint_names": [
+                "left_shoulder_joint",
+                "left_elbow_joint"
+              ],
+              "position_error_m": 0.1629080438492186,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            },
+            "right": {
+              "status": "NO_SOLUTION_FOUND",
+              "joints_rad": [
+                1.1302617190108966,
+                -1.5699999999999998
+              ],
+              "joint_names": [
+                "right_shoulder_joint",
+                "right_elbow_joint"
+              ],
+              "position_error_m": 0.2282706591444469,
+              "orientation_required": false,
+              "orientation_error_rad": null
+            }
+          },
+          "clearance_at_best_fit": {
+            "minimum_sat_gap_m": -0.16448927054878953,
+            "pairs_below_margin": [
+              {
+                "first": "dual_arm_base_link",
+                "second": "left_forearm",
+                "sat_gap_m": -0.06305574256918423
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "right_forearm",
+                "sat_gap_m": -0.050017917350991516
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "right_upper_arm",
+                "sat_gap_m": -0.014956753181803322
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "right_forearm",
+                "sat_gap_m": -0.0016852924054044476
+              },
+              {
+                "first": "left_forearm",
+                "second": "right_upper_arm",
+                "sat_gap_m": -0.04950959464496152
+              },
+              {
+                "first": "dual_arm_base_link",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.1414508844917256
+              },
+              {
+                "first": "left_upper_arm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.11279585457124325
+              },
+              {
+                "first": "right_upper_arm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.006117270453842361
+              },
+              {
+                "first": "right_forearm",
+                "second": "FINISHED_PART",
+                "sat_gap_m": -0.16448927054878953
+              }
+            ],
+            "required_margin_m": 0.005
+          },
+          "both_endpoints_within_1mm": false
+        }
+      ],
+      "both_endpoint_matches": 0
+    }
+  ],
+  "visual_path_segments": [
+    {
+      "step": "HOME_START",
+      "samples": 2,
+      "samples_below_margin": 0,
+      "minimum_sampled_sat_gap_m": 0.026049999802047252,
+      "first_violation": null
+    },
+    {
+      "step": "S1_APPROACH",
+      "samples": 84,
+      "samples_below_margin": 20,
+      "minimum_sampled_sat_gap_m": -0.21196021053198116,
+      "first_violation": {
+        "fraction": 0.2530120481927711,
+        "minimum_sat_gap_m": 0.004268738703550601,
+        "pairs_below_margin": [
+          {
+            "first": "left_forearm",
+            "second": "OUTPUT_UNLOADING",
+            "sat_gap_m": 0.004268738703550601
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S1_GRASP",
+      "samples": 25,
+      "samples_below_margin": 25,
+      "minimum_sampled_sat_gap_m": -0.21196021053198116,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.21196021053198116,
+        "pairs_below_margin": [
+          {
+            "first": "left_forearm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.00845314677582926
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.21196021053198116
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.10282629706807916
+          },
+          {
+            "first": "left_forearm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.0077987382375003245
+          },
+          {
+            "first": "right_upper_arm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.13022951894672813
+          },
+          {
+            "first": "right_forearm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.026182794892282202
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S2_STAGE",
+      "samples": 185,
+      "samples_below_margin": 40,
+      "minimum_sampled_sat_gap_m": -0.39626345989165146,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.21196021053198116,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.21196021053198116
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.10282629706807916
+          },
+          {
+            "first": "left_forearm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.011580758721362272
+          },
+          {
+            "first": "right_upper_arm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.13022951894672813
+          },
+          {
+            "first": "right_forearm",
+            "second": "RAW_INPUT",
+            "sat_gap_m": -0.05299322878073953
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S3_LOAD",
+      "samples": 214,
+      "samples_below_margin": 42,
+      "minimum_sampled_sat_gap_m": -0.42325044851716415,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.179139866779655,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "STAGING_INSPECTION",
+            "sat_gap_m": -0.045073281454056924
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "STAGING_INSPECTION",
+            "sat_gap_m": -0.020044000755117197
+          },
+          {
+            "first": "left_forearm",
+            "second": "STAGING_INSPECTION",
+            "sat_gap_m": -0.179139866779655
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S3_RELEASE",
+      "samples": 25,
+      "samples_below_margin": 25,
+      "minimum_sampled_sat_gap_m": -0.42325044851716415,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.42325044851716415,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.42325044851716415
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.28237283965712157
+          },
+          {
+            "first": "left_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.27868345753226925
+          },
+          {
+            "first": "right_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.27356153343610157
+          },
+          {
+            "first": "right_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.35209326019561604
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "MACHINE_DWELL",
+      "samples": 2,
+      "samples_below_margin": 2,
+      "minimum_sampled_sat_gap_m": -0.42325044851716415,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.42325044851716415,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "left_forearm",
+            "sat_gap_m": -0.02250000000000007
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "right_forearm",
+            "sat_gap_m": -0.0224999999999999
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.00879515505901736
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.023535380129485327
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.023535380129485403
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.0366697162822667
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.42325044851716415
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.3351180583810366
+          },
+          {
+            "first": "left_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.32708520599439966
+          },
+          {
+            "first": "right_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.3142203413230942
+          },
+          {
+            "first": "right_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.35327269727807464
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S3_REGRASP",
+      "samples": 25,
+      "samples_below_margin": 25,
+      "minimum_sampled_sat_gap_m": -0.42325044851716415,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.42325044851716415,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "left_forearm",
+            "sat_gap_m": -0.02250000000000007
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "right_forearm",
+            "sat_gap_m": -0.0224999999999999
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.00879515505901736
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.023535380129485327
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.023535380129485403
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.0366697162822667
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.42325044851716415
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.3351180583810366
+          },
+          {
+            "first": "left_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.32708520599439966
+          },
+          {
+            "first": "right_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.3142203413230942
+          },
+          {
+            "first": "right_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.35327269727807464
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S4_UNLOAD",
+      "samples": 222,
+      "samples_below_margin": 149,
+      "minimum_sampled_sat_gap_m": -0.42920491922964266,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.42325044851716415,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.42325044851716415
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.28237283965712157
+          },
+          {
+            "first": "left_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.27868345753226925
+          },
+          {
+            "first": "right_upper_arm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.27356153343610157
+          },
+          {
+            "first": "right_forearm",
+            "second": "CNC_MACHINE",
+            "sat_gap_m": -0.35209326019561604
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S5_PLACE",
+      "samples": 152,
+      "samples_below_margin": 126,
+      "minimum_sampled_sat_gap_m": -0.47036506077344975,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.2477026127574063,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "OUTPUT_UNLOADING",
+            "sat_gap_m": -0.2477026127574063
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "OUTPUT_UNLOADING",
+            "sat_gap_m": -0.22648409981166395
+          },
+          {
+            "first": "left_forearm",
+            "second": "OUTPUT_UNLOADING",
+            "sat_gap_m": -0.06273481565488365
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "S5_RELEASE",
+      "samples": 25,
+      "samples_below_margin": 25,
+      "minimum_sampled_sat_gap_m": -0.1414508844917256,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.1414508844917256,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "left_forearm",
+            "sat_gap_m": -0.0351881352055575
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "right_forearm",
+            "sat_gap_m": -0.008153049475725122
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.008795155059017318
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.01850331288626773
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.018503312886267956
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.01630609895145027
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "FINISHED_PART",
+            "sat_gap_m": -0.1414508844917256
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "FINISHED_PART",
+            "sat_gap_m": -0.1146591338285094
+          },
+          {
+            "first": "left_forearm",
+            "second": "FINISHED_PART",
+            "sat_gap_m": -0.10335065730974877
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    },
+    {
+      "step": "HOME_END",
+      "samples": 55,
+      "samples_below_margin": 31,
+      "minimum_sampled_sat_gap_m": -0.1414508844917256,
+      "first_violation": {
+        "fraction": 0.0,
+        "minimum_sat_gap_m": -0.1414508844917256,
+        "pairs_below_margin": [
+          {
+            "first": "dual_arm_base_link",
+            "second": "left_forearm",
+            "sat_gap_m": -0.022500000000000027
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "right_forearm",
+            "sat_gap_m": -0.0225
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.008795155059017318
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.02353538012948533
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_upper_arm",
+            "sat_gap_m": -0.023535380129485445
+          },
+          {
+            "first": "left_forearm",
+            "second": "right_forearm",
+            "sat_gap_m": -0.036669716282266604
+          },
+          {
+            "first": "dual_arm_base_link",
+            "second": "FINISHED_PART",
+            "sat_gap_m": -0.1414508844917256
+          },
+          {
+            "first": "left_upper_arm",
+            "second": "FINISHED_PART",
+            "sat_gap_m": -0.1146591338285094
+          },
+          {
+            "first": "right_forearm",
+            "second": "FINISHED_PART",
+            "sat_gap_m": -0.07164626972205596
+          }
+        ],
+        "required_margin_m": 0.005
+      }
+    }
+  ],
+  "local_workspace": {
+    "samples": 2000,
+    "seed": 15,
+    "self_clearance_at_least_5mm": 1166,
+    "measured_boundary_uncertainty_m": null
+  }
+}

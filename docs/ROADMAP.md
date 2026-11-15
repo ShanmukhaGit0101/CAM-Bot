@@ -1,5 +1,9 @@
 # CAMBOT — Roadmap
 
+**Final-delivery decision (2026-11-15):** the visual demonstrator and presentation
+are the completed project scope. Unfinished phases below are optional future
+extensions, not release blockers. See [project closeout](PROJECT_CLOSEOUT.md).
+
 The six phases from carrier baseline to carrier placement recommendation.
 Current progress lives in [`STATUS.md`](STATUS.md), not here.
 

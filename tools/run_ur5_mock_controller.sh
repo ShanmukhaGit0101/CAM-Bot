@@ -21,8 +21,12 @@ ros2 node list --no-daemon > "$out/preexisting_nodes.txt"
     ros-humble-ur-description
   printf 'ROS_DOMAIN_ID=%s\n' "$ROS_DOMAIN_ID"
 } > "$out/environment.txt"
+bimanual_arg=false
+if [[ "${CAMBOT_RUN_BIMANUAL:-0}" == 1 ]]; then
+  bimanual_arg=true
+fi
 python3 tools/start_ros_session.py ros2 launch carrier_controller_testbed \
-  ur5_mock_controller.launch.py > "$out/launch.log" 2>&1 &
+  ur5_mock_controller.launch.py "enable_bimanual_mock:=$bimanual_arg" > "$out/launch.log" 2>&1 &
 launch_pid=$!
 cleanup() {
   kill -INT "$launch_pid" 2>/dev/null || true
@@ -38,6 +42,9 @@ cleanup() {
 }
 trap cleanup EXIT
 python3 tools/probe_ur5_mock_controller.py "$out/probe" > "$out/probe.log" 2>&1
+if [[ "${CAMBOT_RUN_BIMANUAL:-0}" == 1 ]]; then
+  python3 tools/probe_bimanual_mock_controller.py "$out/bimanual" > "$out/bimanual.log" 2>&1
+fi
 if [[ "${CAMBOT_RUN_BENCHMARK:-0}" == 1 ]]; then
   python3 tools/benchmark_mock_controller.py "$out/benchmark" > "$out/benchmark.log" 2>&1
 fi

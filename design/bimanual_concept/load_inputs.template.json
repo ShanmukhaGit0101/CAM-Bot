@@ -1,0 +1,47 @@
+{
+  "scope": "Unknown hardware inputs; no values inferred from SDA20D reference",
+  "component_groups": {
+    "adapter": {
+      "mass_kg": null,
+      "center_of_mass_m": null,
+      "source": null
+    },
+    "shoulder_brackets": {
+      "mass_kg": null,
+      "center_of_mass_m": null,
+      "source": null
+    },
+    "actuators_and_gearboxes": {
+      "mass_kg": null,
+      "center_of_mass_m": null,
+      "source": null
+    },
+    "bearings_and_fasteners": {
+      "mass_kg": null,
+      "center_of_mass_m": null,
+      "source": null
+    },
+    "grippers": {
+      "mass_kg": null,
+      "center_of_mass_m": null,
+      "source": null
+    },
+    "cables_and_guards": {
+      "mass_kg": null,
+      "center_of_mass_m": null,
+      "source": null
+    },
+    "workpieces": {
+      "mass_kg": null,
+      "center_of_mass_m": null,
+      "source": null
+    }
+  },
+  "module_pose_in_flange": null,
+  "carrier_limits": {
+    "model": null,
+    "mass_limit_kg": null,
+    "static_moment_limit_Nm": null,
+    "source": null
+  }
+}

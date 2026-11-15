@@ -1,0 +1,13 @@
+{
+  "files.watcherExclude": {
+    "**/build/**": true,
+    "**/install/**": true,
+    "**/log/**": true
+  },
+  "search.exclude": {
+    "build": true,
+    "install": true,
+    "log": true,
+    ".cambot-runs": true
+  }
+}

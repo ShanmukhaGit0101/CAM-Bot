@@ -1,6 +1,8 @@
 # CAM-BOT status and evidence levels
 
-Updated 2026-11-14 (Asia/Calcutta). This is the only project status matrix. Each AY record,
+Updated 2026-11-15 (Asia/Calcutta). **Final delivery: COMPLETE within the accepted
+visual-demonstrator scope; presentation package prepared.** See
+[project closeout](PROJECT_CLOSEOUT.md) and [presentation](../presentation/README.md). This is the only project status matrix. Each AY record,
 including prior state, options, exact files, commands, results, limitations and
 next action, is in the [versioned evidence ledger](ayush/ledger.json).
 The [2026-11-05 documentation repair](evidence/AY-13/reproducibility_repair.md)
@@ -19,9 +21,9 @@ and explicit declaration of independent review, closing AY-13 in visual scope.
 
 | Level | Meaning | Present evidence |
 |---|---|---|
-| Available code | Source, installed assets, offline contracts | Two installed Humble packages; Xacro/URDF; 48 regression tests ([log](evidence/AY-10/final_tests.log)) |
+| Available code | Source, installed assets, offline contracts | Two core Humble packages plus an optional controller testbed; Xacro/URDF; 48 regression tests ([log](evidence/AY-10/final_tests.log)) |
 | Visual-only run | Live ROS/TF/RViz and visual adapter transitions | [AY-10 raw manifest](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/manifest.json), [probe](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/probe.log), [screenshot](../experiments/machine_tending/runs/ay10-visual-20261015-03/raw/rviz_runtime.png) |
-| Actuated simulated run | Controller results and simulated feedback | **Unverified** here. Historical [Phase 1](progress/phase1-carrier-baseline.md) and [Phase 4](progress/phase_4.md) reports do not establish current controller operation. |
+| Actuated simulated run | Controller results and simulated feedback | Complete actuated tending remains **unverified**; isolated GenericSystem controller feedback is recorded below. Historical [Phase 1](progress/phase1-carrier-baseline.md) and [Phase 4](progress/phase_4.md) reports do not establish current controller operation. |
 | Measured complete cycle | Declared timing boundary, complete attempted FSM, raw events | **Five visual cycles only**; [methods/results](../experiments/machine_tending/README.md) |
 
 Workcell dimensions and visual carrier poses are temporary assumptions. The
@@ -49,6 +51,71 @@ checks. These are mock carrier cycles, not complete tending cycles; the full
 10–20-cycle tending baseline remains pending. The
 [Tasks 7–15 dependency record](CONTROLLER_NEXT_STEPS.md) identifies the missing
 interfaces, geometry and hardware evidence needed for subsequent milestones.
+
+Task 15 (detailed mechanical design) remains **PARTIAL**. The
+[user-supplied SDA20D CAD assessment](evidence/CAD/SDA20D/README.md) now informs a
+[parameterized small-module concept](../design/bimanual_concept/README.md),
+with a generated STEP layout and structural-volume worksheet. The reference is
+not a replacement for the UR5 carrier. One imported reference body fails CAD
+validity checks. The new concept has seven valid geometric components, but no
+validated brackets, bearings, actuators, grippers or mounting load path. Its
+approximately 1.022 kg structural-only estimate excludes those components;
+total payload compatibility and physical validation remain unestablished.
+Tasks 8–14 retain the dependencies in the controller/manipulation record above;
+static CAD does not close their runtime or hardware acceptance gates.
+
+## Deferred extensions: Tasks 7–15 (outside final delivery)
+
+The user has closed the project at the visual-demonstrator and presentation
+scope. The technical states below are retained honestly; they are future-work
+readiness, not blockers to the final project. See [closeout](PROJECT_CLOSEOUT.md).
+
+The [2026-11-15 clean local-clone replay](evidence/TASK-08/mock_bimanual_20261115/README.md)
+at `44febde` passed 75 package results (0 failures, 2 copyright-header skips),
+all 8 carrier and 7 bimanual protocol checks, the default carrier-only replay,
+and 20/20 additional synthetic carrier cycles. Both launch modes had one joint-
+state broadcaster and no residual nodes. Offline results: 42 host tool tests,
+7 Humble observer tests, 14 historical analysis tests and 4 CAD tests passed.
+
+| Task | Current state | Evidence and remaining acceptance |
+|---|---|---|
+| 7 — UR5 controller | PARTIAL | Real JTC/GenericSystem protocol integration passes. Exact UR driver, calibration, safety/disconnect behavior and physical controller feedback remain unverified. |
+| 8 — Bimanual/gripper | PARTIAL | Optional four-joint JTC passes motion feedback, rejection, fault, cancellation and recovery tests. Gripper interfaces, object detection and verified grasp/release remain absent. |
+| 9 — Reachability | PARTIAL | [Bounded placeholder IK and box diagnostics](../experiments/workspace/FEASIBILITY.md) implemented/tested. Complete robot/tool geometry, actual contact orientations and continuous path clearance remain open. |
+| 10 — Complete controller-backed cycles | BLOCKED | Current proxy targets and visual paths do not qualify under the new diagnostics; manipulation feedback and qualified station paths are missing. |
+| 11 — Physical operation | BLOCKED | No physical assembly, calibration or supervised hardware trials have been performed. |
+| 12 — Workspace | PARTIAL | Prior 20,006 carrier samples plus 2,000 local module samples with limited self-clearance screening. Whole-cell orientation-constrained coverage and boundary uncertainty remain unverified. |
+| 13 — Expanded baseline | PARTIAL | Two separate 20-cycle synthetic carrier captures pass; complete tending baseline is blocked by Task 10. Original five visual cycles are unchanged. |
+| 14 — Placement | PARTIAL | Five placements tested against placeholder IK/box assumptions. No supported physical placement recommendation or qualified path-cost comparison. |
+| 15 — Mechanical design | PARTIAL | Original compact design: 14 valid solids, standalone four-joint URDF/meshes, matching mounting/pedestal holes and elbow fork geometry. Mass allocations and discrete self-clearance checked; selected hardware, fits/retention, dynamic/load qualification, fabrication and physical acceptance remain missing. |
+
+The [new feasibility study](../experiments/workspace/runs/placeholder-feasibility-20261115/README.md)
+found zero simultaneous two-endpoint matches to the common proxy target within
+1 mm in all five placement candidates, and box-margin violations in 11 of 12
+sampled visual workflow segments. Of 2,000 local joint samples, 1,166 passed the
+limited nonadjacent-module self-clearance screen. These are numerical/model
+diagnostics, not global infeasibility proofs or measured workspace guarantees.
+Station orientations and distinct grasp contacts are unspecified; whole-robot,
+gripper and continuous collision checks are not included.
+
+The [eleven extracted CAD files](evidence/CAD/extracted_package_20261115/README.md)
+were received; hashes all match the earlier package. Native mates/features
+remain undecoded. The user subsequently authorized an
+[original compact module](../design/compact_module/README.md), without reference
+CAD. This separate prototype has 14 valid solids and matching URDF/local meshes.
+All 17 CAD/load tests passed, including sampled elbow interference checks.
+A separate STEP round-trip confirmed 14 valid solids. A discrete nonadjacent-module study passed 70 of
+81 configurations at 5 mm clearance; the 11 failures remain recorded. Its
+1.522752 kg parts/actuator/payload allocation leaves 0.477248 kg of a chosen
+2 kg budget; total mass and actual carrier compatibility remain unverified.
+The original reference-based concept and accepted ROS implementation are
+unchanged; no ROS or physical replay is claimed for the new CAD prototype.
+The final presentation package and [VS Code execution workflow](VSCODE.md) are
+prepared on `feat/sda20-cad-assessment`. [New execution checks](../presentation/execution-verification.md)
+pass core builds/tests, analysis regeneration and all 15 optional mock protocol
+cases; the existing accepted record remains the GUI demonstration baseline.
+Further engineering is deferred; no hardware readiness is claimed. AY-13's accepted visual scope and all sealed prior records remain
+unchanged.
 
 ## AY task matrix
 

@@ -1,0 +1,44 @@
+Starting >>> carrier_control
+Finished <<< carrier_control [0.97s]
+Starting >>> carrier_description
+Finished <<< carrier_description [0.95s]
+Starting >>> carrier_controller_testbed
+Finished <<< carrier_controller_testbed [0.92s]
+
+Summary: 3 packages finished [3.02s]
+Starting >>> carrier_control
+--- stderr: carrier_control
+
+=============================== warnings summary ===============================
+test/test_flake8.py::test_flake8
+test/test_flake8.py::test_flake8
+  Warning: SelectableGroups dict interface is deprecated. Use select.
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+---
+Finished <<< carrier_control [1.60s]
+Starting >>> carrier_description
+--- stderr: carrier_description
+
+=============================== warnings summary ===============================
+test/test_flake8.py::test_flake8
+test/test_flake8.py::test_flake8
+  Warning: SelectableGroups dict interface is deprecated. Use select.
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+---Finished <<< carrier_description [0.62s]
+
+Starting >>> carrier_controller_testbed
+--- stderr: carrier_controller_testbed
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+---
+Finished <<< carrier_controller_testbed [0.20s]
+
+Summary: 3 packages finished [2.61s]
+  3 packages had stderr output: carrier_control carrier_controller_testbed carrier_description
+Summary: 75 tests, 0 errors, 0 failures, 2 skipped
+AY-13 DOC CHECK PASS: 13 statuses/ledger records, evidence paths, links and ROS source contracts and installed assets
