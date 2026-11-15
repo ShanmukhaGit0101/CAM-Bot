@@ -1,0 +1,560 @@
+[
+  {
+    "event": "STARTED",
+    "mode": "visual_simulation",
+    "state": null,
+    "timestamp_utc": "2026-11-15T13:04:04.151083+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 0,
+    "state": "HOME",
+    "timestamp_utc": "2026-11-15T13:04:04.151474+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "HOME",
+    "step": "HOME_START",
+    "timestamp_utc": "2026-11-15T13:04:04.151941+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "fsm_state": "HOME",
+    "mode": "visual_simulation",
+    "state": "CARRIER_NOT_COMMANDED",
+    "station": "HOME",
+    "timestamp_utc": "2026-11-15T13:04:04.152298+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "HOME",
+    "step": "HOME_START",
+    "timestamp_utc": "2026-11-15T13:04:06.426835+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 0,
+    "state": "HOME",
+    "timestamp_utc": "2026-11-15T13:04:06.427398+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 1,
+    "state": "PICK_RAW",
+    "timestamp_utc": "2026-11-15T13:04:06.427753+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "PICK_RAW",
+    "step": "S1_APPROACH",
+    "target": "RAW_PICK",
+    "target_frame": "station_s1_raw",
+    "timestamp_utc": "2026-11-15T13:04:06.428178+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.75,
+      0.85,
+      0.76
+    ],
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "fsm_state": "PICK_RAW",
+    "mode": "visual_simulation",
+    "state": "CARRIER_NOT_COMMANDED",
+    "station": "S1_RAW",
+    "timestamp_utc": "2026-11-15T13:04:06.434413+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "PICK_RAW",
+    "step": "S1_APPROACH",
+    "target": "RAW_PICK",
+    "target_frame": "station_s1_raw",
+    "timestamp_utc": "2026-11-15T13:04:08.888876+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.75,
+      0.85,
+      0.76
+    ],
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "PICK_RAW",
+    "step": "S1_GRASP",
+    "target": "RAW_PICK",
+    "target_frame": "station_s1_raw",
+    "timestamp_utc": "2026-11-15T13:04:08.889349+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.75,
+      0.85,
+      0.76
+    ],
+    "workpiece_state": "RAW_AT_S1"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "PICK_RAW",
+    "step": "S1_GRASP",
+    "target": "RAW_PICK",
+    "target_frame": "station_s1_raw",
+    "timestamp_utc": "2026-11-15T13:04:09.704946+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.75,
+      0.85,
+      0.76
+    ],
+    "workpiece_state": "HELD_RAW_AT_S1"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 1,
+    "state": "PICK_RAW",
+    "timestamp_utc": "2026-11-15T13:04:09.706915+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "HELD_RAW_AT_S1"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 2,
+    "state": "STAGE",
+    "timestamp_utc": "2026-11-15T13:04:09.707825+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "HELD_RAW_AT_S1"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "STAGE",
+    "step": "S2_STAGE",
+    "target": "STAGE_INSPECT",
+    "target_frame": "station_s2_staging",
+    "timestamp_utc": "2026-11-15T13:04:09.708546+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.15,
+      1.05,
+      0.76
+    ],
+    "workpiece_state": "HELD_RAW_AT_S1"
+  },
+  {
+    "fsm_state": "STAGE",
+    "mode": "visual_simulation",
+    "state": "CARRIER_NOT_COMMANDED",
+    "station": "S2_STAGING",
+    "timestamp_utc": "2026-11-15T13:04:09.709950+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "STAGE",
+    "step": "S2_STAGE",
+    "target": "STAGE_INSPECT",
+    "target_frame": "station_s2_staging",
+    "timestamp_utc": "2026-11-15T13:04:12.213420+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.15,
+      1.05,
+      0.76
+    ],
+    "workpiece_state": "HELD_RAW_AT_S2"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 2,
+    "state": "STAGE",
+    "timestamp_utc": "2026-11-15T13:04:12.214182+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "HELD_RAW_AT_S2"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 3,
+    "state": "LOAD_MACHINE",
+    "timestamp_utc": "2026-11-15T13:04:12.214553+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "HELD_RAW_AT_S2"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "LOAD_MACHINE",
+    "step": "S3_LOAD",
+    "target": "MACHINE_LOAD",
+    "target_frame": "station_s3_machine",
+    "timestamp_utc": "2026-11-15T13:04:12.215062+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.65,
+      0.75,
+      0.95
+    ],
+    "workpiece_state": "HELD_RAW_AT_S2"
+  },
+  {
+    "fsm_state": "LOAD_MACHINE",
+    "mode": "visual_simulation",
+    "state": "CARRIER_NOT_COMMANDED",
+    "station": "S3_MACHINE",
+    "timestamp_utc": "2026-11-15T13:04:12.216974+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "LOAD_MACHINE",
+    "step": "S3_LOAD",
+    "target": "MACHINE_LOAD",
+    "target_frame": "station_s3_machine",
+    "timestamp_utc": "2026-11-15T13:04:14.728265+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.65,
+      0.75,
+      0.95
+    ],
+    "workpiece_state": "HELD_RAW_AT_S3"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "LOAD_MACHINE",
+    "step": "S3_RELEASE",
+    "target": "MACHINE_LOAD",
+    "target_frame": "station_s3_machine",
+    "timestamp_utc": "2026-11-15T13:04:14.728878+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.65,
+      0.75,
+      0.95
+    ],
+    "workpiece_state": "HELD_RAW_AT_S3"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "LOAD_MACHINE",
+    "step": "S3_RELEASE",
+    "target": "MACHINE_LOAD",
+    "target_frame": "station_s3_machine",
+    "timestamp_utc": "2026-11-15T13:04:15.283665+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.65,
+      0.75,
+      0.95
+    ],
+    "workpiece_state": "RAW_IN_MACHINE"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 3,
+    "state": "LOAD_MACHINE",
+    "timestamp_utc": "2026-11-15T13:04:15.284449+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_IN_MACHINE"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 4,
+    "state": "MACHINE_DWELL",
+    "timestamp_utc": "2026-11-15T13:04:15.285008+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_IN_MACHINE"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "MACHINE_DWELL",
+    "step": "MACHINE_DWELL",
+    "timestamp_utc": "2026-11-15T13:04:15.286239+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "RAW_IN_MACHINE"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "MACHINE_DWELL",
+    "step": "MACHINE_DWELL",
+    "timestamp_utc": "2026-11-15T13:04:18.288615+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "PROCESSED_IN_MACHINE"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 4,
+    "state": "MACHINE_DWELL",
+    "timestamp_utc": "2026-11-15T13:04:18.289344+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "PROCESSED_IN_MACHINE"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 5,
+    "state": "UNLOAD_MACHINE",
+    "timestamp_utc": "2026-11-15T13:04:18.289784+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "PROCESSED_IN_MACHINE"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "UNLOAD_MACHINE",
+    "step": "S3_REGRASP",
+    "target": "MACHINE_UNLOAD",
+    "target_frame": "station_s3_machine",
+    "timestamp_utc": "2026-11-15T13:04:18.290290+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.65,
+      0.75,
+      0.95
+    ],
+    "workpiece_state": "PROCESSED_IN_MACHINE"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "UNLOAD_MACHINE",
+    "step": "S3_REGRASP",
+    "target": "MACHINE_UNLOAD",
+    "target_frame": "station_s3_machine",
+    "timestamp_utc": "2026-11-15T13:04:19.103327+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.65,
+      0.75,
+      0.95
+    ],
+    "workpiece_state": "HELD_PROCESSED_AT_S3"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "UNLOAD_MACHINE",
+    "step": "S4_UNLOAD",
+    "target": "OUTPUT_UNLOAD",
+    "target_frame": "station_s4_output",
+    "timestamp_utc": "2026-11-15T13:04:19.104169+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.75,
+      -0.45,
+      0.76
+    ],
+    "workpiece_state": "HELD_PROCESSED_AT_S3"
+  },
+  {
+    "fsm_state": "UNLOAD_MACHINE",
+    "mode": "visual_simulation",
+    "state": "CARRIER_NOT_COMMANDED",
+    "station": "S4_OUTPUT",
+    "timestamp_utc": "2026-11-15T13:04:19.105329+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "UNLOAD_MACHINE",
+    "step": "S4_UNLOAD",
+    "target": "OUTPUT_UNLOAD",
+    "target_frame": "station_s4_output",
+    "timestamp_utc": "2026-11-15T13:04:21.550528+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      -0.75,
+      -0.45,
+      0.76
+    ],
+    "workpiece_state": "HELD_PROCESSED_AT_S4"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 5,
+    "state": "UNLOAD_MACHINE",
+    "timestamp_utc": "2026-11-15T13:04:21.551839+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "HELD_PROCESSED_AT_S4"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 6,
+    "state": "PLACE_FINISHED",
+    "timestamp_utc": "2026-11-15T13:04:21.552774+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "HELD_PROCESSED_AT_S4"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "PLACE_FINISHED",
+    "step": "S5_PLACE",
+    "target": "FINISHED_PLACE",
+    "target_frame": "station_s5_finished",
+    "timestamp_utc": "2026-11-15T13:04:21.553593+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.35,
+      -0.95,
+      0.76
+    ],
+    "workpiece_state": "HELD_PROCESSED_AT_S4"
+  },
+  {
+    "fsm_state": "PLACE_FINISHED",
+    "mode": "visual_simulation",
+    "state": "CARRIER_NOT_COMMANDED",
+    "station": "S5_FINISHED",
+    "timestamp_utc": "2026-11-15T13:04:21.555247+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "PLACE_FINISHED",
+    "step": "S5_PLACE",
+    "target": "FINISHED_PLACE",
+    "target_frame": "station_s5_finished",
+    "timestamp_utc": "2026-11-15T13:04:24.048683+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.35,
+      -0.95,
+      0.76
+    ],
+    "workpiece_state": "HELD_PROCESSED_AT_S5"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "PLACE_FINISHED",
+    "step": "S5_RELEASE",
+    "target": "FINISHED_PLACE",
+    "target_frame": "station_s5_finished",
+    "timestamp_utc": "2026-11-15T13:04:24.049521+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.35,
+      -0.95,
+      0.76
+    ],
+    "workpiece_state": "HELD_PROCESSED_AT_S5"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "PLACE_FINISHED",
+    "step": "S5_RELEASE",
+    "target": "FINISHED_PLACE",
+    "target_frame": "station_s5_finished",
+    "timestamp_utc": "2026-11-15T13:04:24.589900+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "visual_target_world_xyz_m": [
+      0.35,
+      -0.95,
+      0.76
+    ],
+    "workpiece_state": "FINISHED_AT_S5"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 6,
+    "state": "PLACE_FINISHED",
+    "timestamp_utc": "2026-11-15T13:04:24.590398+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "FINISHED_AT_S5"
+  },
+  {
+    "event": "ENTERED",
+    "mode": "visual_simulation",
+    "phase_index": 7,
+    "state": "HOME",
+    "timestamp_utc": "2026-11-15T13:04:24.590877+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "FINISHED_AT_S5"
+  },
+  {
+    "event": "STEP_STARTED",
+    "mode": "visual_simulation",
+    "state": "HOME",
+    "step": "HOME_END",
+    "timestamp_utc": "2026-11-15T13:04:24.591230+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "FINISHED_AT_S5"
+  },
+  {
+    "fsm_state": "HOME",
+    "mode": "visual_simulation",
+    "state": "CARRIER_NOT_COMMANDED",
+    "station": "HOME",
+    "timestamp_utc": "2026-11-15T13:04:24.591572+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f"
+  },
+  {
+    "event": "STEP_COMPLETED",
+    "mode": "visual_simulation",
+    "state": "HOME",
+    "step": "HOME_END",
+    "timestamp_utc": "2026-11-15T13:04:26.858842+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "FINISHED_AT_S5"
+  },
+  {
+    "event": "COMPLETED",
+    "mode": "visual_simulation",
+    "phase_index": 7,
+    "state": "HOME",
+    "timestamp_utc": "2026-11-15T13:04:26.859531+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "FINISHED_AT_S5"
+  },
+  {
+    "event": "SUCCESS",
+    "mode": "visual_simulation",
+    "state": "HOME",
+    "timestamp_utc": "2026-11-15T13:04:26.860010+00:00",
+    "trial_id": "cambot-presentation-8e409b35-0d4f-48bc-8667-4bd7bb58e65f",
+    "workpiece_state": "FINISHED_AT_S5"
+  }
+]

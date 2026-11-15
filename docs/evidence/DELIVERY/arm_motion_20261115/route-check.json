@@ -1,0 +1,51 @@
+{
+  "motions": [
+    {
+      "station": "HOME",
+      "old_stored_base_delta_deg": 0.0,
+      "actual_base_delta_deg": 0.0,
+      "start_winding_shift_deg": 0.0
+    },
+    {
+      "station": "S1_RAW",
+      "old_stored_base_delta_deg": 237.422245296832,
+      "actual_base_delta_deg": -122.577754703168,
+      "start_winding_shift_deg": 0.0
+    },
+    {
+      "station": "S2_STAGING",
+      "old_stored_base_delta_deg": -164.95725156902063,
+      "actual_base_delta_deg": -164.95725156902063,
+      "start_winding_shift_deg": 0.0
+    },
+    {
+      "station": "S3_MACHINE",
+      "old_stored_base_delta_deg": 608.5722855531702,
+      "actual_base_delta_deg": -111.42771444682978,
+      "start_winding_shift_deg": 360.0
+    },
+    {
+      "station": "S4_OUTPUT",
+      "old_stored_base_delta_deg": -270.73920206847214,
+      "actual_base_delta_deg": 89.26079793152785,
+      "start_winding_shift_deg": 0.0
+    },
+    {
+      "station": "S5_FINISHED",
+      "old_stored_base_delta_deg": 69.93831746445633,
+      "actual_base_delta_deg": 69.93831746445633,
+      "start_winding_shift_deg": 0.0
+    },
+    {
+      "station": "HOME",
+      "old_stored_base_delta_deg": -120.23639467696576,
+      "actual_base_delta_deg": -120.23639467696576,
+      "start_winding_shift_deg": 0.0
+    }
+  ],
+  "joint_samples": 711,
+  "max_rendered_joint_step_rad": 0.11757137977633338,
+  "max_numeric_winding_step_rad": 6.279599618141802,
+  "base_motion_at_most_180deg": true,
+  "note": "Numeric full-turn rebasing preserves rendered orientation; compare angles modulo 2pi."
+}

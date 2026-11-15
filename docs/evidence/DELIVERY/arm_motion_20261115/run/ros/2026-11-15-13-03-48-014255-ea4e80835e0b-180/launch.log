@@ -1,0 +1,12 @@
+1794747828.0158794 [INFO] [launch]: All log files can be found below /workspace/CAM-BOT/.cambot-runs/run.ygIYqF/ros/2026-11-15-13-03-48-014255-ea4e80835e0b-180
+1794747828.0160282 [INFO] [launch]: Default logging verbosity is set to INFO
+1794747828.3453481 [INFO] [robot_state_publisher-1]: process started with pid [274]
+1794747828.3455088 [INFO] [machine_tending_coordinator-2]: process started with pid [276]
+1794747828.3455586 [INFO] [rviz2-3]: process started with pid [278]
+1794747917.2086923 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+1794747917.2115166 [INFO] [rviz2-3]: sending signal 'SIGINT' to process[rviz2-3]
+1794747917.2122695 [INFO] [machine_tending_coordinator-2]: sending signal 'SIGINT' to process[machine_tending_coordinator-2]
+1794747917.2141845 [INFO] [robot_state_publisher-1]: sending signal 'SIGINT' to process[robot_state_publisher-1]
+1794747917.3248842 [INFO] [robot_state_publisher-1]: process has finished cleanly [pid 274]
+1794747917.3844244 [INFO] [rviz2-3]: process has finished cleanly [pid 278]
+1794747917.4061980 [INFO] [machine_tending_coordinator-2]: process has finished cleanly [pid 276]
