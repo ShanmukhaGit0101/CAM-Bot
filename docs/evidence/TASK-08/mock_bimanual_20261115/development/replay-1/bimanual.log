@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/CAM-BOT/tools/probe_bimanual_mock_controller.py", line 175, in <module>
+    main(parser.parse_args().output)
+  File "/workspace/CAM-BOT/tools/probe_bimanual_mock_controller.py", line 158, in main
+    node.run(report)
+  File "/workspace/CAM-BOT/tools/probe_bimanual_mock_controller.py", line 113, in run
+    handle = self.goal([0], names=['not_a_joint'])
+  File "/workspace/CAM-BOT/tools/probe_bimanual_mock_controller.py", line 63, in goal
+    point.positions = list(target)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/trajectory_msgs/msg/_joint_trajectory_point.py", line 167, in positions
+    assert \
+AssertionError: The 'positions' field must be a set or sequence and each value of type 'float' and each double in [-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000, 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000]

@@ -1,0 +1,264 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-11-15-05-13-43-613038-364f013d811b-196
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ros2_control_node-1]: process started with pid [210]
+[INFO] [robot_state_publisher-2]: process started with pid [212]
+[INFO] [spawner-3]: process started with pid [214]
+[ros2_control_node-1] [WARN] [1794719623.912187197] [cambot_testbed.controller_manager]: [Deprecated] Passing the robot description parameter directly to the control_manager node is deprecated. Use '~/robot_description' topic from 'robot_state_publisher' instead.
+[ros2_control_node-1] [INFO] [1794719623.912445188] [resource_manager]: Loading hardware 'CAMBOTMockUR5' 
+[ros2_control_node-1] [INFO] [1794719623.912757389] [resource_manager]: Initialize hardware 'CAMBOTMockUR5' 
+[ros2_control_node-1] [INFO] [1794719623.912795986] [resource_manager]: Successful initialization of hardware 'CAMBOTMockUR5'
+[ros2_control_node-1] [INFO] [1794719623.912835404] [resource_manager]: 'configure' hardware 'CAMBOTMockUR5' 
+[ros2_control_node-1] [INFO] [1794719623.912840452] [resource_manager]: Successful 'configure' of hardware 'CAMBOTMockUR5'
+[ros2_control_node-1] [INFO] [1794719623.912845309] [resource_manager]: 'activate' hardware 'CAMBOTMockUR5' 
+[ros2_control_node-1] [INFO] [1794719623.912849034] [resource_manager]: Successful 'activate' of hardware 'CAMBOTMockUR5'
+[ros2_control_node-1] [INFO] [1794719623.916479678] [cambot_testbed.controller_manager]: update rate is 100 Hz
+[ros2_control_node-1] [INFO] [1794719623.916505796] [cambot_testbed.controller_manager]: Spawning controller_manager RT thread with scheduler priority: 50
+[ros2_control_node-1] [WARN] [1794719623.916587933] [cambot_testbed.controller_manager]: Could not enable FIFO RT scheduling policy: with error number <1>(Operation not permitted). See [https://control.ros.org/master/doc/ros2_control/controller_manager/doc/userdoc.html] for details on how to enable realtime scheduling.
+[robot_state_publisher-2] [INFO] [1794719623.919798921] [cambot_testbed.robot_state_publisher]: got segment base
+[robot_state_publisher-2] [INFO] [1794719623.919970124] [cambot_testbed.robot_state_publisher]: got segment base_link
+[robot_state_publisher-2] [INFO] [1794719623.919978406] [cambot_testbed.robot_state_publisher]: got segment base_link_inertia
+[robot_state_publisher-2] [INFO] [1794719623.919982662] [cambot_testbed.robot_state_publisher]: got segment carrier_flange
+[robot_state_publisher-2] [INFO] [1794719623.919986388] [cambot_testbed.robot_state_publisher]: got segment carrier_flange_interface
+[robot_state_publisher-2] [INFO] [1794719623.919989733] [cambot_testbed.robot_state_publisher]: got segment carrier_flange_mount_left
+[robot_state_publisher-2] [INFO] [1794719623.919992587] [cambot_testbed.robot_state_publisher]: got segment carrier_flange_mount_right
+[robot_state_publisher-2] [INFO] [1794719623.919995481] [cambot_testbed.robot_state_publisher]: got segment cell_floor
+[robot_state_publisher-2] [INFO] [1794719623.919998576] [cambot_testbed.robot_state_publisher]: got segment dual_arm_base_link
+[robot_state_publisher-2] [INFO] [1794719623.920001330] [cambot_testbed.robot_state_publisher]: got segment flange
+[robot_state_publisher-2] [INFO] [1794719623.920004415] [cambot_testbed.robot_state_publisher]: got segment forearm_link
+[robot_state_publisher-2] [INFO] [1794719623.920007349] [cambot_testbed.robot_state_publisher]: got segment ft_frame
+[robot_state_publisher-2] [INFO] [1794719623.920010213] [cambot_testbed.robot_state_publisher]: got segment left_forearm
+[robot_state_publisher-2] [INFO] [1794719623.920013057] [cambot_testbed.robot_state_publisher]: got segment left_upper_arm
+[robot_state_publisher-2] [INFO] [1794719623.920015781] [cambot_testbed.robot_state_publisher]: got segment right_forearm
+[robot_state_publisher-2] [INFO] [1794719623.920018555] [cambot_testbed.robot_state_publisher]: got segment right_upper_arm
+[robot_state_publisher-2] [INFO] [1794719623.920021560] [cambot_testbed.robot_state_publisher]: got segment shoulder_link
+[robot_state_publisher-2] [INFO] [1794719623.920024234] [cambot_testbed.robot_state_publisher]: got segment station_s1_raw
+[robot_state_publisher-2] [INFO] [1794719623.920027088] [cambot_testbed.robot_state_publisher]: got segment station_s2_staging
+[robot_state_publisher-2] [INFO] [1794719623.920029732] [cambot_testbed.robot_state_publisher]: got segment station_s3_machine
+[robot_state_publisher-2] [INFO] [1794719623.920032436] [cambot_testbed.robot_state_publisher]: got segment station_s4_output
+[robot_state_publisher-2] [INFO] [1794719623.920035130] [cambot_testbed.robot_state_publisher]: got segment station_s5_finished
+[robot_state_publisher-2] [INFO] [1794719623.920037924] [cambot_testbed.robot_state_publisher]: got segment tool0
+[robot_state_publisher-2] [INFO] [1794719623.920040648] [cambot_testbed.robot_state_publisher]: got segment upper_arm_link
+[robot_state_publisher-2] [INFO] [1794719623.920043482] [cambot_testbed.robot_state_publisher]: got segment workpiece
+[robot_state_publisher-2] [INFO] [1794719623.920046266] [cambot_testbed.robot_state_publisher]: got segment workpiece_x_carriage
+[robot_state_publisher-2] [INFO] [1794719623.920049341] [cambot_testbed.robot_state_publisher]: got segment workpiece_y_carriage
+[robot_state_publisher-2] [INFO] [1794719623.920052335] [cambot_testbed.robot_state_publisher]: got segment world
+[robot_state_publisher-2] [INFO] [1794719623.920054909] [cambot_testbed.robot_state_publisher]: got segment wrist_1_link
+[robot_state_publisher-2] [INFO] [1794719623.920057753] [cambot_testbed.robot_state_publisher]: got segment wrist_2_link
+[robot_state_publisher-2] [INFO] [1794719623.920060297] [cambot_testbed.robot_state_publisher]: got segment wrist_3_link
+[ros2_control_node-1] [INFO] [1794719624.101816250] [cambot_testbed.controller_manager]: Loading controller 'joint_state_broadcaster'
+[spawner-3] [INFO] [1794719624.119272256] [spawner_joint_state_broadcaster]: [94mLoaded [1mjoint_state_broadcaster[0m
+[ros2_control_node-1] [INFO] [1794719624.120186176] [cambot_testbed.controller_manager]: Configuring controller 'joint_state_broadcaster'
+[ros2_control_node-1] [INFO] [1794719624.120289449] [cambot_testbed.joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[spawner-3] [INFO] [1794719624.147533313] [spawner_joint_state_broadcaster]: [92mConfigured and activated [1mjoint_state_broadcaster[0m
+[INFO] [spawner-3]: process has finished cleanly [pid 214]
+[INFO] [spawner-4]: process started with pid [256]
+[spawner-4] [INFO] [1794719624.454061569] [spawner_ur5_trajectory_controller]: waiting for service /cambot_testbed/controller_manager/list_controllers to become available...
+[ros2_control_node-1] [INFO] [1794719624.707149253] [cambot_testbed.controller_manager]: Loading controller 'ur5_trajectory_controller'
+[ros2_control_node-1] [WARN] [1794719624.715940860] [cambot_testbed.ur5_trajectory_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[spawner-4] [INFO] [1794719624.717566626] [spawner_ur5_trajectory_controller]: [94mLoaded [1mur5_trajectory_controller[0m
+[ros2_control_node-1] [INFO] [1794719624.718326258] [cambot_testbed.controller_manager]: Configuring controller 'ur5_trajectory_controller'
+[ros2_control_node-1] [INFO] [1794719624.718441869] [cambot_testbed.ur5_trajectory_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ros2_control_node-1] [INFO] [1794719624.718454578] [cambot_testbed.ur5_trajectory_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[ros2_control_node-1] [INFO] [1794719624.718470060] [cambot_testbed.ur5_trajectory_controller]: Using 'splines' interpolation method.
+[ros2_control_node-1] [INFO] [1794719624.718988366] [cambot_testbed.ur5_trajectory_controller]: Controller state will be published at 50.00 Hz.
+[ros2_control_node-1] [INFO] [1794719624.720602791] [cambot_testbed.ur5_trajectory_controller]: Action status changes will be monitored at 20.00 Hz.
+[spawner-4] [INFO] [1794719624.747447596] [spawner_ur5_trajectory_controller]: [92mConfigured and activated [1mur5_trajectory_controller[0m
+[INFO] [spawner-4]: process has finished cleanly [pid 256]
+[INFO] [spawner-5]: process started with pid [271]
+[ros2_control_node-1] [INFO] [1794719625.075699807] [cambot_testbed.controller_manager]: Loading controller 'bimanual_trajectory_controller'
+[ros2_control_node-1] [WARN] [1794719625.081776022] [cambot_testbed.bimanual_trajectory_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[spawner-5] [INFO] [1794719625.098872162] [spawner_bimanual_trajectory_controller]: [94mLoaded [1mbimanual_trajectory_controller[0m
+[ros2_control_node-1] [INFO] [1794719625.099777119] [cambot_testbed.controller_manager]: Configuring controller 'bimanual_trajectory_controller'
+[ros2_control_node-1] [INFO] [1794719625.099912929] [cambot_testbed.bimanual_trajectory_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[ros2_control_node-1] [INFO] [1794719625.099937145] [cambot_testbed.bimanual_trajectory_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[ros2_control_node-1] [INFO] [1794719625.099946359] [cambot_testbed.bimanual_trajectory_controller]: Using 'splines' interpolation method.
+[ros2_control_node-1] [INFO] [1794719625.100602969] [cambot_testbed.bimanual_trajectory_controller]: Controller state will be published at 50.00 Hz.
+[ros2_control_node-1] [INFO] [1794719625.102207649] [cambot_testbed.bimanual_trajectory_controller]: Action status changes will be monitored at 20.00 Hz.
+[spawner-5] [INFO] [1794719625.127408866] [spawner_bimanual_trajectory_controller]: [92mConfigured and activated [1mbimanual_trajectory_controller[0m
+[INFO] [spawner-5]: process has finished cleanly [pid 271]
+[ros2_control_node-1] [INFO] [1794719625.287978293] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719625.288066172] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719627.296764884] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719627.547895196] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [ERROR] [1794719627.547948485] [cambot_testbed.ur5_trajectory_controller]: Joints on incoming trajectory don't match the controller joints.
+[ros2_control_node-1] [INFO] [1794719627.548907036] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [ERROR] [1794719627.548935198] [cambot_testbed.ur5_trajectory_controller]: Incoming joint unknown_joint doesn't match the controller's joints.
+[ros2_control_node-1] [INFO] [1794719627.566284521] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719627.566343007] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [ERROR] [1794719627.576758052] [tolerances]: State tolerances failed for joint 0:
+[ros2_control_node-1] [ERROR] [1794719627.576788427] [tolerances]: Position Error: 0.000499, Position Tolerance: 0.000000
+[ros2_control_node-1] [WARN] [1794719627.576800054] [cambot_testbed.ur5_trajectory_controller]: Aborted due to state tolerance violation
+[ros2_control_node-1] [INFO] [1794719627.617534677] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719627.617578772] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [ERROR] [1794719627.636774037] [tolerances]: State tolerances failed for joint 0:
+[ros2_control_node-1] [ERROR] [1794719627.636821127] [tolerances]: Position Error: -0.000000, Position Tolerance: 0.000000
+[ros2_control_node-1] [WARN] [1794719627.636833265] [cambot_testbed.ur5_trajectory_controller]: Aborted due to state tolerance violation
+[ros2_control_node-1] [INFO] [1794719627.668959867] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719627.668999155] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719628.170189449] [cambot_testbed.ur5_trajectory_controller]: Got request to cancel goal
+[ros2_control_node-1] [INFO] [1794719628.170236728] [cambot_testbed.ur5_trajectory_controller]: Canceling active action goal because cancel callback received.
+[ros2_control_node-1] [INFO] [1794719628.828351874] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719628.828619509] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719629.032740193] [cambot_testbed.ur5_trajectory_controller]: Got request to cancel goal
+[ros2_control_node-1] [INFO] [1794719629.032799410] [cambot_testbed.ur5_trajectory_controller]: Canceling active action goal because cancel callback received.
+[ros2_control_node-1] [INFO] [1794719630.767858327] [cambot_testbed.bimanual_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719630.767989551] [cambot_testbed.bimanual_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719631.786775970] [cambot_testbed.bimanual_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719631.927964707] [cambot_testbed.bimanual_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [ERROR] [1794719631.928034229] [cambot_testbed.bimanual_trajectory_controller]: Joints on incoming trajectory don't match the controller joints.
+[ros2_control_node-1] [INFO] [1794719631.928708595] [cambot_testbed.bimanual_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719631.928734814] [cambot_testbed.bimanual_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [ERROR] [1794719631.946780309] [tolerances]: State tolerances failed for joint 0:
+[ros2_control_node-1] [ERROR] [1794719631.946824043] [tolerances]: Position Error: -0.001501, Position Tolerance: 0.000000
+[ros2_control_node-1] [WARN] [1794719631.946837083] [cambot_testbed.bimanual_trajectory_controller]: Aborted due to state tolerance violation
+[ros2_control_node-1] [INFO] [1794719631.979874402] [cambot_testbed.bimanual_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719631.979923415] [cambot_testbed.bimanual_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719632.281071602] [cambot_testbed.bimanual_trajectory_controller]: Got request to cancel goal
+[ros2_control_node-1] [INFO] [1794719632.281174654] [cambot_testbed.bimanual_trajectory_controller]: Canceling active action goal because cancel callback received.
+[ros2_control_node-1] [INFO] [1794719632.847549024] [cambot_testbed.bimanual_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719632.847601983] [cambot_testbed.bimanual_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719633.049363686] [cambot_testbed.bimanual_trajectory_controller]: Got request to cancel goal
+[ros2_control_node-1] [INFO] [1794719633.049428461] [cambot_testbed.bimanual_trajectory_controller]: Canceling active action goal because cancel callback received.
+[ros2_control_node-1] [INFO] [1794719633.617565420] [cambot_testbed.bimanual_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719633.617620181] [cambot_testbed.bimanual_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719634.626770852] [cambot_testbed.bimanual_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719637.108397140] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719637.108452041] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719637.616780593] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719637.660358703] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719637.660411931] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719638.166780354] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719638.270472867] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719638.270556300] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719638.786791769] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719638.822312845] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719638.822357911] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719639.328085403] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719639.428977860] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719639.429127101] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719639.946774124] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719639.981421745] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719639.981478369] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719640.486795048] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719640.587684261] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719640.587737680] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719641.096811809] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719641.139829650] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719641.139882077] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719641.656754592] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719641.747591430] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719641.747641714] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719642.266776119] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719642.299630597] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719642.299725588] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719642.816764653] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719642.909884067] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719642.909951216] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719643.416789674] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719643.462224980] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719643.462281343] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719643.976795706] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719644.067850085] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719644.067907139] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719644.586771781] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719644.619609698] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719644.619685930] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719645.136779815] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719645.227914749] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719645.227979454] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719645.736820800] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719645.779901944] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719645.780001250] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719646.296758716] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719646.387592896] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719646.387665984] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719646.896767122] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719646.939710780] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719646.939756938] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719647.446795537] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719647.547896459] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719647.547947515] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719648.066829871] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719648.100260487] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719648.100295508] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719648.606808544] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719648.707569194] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719648.707624005] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719649.226778250] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719649.260058488] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719649.260102924] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719649.766762160] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719649.867669041] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719649.867726096] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719650.386817683] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719650.419923794] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719650.419965045] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719650.926768720] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719651.027650093] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719651.027713147] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719651.546793532] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719651.579936398] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719651.579984579] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719652.096800070] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719652.187700032] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719652.187746881] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719652.706761852] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719652.739850310] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719652.739884691] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719653.256768154] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719653.347941132] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719653.347994570] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719653.856769626] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719653.900089892] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719653.900134508] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719654.406758342] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719654.507585546] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719654.507662118] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719655.026839292] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719655.059759743] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719655.059825170] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719655.576765216] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719655.667927388] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719655.667972244] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719656.186772627] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719656.220006060] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719656.220056334] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719656.726768053] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719656.827529494] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719656.827582182] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719657.336783126] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719657.379719172] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719657.379775916] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719657.886900339] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719657.987703475] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719657.987752837] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719658.506805352] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719658.540378920] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719658.540435153] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719659.056797465] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719659.147543062] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719659.147592645] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719659.656768933] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[ros2_control_node-1] [INFO] [1794719659.699808356] [cambot_testbed.ur5_trajectory_controller]: Received new action goal
+[ros2_control_node-1] [INFO] [1794719659.699847214] [cambot_testbed.ur5_trajectory_controller]: Accepted new action goal
+[ros2_control_node-1] [INFO] [1794719660.206769254] [cambot_testbed.ur5_trajectory_controller]: Goal reached, success!
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [robot_state_publisher-2]: sending signal 'SIGINT' to process[robot_state_publisher-2]
+[INFO] [ros2_control_node-1]: sending signal 'SIGINT' to process[ros2_control_node-1]
+[robot_state_publisher-2] [INFO] [1794719660.466906073] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ros2_control_node-1] [INFO] [1794719660.467825511] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ros2_control_node-1] [INFO] [1794719660.467902746] [cambot_testbed.controller_manager]: Shutdown request received....
+[ros2_control_node-1] [INFO] [1794719660.467964758] [cambot_testbed.controller_manager]: Shutting down all controllers in the controller manager.
+[ros2_control_node-1] [INFO] [1794719660.467995313] [cambot_testbed.controller_manager]: Deactivating controller 'joint_state_broadcaster'
+[ros2_control_node-1] [INFO] [1794719660.468100690] [cambot_testbed.controller_manager]: Shutting down controller 'joint_state_broadcaster'
+[ros2_control_node-1] [INFO] [1794719660.468131426] [cambot_testbed.controller_manager]: Deactivating controller 'ur5_trajectory_controller'
+[ros2_control_node-1] [INFO] [1794719660.468170224] [cambot_testbed.controller_manager]: Shutting down controller 'ur5_trajectory_controller'
+[ros2_control_node-1] [INFO] [1794719660.468183033] [cambot_testbed.controller_manager]: Deactivating controller 'bimanual_trajectory_controller'
+[ros2_control_node-1] [INFO] [1794719660.468219687] [cambot_testbed.controller_manager]: Shutting down controller 'bimanual_trajectory_controller'
+[ros2_control_node-1] [INFO] [1794719660.468241099] [resource_manager]: 'deactivate' hardware 'CAMBOTMockUR5' 
+[ros2_control_node-1] [INFO] [1794719660.468252155] [resource_manager]: Successful 'deactivate' of hardware 'CAMBOTMockUR5'
+[ros2_control_node-1] [INFO] [1794719660.468256121] [resource_manager]: 'shutdown' hardware 'CAMBOTMockUR5' 
+[ros2_control_node-1] [INFO] [1794719660.468260478] [resource_manager]: Successful 'shutdown' of hardware 'CAMBOTMockUR5'
+[ros2_control_node-1] [INFO] [1794719660.468264043] [cambot_testbed.controller_manager]: Shutting down the controller manager.
+[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 212]
+[INFO] [ros2_control_node-1]: process has finished cleanly [pid 210]

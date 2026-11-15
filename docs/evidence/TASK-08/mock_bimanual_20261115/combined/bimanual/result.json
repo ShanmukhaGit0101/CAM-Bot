@@ -1,0 +1,69 @@
+{
+  "scope": "four-joint GenericSystem controller protocol only",
+  "cases": {
+    "four_joint_motion_feedback": {
+      "status": 4,
+      "feedback_samples": 20
+    },
+    "unknown_joint_rejected": true,
+    "tracking_fault_aborted": {
+      "status": 6,
+      "error_code": -4
+    },
+    "cancellation_and_hold": {
+      "status": 5,
+      "held_positions": {
+        "left_shoulder_joint": 0.13319866362,
+        "left_elbow_joint": -0.08879910908000001,
+        "right_shoulder_joint": -0.13319866362,
+        "right_elbow_joint": 0.08879910908000001
+      }
+    },
+    "deadline_cancel_and_hold": {
+      "status": 5,
+      "held_positions": {
+        "left_shoulder_joint": 0.13380350196810356,
+        "left_elbow_joint": -0.08920233464540238,
+        "right_shoulder_joint": -0.13380350196810356,
+        "right_elbow_joint": 0.08920233464540238
+      }
+    },
+    "recovery_and_carrier_isolation": {
+      "status": 4,
+      "carrier_positions": {
+        "shoulder_pan_joint": 0.0983878538908056,
+        "shoulder_lift_joint": -0.1,
+        "elbow_joint": 0.0983878538908056,
+        "wrist_1_joint": -0.000806073054597205,
+        "wrist_2_joint": -0.000806073054597205,
+        "wrist_3_joint": -0.000806073054597205
+      }
+    },
+    "absent_server_bounded": true
+  },
+  "gripper_interface_available": false,
+  "grasp_verified": false,
+  "physical_actuation_verified": false,
+  "complete_tending_cycle_verified": false,
+  "passed": true,
+  "controllers": {
+    "joint_state_broadcaster": "active",
+    "ur5_trajectory_controller": "active",
+    "bimanual_trajectory_controller": "active"
+  },
+  "joint_state_publishers": [
+    "joint_state_broadcaster"
+  ],
+  "final_positions": {
+    "shoulder_pan_joint": 0.0983878538908056,
+    "shoulder_lift_joint": -0.1,
+    "elbow_joint": 0.0983878538908056,
+    "wrist_2_joint": -0.000806073054597205,
+    "wrist_1_joint": -0.000806073054597205,
+    "left_shoulder_joint": 0.0,
+    "wrist_3_joint": -0.000806073054597205,
+    "left_elbow_joint": 0.0,
+    "right_shoulder_joint": 0.0,
+    "right_elbow_joint": 0.0
+  }
+}

@@ -7,14 +7,14 @@ milestones. No runtime verification flag is promoted by this plan.
 | Task | Available work | Remaining acceptance/input |
 |---|---|---|
 | 7: UR5 controller | Real ros2_control trajectory controller tested with GenericSystem; production motion methods exercised. | Exact UR model/controller interface, calibration, selected robot driver, safety-state/disconnect handling and supervised hardware feedback validation. |
-| 8: bimanual/gripper feedback | Placeholder joint poses and fail-closed manipulation boundary. | Actual actuator joint names, limits, driver/action interfaces; measured open/closed/position/effort feedback; workpiece detection; grasp/release acceptance; bounded timeout/cancel and fault recovery tests. |
-| 9: reachability | Both-arm geometric proxy and UR5 FK sampling. | Actual module/tool geometry, joint limits and tool orientations, IK solutions, self/environment collision model and continuous path clearance assessment. |
+| 8: bimanual/gripper feedback | [Four-joint mock controller](BIMANUAL_MOCK.md), action feedback/fault/cancel checks and fail-closed manipulation boundary. | Actual actuator joint names, limits, driver/action interfaces; measured open/closed/position/effort feedback; workpiece detection; grasp/release acceptance; bounded timeout/cancel and fault recovery tests. |
+| 9: reachability | UR5 FK sampling plus [placeholder bounded IK and box diagnostics](../experiments/workspace/FEASIBILITY.md). | Actual module/tool geometry, joint limits and tool orientations, IK solutions, self/environment collision model and continuous path clearance assessment. |
 | 10: tending cycles | Visual cycle and isolated carrier controller protocol test. | Tasks 6/8/9, task-specific carrier goals and manipulation outcomes. Each state transition must depend on actual controller/manipulation results; a mock attachment cannot establish physical grasp. |
 | 11: physical operation | Survey intake and explicit unsupported gates. | Mechanical assembly, calibration, robot-specific integration, supervised execution and measured trial evidence. Cannot be completed in this cloud workspace. |
-| 12: workspace | 20,006 model samples and live FK/TF agreement. | Collision filtering and orientation-constrained tool coverage with measured/CAD assembly, convergence and boundary uncertainty. |
+| 12: workspace | 20,006 carrier model samples and live FK/TF agreement; 2,000 local module samples with self-clearance screening. | Collision filtering and orientation-constrained tool coverage with measured/CAD assembly, convergence and boundary uncertainty. |
 | 13: baseline | Five sealed visual trials plus separately scoped synthetic carrier benchmark. | 10–20 complete tending cycles once task 10 passes; distinguish planning from execution durations, preserve attempted failures and scenario/config hashes. |
-| 14: placement | Five assumed placements compared. | Feasible collision/orientation coverage, uncertainty and executable path costs using task 9/12 inputs. Keep recommendations preliminary until supported. |
-| 15: mechanical design | Flange and four-joint placeholder only. | Payload/workpiece envelope, required reach and accuracy, cycle duty, mass budget, mounting envelope, actuator choices and power/interface constraints; dimensioned CAD, load/deflection calculations, fabrication and physical validation. |
+| 14: placement | Five assumed placements compared; best-fit placeholder IK and limited box-clearance diagnostics retained. | Feasible collision/orientation coverage, uncertainty and executable path costs using task 9/12 inputs. Keep recommendations preliminary until supported. |
+| 15: mechanical design | [Parameterized seven-part concept](../design/bimanual_concept/README.md) and structural-only mass worksheet. | Payload/workpiece envelope, required reach and accuracy, cycle duty, mass budget, mounting envelope, actuator choices and power/interface constraints; dimensioned CAD, load/deflection calculations, fabrication and physical validation. |
 
 ## Input handoff
 
@@ -52,3 +52,26 @@ shutdown and the residual graph. Use a new output directory and unused domain.
 The timing includes outbound and return action requests/results plus a final
 observation interval. These synthetic cycles are not pooled with AY-10 trials
 and do not complete task 13's full tending baseline.
+
+## Why complete tending execution remains blocked
+
+The [2026-11-15 placeholder study](../experiments/workspace/runs/placeholder-feasibility-20261115/README.md)
+found no simultaneous two-endpoint match to the existing common proxy target
+within 1 mm for any of the five placement candidates. Eleven of twelve sampled
+visual workflow segments violated the selected 5 mm limited-box margin.
+These findings concern the existing placeholder and assumed solid stations;
+they do not prove that a redesigned module or proper two-contact grasp is
+infeasible. They do prevent treating current visual targets as qualified paths.
+
+The next geometry input must define each actual tool/contact frame, required
+orientation, workpiece shape, and station access openings. Complete controller
+cycles and their 10–20-cycle baseline depend on those paths and actual or
+explicitly simulated manipulation feedback. Protocol tests alone cannot close
+those gates. Physical trials remain a separate, supervised acceptance activity.
+
+The newly uploaded `dual-arm-robots-1.snapshot.2.zip` could not be downloaded:
+it exceeds this workspace's 32 MiB per-file transfer limit. Its contents have
+not been inspected or integrated. Supply archives smaller than 32 MiB (25 MiB
+parts are suitable) or a downloadable repository/link. Existing SDA20D inputs
+remain reference-only, as requested; no unsupported native CAD decoding or
+controller interface has been inferred from them.

@@ -1,0 +1,34 @@
+.................E..................F....
+======================================================================
+ERROR: test_ay05_ros_probe (unittest.loader._FailedTest.test_ay05_ros_probe)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ay05_ros_probe
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/CAM-BOT-ay13-acceptance/tools/test_ay05_ros_probe.py", line 6, in <module>
+    from tools.ay05_ros_probe import validate_cancellation, validate_unreachable
+  File "/workspace/CAM-BOT-ay13-acceptance/tools/ay05_ros_probe.py", line 11, in <module>
+    import rclpy
+ModuleNotFoundError: No module named 'rclpy'
+
+
+======================================================================
+FAIL: test_current_packages (test_verify_ay.PackageAssetChecks.test_current_packages)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CAM-BOT-ay13-acceptance/tools/test_verify_ay.py", line 12, in test_current_packages
+    packages_positive()
+  File "/workspace/CAM-BOT-ay13-acceptance/tools/verify_ay.py", line 138, in packages_positive
+    require(len(manifests) == 2, "expected exactly two ROS packages")
+  File "/workspace/CAM-BOT-ay13-acceptance/tools/verify_ay.py", line 45, in require
+    raise AssertionError(message)
+AssertionError: expected exactly two ROS packages
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.686s
+
+FAILED (failures=1, errors=1)

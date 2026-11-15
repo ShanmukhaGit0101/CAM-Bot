@@ -1,0 +1,16 @@
+{
+  "matches_by_placement": {
+    "current": 0,
+    "east_0.2m": 0,
+    "west_0.2m": 0,
+    "north_0.2m": 0,
+    "south_0.2m": 0
+  },
+  "path_segments_with_clearance_violations": 11,
+  "local_workspace": {
+    "samples": 2000,
+    "seed": 15,
+    "self_clearance_at_least_5mm": 1166,
+    "measured_boundary_uncertainty_m": null
+  }
+}
