@@ -14,7 +14,7 @@ milestones. No runtime verification flag is promoted by this plan.
 | 12: workspace | 20,006 carrier model samples and live FK/TF agreement; 2,000 local module samples with self-clearance screening. | Collision filtering and orientation-constrained tool coverage with measured/CAD assembly, convergence and boundary uncertainty. |
 | 13: baseline | Five sealed visual trials plus separately scoped synthetic carrier benchmark. | 10–20 complete tending cycles once task 10 passes; distinguish planning from execution durations, preserve attempted failures and scenario/config hashes. |
 | 14: placement | Five assumed placements compared; best-fit placeholder IK and limited box-clearance diagnostics retained. | Feasible collision/orientation coverage, uncertainty and executable path costs using task 9/12 inputs. Keep recommendations preliminary until supported. |
-| 15: mechanical design | [Parameterized seven-part concept](../design/bimanual_concept/README.md) and structural-only mass worksheet. | Payload/workpiece envelope, required reach and accuracy, cycle duty, mass budget, mounting envelope, actuator choices and power/interface constraints; dimensioned CAD, load/deflection calculations, fabrication and physical validation. |
+| 15: mechanical design | [Original compact model](../design/compact_module/README.md), provisional joint/mesh export, sampled self-clearance and static-load worksheet. | Payload/workpiece envelope, required reach and accuracy, cycle duty, mass budget, mounting envelope, actuator choices and power/interface constraints; dimensioned CAD, load/deflection calculations, fabrication and physical validation. |
 
 ## Input handoff
 
@@ -69,9 +69,11 @@ cycles and their 10–20-cycle baseline depend on those paths and actual or
 explicitly simulated manipulation feedback. Protocol tests alone cannot close
 those gates. Physical trials remain a separate, supervised acceptance activity.
 
-The newly uploaded `dual-arm-robots-1.snapshot.2.zip` could not be downloaded:
-it exceeds this workspace's 32 MiB per-file transfer limit. Its contents have
-not been inspected or integrated. Supply archives smaller than 32 MiB (25 MiB
-parts are suitable) or a downloadable repository/link. Existing SDA20D inputs
-remain reference-only, as requested; no unsupported native CAD decoding or
-controller interface has been inferred from them.
+The [extracted-file receipt](evidence/CAD/extracted_package_20261115/README.md)
+resolved the ZIP transfer limit: all eleven files match the earlier package.
+The user then authorized an [original compact module](../design/compact_module/README.md)
+instead of using those references. Its standalone mesh/kinematic model and
+sampled self-clearance checks advance the design study; actual actuator/gripper
+selection, whole-cell path qualification and physical acceptance remain open.
+The [static-load worksheet](../design/bimanual_concept/LOAD_SCREEN.md) explicitly
+keeps unknown mounting, component mass and manufacturer limits unqualified.

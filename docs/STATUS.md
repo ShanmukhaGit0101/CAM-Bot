@@ -81,7 +81,7 @@ state broadcaster and no residual nodes. Offline results: 42 host tool tests,
 | 12 — Workspace | PARTIAL | Prior 20,006 carrier samples plus 2,000 local module samples with limited self-clearance screening. Whole-cell orientation-constrained coverage and boundary uncertainty remain unverified. |
 | 13 — Expanded baseline | PARTIAL | Two separate 20-cycle synthetic carrier captures pass; complete tending baseline is blocked by Task 10. Original five visual cycles are unchanged. |
 | 14 — Placement | PARTIAL | Five placements tested against placeholder IK/box assumptions. No supported physical placement recommendation or qualified path-cost comparison. |
-| 15 — Mechanical design | PARTIAL | Seven-part concept and structural-only mass worksheet retained. Selected actuators/grippers, complete load path, total mass/moment budget, fabrication and physical validation remain missing. |
+| 15 — Mechanical design | PARTIAL | Original compact design: 14 valid solids, standalone four-joint URDF/meshes, matching mounting/pedestal holes and elbow fork geometry. Mass allocations and discrete self-clearance checked; selected hardware, fits/retention, dynamic/load qualification, fabrication and physical acceptance remain missing. |
 
 The [new feasibility study](../experiments/workspace/runs/placeholder-feasibility-20261115/README.md)
 found zero simultaneous two-endpoint matches to the common proxy target within
@@ -92,7 +92,18 @@ diagnostics, not global infeasibility proofs or measured workspace guarantees.
 Station orientations and distinct grasp contacts are unspecified; whole-robot,
 gripper and continuous collision checks are not included.
 
-The uploaded ZIP exceeds the 32 MiB transfer limit and remains uninspected.
+The [eleven extracted CAD files](evidence/CAD/extracted_package_20261115/README.md)
+were received; hashes all match the earlier package. Native mates/features
+remain undecoded. The user subsequently authorized an
+[original compact module](../design/compact_module/README.md), without reference
+CAD. This separate prototype has 14 valid solids and matching URDF/local meshes.
+All 17 CAD/load tests passed, including sampled elbow interference checks.
+A separate STEP round-trip confirmed 14 valid solids. A discrete nonadjacent-module study passed 70 of
+81 configurations at 5 mm clearance; the 11 failures remain recorded. Its
+1.522752 kg parts/actuator/payload allocation leaves 0.477248 kg of a chosen
+2 kg budget; total mass and actual carrier compatibility remain unverified.
+The original reference-based concept and accepted ROS implementation are
+unchanged; no ROS or physical replay is claimed for the new CAD prototype.
 All work continues on `feat/sda20-cad-assessment`; no merge or hardware readiness
 is claimed. AY-13's accepted visual scope and all sealed prior records remain
 unchanged.

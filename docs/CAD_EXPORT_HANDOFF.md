@@ -1,4 +1,8 @@
-# CAD information needed for the small UR5-mounted module
+# Optional reference-CAD export information
+
+The user subsequently chose an [original compact design](../design/compact_module/README.md).
+The native-export steps below are optional reference guidance; they no longer
+block that prototype and no further reference files are requested.
 
 The SDA20D files remain **reference geometry**. The eleven extracted files
 resubmitted on 2026-11-15 match the prior package byte for byte. Providing them

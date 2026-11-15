@@ -1,0 +1,233 @@
+{
+  "classification": "ORIGINAL_PRELIMINARY_DESIGN_NOT_MANUFACTURING_RELEASE",
+  "parameter_sha256": "29b1db96ae7b748877b3d071a3961d5362db73f8d327058e250e0458aba71154",
+  "generator_sha256": "c41ed43eec726463ed39f5d733d2342f476efbec6f736a9aaed712241ac09c82",
+  "parts": [
+    {
+      "name": "base_plate",
+      "volume_mm3": 171215.50632923533,
+      "assumed_mass_kg": 0.46228186708893537,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        -7.702382487686889e-18,
+        3.9839909419070114e-21,
+        0.0030000000000000014
+      ]
+    },
+    {
+      "name": "mount_disc",
+      "volume_mm3": 31477.250424496,
+      "assumed_mass_kg": 0.08498857614613921,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        -1.84603750794067e-18,
+        4.3340572453486015e-19,
+        -0.004
+      ]
+    },
+    {
+      "name": "left_pedestal",
+      "volume_mm3": 13008.12879365786,
+      "assumed_mass_kg": 0.035121947742876226,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        -0.09000000000000001,
+        0.0,
+        0.022212740085267312
+      ]
+    },
+    {
+      "name": "left_yaw_shaft_envelope",
+      "volume_mm3": 1470.265361880023,
+      "assumed_mass_kg": 0.0039697164770760626,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        -0.08999999999999998,
+        8.762577558139244e-21,
+        0.031999999999999994
+      ]
+    },
+    {
+      "name": "left_upper",
+      "volume_mm3": 33559.75560777508,
+      "assumed_mass_kg": 0.09061134014099272,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        -0.09000000000000002,
+        0.0586193947582993,
+        0.057999999999999996
+      ]
+    },
+    {
+      "name": "left_forearm",
+      "volume_mm3": 24294.3866882071,
+      "assumed_mass_kg": 0.06559484405815919,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        -0.08999999999999996,
+        0.19622632164091927,
+        0.057999999999999954
+      ]
+    },
+    {
+      "name": "left_elbow_pin_envelope",
+      "volume_mm3": 904.7786842338601,
+      "assumed_mass_kg": 0.0024429024474314225,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        -0.09000000000000001,
+        0.14,
+        0.05800000000000001
+      ]
+    },
+    {
+      "name": "left_gripper_envelope",
+      "volume_mm3": 19711.999999999996,
+      "assumed_mass_kg": 0.08,
+      "mass_basis": "allocation, not geometry",
+      "center_of_mass_m": [
+        -0.09000000000000001,
+        0.292,
+        0.05800000000000002
+      ]
+    },
+    {
+      "name": "right_pedestal",
+      "volume_mm3": 13008.12879365786,
+      "assumed_mass_kg": 0.035121947742876226,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        0.09000000000000001,
+        0.0,
+        0.022212740085267312
+      ]
+    },
+    {
+      "name": "right_yaw_shaft_envelope",
+      "volume_mm3": 1470.265361880023,
+      "assumed_mass_kg": 0.0039697164770760626,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        0.08999999999999998,
+        8.762577558139244e-21,
+        0.031999999999999994
+      ]
+    },
+    {
+      "name": "right_upper",
+      "volume_mm3": 33559.75560777508,
+      "assumed_mass_kg": 0.09061134014099272,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        0.09,
+        0.0586193947582993,
+        0.057999999999999996
+      ]
+    },
+    {
+      "name": "right_forearm",
+      "volume_mm3": 24294.3866882071,
+      "assumed_mass_kg": 0.06559484405815919,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        0.09,
+        0.19622632164091927,
+        0.057999999999999954
+      ]
+    },
+    {
+      "name": "right_elbow_pin_envelope",
+      "volume_mm3": 904.7786842338601,
+      "assumed_mass_kg": 0.0024429024474314225,
+      "mass_basis": "uniform assumed aluminum; pins not material-selected",
+      "center_of_mass_m": [
+        0.09000000000000001,
+        0.14,
+        0.05800000000000001
+      ]
+    },
+    {
+      "name": "right_gripper_envelope",
+      "volume_mm3": 19711.999999999996,
+      "assumed_mass_kg": 0.08,
+      "mass_basis": "allocation, not geometry",
+      "center_of_mass_m": [
+        0.09000000000000001,
+        0.292,
+        0.05800000000000002
+      ]
+    }
+  ],
+  "all_shapes_valid": true,
+  "urdf_scope": "standalone kinematic/mesh study; provisional limits, no inertias, controller or gripper joints; envelope tips are not calibrated TCPs",
+  "mount_points_xy_mm": [
+    [
+      25.0,
+      0.0
+    ],
+    [
+      1.5308084989341915e-15,
+      25.0
+    ],
+    [
+      -25.0,
+      3.061616997868383e-15
+    ],
+    [
+      -4.592425496802574e-15,
+      -25.0
+    ]
+  ],
+  "pedestal_points_xy_mm": [
+    [
+      -102.0,
+      -12.0
+    ],
+    [
+      -102.0,
+      12.0
+    ],
+    [
+      -78.0,
+      -12.0
+    ],
+    [
+      -78.0,
+      12.0
+    ],
+    [
+      78.0,
+      -12.0
+    ],
+    [
+      78.0,
+      12.0
+    ],
+    [
+      102.0,
+      -12.0
+    ],
+    [
+      102.0,
+      12.0
+    ]
+  ],
+  "modeled_mass_allocation_kg": 1.1027519449681458,
+  "actuator_and_workpiece_allocation_kg": 0.42000000000000004,
+  "subtotal_allocation_kg": 1.522751944968146,
+  "target_mass_kg": 2.0,
+  "unallocated_mass_budget_kg": 0.4772480550318541,
+  "estimated_complete_mass_kg": null,
+  "missing_design": [
+    "selected actuators, gearboxes and shaft couplings",
+    "selected bearings/bushings, fits, shaft couplings and axial retention",
+    "gripper mechanism and object sensing",
+    "fasteners, bearing fits, cables and guards",
+    "verified flange interface and robot payload/inertia envelope",
+    "stress, fatigue, deflection, dynamic and workspace qualification"
+  ],
+  "physical_operation_verified": false,
+  "payload_compatibility": "NOT_ESTABLISHED",
+  "manufacturing_ready": false,
+  "hardware_execution_authorized": false
+}

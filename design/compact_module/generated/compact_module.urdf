@@ -1,0 +1,102 @@
+<robot name="cambot_original_compact_module">
+  <link name="compact_module_base">
+    <visual>
+      <geometry>
+        <mesh filename="meshes/compact_module_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/compact_module_base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_upper_arm">
+    <visual>
+      <geometry>
+        <mesh filename="meshes/left_upper_arm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/left_upper_arm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_forearm">
+    <visual>
+      <geometry>
+        <mesh filename="meshes/left_forearm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/left_forearm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_upper_arm">
+    <visual>
+      <geometry>
+        <mesh filename="meshes/right_upper_arm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/right_upper_arm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_forearm">
+    <visual>
+      <geometry>
+        <mesh filename="meshes/right_forearm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/right_forearm.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_shoulder_joint" type="revolute">
+    <parent link="compact_module_base" />
+    <child link="left_upper_arm" />
+    <origin xyz="-0.09 0 0.058" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="0.5" />
+  </joint>
+  <joint name="left_elbow_joint" type="revolute">
+    <parent link="left_upper_arm" />
+    <child link="left_forearm" />
+    <origin xyz="0 0.14 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="0.5" />
+  </joint>
+  <link name="left_gripper_envelope_tip" />
+  <joint name="left_envelope_tip" type="fixed">
+    <parent link="left_forearm" />
+    <child link="left_gripper_envelope_tip" />
+    <origin xyz="0 0.166 0" rpy="0 0 0" />
+  </joint>
+  <joint name="right_shoulder_joint" type="revolute">
+    <parent link="compact_module_base" />
+    <child link="right_upper_arm" />
+    <origin xyz="0.09 0 0.058" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="0.5" />
+  </joint>
+  <joint name="right_elbow_joint" type="revolute">
+    <parent link="right_upper_arm" />
+    <child link="right_forearm" />
+    <origin xyz="0 0.14 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.2" upper="1.2" effort="1" velocity="0.5" />
+  </joint>
+  <link name="right_gripper_envelope_tip" />
+  <joint name="right_envelope_tip" type="fixed">
+    <parent link="right_forearm" />
+    <child link="right_gripper_envelope_tip" />
+    <origin xyz="0 0.166 0" rpy="0 0 0" />
+  </joint>
+</robot>
