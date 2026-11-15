@@ -1,0 +1,31 @@
+{
+  "tested_base_commit_in_execution_copy": "b5d47f2c150385dfd57928aaaf95e7fd18a620e8",
+  "repair_branch_base": "f2312782a57178e7a4e725848ffc3038c1c80441",
+  "source_note": "Execution copy retains b5d47f2 metadata plus working edits; raw CSV has that SHA. Tested source snapshots and their hashes qualify this run, not the SHA alone. ROS sources in b5d47f2 and f231278 were identical before these edits.",
+  "source_sha256": {
+    "src/carrier_description/carrier_description/presentation_model.py": "f3b3477d7dde5b820e192f0e87046ce7a08ea061fb42287478f5ec981b7e8e6a",
+    "src/carrier_description/test/test_presentation_model.py": "716348c32d280356f56ed3d694234dd7c936595d681b563d7b2f0679edca13b3",
+    "src/carrier_description/launch/dual_arm_demo.launch.py": "c9c9566117a093277ef7d4eaaa8a9e6a372ee3fc0331b8ae57c2c85009946a7c",
+    "src/carrier_description/rviz/dual_arm_presentation.rviz": "a108601209262735c63e396df4ee273e378ebf96fc31f1e9142b3fe8da29f142",
+    "tools/present_demo.sh": "8d4193d16cc590aa8b96bac5b928633ebbc8f2225843504677802933071e9635"
+  },
+  "image_id": "sha256:2e84a6c6578634cfd3983b7968ea19a793213e18dcb62689a5b170ff06d01856",
+  "runtime_additions": "Xvfb, xauth and liburdfdom-tools installed in disposable container; existing git-lfs addition retained",
+  "rviz": "apt Humble 11.2.29, no patched overlay in this test container; normal shutdown passed; not a repeat of the pinned-image interruption suite",
+  "gui": "RViz rendered in headless Xvfb :91 with software GL; agent inspected screenshots; no new human observation claimed",
+  "checks": {
+    "core_package_results": 80,
+    "errors": 0,
+    "failures": 0,
+    "copyright_skips": 2,
+    "visual_cycle_success": true,
+    "final_workpiece": "FINISHED_AT_S5",
+    "repositions": 5,
+    "joint_state_publishers": [
+      "machine_tending_coordinator"
+    ],
+    "residual_nodes": [],
+    "shutdown": "all three children exited cleanly"
+  },
+  "kinematics_collision_and_inertia": "unchanged; five focused invariant/visual tests pass"
+}

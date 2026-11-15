@@ -114,7 +114,11 @@ The final presentation package and [VS Code execution workflow](VSCODE.md) are
 prepared on `feat/sda20-cad-assessment`. [New execution checks](../presentation/execution-verification.md)
 pass core builds/tests, analysis regeneration and all 15 optional mock protocol
 cases; the existing accepted record remains the GUI demonstration baseline.
-Further engineering is deferred; no hardware readiness is claimed. AY-13's accepted visual scope and all sealed prior records remain
+The [arm presentation view](ARM_PRESENTATION.md) adds clearer display geometry
+without changing the accepted motion or collision model. Its
+[separate headless RViz replay](evidence/DELIVERY/arm_view_20261115/README.md) passes
+one cycle, one publisher and clean shutdown; 80 package results have no failures
+and two existing skips. Further engineering is deferred; no hardware readiness is claimed. AY-13's accepted visual scope and all sealed prior records remain
 unchanged.
 
 ## AY task matrix
