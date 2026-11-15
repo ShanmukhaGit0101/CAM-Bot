@@ -31,6 +31,7 @@ from carrier_control.metrics import (
 )
 from carrier_control.machine_tending_fsm import FSMError, MachineTendingFSM, StepOutcome
 from carrier_control.reachability import evaluate_reachability
+from carrier_control.visual_motion import nearest_visual_route
 from carrier_control.workflow import PROCESS_PHASES, WorkflowError, load_plan
 from carrier_control.waypoints import UR5_JOINT_NAMES
 from carrier_control.workcell_model import station_for_target, target_world_xyz
@@ -466,8 +467,8 @@ class MachineTendingCoordinator(Node):
         target_workpiece = list(self.workpiece_positions)
         target_carrier = list(self.visual_carrier_positions)
         if self.mode == "visual_simulation" and station_name is not None:
-            target_carrier = list(
-                self.plan["stations"][station_name]["visual_carrier_joints"]
+            start_carrier, target_carrier = nearest_visual_route(
+                start_carrier, self.plan["stations"][station_name]["visual_carrier_joints"]
             )
         workpiece_target = self._state_target(next_state)
         if workpiece_target is not None:
@@ -629,12 +630,16 @@ class MachineTendingCoordinator(Node):
         """Record visual requests and completed publications, never actuator results."""
         if self.mode != "visual_simulation":
             return True
-        start = list(self.visual_carrier_positions)
-        goal = list(self.plan["stations"][station]["visual_carrier_joints"])
+        previous = list(self.visual_carrier_positions)
+        configured_goal = list(self.plan["stations"][station]["visual_carrier_joints"])
+        start, goal = nearest_visual_route(previous, configured_goal)
         motion_id = f"{self.fsm.trial_id}:{self.experiment_logger.active['sequence']}"
         details = {
             "motion_id": motion_id, "station": station,
             "start_joints_rad": start, "goal_joints_rad": goal,
+            "configured_goal_joints_rad": configured_goal,
+            "previous_joints_rad": previous,
+            "path_policy": "shortest_equivalent_visual_route_within_limits",
             "nontrivial": max(abs(a - b) for a, b in zip(start, goal)) > 1e-6,
             "is_reposition": station != "HOME",
             "evidence_kind": "visual_joint_publication",
@@ -661,7 +666,9 @@ class MachineTendingCoordinator(Node):
         if self.mode != "visual_simulation":
             return True
         start = list(self.visual_carrier_positions)
-        goal = self.plan["stations"][station]["visual_carrier_joints"]
+        start, goal = nearest_visual_route(
+            start, self.plan["stations"][station]["visual_carrier_joints"]
+        )
         ticks = max(1, int(duration_s * self.visual_time_scale * 20))
         interval = duration_s * self.visual_time_scale / ticks
         for tick in range(1, ticks + 1):

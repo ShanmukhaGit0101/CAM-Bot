@@ -161,3 +161,47 @@ class ShutdownTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "fault"):
                 coordinator.main()
         node.destroy_node.assert_called_once()
+
+
+class VisualRoutingTests(unittest.TestCase):
+    def node(self):
+        node = SimpleNamespace(
+            mode='visual_simulation', visual_time_scale=1.0,
+            visual_carrier_positions=[0.0] * 6,
+            plan={'stations': {'TEST': {'visual_carrier_joints': [4.71238898038469] + [0.0] * 5}}},
+        )
+        node.samples = []
+        node._publish_visual_joints = lambda: node.samples.append(
+            list(node.visual_carrier_positions))
+        return node
+
+    def test_visual_adapter_uses_short_route_without_final_configured_angle_snap(self):
+        import math
+        node = self.node()
+        with patch.object(coordinator.time, 'monotonic', return_value=0), \
+                patch.object(coordinator.rclpy, 'spin_once'):
+            result = coordinator.MachineTendingCoordinator._animate_carrier_visual_impl(
+                node, 'TEST', .2, 1.0, lambda: False)
+        self.assertTrue(result)
+        self.assertAlmostEqual(node.visual_carrier_positions[0], -math.pi / 2)
+        self.assertTrue(all(-math.pi / 2 <= sample[0] <= 0 for sample in node.samples))
+        self.assertEqual(node.samples[-4:], [node.visual_carrier_positions] * 4)
+
+    def test_cancelled_visual_route_does_not_publish_the_goal(self):
+        node = self.node()
+        with patch.object(coordinator.time, 'monotonic', return_value=0), \
+                patch.object(coordinator.rclpy, 'spin_once'):
+            result = coordinator.MachineTendingCoordinator._animate_carrier_visual_impl(
+                node, 'TEST', .2, 1.0, Mock(side_effect=[False, True]))
+        self.assertFalse(result)
+        self.assertEqual(len(node.samples), 1)
+        self.assertGreater(node.visual_carrier_positions[0], -1.57)
+
+    def test_controller_mode_is_not_angularly_rewritten(self):
+        node = self.node()
+        node.mode = 'controller'
+        result = coordinator.MachineTendingCoordinator._animate_carrier_visual_impl(
+            node, 'TEST', .2, 1.0, lambda: False)
+        self.assertTrue(result)
+        self.assertEqual(node.visual_carrier_positions, [0.0] * 6)
+        self.assertEqual(node.samples, [])

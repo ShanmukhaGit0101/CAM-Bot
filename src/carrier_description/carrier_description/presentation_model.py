@@ -85,3 +85,22 @@ def presentation_description(description):
                 rgb = colour.get('rgba').split()[:3]
                 colour.set('rgba', ' '.join(rgb + ['0.30']))
     return ET.tostring(robot, encoding='unicode')
+
+
+def reverse_arm_mounts(description):
+    """
+    Exchange local-arm sides and mirror the right elbow for paired folding.
+
+    The matching plan must exchange left/right command pairs and proxy labels.
+    The carrier and bimanual base frames remain unchanged. This is a new visual
+    assembly arrangement, not a mechanically validated redesign.
+    """
+    robot = ET.fromstring(description)
+    joints = {joint.get('name'): joint for joint in robot.findall('joint')}
+    left = joints['left_shoulder_joint'].find('origin')
+    right = joints['right_shoulder_joint'].find('origin')
+    left_xyz, right_xyz = left.get('xyz'), right.get('xyz')
+    left.set('xyz', right_xyz)
+    right.set('xyz', left_xyz)
+    joints['right_elbow_joint'].find('axis').set('xyz', '-1 0 0')
+    return ET.tostring(robot, encoding='unicode')

@@ -47,3 +47,38 @@ Existing slides, images and sealed experiments retain their original appearance
 and provenance. New screenshots/logs belong in fresh output directories.
 
 [Retained visual run, previews and regression results](evidence/DELIVERY/arm_view_20261115/README.md).
+
+## Exchanged arm arrangement and shorter carrier turns
+
+The next update on the same branch implements the user's requested side swap.
+The presentation wrapper now writes a fresh `plan.json` into each run directory:
+left/right pose **pairs** and workspace labels are exchanged together. The visual
+assembly exchanges the shoulder mount positions and mirrors the right elbow's
+X axis. Both forearms therefore fold in the same local Z direction during
+GRASP/HOLD, instead of one folding up and the other down. Joint names and the
+UR5 chain remain intact. This is an intentional local assembly/motion change,
+unlike the earlier styling-only layer described above.
+
+The new `plan.json` is the effective configuration recorded in CSV/events; the
+installed `machine_tending.json`, controller targets and sealed captures are not
+edited. The assembly profile is selected by its `visual_arm_layout` field,
+independently of `presentation_view`, which only selects drawing style.
+
+Visual carrier motion now selects the shortest equivalent angular route inside
+the stock UR5 model's limits. A wide-range joint may first need a full-turn
+change of its *numeric representation* so the shorter path fits in the interval.
+That preserves orientation; it is not a full-turn robot movement. The selected
+endpoint is kept through the final TF publications, avoiding a snap back to the
+old stored number. Logs retain previous/configured angles and the effective
+start/goal so winding changes are explicit. All carrier interpolation entry
+points use this policy; physical controller action goals are unchanged.
+
+This policy is for visual joint publications only. It does not establish cable
+winding, a valid hardware trajectory or collision-free transit. The mirrored
+pose remains a visual illustration: tool contact, object attachment and grasp
+feedback are not physically verified. The workpiece continues to follow the
+existing visual state interpolation.
+
+[New motion replay and measured turn angles](evidence/DELIVERY/arm_motion_20261115/README.md).
+After pulling this update, rebuild the core packages and restart Launch/Observe;
+the existing VS Code task sequence automatically uses the new effective plan.

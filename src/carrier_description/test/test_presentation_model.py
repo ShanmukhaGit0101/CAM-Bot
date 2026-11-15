@@ -5,7 +5,7 @@ from pathlib import Path
 import unittest
 import xml.etree.ElementTree as ET
 
-from carrier_description.presentation_model import presentation_description
+from carrier_description.presentation_model import presentation_description, reverse_arm_mounts
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -59,6 +59,26 @@ class TestPresentationModel(unittest.TestCase):
                     rgb = colour.get('rgba').split()[:3]
                     colour.set('rgba', ' '.join(rgb + ['0.30']))
                 self.assertEqual(self.canonical(original), self.canonical(link))
+
+    def test_mounts_exchange_and_elbows_fold_together(self):
+        import math
+        before = {j.get('name'): j for j in self.original.findall('joint')}
+        reversed_model = ET.fromstring(reverse_arm_mounts(ET.tostring(self.styled)))
+        after = {j.get('name'): j for j in reversed_model.findall('joint')}
+        for name, opposite in (('left', 'right'), ('right', 'left')):
+            self.assertEqual(after[f'{name}_shoulder_joint'].find('origin').get('xyz'),
+                             before[f'{opposite}_shoulder_joint'].find('origin').get('xyz'))
+        # Swapped GRASP: left +1.2 about +X, right -1.2 about -X.
+        # Both elbows now lift their forearm in the same local Z direction.
+        rises = []
+        for side, q in (('left', 1.2), ('right', -1.2)):
+            axis = float(after[f'{side}_elbow_joint'].find('axis').get('xyz').split()[0])
+            rises.append(.22 * math.sin(axis * q))
+        self.assertAlmostEqual(*rises)
+        self.assertGreater(rises[0], 0)
+        changed = {'left_shoulder_joint', 'right_shoulder_joint', 'right_elbow_joint'}
+        for name in before.keys() - changed:
+            self.assertEqual(self.canonical(before[name]), self.canonical(after[name]))
 
     def test_unknown_model_is_rejected(self):
         with self.assertRaises(ValueError):

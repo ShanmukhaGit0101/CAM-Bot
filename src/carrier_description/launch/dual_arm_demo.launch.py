@@ -9,7 +9,8 @@ from launch_ros.parameter_descriptions import ParameterValue
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 
-from carrier_description.presentation_model import presentation_description
+from carrier_description.presentation_model import presentation_description, reverse_arm_mounts
+from carrier_control.visual_motion import ARM_LAYOUT
 from carrier_control.workflow import load_plan
 from carrier_control.workcell_model import render_workcell_xacro
 
@@ -40,6 +41,11 @@ def _assemble(context):
 
     if styled:
         description = presentation_description(description)
+    layout = plan.get("visual_arm_layout")
+    if layout is not None:
+        if layout != ARM_LAYOUT:
+            raise ValueError("unsupported visual_arm_layout")
+        description = reverse_arm_mounts(description)
 
     # Visual-only: one joint-state publisher, with no controller or actuation.
     return [
