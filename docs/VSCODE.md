@@ -122,6 +122,15 @@ Keep its sibling `trials.events.jsonl`. Copy useful rehearsal folders elsewhere
 before cleaning your checkout. Neither analysis task overwrites archived results.
 A new one-cycle run is not the archived five-trial qualification.
 
+## Three additional scenes
+
+After completing the original run, choose a [new visual scenario](DEMO_SCENARIOS.md)
+with tasks **13 Compact shared workspace**, **14 Stepped-height cell**, or
+**15 Precision transfer cell**. Use the same Observe/Start/Analyze tasks, with
+only one scene running at a time. Task 08 additionally creates a `motion/`
+report of carrier and local-arm visual joint excursions, with clearly labelled
+calculated references.
+
 ## Step through the code with F5
 
 Select the host `.venv/bin/python` interpreter, open

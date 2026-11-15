@@ -102,3 +102,15 @@ The later opaque-station preference changes display material only. These retaine
 run outputs remain valid for their recorded checkout and appearance; do not edit
 them to impersonate a later run. A fresh screenshot after rebuilding can show
 the opaque view, clearly identified as the newer display.
+
+
+## Present the three new scenes
+
+Use [the scenario guide](../docs/DEMO_SCENARIOS.md) for tasks 13–15. Demonstrate
+one scene at a time and show its own fresh standard plots and `motion/` chart.
+The compact scene shows the local arms taking over between nearby stations
+without another carrier reposition; the stepped scene shows changing work
+heights; the precision scene shows rotated targets and tighter proxy bounds.
+Explain that wrist midpoint/spacing checks concern the visual model, not verified
+physical gripping. Keep results for different layouts separate. The motion
+chart's reference bars are calculations rather than additional robot trials.

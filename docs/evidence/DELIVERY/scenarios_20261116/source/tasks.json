@@ -1,0 +1,348 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CAM-BOT: 00 Check environment",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "doctor"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 01 Build visual demo",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "CAM-BOT: 02 Test core packages",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "CAM-BOT: 03 Launch RViz (wait for Start)",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "launch"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 04 Observe workflow",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "observe"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 05 Start one cycle",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "start"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 06 Inspect ROS graph",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "graph"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 07 Cancel cycle",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "cancel"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 08 Analyze new trial",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "analyze-run",
+        "${input:trialCsv}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 09 Reproduce five-trial analysis",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "analysis"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 10 Reproduce workspace study",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "workspace"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 11 Offline tests",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "offline-test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 12 Open presentation server",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "presentation"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: Optional: build mock controllers",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "mock-build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: Optional: test mock controllers",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "mock-test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 13 Scenario 1: compact shared workspace",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "launch",
+        "compact"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 14 Scenario 2: stepped-height cell",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "launch",
+        "tiered"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "CAM-BOT: 15 Scenario 3: precision transfer cell",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/tools/workbench.sh",
+        "launch",
+        "precision"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "trialCsv",
+      "type": "promptString",
+      "description": "Absolute path to the fresh trials.csv printed by Launch; matching .events.jsonl must be alongside it"
+    }
+  ]
+}

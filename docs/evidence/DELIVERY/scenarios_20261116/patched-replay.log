@@ -1,0 +1,5 @@
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-'
+PASS original: 5 repositions, FINISHED_AT_S5, clean shutdown
+PASS compact: 3 repositions, FINISHED_AT_S5, clean shutdown
+PASS tiered: 5 repositions, FINISHED_AT_S5, clean shutdown
+PASS precision: 5 repositions, FINISHED_AT_S5, clean shutdown

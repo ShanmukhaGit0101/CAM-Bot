@@ -1,6 +1,6 @@
 # CAM-BOT status and evidence levels
 
-Updated 2026-11-15 (Asia/Calcutta). **Final delivery: COMPLETE within the accepted
+Updated 2026-11-16 (Asia/Calcutta). **Final delivery: COMPLETE within the accepted
 visual-demonstrator scope; presentation package prepared.** See
 [project closeout](PROJECT_CLOSEOUT.md) and [presentation](../presentation/README.md). This is the only project status matrix. Each AY record,
 including prior state, options, exact files, commands, results, limitations and
@@ -125,6 +125,19 @@ readiness and physical grasp remain unverified. The latest material-only update
 restores fully opaque stations at the user's request; six focused model checks
 and the documentation/source-inventory validator pass. Further engineering is deferred; no hardware readiness is claimed. AY-13's accepted visual scope and all sealed prior records remain
 unchanged.
+
+## Additional presentation scenarios
+
+The user's November 16 request adds [three assumed visual cells](DEMO_SCENARIOS.md):
+compact carrier-position reuse, stepped station heights and tighter precision
+proxy bounds. [Fresh scenario evidence](evidence/DELIVERY/scenarios_20261116/README.md)
+records one passing cycle for the original plus each new layout, one publisher
+and clean shutdown using the pinned RViz overlay. Compact uses three visual
+repositions; stepped/precision use five. New local-motion telemetry and reports
+quantify visual joint excursion with labelled calculated references. The core
+suite has 92 results, zero failures and two existing skips; 12 tool tests and
+14 historical analysis tests pass. This extends visual presentation scope and
+makes no controller, grasp, collision-path or physical-efficiency claim.
 
 ## AY task matrix
 

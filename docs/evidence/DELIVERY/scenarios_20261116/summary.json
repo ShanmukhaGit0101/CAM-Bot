@@ -1,0 +1,46 @@
+[
+  {
+    "scenario": "original",
+    "attempts": 1,
+    "successes": 1,
+    "cycle_time_s": 20.481115228,
+    "repositions": 5,
+    "carrier_visual_excursion_rad": 41.614620712611924,
+    "local_visual_excursion_rad": 15.8,
+    "carrier_stored_angle_reference_rad": 75.97070346261117,
+    "local_home_reference_rad": 51.6
+  },
+  {
+    "scenario": "compact",
+    "attempts": 1,
+    "successes": 1,
+    "cycle_time_s": 17.754321431999998,
+    "repositions": 3,
+    "carrier_visual_excursion_rad": 35.660783135768696,
+    "local_visual_excursion_rad": 13.590542778504492,
+    "carrier_stored_angle_reference_rad": 57.850799791171816,
+    "local_home_reference_rad": 42.38430299882476
+  },
+  {
+    "scenario": "tiered",
+    "attempts": 1,
+    "successes": 1,
+    "cycle_time_s": 20.556384171999998,
+    "repositions": 5,
+    "carrier_visual_excursion_rad": 41.184718951819505,
+    "local_visual_excursion_rad": 8.246297205534383,
+    "carrier_stored_angle_reference_rad": 75.44080170181874,
+    "local_home_reference_rad": 40.16290404448924
+  },
+  {
+    "scenario": "precision",
+    "attempts": 1,
+    "successes": 1,
+    "cycle_time_s": 20.458640496999998,
+    "repositions": 5,
+    "carrier_visual_excursion_rad": 41.87330062763825,
+    "local_visual_excursion_rad": 5.437274932410912,
+    "carrier_stored_angle_reference_rad": 77.42938337763749,
+    "local_home_reference_rad": 35.02645527217716
+  }
+]

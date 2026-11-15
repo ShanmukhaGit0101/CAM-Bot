@@ -1,6 +1,9 @@
 # CAM-BOT presentation package
 
 The project is complete for its accepted **visual ROS 2 demonstrator** scope.
+Three [additional visual scenes](../docs/DEMO_SCENARIOS.md) are available through
+VS Code tasks 13–15, with per-run motion reports.
+
 Advanced Tasks 7–15 are future work, not prerequisites for presenting this result.
 
 For live code execution, use [the VS Code tasks and setup guide](../docs/VSCODE.md).
