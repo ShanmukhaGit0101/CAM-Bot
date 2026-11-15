@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "source_commit": "b192146c52d18adcdff31eb47d6b1468af3aab4d",
-  "scope": "current tracked src bytes including Task-7 mock testbed additions; hashes authoritative, runtime evidence separate",
+  "source_commit": "b117d1805d1a9617a1583583f95c5aedc8d5804c",
+  "scope": "current tracked src bytes including optional four-joint mock; hashes authoritative, runtime evidence separate",
   "historical_inventory": "docs/evidence/AY-13/cross_validation/source_inventory.json",
   "count": 66,
   "files": [
@@ -69,7 +69,7 @@
       "path": "src/carrier_control/carrier_control/mock_controller_model.py",
       "kind": "python_source_or_test",
       "evidence_level": "available_code",
-      "sha256": "ff4085f7482964def85047a12ea9a6bd86a10ee99f8f0537a15fba8cf38129af"
+      "sha256": "b472d799903c8ad3ebda9938306587c8ded0b401cc14db890f3ad3c1202cba29"
     },
     {
       "path": "src/carrier_control/carrier_control/plot_machine_shop_path.py",
@@ -189,7 +189,7 @@
       "path": "src/carrier_control/test/test_mock_controller_model.py",
       "kind": "python_source_or_test",
       "evidence_level": "available_code",
-      "sha256": "25cf3660e84b9b57a43cc0e7d62745b61ed0f28d0df9e15db3ceefc027243a7b"
+      "sha256": "68c69bc9a5001661444c8fec65735f99b6f7f61677f0db112d0de23d99ec04b8"
     },
     {
       "path": "src/carrier_control/test/test_package_integration.py",
@@ -231,13 +231,13 @@
       "path": "src/carrier_controller_testbed/config/ur5_mock_controllers.yaml",
       "kind": "package_asset",
       "evidence_level": "available_code",
-      "sha256": "024e7e0bcc86063801bd0c6a41a443e632d63f8c116bf75ed71c2959bff550f7"
+      "sha256": "7d15ee4176b610a2d2062c70e24ed81558bc379c8a373760f64ba3824db7f46a"
     },
     {
       "path": "src/carrier_controller_testbed/launch/ur5_mock_controller.launch.py",
       "kind": "python_source_or_test",
       "evidence_level": "available_code",
-      "sha256": "d231e3975f9e7af612cba5aa0ea2dcbbc543a5626257a61378ecc8c61a053edf"
+      "sha256": "93e99aae5b70af444385978ef74876ee0ef454aaecb790781eae082918d95b29"
     },
     {
       "path": "src/carrier_controller_testbed/package.xml",
