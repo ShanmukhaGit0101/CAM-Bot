@@ -13,6 +13,7 @@ For live code execution, use [the VS Code tasks and setup guide](../docs/VSCODE.
 - [Static PDF](CAM-BOT.pdf): projector/printing fallback.
 - [Speaker notes](speaker_notes.md): ten-minute narration and slide cues.
 - [Demo guide](DEMO_GUIDE.md): prepared live RViz flow and fallback procedure.
+- [How to present your run outputs](RESULTS_WALKTHROUGH.md): file order and talking points.
 - [Final report](FINAL_REPORT.md) and [contribution record](CONTRIBUTIONS.md).
 
 The HTML replay uses one archived trial's actual event times and states. Its
