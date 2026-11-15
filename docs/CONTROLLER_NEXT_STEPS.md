@@ -1,5 +1,10 @@
 # Controller and manipulation milestones after AY-13
 
+**Deferred beyond final project scope.** The user has chosen the accepted visual
+demonstrator and presentation as the final delivery. This remains a future-work
+dependency record, not a checklist required before presentation. See
+[closeout](PROJECT_CLOSEOUT.md).
+
 This dependency record supplements [STATUS.md](STATUS.md), the authoritative
 status matrix. AY-13's visual acceptance does not close controller or hardware
 milestones. No runtime verification flag is promoted by this plan.

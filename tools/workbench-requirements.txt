@@ -1,0 +1,6 @@
+# Host-side analysis/presentation only. Keep ROS on its system Python in Humble.
+numpy>=1.23,<3
+scipy>=1.9,<2
+matplotlib>=3.5,<4
+PyYAML>=6,<7
+python-pptx==1.0.2

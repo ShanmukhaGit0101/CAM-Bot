@@ -1,6 +1,8 @@
 # CAM-BOT status and evidence levels
 
-Updated 2026-11-15 (Asia/Calcutta). This is the only project status matrix. Each AY record,
+Updated 2026-11-15 (Asia/Calcutta). **Final delivery: COMPLETE within the accepted
+visual-demonstrator scope; presentation package prepared.** See
+[project closeout](PROJECT_CLOSEOUT.md) and [presentation](../presentation/README.md). This is the only project status matrix. Each AY record,
 including prior state, options, exact files, commands, results, limitations and
 next action, is in the [versioned evidence ledger](ayush/ledger.json).
 The [2026-11-05 documentation repair](evidence/AY-13/reproducibility_repair.md)
@@ -62,7 +64,11 @@ total payload compatibility and physical validation remain unestablished.
 Tasks 8–14 retain the dependencies in the controller/manipulation record above;
 static CAD does not close their runtime or hardware acceptance gates.
 
-## Tasks 7–15 after visual acceptance
+## Deferred extensions: Tasks 7–15 (outside final delivery)
+
+The user has closed the project at the visual-demonstrator and presentation
+scope. The technical states below are retained honestly; they are future-work
+readiness, not blockers to the final project. See [closeout](PROJECT_CLOSEOUT.md).
 
 The [2026-11-15 clean local-clone replay](evidence/TASK-08/mock_bimanual_20261115/README.md)
 at `44febde` passed 75 package results (0 failures, 2 copyright-header skips),
@@ -104,8 +110,11 @@ A separate STEP round-trip confirmed 14 valid solids. A discrete nonadjacent-mod
 2 kg budget; total mass and actual carrier compatibility remain unverified.
 The original reference-based concept and accepted ROS implementation are
 unchanged; no ROS or physical replay is claimed for the new CAD prototype.
-All work continues on `feat/sda20-cad-assessment`; no merge or hardware readiness
-is claimed. AY-13's accepted visual scope and all sealed prior records remain
+The final presentation package and [VS Code execution workflow](VSCODE.md) are
+prepared on `feat/sda20-cad-assessment`. [New execution checks](../presentation/execution-verification.md)
+pass core builds/tests, analysis regeneration and all 15 optional mock protocol
+cases; the existing accepted record remains the GUI demonstration baseline.
+Further engineering is deferred; no hardware readiness is claimed. AY-13's accepted visual scope and all sealed prior records remain
 unchanged.
 
 ## AY task matrix

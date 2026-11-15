@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CAM-BOT: debug offline FSM (success + failure)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tools/ay05_offline_trace.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src/carrier_control"
+      }
+    }
+  ]
+}
