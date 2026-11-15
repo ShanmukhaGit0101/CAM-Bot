@@ -45,6 +45,20 @@ rebuild is required in the previously prepared GUI environment. Outputs and
 analyses belong to separate scenarios; do not pool them as repeated trials of
 one layout or mix them with the archived five-cycle qualification.
 
+## If a scenario configuration is missing
+
+A `FileNotFoundError` for `install/carrier_control/.../scenario_compact.json`
+means the installed workspace needs rebuilding after the update. Python source
+can be visible through symlink-install while newly added configuration assets
+have not yet been installed. The launch wrapper now reports this directly and
+refuses to create an incomplete run folder.
+
+Run **01 Build visual demo** (or `bash tools/workbench.sh build`) in the current
+checkout through the workbench's Humble container, then retry **13 → 04 → 05**.
+The rebuild installs all three new scenario files, so repeat it once rather than
+once per scenario. No Docker image rebuild or manual copying into `install/`
+is needed.
+
 ## What moves efficiently in these examples
 
 The carrier keeps the shortest-equivalent-angle policy. The compact example

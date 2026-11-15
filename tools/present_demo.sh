@@ -42,15 +42,22 @@ nodes="$(ros2 node list --no-daemon)"
   printf '%s\n' "$nodes" >&2
   exit 2
 }
+config_name=machine_tending.json
+[[ "$scenario" == original ]] || config_name="scenario_$scenario.json"
+config_file="$(ros2 pkg prefix carrier_control)/share/carrier_control/config/$config_name"
+[[ -r "$config_file" ]] || {
+  printf 'Missing installed scenario configuration: %s\n' "$config_file" >&2
+  echo 'Rebuild after pulling new scenarios: run CAM-BOT: 01 Build visual demo.' >&2
+  echo 'Terminal equivalent: bash tools/workbench.sh build' >&2
+  exit 2
+}
 base="${CAMBOT_PRESENTATION_OUTPUT_ROOT:-$HOME/cambot-presentations}"
 mkdir -p "$base"
 output="$(mktemp -d "$base/run.XXXXXX")"
 git rev-parse HEAD > "$output/source-commit.txt"
-config_name=machine_tending.json
-[[ "$scenario" == original ]] || config_name="scenario_$scenario.json"
 # Keep an immutable effective plan alongside this run, preserving source config.
 python3 -m carrier_control.visual_motion \
-  --source "$(ros2 pkg prefix carrier_control)/share/carrier_control/config/$config_name" \
+  --source "$config_file" \
   --output "$output/plan.json"
 printf 'Presentation evidence: %s\nROS domain: %s\nScenario: %s\n' "$output" "$ROS_DOMAIN_ID" "$scenario"
 printf 'In another sourced terminal: ROS_DOMAIN_ID=%s bash tools/present_demo.sh start\n' "$ROS_DOMAIN_ID"
