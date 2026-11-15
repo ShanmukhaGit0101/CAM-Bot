@@ -1,0 +1,340 @@
+{
+  "source": "SDA_20D.stp",
+  "sha256": "f9ba3a690854f2d98fbba69be7bf02fbec57cdbcf4fbf2aae58225367804f859",
+  "bytes": 20548068,
+  "cadquery_version": "2.7.0",
+  "ocp_version": "7.8.1.1",
+  "classification": "STATIC_CAD_ONLY",
+  "source_length_unit": "mm",
+  "model_identity": "SDA_20D filename; STEP product name does not authenticate robot model",
+  "entity_counts": {
+    "PRODUCT": 1,
+    "NEXT_ASSEMBLY_USAGE_OCCURRENCE": 0,
+    "REVOLUTE_PAIR": 0,
+    "KINEMATIC_JOINT": 0,
+    "MANIFOLD_SOLID_BREP": 11
+  },
+  "bbox_mm": {
+    "xmin": -350.0000001000001,
+    "xmax": 1240.0000001000008,
+    "ymin": -0.001359381746968903,
+    "ymax": 690.0000001004373,
+    "zmin": -505.58695437854675,
+    "zmax": 505.5869543785457,
+    "xlen": 1590.0000002000008,
+    "ylen": 690.0013594821843,
+    "zlen": 1011.1739087570925
+  },
+  "solids": [
+    {
+      "index": 0,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 395.89999989999984,
+        "xmax": 725.5000001,
+        "ymin": 458.99999989996326,
+        "ymax": 654.0000001,
+        "zmin": -476.000000100444,
+        "zmax": -293.999998565296,
+        "xlen": 329.6000002000001,
+        "ylen": 195.0000002000367,
+        "zlen": 182.00000153514804
+      },
+      "faces": 122,
+      "volume_mm3": 7007838.232231958
+    },
+    {
+      "index": 1,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 548.4999999,
+        "xmax": 904.2500001,
+        "ymin": 452.5999999,
+        "ymax": 615.5000001000011,
+        "zmin": 293.4999999,
+        "zmax": 477.05291274936246,
+        "xlen": 355.75000019999993,
+        "ylen": 162.9000002000011,
+        "zlen": 183.55291284936249
+      },
+      "faces": 212,
+      "volume_mm3": 4465409.497351609
+    },
+    {
+      "index": 2,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 878.9999999,
+        "xmax": 1123.5000001,
+        "ymin": 465.4999998999998,
+        "ymax": 616.5000001,
+        "zmin": 318.4999999,
+        "zmax": 451.5000001,
+        "xlen": 244.50000020000004,
+        "ylen": 151.00000020000016,
+        "zlen": 133.00000020000004
+      },
+      "faces": 182,
+      "volume_mm3": 2519419.0450085327
+    },
+    {
+      "index": 3,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 25.0,
+        "xmax": 275.0,
+        "ymin": 425.0,
+        "ymax": 675.0,
+        "zmin": -494.00000010004703,
+        "zmax": -70.5,
+        "xlen": 250.0,
+        "ylen": 250.0,
+        "zlen": 423.50000010004703
+      },
+      "faces": 318,
+      "volume_mm3": 12738777.667959917
+    },
+    {
+      "index": 4,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 395.89999989999984,
+        "xmax": 725.5000001,
+        "ymin": 458.99999989996326,
+        "ymax": 654.0000001,
+        "zmin": 293.999999899556,
+        "zmax": 476.000001434704,
+        "xlen": 329.6000002000001,
+        "ylen": 195.0000002000367,
+        "zlen": 182.00000153514804
+      },
+      "faces": 122,
+      "volume_mm3": 7007838.232232078
+    },
+    {
+      "index": 5,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 878.9999999,
+        "xmax": 1123.5000001,
+        "ymin": 465.4999998999993,
+        "ymax": 616.5000001,
+        "zmin": -451.5000001,
+        "zmax": -318.4999999,
+        "xlen": 244.50000020000004,
+        "ylen": 151.00000020000067,
+        "zlen": 133.00000020000004
+      },
+      "faces": 182,
+      "volume_mm3": 2519419.0450085253
+    },
+    {
+      "index": 6,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 989.9999998999051,
+        "xmax": 1227.2500001,
+        "ymin": 483.7379998999735,
+        "ymax": 630.0000001000027,
+        "zmin": -455.0000009343961,
+        "zmax": -314.99999066580096,
+        "xlen": 237.25000020009497,
+        "ylen": 146.2620002000292,
+        "zlen": 140.00001026859513
+      },
+      "faces": 179,
+      "volume_mm3": 2168540.1512779524
+    },
+    {
+      "index": 7,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": -350.0000001000001,
+        "xmax": 215.0000001,
+        "ymin": -0.001359381746968903,
+        "ymax": 276.5000001,
+        "zmin": -210.0000001,
+        "zmax": 215.0000001,
+        "xlen": 565.0000002,
+        "ylen": 276.501359481747,
+        "zlen": 425.0000002
+      },
+      "faces": 333,
+      "volume_mm3": 29710729.48689716
+    },
+    {
+      "index": 8,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 29.999999900003978,
+        "xmax": 415.90000010000006,
+        "ymin": 429.99999989999384,
+        "ymax": 635.5000000999979,
+        "zmin": -505.58695437854675,
+        "zmax": -264.999999900005,
+        "xlen": 385.9000001999961,
+        "ylen": 205.50000020000408,
+        "zlen": 240.58695447854177
+      },
+      "faces": 277,
+      "volume_mm3": 6629433.65077262
+    },
+    {
+      "index": 9,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 1224.1999999,
+        "xmax": 1240.0000001000008,
+        "ymin": 499.9999999,
+        "ymax": 600.0000001,
+        "zmin": 334.9999999,
+        "zmax": 435.0,
+        "xlen": 15.800000200000795,
+        "ylen": 100.00000019999999,
+        "zlen": 100.00000010000002
+      },
+      "faces": 100,
+      "volume_mm3": 107190.43168238815
+    },
+    {
+      "index": 10,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 29.999999900003978,
+        "xmax": 415.90000010000006,
+        "ymin": 464.4999999,
+        "ymax": 670.0000001000042,
+        "zmin": 264.99999990000396,
+        "zmax": 505.5869543785457,
+        "xlen": 385.9000001999961,
+        "ylen": 205.5000002000042,
+        "zlen": 240.58695447854177
+      },
+      "faces": 277,
+      "volume_mm3": 6629433.650773438
+    },
+    {
+      "index": 11,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 548.4999999,
+        "xmax": 904.2500001,
+        "ymin": 452.5999999,
+        "ymax": 615.5000001000011,
+        "zmin": -476.5000001,
+        "zmax": -292.9470872506374,
+        "xlen": 355.75000019999993,
+        "ylen": 162.9000002000011,
+        "zlen": 183.5529128493626
+      },
+      "faces": 212,
+      "volume_mm3": 4465409.4973516045
+    },
+    {
+      "index": 12,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 1224.1999999,
+        "xmax": 1240.0000001000005,
+        "ymin": 499.9999999,
+        "ymax": 600.0000001,
+        "zmin": -435.0000001,
+        "zmax": -335.0,
+        "xlen": 15.800000200000568,
+        "ylen": 100.00000019999999,
+        "zlen": 100.00000010000002
+      },
+      "faces": 100,
+      "volume_mm3": 107190.43168238811
+    },
+    {
+      "index": 13,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 25.0,
+        "xmax": 275.0,
+        "ymin": 425.0,
+        "ymax": 675.0,
+        "zmin": 70.5,
+        "zmax": 494.00000010004703,
+        "xlen": 250.0,
+        "ylen": 250.0,
+        "zlen": 423.50000010004703
+      },
+      "faces": 318,
+      "volume_mm3": 12738777.667961942
+    },
+    {
+      "index": 14,
+      "valid": false,
+      "bbox_mm": {
+        "xmin": -224.71603715615,
+        "xmax": 289.14561445346243,
+        "ymin": 251.5999999,
+        "ymax": 690.0000001004373,
+        "zmin": -155.0000001,
+        "zmax": 155.0000001,
+        "xlen": 513.8616516096124,
+        "ylen": 438.4000002004373,
+        "zlen": 310.0000002
+      },
+      "faces": 617,
+      "volume_mm3": 36444321.35226817
+    },
+    {
+      "index": 15,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 989.9999998999051,
+        "xmax": 1227.2500001,
+        "ymin": 483.7379998999735,
+        "ymax": 630.0000001000001,
+        "zmin": 314.9999990656039,
+        "zmax": 455.00000933419915,
+        "xlen": 237.25000020009497,
+        "ylen": 146.2620002000266,
+        "zlen": 140.00001026859525
+      },
+      "faces": 179,
+      "volume_mm3": 2168538.200213119
+    },
+    {
+      "index": 16,
+      "valid": true,
+      "bbox_mm": {
+        "xmin": 25.0,
+        "xmax": 275.0,
+        "ymin": 425.0,
+        "ymax": 675.0,
+        "zmin": 70.5,
+        "zmax": 494.00000010004703,
+        "xlen": 250.0,
+        "ylen": 250.0,
+        "zlen": 423.50000010004703
+      },
+      "faces": 318,
+      "volume_mm3": 12738777.667961942
+    }
+  ],
+  "solid_count": 17,
+  "face_count": 4048,
+  "volume_interpretation": "Geometric solid volumes only; may overlap. No density, BOM or mass claim.",
+  "mass_kg": null,
+  "joint_axes": null,
+  "joint_limits": null,
+  "link_tree": null,
+  "controller_interface": null,
+  "mounting_transform_to_ur5": null,
+  "payload_compatibility": "NOT_ESTABLISHED",
+  "hardware_execution_authorized_by_this_report": false,
+  "physical_operation_verified": false,
+  "grasp_verified": false,
+  "task_7_to_15_complete": false,
+  "bbox_extent_m": [
+    1.5900000002000008,
+    0.6900013594821843,
+    1.0111739087570926
+  ],
+  "whole_shape_valid": false,
+  "whole_shape_valid_basis": "Independent whole-shape isValid() execution returned false; original importer per-solid report follows."
+}

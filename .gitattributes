@@ -27,3 +27,6 @@
 "/experiments/mass_sensitivity/exp03-shoulder-10pct/data/exp03_shoulder_4.070kg.csv" -filter !diff !merge -text
 "/media/2026-08-24-machine-shop-cycle.webm" -filter !diff !merge -text
 "/media/Screencast from 09-29-2026 10:03:01 PM.webm" -filter !diff !merge -text
+
+# User-supplied static reference CAD; retained unchanged, not a runtime model.
+/docs/evidence/CAD/SDA20D/source/SDA_20D.stp filter=lfs diff=lfs merge=lfs -text

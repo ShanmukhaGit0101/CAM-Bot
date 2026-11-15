@@ -1,0 +1,9 @@
+test_impossible_wall_and_nonfinite_dimension_rejected (test_build_module_concept.ConceptTests.test_impossible_wall_and_nonfinite_dimension_rejected) ... ok
+test_valid_parts_and_symmetric_link_volumes (test_build_module_concept.ConceptTests.test_valid_parts_and_symmetric_link_volumes) ... ok
+test_cube_units_volume_and_no_fabricated_kinematics (test_inspect_step.StepInspectionTests.test_cube_units_volume_and_no_fabricated_kinematics) ... ok
+test_missing_units_rejected_before_import (test_inspect_step.StepInspectionTests.test_missing_units_rejected_before_import) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.702s
+
+OK

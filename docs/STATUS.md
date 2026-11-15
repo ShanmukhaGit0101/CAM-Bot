@@ -1,6 +1,6 @@
 # CAM-BOT status and evidence levels
 
-Updated 2026-11-14 (Asia/Calcutta). This is the only project status matrix. Each AY record,
+Updated 2026-11-15 (Asia/Calcutta). This is the only project status matrix. Each AY record,
 including prior state, options, exact files, commands, results, limitations and
 next action, is in the [versioned evidence ledger](ayush/ledger.json).
 The [2026-11-05 documentation repair](evidence/AY-13/reproducibility_repair.md)
@@ -49,6 +49,18 @@ checks. These are mock carrier cycles, not complete tending cycles; the full
 10–20-cycle tending baseline remains pending. The
 [Tasks 7–15 dependency record](CONTROLLER_NEXT_STEPS.md) identifies the missing
 interfaces, geometry and hardware evidence needed for subsequent milestones.
+
+Task 15 (detailed mechanical design) remains **PARTIAL**. The
+[user-supplied SDA20D CAD assessment](evidence/CAD/SDA20D/README.md) now informs a
+[parameterized small-module concept](../design/bimanual_concept/README.md),
+with a generated STEP layout and structural-volume worksheet. The reference is
+not a replacement for the UR5 carrier. One imported reference body fails CAD
+validity checks. The new concept has seven valid geometric components, but no
+validated brackets, bearings, actuators, grippers or mounting load path. Its
+approximately 1.022 kg structural-only estimate excludes those components;
+total payload compatibility and physical validation remain unestablished.
+Tasks 8–14 retain the dependencies in the controller/manipulation record above;
+static CAD does not close their runtime or hardware acceptance gates.
 
 ## AY task matrix
 

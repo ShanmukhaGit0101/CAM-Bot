@@ -1,0 +1,65 @@
+{
+  "classification": "PRELIMINARY_CONCEPT_NOT_MANUFACTURING_DESIGN",
+  "parameter_sha256": "f1dd2808e922681c33c0909ed3d695ee57e8e1388e6000d145bd50b058c0de4d",
+  "all_component_shapes_valid": true,
+  "parts": [
+    {
+      "part": "base_frame",
+      "volume_mm3": 132000.00000000003,
+      "assumed_structure_mass_kg": 0.3564000000000001
+    },
+    {
+      "part": "left_shoulder_envelope",
+      "volume_mm3": 17435.839227423352,
+      "assumed_structure_mass_kg": 0.04707676591404305
+    },
+    {
+      "part": "left_upper",
+      "volume_mm3": 59999.99999999993,
+      "assumed_structure_mass_kg": 0.1619999999999998
+    },
+    {
+      "part": "left_forearm",
+      "volume_mm3": 45760.00000000003,
+      "assumed_structure_mass_kg": 0.12355200000000008
+    },
+    {
+      "part": "right_shoulder_envelope",
+      "volume_mm3": 17435.839227423352,
+      "assumed_structure_mass_kg": 0.04707676591404305
+    },
+    {
+      "part": "right_upper",
+      "volume_mm3": 59999.99999999993,
+      "assumed_structure_mass_kg": 0.1619999999999998
+    },
+    {
+      "part": "right_forearm",
+      "volume_mm3": 45760.00000000003,
+      "assumed_structure_mass_kg": 0.12355200000000008
+    }
+  ],
+  "assumed_structure_mass_kg": 1.021657531828086,
+  "total_assembly_mass_kg": null,
+  "excluded": [
+    "UR5 adapter/flange",
+    "motors and gearboxes",
+    "bearings",
+    "fasteners",
+    "grippers",
+    "cables",
+    "guards",
+    "workpieces",
+    "shoulder-to-base brackets"
+  ],
+  "design_gaps": [
+    "No bolt pattern, bearing seats, gearbox interfaces or bracket details",
+    "Open-frame concept has no verified mounting load path",
+    "No stress, fatigue, stiffness or cable-routing validation"
+  ],
+  "actuator_sizing_equation": "tau_static = g*(payload*r_payload + sum(m_i*r_i)); add inertia, friction, gearing efficiency and duty margins",
+  "static_torque_Nm": null,
+  "payload_compatibility": "NOT_ESTABLISHED",
+  "manufacturing_ready": false,
+  "physical_operation_verified": false
+}

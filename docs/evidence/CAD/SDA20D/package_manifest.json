@@ -1,0 +1,79 @@
+{
+  "provided_files": [
+    {
+      "name": "Assem2.SLDASM",
+      "bytes": 5652128,
+      "sha256": "0e4a16d60e66b48b9187690709217952e7bf1b7f5faad9500693dfbd670e9f56",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRTsww.SLDPRT",
+      "bytes": 7519402,
+      "sha256": "7007a410b28de1f8b5a79824c09eb86b9f928effb15b8ba7ddefd9c4ec38d558",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRT",
+      "bytes": 8056769,
+      "sha256": "a3adfbf1d81ed21922a37b7d2eccbbaa5a9e662fa8440109d2ec68c5bad98feb",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp",
+      "bytes": 20548068,
+      "sha256": "f9ba3a690854f2d98fbba69be7bf02fbec57cdbcf4fbf2aae58225367804f859",
+      "format": "STEP AP214"
+    },
+    {
+      "name": "ssss.SLDASM",
+      "bytes": 5391200,
+      "sha256": "10c6f738b24448782e3b5f31eba37fbe02bc573cb042655f40a3ad496c0232c7",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRT2.SLDPRT",
+      "bytes": 7247974,
+      "sha256": "6aa0e91b128e70db77354d28abfed7e952a371b05afbe7f49046629efcf94f93",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp",
+      "bytes": 20548068,
+      "sha256": "f9ba3a690854f2d98fbba69be7bf02fbec57cdbcf4fbf2aae58225367804f859",
+      "format": "STEP AP214"
+    },
+    {
+      "name": "w.SLDPRT",
+      "bytes": 8670115,
+      "sha256": "d1dac53e1bb88c64a2f642527a3c8b37292b042ceb3227a5089b525fb335548c",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRT",
+      "bytes": 3798242,
+      "sha256": "80e608d96ae65329fb81542290c00892d99761eeed8e4cacb2d6a514bf597cb1",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRTs.SLDPRT",
+      "bytes": 7444273,
+      "sha256": "2993f606ad03e9e440387f41389bb2099b077b9278e2a49bd3959bcda34d7b8a",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTss.SLDPRTs.SLDPRTw.SLDPRT",
+      "bytes": 7117026,
+      "sha256": "66fea72353747a650e2956b6d67d2a4bdb8fe66cd6fc8585c552469cf7572875",
+      "format": "SolidWorks native: not decoded in this environment"
+    },
+    {
+      "name": "SDA_20D.stp.SLDPRTq.SLDPRT",
+      "bytes": 8520330,
+      "sha256": "50d668e725cb4f0e1ecefaca8d409135ddc72ce71603887f01fdcd90782a0a84",
+      "format": "SolidWorks native: not decoded in this environment"
+    }
+  ],
+  "unique_file_count": 11,
+  "native_constraints_or_mates_verified": false,
+  "interpretation": "User confirms SDA20D serves as design reference for a small UR5-mounted module, not a robot replacement"
+}

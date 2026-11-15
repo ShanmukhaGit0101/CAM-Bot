@@ -1,0 +1,49 @@
+{
+  "scope": "reference input and preliminary concept artifacts; not hardware validation",
+  "files": {
+    "docs/evidence/CAD/SDA20D/package_manifest.json": {
+      "sha256": "036d2b67e50e976289b83865ca2882268452c39429de75a0df306f97451808f1",
+      "bytes": 2925
+    },
+    "docs/evidence/CAD/SDA20D/geometry.json": {
+      "sha256": "4086220a3f613e972cd21418053ef4fcfec68a556b660257eee61c653eddd0cf",
+      "bytes": 8839
+    },
+    "docs/evidence/CAD/SDA20D/README.md": {
+      "sha256": "48f34cf4d14e2fe504982d8369a2ba48def2c75d2728c2b7c67d7a24e345429a",
+      "bytes": 3876
+    },
+    "docs/evidence/CAD/SDA20D/cad_tests.log": {
+      "sha256": "03187700e7b2752866a1d3ce84110954d0043a8418d68d7c67e11510ae43fb61",
+      "bytes": 672
+    },
+    "docs/evidence/CAD/SDA20D/source/SDA_20D.stp": {
+      "sha256": "f9ba3a690854f2d98fbba69be7bf02fbec57cdbcf4fbf2aae58225367804f859",
+      "bytes": 20548068
+    },
+    "design/bimanual_concept/parameters.json": {
+      "sha256": "f1dd2808e922681c33c0909ed3d695ee57e8e1388e6000d145bd50b058c0de4d",
+      "bytes": 919
+    },
+    "design/bimanual_concept/README.md": {
+      "sha256": "18dc127a46581d5e490660bd1193b68bd9413571446d162dac4d6684c7c45d10",
+      "bytes": 3730
+    },
+    "design/bimanual_concept/generated/preview.png": {
+      "sha256": "76c1168e3dd80d0ed167b4113be12dbf48c9a8653a53618743305bd41d9191eb",
+      "bytes": 29640
+    },
+    "design/bimanual_concept/generated/module_concept.svg": {
+      "sha256": "4b139c2e58bbbbe6718a24144df7aa1f34f0c5a4e714d0f6db7c09741bf370e2",
+      "bytes": 58834
+    },
+    "design/bimanual_concept/generated/design_report.json": {
+      "sha256": "4b822dc427b92b899c1e38a504470c966eb945c3c37df915eaf6fbf073940572",
+      "bytes": 1993
+    },
+    "design/bimanual_concept/generated/module_concept.step": {
+      "sha256": "2a2b75d0c5539ac7c3389e9a146b32e26acd6229a7cb2dbb84c82d4929fcd8cc",
+      "bytes": 172618
+    }
+  }
+}
