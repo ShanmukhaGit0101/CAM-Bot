@@ -1,0 +1,13 @@
+{
+  "slide_count": 12,
+  "html_offline_navigation": "PASS",
+  "embedded_images": "PASS",
+  "recorded_replay_completion_pause_reset": "PASS",
+  "speaker_notes_toggle": "PASS",
+  "javascript_errors": [],
+  "pptx_slide_count_and_notes": "PASS",
+  "pdf_12_pages_with_text": "PASS",
+  "browser_serving": "loopback HTTP; managed Chromium blocks file://; no external resources required",
+  "fresh_ros_runtime_pass": false,
+  "scope": "presentation packaging and browser interaction checks only"
+}

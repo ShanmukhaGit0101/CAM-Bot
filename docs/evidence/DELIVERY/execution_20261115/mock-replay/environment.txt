@@ -1,0 +1,24 @@
+b5d47f2c150385dfd57928aaaf95e7fd18a620e8
+ M .gitignore
+ M README.md
+ M docs/CONTROLLER_NEXT_STEPS.md
+ M docs/ROADMAP.md
+ M docs/STATUS.md
+ M docs/TASK_ALLOCATION.md
+ M tools/check_ay13_docs.py
+?? .vscode/
+?? docs/PROJECT_CLOSEOUT.md
+?? docs/VSCODE.md
+?? presentation/
+?? tools/build_presentation.py
+?? tools/present_demo.sh
+?? tools/test_build_presentation.py
+?? tools/test_workbench.py
+?? tools/workbench-requirements.txt
+?? tools/workbench.sh
+ros-humble-controller-manager	2.54.3-1jammy.20261005.213325
+ros-humble-hardware-interface	2.54.3-1jammy.20261005.211947
+ros-humble-joint-state-broadcaster	2.54.1-1jammy.20261005.215610
+ros-humble-joint-trajectory-controller	2.54.1-1jammy.20261005.215624
+ros-humble-ur-description	2.14.0-1jammy.20260922.040002
+ROS_DOMAIN_ID=119
