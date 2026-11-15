@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_commit": "b117d1805d1a9617a1583583f95c5aedc8d5804c",
-  "scope": "current tracked src bytes including optional four-joint mock; hashes authoritative, runtime evidence separate",
+  "source_commit": "f2312782a57178e7a4e725848ffc3038c1c80441",
+  "scope": "current tracked src bytes including optional display-only arm styling; hashes authoritative, runtime evidence separate",
   "historical_inventory": "docs/evidence/AY-13/cross_validation/source_inventory.json",
-  "count": 66,
+  "count": 69,
   "files": [
     {
       "path": "src/carrier_control/LICENSE",
@@ -276,9 +276,15 @@
       "evidence_level": "available_code"
     },
     {
+      "path": "src/carrier_description/carrier_description/presentation_model.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "f3b3477d7dde5b820e192f0e87046ce7a08ea061fb42287478f5ec981b7e8e6a"
+    },
+    {
       "path": "src/carrier_description/launch/dual_arm_demo.launch.py",
       "kind": "python_source_or_test",
-      "sha256": "0ba531adbd4cb5c1d10756f438f0ba3945139d0e8d34c938e518aee5ecf46861",
+      "sha256": "c9c9566117a093277ef7d4eaaa8a9e6a372ee3fc0331b8ae57c2c85009946a7c",
       "evidence_level": "available_code"
     },
     {
@@ -322,6 +328,12 @@
       "kind": "package_asset",
       "sha256": "8830d59b52c89b875b890c2c8082e7eeb7078535107ff27dfd6433ec4b211370",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_description/rviz/dual_arm_presentation.rviz",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "a108601209262735c63e396df4ee273e378ebf96fc31f1e9142b3fe8da29f142"
     },
     {
       "path": "src/carrier_description/setup.cfg",
@@ -370,6 +382,12 @@
       "kind": "python_source_or_test",
       "sha256": "d87e2bf0020de445312ab4eaac6ede733ec9868399affafa50c5c59f8af6f01a",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_description/test/test_presentation_model.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "716348c32d280356f56ed3d694234dd7c936595d681b563d7b2f0679edca13b3"
     },
     {
       "path": "src/carrier_description/urdf/carrier_flange.xacro",

@@ -76,6 +76,10 @@ To force a different prepared container, launch VS Code with
 `CAMBOT_CONTAINER=your-container code .`; it must mount this checkout at
 `/workspace/CAM-BOT`. Do not run simultaneous visual and legacy joint publishers.
 
+The Launch task now enables the [clearer arm presentation view](ARM_PRESENTATION.md):
+blue/orange arm links, joint housings, slimmer visual covers and translucent
+station bodies. Joint frames, plan and collision geometry are unchanged.
+
 ## 2. Rehearse the complete code demonstration
 
 Run these tasks individually in this order. Long-running tasks get separate

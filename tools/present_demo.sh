@@ -49,5 +49,5 @@ printf 'In another sourced terminal: ROS_DOMAIN_ID=%s bash tools/present_demo.sh
 echo 'Wait for RViz, start one cycle, observe FINISHED_AT_S5 and HOME, then Ctrl-C here.'
 export ROS_LOG_DIR="$output/ros"
 exec ros2 launch carrier_description dual_arm_demo.launch.py \
-  auto_start:=false enable_coordination:=true trial_count:=1 visual_time_scale:=1.0 \
+  presentation_view:=true auto_start:=false enable_coordination:=true trial_count:=1 visual_time_scale:=1.0 \
   experiment_id:=cambot-presentation results_file:="$output/trials.csv"

@@ -9,6 +9,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 
+from carrier_description.presentation_model import presentation_description
 from carrier_control.workflow import load_plan
 from carrier_control.workcell_model import render_workcell_xacro
 
@@ -26,11 +27,19 @@ def _assemble(context):
         Path(get_package_share_directory("carrier_description")) /
         "urdf" / "ur5_with_test_tool.xacro"
     )
+    presentation = LaunchConfiguration("presentation_view").perform(context).lower()
+    if presentation not in ("true", "false"):
+        raise ValueError("presentation_view must be true or false")
+    styled = presentation == "true"
+    rviz_name = "dual_arm_presentation.rviz" if styled else "dual_arm.rviz"
     rviz_config = PathJoinSubstitution([
-        FindPackageShare("carrier_description"), "rviz", "dual_arm.rviz"
+        FindPackageShare("carrier_description"), "rviz", rviz_name
     ])
     plan = load_plan(config_file.perform(context))
     description = render_workcell_xacro(xacro_file, plan["workcell"])
+
+    if styled:
+        description = presentation_description(description)
 
     # Visual-only: one joint-state publisher, with no controller or actuation.
     return [
@@ -74,6 +83,7 @@ def _assemble(context):
 
 def generate_launch_description():
     return LaunchDescription([
+        DeclareLaunchArgument("presentation_view", default_value="false"),
         DeclareLaunchArgument("trial_count", default_value="1"),
         DeclareLaunchArgument("visual_time_scale", default_value="1.0"),
         DeclareLaunchArgument("auto_start", default_value="true"),
