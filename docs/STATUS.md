@@ -121,7 +121,9 @@ one cycle, one publisher and clean shutdown; 80 package results have no failures
 and two existing skips. The [subsequent visual motion repair](evidence/DELIVERY/arm_motion_20261115/README.md)
 exchanges the local arm sides with mirrored elbow folding and fixes long-way
 carrier turns. Its separate success/failure/cancellation replay passes; hardware
-readiness and physical grasp remain unverified. Further engineering is deferred; no hardware readiness is claimed. AY-13's accepted visual scope and all sealed prior records remain
+readiness and physical grasp remain unverified. The latest material-only update
+restores fully opaque stations at the user's request; six focused model checks
+and the documentation/source-inventory validator pass. Further engineering is deferred; no hardware readiness is claimed. AY-13's accepted visual scope and all sealed prior records remain
 unchanged.
 
 ## AY task matrix

@@ -13,7 +13,7 @@ plan to make its unvalidated motion appear physically qualified.
   shoulder/elbow housings, along the original link centre lines.
 - Fixed passive tool outlines at the forearm tips, without added joints or grasp
   actuation. Their opening is illustrative and is not fitted to the workpiece.
-- Translucent station visuals so the carrier remains visible behind stations.
+- Fully opaque station visuals, retaining the original colours and geometry.
 - A dedicated RViz view with a correctly encoded camera focal point above the
   floor; TF axes are hidden to reduce visual clutter.
 
@@ -82,3 +82,12 @@ existing visual state interpolation.
 [New motion replay and measured turn angles](evidence/DELIVERY/arm_motion_20261115/README.md).
 After pulling this update, rebuild the core packages and restart Launch/Observe;
 the existing VS Code task sequence automatically uses the new effective plan.
+
+
+## Opaque workcell preference
+
+The user requested solid station bodies after viewing the new arrangement.
+The latest renderer preserves their original material alpha of 1.0; no ghosting
+is applied. Earlier retained screenshots remain translucent as historical
+records. Rebuild and restart RViz to load the opaque view. This material-only
+change does not alter the swapped arms, angular routing or prior trial metrics.

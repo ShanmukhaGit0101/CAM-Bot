@@ -77,7 +77,7 @@ To force a different prepared container, launch VS Code with
 `/workspace/CAM-BOT`. Do not run simultaneous visual and legacy joint publishers.
 
 The Launch task now enables the [clearer arm presentation view](ARM_PRESENTATION.md):
-blue/orange arm links, joint housings, slimmer visual covers and translucent
+blue/orange arm links, joint housings, slimmer visual covers and opaque
 station bodies. The wrapper also creates a fresh `plan.json` with the exchanged/mirrored arm
 arrangement. The carrier uses shorter equivalent-angle turns; see the guide
 for the difference between display styling and this new visual motion profile.

@@ -34,7 +34,7 @@ class TestPresentationModel(unittest.TestCase):
         changed = {'carrier_flange', 'dual_arm_base_link', 'left_upper_arm',
                    'right_upper_arm', 'left_forearm', 'right_forearm'}
         for link in self.styled.findall('link'):
-            if link.get('name') not in changed and not link.get('name').startswith('station_'):
+            if link.get('name') not in changed:
                 self.assertEqual(self.canonical(before[link.get('name')]),
                                  self.canonical(link))
 
@@ -50,15 +50,15 @@ class TestPresentationModel(unittest.TestCase):
             colours.append(links[f'{side}_upper_arm'].find('visual/material/color').get('rgba'))
         self.assertNotEqual(*colours)
 
-    def test_station_geometry_is_identical_with_only_translucency_changed(self):
-        before = {link.get('name'): deepcopy(link) for link in self.original.findall('link')}
-        for link in self.styled.findall('link'):
-            if link.get('name').startswith('station_'):
-                original = before[link.get('name')]
-                for colour in original.findall('visual/material/color'):
-                    rgb = colour.get('rgba').split()[:3]
-                    colour.set('rgba', ' '.join(rgb + ['0.30']))
-                self.assertEqual(self.canonical(original), self.canonical(link))
+    def test_station_visuals_remain_original_and_fully_opaque(self):
+        before = {link.get('name'): link for link in self.original.findall('link')}
+        stations = [link for link in self.styled.findall('link')
+                    if link.get('name').startswith('station_')]
+        self.assertEqual(len(stations), 5)
+        for link in stations:
+            self.assertEqual(self.canonical(before[link.get('name')]), self.canonical(link))
+            for colour in link.findall('visual/material/color'):
+                self.assertEqual(float(colour.get('rgba').split()[3]), 1.0)
 
     def test_mounts_exchange_and_elbows_fold_together(self):
         import math

@@ -76,14 +76,6 @@ def presentation_description(description):
         for x in (-0.025, 0.025):
             _visual(forearm, 'box', {'size': '0.012 0.04 0.018'},
                     f'{x} {forearm_length + 0.025} 0', METAL)
-    # Translucent station bodies expose the carrier instead of hiding it.
-    # Only colour alpha changes; box dimensions and station frames stay fixed.
-    for name in ('station_s1_raw', 'station_s2_staging', 'station_s3_machine',
-                 'station_s4_output', 'station_s5_finished'):
-        if name in links:
-            for colour in links[name].findall('visual/material/color'):
-                rgb = colour.get('rgba').split()[:3]
-                colour.set('rgba', ' '.join(rgb + ['0.30']))
     return ET.tostring(robot, encoding='unicode')
 
 

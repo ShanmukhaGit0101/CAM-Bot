@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source_commit": "854f056e5823586efdd828c364b1476c1a7130ae",
+  "source_commit": "e93ef2a0a85a8b7e527cb11b9bd0a528a5c59848",
   "scope": "current src bytes including visual nearest-angle routing and optional exchanged/mirrored arm profile; hashes authoritative",
   "historical_inventory": "docs/evidence/AY-13/cross_validation/source_inventory.json",
   "count": 71,
@@ -291,7 +291,7 @@
       "path": "src/carrier_description/carrier_description/presentation_model.py",
       "kind": "python_source_or_test",
       "evidence_level": "available_code",
-      "sha256": "c89ba4aa6b7045c2fb6a38844c9936f447fcf1fc71fcefb55b2557927987fd8e"
+      "sha256": "a1c279bcbfa1b3f9dc038784def53061fe1c06edb536e68d8f365df471057869"
     },
     {
       "path": "src/carrier_description/launch/dual_arm_demo.launch.py",
@@ -399,7 +399,7 @@
       "path": "src/carrier_description/test/test_presentation_model.py",
       "kind": "python_source_or_test",
       "evidence_level": "available_code",
-      "sha256": "21418f3c0f01016e614a1f4ca26fa64f7a98d2dbdb0e53908a77cd30312f4c7b"
+      "sha256": "a7038a7cb2c00e27b63e3f3dd4049ac9997dc7cc7eacc7b6382209bc9156f1ff"
     },
     {
       "path": "src/carrier_description/urdf/carrier_flange.xacro",
