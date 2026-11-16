@@ -1,0 +1,19 @@
+{
+  "scope": "synthetic outbound/return carrier cycles on GenericSystem",
+  "timing_boundary": "before outbound action until return result and 0.05s observation",
+  "planning_time_s": null,
+  "planning_note": "no planner is used",
+  "requested": 20,
+  "attempted": 20,
+  "successful": 20,
+  "failed": 0,
+  "mean_success_duration_s": 1.1598969500000293,
+  "sample_sd_s": 0.0005524682677081234,
+  "min_s": 1.158303581000382,
+  "max_s": 1.1615774010001587,
+  "station_targets_validated": false,
+  "grasp_verified": false,
+  "physical_operation_verified": false,
+  "end_to_end_verified": false,
+  "complete": true
+}

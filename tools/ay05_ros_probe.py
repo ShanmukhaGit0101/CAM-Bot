@@ -1,0 +1,152 @@
+#!/usr/bin/env python3
+"""Humble-only observer for visual FSM integration checks.
+
+This deliberately observes state/events, not physics or grasp execution.
+"""
+
+import argparse
+import json
+import time
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from std_srvs.srv import Trigger
+
+
+ALL_STATES = [
+    "HOME", "PICK_RAW", "STAGE", "LOAD_MACHINE", "MACHINE_DWELL",
+    "UNLOAD_MACHINE", "PLACE_FINISHED", "HOME",
+]
+
+
+def validate_cancellation(entered, terminal, cancellation_confirmed):
+    """Require service acknowledgement and bounded, non-advancing cancellation."""
+    cause = terminal.get("cause", "")
+    if not cancellation_confirmed or terminal.get("event") != "FAILURE" or not (
+            cause.startswith("CANCEL") or
+            cause == "CARRIER_VISUAL_UPDATE_CANCELLED_OR_TIMEOUT"):
+        raise RuntimeError(f"early cancellation failed: {terminal}")
+    if entered != ALL_STATES[:2] or terminal.get("workpiece_state") != "RAW_AT_S1":
+        raise RuntimeError(f"FSM/workpiece advanced after cancellation: {terminal}")
+
+
+def validate_unreachable(entered, terminal, decisions):
+    """Require one reposition, a real unreachable recheck, and no workpiece advance."""
+    if (entered != ALL_STATES[:2] or terminal.get("event") != "FAILURE" or
+            terminal.get("cause") != "RECHECK_STILL_UNREACHABLE" or
+            terminal.get("failure_step") != "S1_APPROACH" or
+            terminal.get("workpiece_state") != "RAW_AT_S1"):
+        raise RuntimeError(f"unreachable target failure misclassified or advanced: {terminal}")
+    moves = [event for event in decisions if event.get("decision") == "CARRIER_REPOSITION"
+             and event.get("outcome") == "PENDING"]
+    rechecks = [event for event in decisions if event.get("decision") == "UNREACHABLE"
+                and event.get("reason") == "RECHECK_STILL_UNREACHABLE"
+                and event.get("outcome") == "RECHECKED_AFTER_CARRIER"]
+    if len(moves) != 1 or len(rechecks) != 1:
+        raise RuntimeError("expected exactly one reposition and one unreachable TF recheck")
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--expect", choices=("success", "load_failure", "cancelled", "unreachable"),
+                        required=True)
+    parser.add_argument("--timeout-s", type=float, default=90.0)
+    args = parser.parse_args()
+    rclpy.init()
+    node = Node("ay05_fsm_probe")
+    task_events = []
+    workpiece_events = []
+    decisions = []
+    cancellation_sent = False
+    cancel_future = None
+
+    def collect(target, topic):
+        def callback(message):
+            payload = json.loads(message.data)
+            target.append(payload)
+            print(json.dumps({"topic": topic, "payload": payload}), flush=True)
+        return callback
+
+    node.create_subscription(String, "/cambot/task_state",
+                             collect(task_events, "task_state"), 100)
+    node.create_subscription(String, "/cambot/workpiece_state",
+                             collect(workpiece_events, "workpiece_state"), 100)
+    node.create_subscription(String, "/cambot/coordination_decision",
+                             collect(decisions, "coordination_decision"), 100)
+    start_client = node.create_client(Trigger, "/machine_tending_coordinator/start")
+    cancel_client = node.create_client(Trigger, "/machine_tending_coordinator/cancel")
+    deadline = time.monotonic() + args.timeout_s
+    try:
+        while not start_client.wait_for_service(timeout_sec=0.25):
+            if time.monotonic() >= deadline:
+                raise RuntimeError("start service not ready")
+        start_future = start_client.call_async(Trigger.Request())
+        while not start_future.done() and time.monotonic() < deadline:
+            rclpy.spin_once(node, timeout_sec=0.1)
+        if not start_future.done() or not start_future.result().success:
+            raise RuntimeError("start service rejected or timed out")
+        if node.count_publishers("/joint_states") != 1:
+            raise RuntimeError("visual mode requires one joint-state publisher")
+        terminal = None
+        while time.monotonic() < deadline:
+            rclpy.spin_once(node, timeout_sec=0.1)
+            entered = [event["state"] for event in task_events
+                       if event.get("event") == "ENTERED"]
+            if args.expect == "cancelled" and not cancellation_sent and "PICK_RAW" in entered:
+                if not cancel_client.wait_for_service(timeout_sec=0.5):
+                    raise RuntimeError("cancel service not ready")
+                cancel_future = cancel_client.call_async(Trigger.Request())
+                cancellation_sent = True
+            terminals = [event for event in task_events
+                         if event.get("event") in ("SUCCESS", "FAILURE")]
+            if terminals:
+                terminal = terminals[-1]
+                break
+        if terminal is None:
+            raise RuntimeError("FSM terminal event not observed")
+        for _ in range(20):
+            rclpy.spin_once(node, timeout_sec=0.1)
+        entered = [event["state"] for event in task_events
+                   if event.get("event") == "ENTERED"]
+        phases = [event.get("process_phase") for event in workpiece_events]
+        if "RAW" not in phases:
+            raise RuntimeError("initial raw workpiece state not observed")
+        trial_ids = {event.get("trial_id") for event in task_events
+                     if event.get("event") != "RESET"}
+        if len(trial_ids) != 1 or None in trial_ids:
+            raise RuntimeError(f"trial IDs inconsistent: {trial_ids}")
+        if not all(event.get("timestamp_utc") for event in task_events):
+            raise RuntimeError("task timestamp missing")
+        if args.expect == "success":
+            if entered != ALL_STATES or terminal["event"] != "SUCCESS":
+                raise RuntimeError(f"success sequence mismatch: {entered}, {terminal}")
+            if terminal["workpiece_state"] != "FINISHED_AT_S5":
+                raise RuntimeError("finished workpiece state not observed")
+            if "FINISHED" not in phases:
+                raise RuntimeError("finished workpiece topic update not observed")
+        elif args.expect == "load_failure":
+            if (entered != ALL_STATES[:4] or terminal["event"] != "FAILURE" or
+                    terminal.get("cause") != "INJECTED_VISUAL_TEST_FAILURE" or
+                    terminal.get("failure_step") != "S3_LOAD" or
+                    terminal["workpiece_state"] != "HELD_RAW_AT_S2"):
+                raise RuntimeError(f"injected failure did not stop at load: {entered}, {terminal}")
+            if "FINISHED" in phases:
+                raise RuntimeError("workpiece advanced after injected load failure")
+        elif args.expect == "unreachable":
+            validate_unreachable(entered, terminal, decisions)
+        else:
+            confirmed = bool(cancel_future is not None and cancel_future.done() and
+                             cancel_future.result().success)
+            validate_cancellation(entered, terminal, confirmed)
+            print(json.dumps({"cancel_service_success": confirmed}), flush=True)
+        print(json.dumps({"probe_result": "PASS", "expect": args.expect,
+                          "states_entered": entered, "terminal": terminal,
+                          "workpiece_samples": len(workpiece_events)}), flush=True)
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

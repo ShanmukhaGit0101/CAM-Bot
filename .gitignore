@@ -18,7 +18,11 @@ plot_env/
 /tmp_urdf/
 
 # ---- Editors / OS ----
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/settings.json
 .idea/
 *.swp
 .DS_Store
@@ -31,3 +35,6 @@ plot_env/
 # ---- Never commit ----
 *.bag
 rosbag2_*/
+
+# Fresh user demonstration/study outputs (never sealed evidence)
+.cambot-runs/

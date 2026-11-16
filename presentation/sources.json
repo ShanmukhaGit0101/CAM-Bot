@@ -1,0 +1,28 @@
+{
+  "source_commit": "b5d47f2c150385dfd57928aaaf95e7fd18a620e8",
+  "scope": "communication package; no new ROS/hardware or independent-review claim",
+  "generator_sha256": "aefce4608ff91269f7b5be18c7a860f809b6eba3a92c90ad46d82571bfeecee9",
+  "statistics": {
+    "attempts": 5,
+    "successes": 5,
+    "mean_s": 19.579116666,
+    "sd_s": 0.016634434137306406,
+    "repositions": 25
+  },
+  "sha256": {
+    "experiments/machine_tending/runs/ay10-visual-20261015-03/raw_analysis/metrics.json": "aeb9db37c991285c4fc1ce9ff460212beebc57bbc13f25af98443d4de4741ee5",
+    "experiments/machine_tending/runs/ay10-visual-20261015-03/raw/trials.csv": "971b22b29ba27d3207a5638f0c83dc3bda404571d3dbab125bbed5794fbdc4be",
+    "experiments/machine_tending/runs/ay10-visual-20261015-03/raw/trials.events.jsonl": "d38122f95825b6d22fbe3cf6901b787076e9e7bc2bac6bb33e5da9f2669de3fb",
+    "docs/TASK_ALLOCATION.md": "4a3af60db80934f0dc44f2a7a68b439be2a0b06630a86923d480e8164e0aae40",
+    "docs/evidence/AY-13/independent_repeat.md": "f5051c18ab0abb5153aa43258e18b31ed8604933b5c24b078c222b4d38a9a1e3",
+    "design/compact_module/generated/report.json": "f932cc4590564f8eb0a27b6d205405cce6e030a5ef6724d46eb5ec3e79a5abf4",
+    "docs/evidence/TASK-08/mock_bimanual_20261115/combined/bimanual/result.json": "1f025546e6265d953c582b9c3afcfe22bdc6aa82c06372fc4d17b98a8a55b9bc",
+    "docs/evidence/TASK-08/mock_bimanual_20261115/combined/probe/result.json": "9a10e1ad1238417c5dc44af55d577484ff1674e3f20b97e1fe092cd65b8f5f39",
+    "docs/evidence/TASK-08/mock_bimanual_20261115/combined/benchmark/summary.json": "87829e3224cc3336a9eded084d27957cb02bf689cb280bd1e6979021160f4201",
+    "experiments/machine_tending/runs/ay10-visual-20261015-03/raw/rviz_runtime.png": "b6b152c70909d6cf6669a4d43b9a85842884387782870bcf1a1768b223610772",
+    "experiments/machine_tending/runs/ay10-visual-20261015-03/raw_analysis/cycle_time_by_trial.png": "795689f5c308ac68372c7bfd92abf3c4cccfc40dd96d7d7c81ad48bd4daa7c79",
+    "experiments/workspace/runs/model-study-20261107/study/workspace.png": "f070edfb9595ce549708af39765e788e14767097b4788e9c927445d0aa7172c1",
+    "design/compact_module/generated/preview.png": "a44f8647d27916cdc0c76cbd44fede88694ccc54795ba49c97f4c5ab2f204278"
+  },
+  "slide_count": 12
+}

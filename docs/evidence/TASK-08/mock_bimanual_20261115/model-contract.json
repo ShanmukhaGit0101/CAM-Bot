@@ -1,0 +1,9 @@
+{
+  "all_joint_elements_equal": true,
+  "module_collision_elements_equal": true,
+  "joint_count": 30,
+  "inputs_sha256": {
+    "/workspace/CAM-BOT-ay13-acceptance/experiments/workspace/runs/model-study-20261107/model.urdf": "97c160ecc8087defe65caa8069bc356c13d08fb39d216e79ec7cdb05cae8039a",
+    "/workspace/cambot-task8-final/current-model.urdf": "cfe32bc1896b1b12229f17672e906e7e679fe9c1188b229584418d95dec74bc3"
+  }
+}

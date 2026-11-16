@@ -1,0 +1,36 @@
+{
+  "base_commit": "eb65d61427be1a25dbff64f46b6c25c27721c61e",
+  "source_note": "Base plus working scenario/logging changes; runtime snapshots and hashes qualify the raw CSV SHA.",
+  "source_sha256": {
+    "src/carrier_control/carrier_control/machine_tending_coordinator.py": "920d5e438eac245e12a65ad3d9b6ae4989eb705070fde2f383bcdad25cb45437",
+    "src/carrier_control/config/scenario_compact.json": "26d921a88feac3e608dca0d04eb8c8b0c3a91915744d757e4d20f266b43e801c",
+    "src/carrier_control/config/scenario_tiered.json": "d22b43cdd26a24c67cd37617aec92b9dea731bf95cd793dd2c5765a3d5e6d5c7",
+    "src/carrier_control/config/scenario_precision.json": "5a4482a9011b22ddda2f0558f7cb29c386054e6857957d1c43ce791fd8e2db49",
+    "tools/present_demo.sh": "fb08dd7a37c6a47e275667e7b6c907fc168ac4c8e2399334de771350bc15047f",
+    "tools/verify_demo_scenarios.py": "390e152e1d5ee7cd63ea3c03da8098128bfbfcf993b136a1eba28d47628bdeaa",
+    "tools/generate_demo_scenarios.py": "e6d5c159bf09c6450b81f817439f201ef0a33e3caf572a88aec6841f9dba0896",
+    "tools/analyze_demo_motion.py": "7d1d3abf5d09731a9be9a48544ce4e85441784f4c5fa7a65410b67c8b70a89aa",
+    "tools/workbench.sh": "185b2021f5c4b222f080db076b47d1db4620b8ffd5b20be4b4fea198adf3734b",
+    ".vscode/tasks.json": "efb9d5b7013fbc84725ee68ee87d6d5cdb79f79cffc742d7268ead610c3f3c94"
+  },
+  "checks": {
+    "core_package_results": 92,
+    "failures": 0,
+    "errors": 0,
+    "copyright_skips": 2,
+    "tool_tests": 12,
+    "historical_analysis_tests": 14,
+    "normal_visual_cases": 4,
+    "scene_results": "all FINISHED_AT_S5, one publisher, three clean exits and empty residual graph"
+  },
+  "scope": "one agent-run normal trial per layout in Humble RViz/Xvfb; no independent human or physical verification",
+  "rviz": {
+    "revision": "4e2b27b7561da7eb03fbc7e92a74d4b3f1e0b054",
+    "patch_sha256": "47934b890f979c743b657887bf209243e33cd90d97346640bca404acc9f9479d",
+    "overlay": "/opt/cambot/rviz",
+    "overlay_note": "Built into the disposable running container from the existing pinned source/patch after unpatched compact shutdown crashed. Same overlay path and procedure as accepted Docker recipe."
+  },
+  "references": "calculated same-run raw-angle carrier path and local HOME-reset path; not separately executed baseline trials",
+  "baseline_capture_changed": false,
+  "station_bodies_opaque": true
+}

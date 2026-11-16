@@ -1,0 +1,6 @@
+{
+  "scope": "81 discrete original-concept joint configurations; module self-clearance only",
+  "passed": 70,
+  "attempted": 81,
+  "clearance_margin_mm": 5
+}

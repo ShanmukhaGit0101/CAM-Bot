@@ -1,5 +1,9 @@
 # CAMBOT — Task Allocation
 
+This is the historical workstream plan. Its unchecked lists are not the final
+completion matrix. Use [STATUS.md](STATUS.md) and the
+[final contribution record](../presentation/CONTRIBUTIONS.md) for presentation.
+
 Work is split into parallel workstreams so mechanical design, manipulator
 modelling, software, and integration can progress simultaneously.
 

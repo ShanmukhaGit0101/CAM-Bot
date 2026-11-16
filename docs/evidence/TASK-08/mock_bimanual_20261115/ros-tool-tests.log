@@ -1,0 +1,12 @@
+test_confirmed_coordinated_cancellation (tools.test_ay05_ros_probe.CancellationProbeTests) ... ok
+test_confirmed_scripted_cancellation (tools.test_ay05_ros_probe.CancellationProbeTests) ... ok
+test_later_state_rejected (tools.test_ay05_ros_probe.CancellationProbeTests) ... ok
+test_timeout_without_cancel_acknowledgement_rejected (tools.test_ay05_ros_probe.CancellationProbeTests) ... ok
+test_unrelated_failure_rejected (tools.test_ay05_ros_probe.CancellationProbeTests) ... ok
+test_workpiece_advance_rejected (tools.test_ay05_ros_probe.CancellationProbeTests) ... ok
+test_exact_failure_and_recheck_are_required (tools.test_ay05_ros_probe.UnreachableProbeTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

@@ -1,0 +1,12 @@
+build/carrier_control/pytest.xml: 57 tests, 0 errors, 1 failure, 1 skipped
+- carrier_control.test.test_flake8 test_flake8
+  <<< failure message
+    AssertionError: Found 4 code style errors / warnings:
+      ./test/test_mock_controller_model.py:28:100: E501 line too long (100 > 99 characters)
+      ./test/test_mock_controller_model.py:34:37: E128 continuation line under-indented for visual indent
+      ./test/test_mock_controller_model.py:35:37: E128 continuation line under-indented for visual indent
+      ./test/test_mock_controller_model.py:36:37: E128 continuation line under-indented for visual indent
+    assert 1 == 0
+  >>>
+
+Summary: 73 tests, 0 errors, 1 failure, 2 skipped

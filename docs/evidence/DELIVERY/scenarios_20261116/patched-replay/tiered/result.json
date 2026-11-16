@@ -1,0 +1,11 @@
+{
+  "scenario": "tiered",
+  "result": "PASS",
+  "repositions": 5,
+  "scope": "visual ROS/TF/RViz only",
+  "shutdown": "three clean exits",
+  "one_joint_state_publisher": true,
+  "residual_nodes": [],
+  "grasp_verified": false,
+  "physical_operation_verified": false
+}

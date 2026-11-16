@@ -1,0 +1,182 @@
+{
+  "trial_id": "ay10-visual-fixed-v1-0dd96033-40f2-4536-8b79-b01ee2caa736",
+  "capture": "experiments/machine_tending/runs/ay10-visual-20261015-03",
+  "mode": "recorded_visual_event_replay",
+  "events": [
+    {
+      "t": 0.029508616,
+      "action": "HOME_START",
+      "state": "HOME",
+      "result": "STEP_STARTED",
+      "workpiece": "RAW_AT_S1"
+    },
+    {
+      "t": 2.282554457,
+      "action": "HOME_START",
+      "state": "HOME",
+      "result": "STEP_COMPLETED",
+      "workpiece": "RAW_AT_S1"
+    },
+    {
+      "t": 2.301413269,
+      "action": "S1_APPROACH",
+      "state": "PICK_RAW",
+      "result": "STEP_STARTED",
+      "workpiece": "RAW_AT_S1"
+    },
+    {
+      "t": 4.591238594,
+      "action": "S1_APPROACH",
+      "state": "PICK_RAW",
+      "result": "STEP_COMPLETED",
+      "workpiece": "RAW_AT_S1"
+    },
+    {
+      "t": 4.597194871,
+      "action": "S1_GRASP",
+      "state": "PICK_RAW",
+      "result": "STEP_STARTED",
+      "workpiece": "RAW_AT_S1"
+    },
+    {
+      "t": 5.413382257,
+      "action": "S1_GRASP",
+      "state": "PICK_RAW",
+      "result": "STEP_COMPLETED",
+      "workpiece": "HELD_RAW_AT_S1"
+    },
+    {
+      "t": 5.430871482,
+      "action": "S2_STAGE",
+      "state": "STAGE",
+      "result": "STEP_STARTED",
+      "workpiece": "HELD_RAW_AT_S1"
+    },
+    {
+      "t": 7.696653689,
+      "action": "S2_STAGE",
+      "state": "STAGE",
+      "result": "STEP_COMPLETED",
+      "workpiece": "HELD_RAW_AT_S2"
+    },
+    {
+      "t": 7.714587911,
+      "action": "S3_LOAD",
+      "state": "LOAD_MACHINE",
+      "result": "STEP_STARTED",
+      "workpiece": "HELD_RAW_AT_S2"
+    },
+    {
+      "t": 9.991732141,
+      "action": "S3_LOAD",
+      "state": "LOAD_MACHINE",
+      "result": "STEP_COMPLETED",
+      "workpiece": "HELD_RAW_AT_S3"
+    },
+    {
+      "t": 10.000074769,
+      "action": "S3_RELEASE",
+      "state": "LOAD_MACHINE",
+      "result": "STEP_STARTED",
+      "workpiece": "HELD_RAW_AT_S3"
+    },
+    {
+      "t": 10.563697237,
+      "action": "S3_RELEASE",
+      "state": "LOAD_MACHINE",
+      "result": "STEP_COMPLETED",
+      "workpiece": "RAW_IN_MACHINE"
+    },
+    {
+      "t": 10.582862907,
+      "action": "MACHINE_DWELL",
+      "state": "MACHINE_DWELL",
+      "result": "STEP_STARTED",
+      "workpiece": "RAW_IN_MACHINE"
+    },
+    {
+      "t": 13.603762396,
+      "action": "MACHINE_DWELL",
+      "state": "MACHINE_DWELL",
+      "result": "STEP_COMPLETED",
+      "workpiece": "PROCESSED_IN_MACHINE"
+    },
+    {
+      "t": 13.623162802,
+      "action": "S3_REGRASP",
+      "state": "UNLOAD_MACHINE",
+      "result": "STEP_STARTED",
+      "workpiece": "PROCESSED_IN_MACHINE"
+    },
+    {
+      "t": 14.444324842,
+      "action": "S3_REGRASP",
+      "state": "UNLOAD_MACHINE",
+      "result": "STEP_COMPLETED",
+      "workpiece": "HELD_PROCESSED_AT_S3"
+    },
+    {
+      "t": 14.452007363,
+      "action": "S4_UNLOAD",
+      "state": "UNLOAD_MACHINE",
+      "result": "STEP_STARTED",
+      "workpiece": "HELD_PROCESSED_AT_S3"
+    },
+    {
+      "t": 16.734922933,
+      "action": "S4_UNLOAD",
+      "state": "UNLOAD_MACHINE",
+      "result": "STEP_COMPLETED",
+      "workpiece": "HELD_PROCESSED_AT_S4"
+    },
+    {
+      "t": 16.754040356,
+      "action": "S5_PLACE",
+      "state": "PLACE_FINISHED",
+      "result": "STEP_STARTED",
+      "workpiece": "HELD_PROCESSED_AT_S4"
+    },
+    {
+      "t": 19.03485451,
+      "action": "S5_PLACE",
+      "state": "PLACE_FINISHED",
+      "result": "STEP_COMPLETED",
+      "workpiece": "HELD_PROCESSED_AT_S5"
+    },
+    {
+      "t": 19.040852127,
+      "action": "S5_RELEASE",
+      "state": "PLACE_FINISHED",
+      "result": "STEP_STARTED",
+      "workpiece": "HELD_PROCESSED_AT_S5"
+    },
+    {
+      "t": 19.608401353,
+      "action": "S5_RELEASE",
+      "state": "PLACE_FINISHED",
+      "result": "STEP_COMPLETED",
+      "workpiece": "FINISHED_AT_S5"
+    },
+    {
+      "t": 19.626508941,
+      "action": "HOME_END",
+      "state": "HOME",
+      "result": "STEP_STARTED",
+      "workpiece": "FINISHED_AT_S5"
+    },
+    {
+      "t": 21.886989628,
+      "action": "HOME_END",
+      "state": "HOME",
+      "result": "STEP_COMPLETED",
+      "workpiece": "FINISHED_AT_S5"
+    },
+    {
+      "t": 21.898754087,
+      "action": "FSM",
+      "state": "HOME",
+      "result": "SUCCESS",
+      "workpiece": "FINISHED_AT_S5"
+    }
+  ]
+}

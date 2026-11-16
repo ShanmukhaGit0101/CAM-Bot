@@ -1,0 +1,10 @@
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-'
+PASS original: 5 repositions, FINISHED_AT_S5, clean shutdown
+Traceback (most recent call last):
+  File "/workspace/CAM-BOT/tools/verify_demo_scenarios.py", line 105, in <module>
+    replay(args.output.resolve(), args.scenarios, args.screenshots)
+  File "/workspace/CAM-BOT/tools/verify_demo_scenarios.py", line 74, in replay
+    check_shutdown(log_path.read_text())
+  File "/workspace/CAM-BOT/tools/check_ros_shutdown.py", line 13, in check_shutdown
+    raise ValueError(f"shutdown error: {marker}")
+ValueError: shutdown error: process has died

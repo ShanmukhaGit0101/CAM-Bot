@@ -1,7 +1,17 @@
 # CAMBOT — Roadmap
 
+**Final-delivery decision (2026-11-15):** the visual demonstrator and presentation
+are the completed project scope. Unfinished phases below are optional future
+extensions, not release blockers. See [project closeout](PROJECT_CLOSEOUT.md).
+
 The six phases from carrier baseline to carrier placement recommendation.
 Current progress lives in [`STATUS.md`](STATUS.md), not here.
+
+**Planning provenance:** The phase headings and check marks below reflect the
+original roadmap, not current evidence levels. In particular, the Phase 1/4
+Gazebo and controller milestones are historical reports without retained
+controller proof in this checkout. The status matrix classifies present code,
+visual runtime, measured visual cycles and unverified actuation.
 
 **Scope boundary:** this roadmap stops at the CA → CF → BM placeholder stage.
 Detailed bimanual arm design comes afterwards.

@@ -1,0 +1,12 @@
+1794746567.8203430 [INFO] [launch]: All log files can be found below /workspace/CAM-BOT/.cambot-runs/run.vpPOQl/ros/2026-11-15-12-42-47-819342-34a81cf73a68-892
+1794746567.8205523 [INFO] [launch]: Default logging verbosity is set to INFO
+1794746568.1260703 [INFO] [robot_state_publisher-1]: process started with pid [949]
+1794746568.1262598 [INFO] [machine_tending_coordinator-2]: process started with pid [951]
+1794746568.1263108 [INFO] [rviz2-3]: process started with pid [953]
+1794746623.8731802 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+1794746623.8782055 [INFO] [rviz2-3]: sending signal 'SIGINT' to process[rviz2-3]
+1794746623.8788598 [INFO] [machine_tending_coordinator-2]: sending signal 'SIGINT' to process[machine_tending_coordinator-2]
+1794746623.8792112 [INFO] [robot_state_publisher-1]: sending signal 'SIGINT' to process[robot_state_publisher-1]
+1794746623.9916835 [INFO] [robot_state_publisher-1]: process has finished cleanly [pid 949]
+1794746624.0612531 [INFO] [rviz2-3]: process has finished cleanly [pid 953]
+1794746624.0963607 [INFO] [machine_tending_coordinator-2]: process has finished cleanly [pid 951]

@@ -1,0 +1,7 @@
+44febde4694e6b3c1befe9289a6804e2f23aa2d6
+ros-humble-controller-manager	2.54.3-1jammy.20261005.213325
+ros-humble-hardware-interface	2.54.3-1jammy.20261005.211947
+ros-humble-joint-state-broadcaster	2.54.1-1jammy.20261005.215610
+ros-humble-joint-trajectory-controller	2.54.1-1jammy.20261005.215624
+ros-humble-ur-description	2.14.0-1jammy.20260922.040002
+ROS_DOMAIN_ID=119

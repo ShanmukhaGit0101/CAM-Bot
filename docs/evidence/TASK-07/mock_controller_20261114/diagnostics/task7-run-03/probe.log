@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/CAM-BOT/tools/probe_ur5_mock_controller.py", line 210, in <module>
+    main()
+  File "/workspace/CAM-BOT/tools/probe_ur5_mock_controller.py", line 198, in main
+    node.run_checks(report)
+  File "/workspace/CAM-BOT/tools/probe_ur5_mock_controller.py", line 148, in run_checks
+    assert not self._move_carrier('PROBE', 2.0)
+AssertionError

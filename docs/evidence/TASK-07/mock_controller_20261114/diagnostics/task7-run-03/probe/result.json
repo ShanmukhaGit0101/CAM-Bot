@@ -1,0 +1,35 @@
+{
+  "result": "FAIL",
+  "scope": "ros2_control GenericSystem mock only",
+  "cases": {
+    "production_adapter_success": {
+      "status": 4,
+      "error_code": 0,
+      "feedback_samples": 40,
+      "final_positions": {
+        "shoulder_pan_joint": 0.1,
+        "shoulder_lift_joint": -0.1,
+        "elbow_joint": 0.1,
+        "wrist_1_joint": 0.0,
+        "wrist_2_joint": 0.0,
+        "wrist_3_joint": 0.0
+      }
+    },
+    "invalid_joints_rejected": true,
+    "path_tolerance_abort": {
+      "status": 6,
+      "error_code": -4
+    }
+  },
+  "station_targets_validated": false,
+  "physical_operation_verified": false,
+  "grasp_verified": false,
+  "end_to_end_verified": false,
+  "controllers": {
+    "joint_state_broadcaster": "active",
+    "ur5_trajectory_controller": "active"
+  },
+  "joint_state_publishers": [
+    "joint_state_broadcaster"
+  ]
+}

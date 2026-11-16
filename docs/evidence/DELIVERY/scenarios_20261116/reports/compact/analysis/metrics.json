@@ -1,0 +1,44 @@
+{
+  "analysis_script_sha256": "befd582ce60adc14c320d23b664ebbae6472ea3837aaaa1425c3a38489920422",
+  "analysis_version": 1,
+  "attempts": 1,
+  "capture": {},
+  "comparison": "descriptive only; no controlled baseline",
+  "cycle_boundary": "S1_APPROACH STEP_STARTED through HOME_END STEP_COMPLETED; failures through terminal event",
+  "empty_dataset": false,
+  "input_sha256": {
+    "trials.csv": "d249f3b502521ad315bd7c39fb0538ce98afb25181c89f5af909189593bdc5bf",
+    "trials.events.jsonl": "911dbce61afbb3353794e0e4b621083963058eeeab600d1d4677c3cd277e05de"
+  },
+  "motion_count_rule": "Distinct CARRIER_MOTION IDs with max absolute goal-start joint delta > 1e-6 rad; repositions exclude HOME. REQUESTED/ACCEPTED/COMPLETED counted separately. Visual COMPLETED means final joint publication, not controller execution.",
+  "scenarios": [
+    {
+      "attempts": 1,
+      "carrier_repositions_accepted": 3,
+      "carrier_repositions_completed": 3,
+      "carrier_repositions_requested": 3,
+      "censored_durations": 0,
+      "failure_categories": {},
+      "missing_durations": 0,
+      "scenario": {
+        "enable_coordination": true,
+        "experiment_id": "cambot-compact",
+        "fault_injection_step": "",
+        "git_commit": "eb65d61427be1a25dbff64f46b6c25c27721c61e",
+        "mode": "visual_simulation",
+        "parameter_hash_sha256": "eea4545b40f8c84da2f29d444919246ea0ecd24d2d588819b3a66c9cea622009",
+        "visual_time_scale": 1.0
+      },
+      "scenario_id": "4c1739ddfa97",
+      "success_rate_pct": 100.0,
+      "successful_attempts": 1,
+      "successful_cycle_time": {
+        "max_s": 17.754321431999998,
+        "mean_s": 17.754321431999998,
+        "median_s": 17.754321431999998,
+        "min_s": 17.754321431999998,
+        "sample_stdev_s": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "classification": "SINGLE_POSE_STATIC_CONCEPT_SCREEN",
+  "status": "INCOMPLETE_INPUTS",
+  "pose": "concept zero pose; all component centres expressed in module frame",
+  "gravity_m_s2": 9.80665,
+  "known_components": [
+    {
+      "name": "base_frame",
+      "mass_kg": 0.3564000000000001,
+      "center_of_mass_m": [
+        -9.716133621568036e-19,
+        -9.303372886885576e-18,
+        0.0025
+      ]
+    },
+    {
+      "name": "left_shoulder_envelope",
+      "mass_kg": 0.04707676591404305,
+      "center_of_mass_m": [
+        -0.2200000000000002,
+        -3.2752179346995974e-18,
+        0.025000000000000005
+      ]
+    },
+    {
+      "name": "left_upper",
+      "mass_kg": 0.1619999999999998,
+      "center_of_mass_m": [
+        -0.22000000000000003,
+        0.125,
+        0.05000000000000002
+      ]
+    },
+    {
+      "name": "left_forearm",
+      "mass_kg": 0.12355200000000008,
+      "center_of_mass_m": [
+        -0.21999999999999995,
+        0.35999999999999993,
+        0.04999999999999999
+      ]
+    },
+    {
+      "name": "right_shoulder_envelope",
+      "mass_kg": 0.04707676591404305,
+      "center_of_mass_m": [
+        0.21999999999999978,
+        -3.2752179346995974e-18,
+        0.025000000000000005
+      ]
+    },
+    {
+      "name": "right_upper",
+      "mass_kg": 0.1619999999999998,
+      "center_of_mass_m": [
+        0.22000000000000003,
+        0.125,
+        0.05000000000000002
+      ]
+    },
+    {
+      "name": "right_forearm",
+      "mass_kg": 0.12355200000000008,
+      "center_of_mass_m": [
+        0.22000000000000003,
+        0.35999999999999993,
+        0.04999999999999999
+      ]
+    }
+  ],
+  "known_subtotal_in_module_frame": {
+    "mass_kg": 1.021657531828086,
+    "center_of_mass_m": [
+      -2.037540081995353e-17,
+      0.12671314600730976,
+      0.03112592752955217
+    ],
+    "first_moment_kg_m": [
+      -2.0816681711721685e-17,
+      0.12945743999999998,
+      0.031800038295702146
+    ],
+    "max_static_gravity_moment_Nm": 1.3072846070341306,
+    "static_gravity_force_N": 10.0190378345019
+  },
+  "known_subtotal_in_flange_frame": null,
+  "total_assembly_mass_kg": null,
+  "unknown_inputs": [
+    "component_groups.adapter: mass, centre and provenance required",
+    "component_groups.shoulder_brackets: mass, centre and provenance required",
+    "component_groups.actuators_and_gearboxes: mass, centre and provenance required",
+    "component_groups.bearings_and_fasteners: mass, centre and provenance required",
+    "component_groups.grippers: mass, centre and provenance required",
+    "component_groups.cables_and_guards: mass, centre and provenance required",
+    "component_groups.workpieces: mass, centre and provenance required",
+    "module_pose_in_flange",
+    "carrier_limits.model",
+    "carrier_limits.source",
+    "carrier_limits.mass_limit_kg",
+    "carrier_limits.static_moment_limit_Nm"
+  ],
+  "static_limit_comparison": null,
+  "actual_actuator_torque_ratings_Nm": null,
+  "limitations": [
+    "structural mass uses an assumed density; not measured or supplier-certified",
+    "fixed pose only: other joint configurations and carried-object positions can change centre of gravity",
+    "maximum gravity moment varies gravity direction only, not geometry",
+    "scalar supplied limits do not replace the manufacturer coupled payload/CoG/inertia envelope",
+    "no inertial acceleration, impact, gearbox/friction, fatigue or duty-cycle calculation",
+    "no bracket/fastener stress, deflection, cable or mounting-load-path qualification"
+  ],
+  "physical_operation_verified": false,
+  "manufacturing_ready": false,
+  "hardware_execution_authorized_by_this_report": false,
+  "input_sha256": {
+    "design/bimanual_concept/parameters.json": "f1dd2808e922681c33c0909ed3d695ee57e8e1388e6000d145bd50b058c0de4d",
+    "design/bimanual_concept/load_inputs.template.json": "69e4184e912b368f99d50afbe87126a50f226aa22119a7632e6a369310a5909b",
+    "/workspace/CAM-BOT-ay13-acceptance/tools/cad/assess_module_loads.py": "adeb3461c8b063b7218f5a3d653da766463526ef7d206df75c985a479c2585db",
+    "/workspace/CAM-BOT-ay13-acceptance/tools/cad/build_module_concept.py": "58266a6eb47b057f65393aab0fed3d09278f6a1998b0357be1604886621ab002"
+  }
+}

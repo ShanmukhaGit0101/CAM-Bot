@@ -1,0 +1,12 @@
+test_existing_output_refused (tools.test_build_presentation.PresentationEvidenceTests) ... ok
+test_modified_capture_is_rejected_before_deck_generation (tools.test_build_presentation.PresentationEvidenceTests) ... ok
+test_replay_is_actual_first_trial_and_metric_excludes_initial_home (tools.test_build_presentation.PresentationEvidenceTests) ... ok
+test_container_mount_guard_and_exit_propagation (tools.test_workbench.WorkbenchTests) ... ok
+test_help_and_unknown_command_need_no_ros (tools.test_workbench.WorkbenchTests) ... ok
+test_missing_trial_does_not_create_an_output (tools.test_workbench.WorkbenchTests) ... ok
+test_tasks_have_no_automatic_motion_dependency (tools.test_workbench.WorkbenchTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.182s
+
+OK
