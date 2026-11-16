@@ -1,0 +1,3 @@
+/opt/cambot/rviz
+	librviz_common.so => /opt/cambot/rviz/lib/librviz_common.so (0x00007f4b322db000)
+6c7d577c652ccce27b9bee3392de83dfa1950670c205904ab1878d146915c733  /opt/cambot/rviz/lib/librviz_common.so

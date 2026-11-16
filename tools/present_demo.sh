@@ -3,12 +3,14 @@
 set -eo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 mode="${1:-launch}"
+scenario="${2:-original}"
 if [[ "$mode" == --help ]]; then
-  echo 'Usage: bash tools/present_demo.sh [launch|start|cancel]'
+  echo 'Usage: bash tools/present_demo.sh [launch|start|cancel] [original|compact|tiered|precision]'
   echo 'Run inside the prepared ROS 2 Humble GUI environment. Default: visual launch.'
   echo 'Use the same ROS_DOMAIN_ID in both terminals (default 109).'
   exit 0
 fi
+case "$scenario" in original|compact|tiered|precision) ;; *) echo "Unknown scenario: $scenario" >&2; exit 2 ;; esac
 case "$mode" in launch|start|cancel) ;; *) echo 'Unknown command; use --help' >&2; exit 2 ;; esac
 [[ -f /opt/ros/humble/setup.bash && -f "$root/install/setup.bash" ]] || {
   echo 'Use the prepared Humble environment and build the two core packages first.' >&2
@@ -40,14 +42,28 @@ nodes="$(ros2 node list --no-daemon)"
   printf '%s\n' "$nodes" >&2
   exit 2
 }
+config_name=machine_tending.json
+[[ "$scenario" == original ]] || config_name="scenario_$scenario.json"
+config_file="$(ros2 pkg prefix carrier_control)/share/carrier_control/config/$config_name"
+[[ -r "$config_file" ]] || {
+  printf 'Missing installed scenario configuration: %s\n' "$config_file" >&2
+  echo 'Rebuild after pulling new scenarios: run CAM-BOT: 01 Build visual demo.' >&2
+  echo 'Terminal equivalent: bash tools/workbench.sh build' >&2
+  exit 2
+}
 base="${CAMBOT_PRESENTATION_OUTPUT_ROOT:-$HOME/cambot-presentations}"
 mkdir -p "$base"
 output="$(mktemp -d "$base/run.XXXXXX")"
 git rev-parse HEAD > "$output/source-commit.txt"
-printf 'Presentation evidence: %s\nROS domain: %s\n' "$output" "$ROS_DOMAIN_ID"
+# Keep an immutable effective plan alongside this run, preserving source config.
+python3 -m carrier_control.visual_motion \
+  --source "$config_file" \
+  --output "$output/plan.json"
+printf 'Presentation evidence: %s\nROS domain: %s\nScenario: %s\n' "$output" "$ROS_DOMAIN_ID" "$scenario"
 printf 'In another sourced terminal: ROS_DOMAIN_ID=%s bash tools/present_demo.sh start\n' "$ROS_DOMAIN_ID"
 echo 'Wait for RViz, start one cycle, observe FINISHED_AT_S5 and HOME, then Ctrl-C here.'
 export ROS_LOG_DIR="$output/ros"
 exec ros2 launch carrier_description dual_arm_demo.launch.py \
-  auto_start:=false enable_coordination:=true trial_count:=1 visual_time_scale:=1.0 \
-  experiment_id:=cambot-presentation results_file:="$output/trials.csv"
+  presentation_view:=true auto_start:=false enable_coordination:=true trial_count:=1 visual_time_scale:=1.0 \
+  experiment_id:="cambot-$scenario" results_file:="$output/trials.csv" \
+  config_file:="$output/plan.json"

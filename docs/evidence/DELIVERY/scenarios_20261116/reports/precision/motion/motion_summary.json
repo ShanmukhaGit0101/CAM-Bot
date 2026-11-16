@@ -1,0 +1,22 @@
+{
+  "trials": [
+    {
+      "trial_id": "cambot-precision-b5facf0f-4013-4f56-9400-cef1ca23c55d",
+      "status": "COMPLETE",
+      "carrier_completed_joint_excursion_rad": 41.87330062763825,
+      "local_completed_joint_excursion_rad": 5.437274932410912,
+      "carrier_stored_angle_reference_rad": 77.42938337763749,
+      "local_home_between_segments_reference_rad": 35.02645527217716,
+      "carrier_repositions": 5,
+      "local_completed_segments": 11,
+      "reference_scope": "calculated references for the same run; not separately executed baselines",
+      "metric_scope": "sum absolute per-joint visual segment excursions; not distance, energy or hardware motion",
+      "grasp_verified": false
+    }
+  ],
+  "input_sha256": {
+    "trials.csv": "4d674e56f0538a0397d5dc7b85971425e0ec06fc48b611fb17a6382617eb570c",
+    "trials.events.jsonl": "0e16f53be0a62282af3505b0d692f1264368c2ef5d4f416e17876da508e518b4"
+  },
+  "warning": "Visual command logs only. References do not establish physical or timing efficiency."
+}

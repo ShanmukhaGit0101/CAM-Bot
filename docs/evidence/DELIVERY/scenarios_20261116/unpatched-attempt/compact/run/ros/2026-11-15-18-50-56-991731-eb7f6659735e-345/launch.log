@@ -1,0 +1,12 @@
+1794768656.9930923 [INFO] [launch]: All log files can be found below /tmp/cambot-scenarios-home/cambot-presentations/run.2R8tC9/ros/2026-11-15-18-50-56-991731-eb7f6659735e-345
+1794768656.9932213 [INFO] [launch]: Default logging verbosity is set to INFO
+1794768657.2720461 [INFO] [robot_state_publisher-1]: process started with pid [382]
+1794768657.2722001 [INFO] [machine_tending_coordinator-2]: process started with pid [384]
+1794768657.2722504 [INFO] [rviz2-3]: process started with pid [386]
+1794768678.5303257 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+1794768678.5371468 [INFO] [rviz2-3]: sending signal 'SIGINT' to process[rviz2-3]
+1794768678.5377505 [INFO] [machine_tending_coordinator-2]: sending signal 'SIGINT' to process[machine_tending_coordinator-2]
+1794768678.5384908 [INFO] [robot_state_publisher-1]: sending signal 'SIGINT' to process[robot_state_publisher-1]
+1794768678.6708295 [INFO] [robot_state_publisher-1]: process has finished cleanly [pid 382]
+1794768678.7275264 [ERROR] [rviz2-3]: process has died [pid 386, exit code -6, cmd '/opt/ros/humble/lib/rviz2/rviz2 -d /workspace/CAM-BOT/install/carrier_description/share/carrier_description/rviz/dual_arm_presentation.rviz --ros-args -r __node:=rviz2'].
+1794768678.7604170 [INFO] [machine_tending_coordinator-2]: process has finished cleanly [pid 384]

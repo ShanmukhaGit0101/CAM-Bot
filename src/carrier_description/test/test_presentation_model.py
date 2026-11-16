@@ -1,0 +1,89 @@
+"""Test display styling against changes to motion, collision or upstream links."""
+
+from copy import deepcopy
+from pathlib import Path
+import unittest
+import xml.etree.ElementTree as ET
+
+from carrier_description.presentation_model import presentation_description, reverse_arm_mounts
+
+
+ROOT = Path(__file__).resolve().parents[3]
+MODEL = ROOT / 'experiments/workspace/runs/model-study-20261107/model.urdf'
+
+
+class TestPresentationModel(unittest.TestCase):
+    def setUp(self):
+        self.original = ET.fromstring(MODEL.read_text())
+        self.styled = ET.fromstring(presentation_description(MODEL.read_text()))
+
+    def canonical(self, element):
+        return (element.tag, sorted(element.attrib.items()),
+                (element.text or '').strip(), [self.canonical(c) for c in element])
+
+    def test_motion_collision_and_inertial_model_are_identical(self):
+        before, after = deepcopy(self.original), deepcopy(self.styled)
+        for tree in (before, after):
+            for link in tree.findall('link'):
+                for visual in list(link.findall('visual')):
+                    link.remove(visual)
+        self.assertEqual(self.canonical(before), self.canonical(after))
+
+    def test_upstream_ur5_visuals_are_identical(self):
+        before = {link.get('name'): link for link in self.original.findall('link')}
+        changed = {'carrier_flange', 'dual_arm_base_link', 'left_upper_arm',
+                   'right_upper_arm', 'left_forearm', 'right_forearm'}
+        for link in self.styled.findall('link'):
+            if link.get('name') not in changed:
+                self.assertEqual(self.canonical(before[link.get('name')]),
+                                 self.canonical(link))
+
+    def test_arms_follow_original_segments_and_have_distinct_colours(self):
+        links = {link.get('name'): link for link in self.styled.findall('link')}
+        colours = []
+        for side in ('left', 'right'):
+            for part, length in (('upper_arm', .25), ('forearm', .22)):
+                link = links[f'{side}_{part}']
+                rod = link.find('visual')
+                self.assertEqual(float(rod.find('geometry/cylinder').get('length')), length)
+                self.assertEqual(rod.find('origin').get('xyz'), f'0 {length / 2} 0')
+            colours.append(links[f'{side}_upper_arm'].find('visual/material/color').get('rgba'))
+        self.assertNotEqual(*colours)
+
+    def test_station_visuals_remain_original_and_fully_opaque(self):
+        before = {link.get('name'): link for link in self.original.findall('link')}
+        stations = [link for link in self.styled.findall('link')
+                    if link.get('name').startswith('station_')]
+        self.assertEqual(len(stations), 5)
+        for link in stations:
+            self.assertEqual(self.canonical(before[link.get('name')]), self.canonical(link))
+            for colour in link.findall('visual/material/color'):
+                self.assertEqual(float(colour.get('rgba').split()[3]), 1.0)
+
+    def test_mounts_exchange_and_elbows_fold_together(self):
+        import math
+        before = {j.get('name'): j for j in self.original.findall('joint')}
+        reversed_model = ET.fromstring(reverse_arm_mounts(ET.tostring(self.styled)))
+        after = {j.get('name'): j for j in reversed_model.findall('joint')}
+        for name, opposite in (('left', 'right'), ('right', 'left')):
+            self.assertEqual(after[f'{name}_shoulder_joint'].find('origin').get('xyz'),
+                             before[f'{opposite}_shoulder_joint'].find('origin').get('xyz'))
+        # Swapped GRASP: left +1.2 about +X, right -1.2 about -X.
+        # Both elbows now lift their forearm in the same local Z direction.
+        rises = []
+        for side, q in (('left', 1.2), ('right', -1.2)):
+            axis = float(after[f'{side}_elbow_joint'].find('axis').get('xyz').split()[0])
+            rises.append(.22 * math.sin(axis * q))
+        self.assertAlmostEqual(*rises)
+        self.assertGreater(rises[0], 0)
+        changed = {'left_shoulder_joint', 'right_shoulder_joint', 'right_elbow_joint'}
+        for name in before.keys() - changed:
+            self.assertEqual(self.canonical(before[name]), self.canonical(after[name]))
+
+    def test_unknown_model_is_rejected(self):
+        with self.assertRaises(ValueError):
+            presentation_description('<robot name="other"/>')
+
+
+if __name__ == '__main__':
+    unittest.main()

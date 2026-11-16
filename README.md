@@ -64,6 +64,9 @@ Follow [the VS Code execution guide](docs/VSCODE.md). Included tasks build and
 test the core packages, launch RViz, observe/start a coordinated cycle, and
 regenerate analysis into fresh folders. CachyOS uses the prepared Humble container.
 
+Three [additional visual scenarios](docs/DEMO_SCENARIOS.md) add compact station
+reuse, stepped heights and tighter proxy tolerances; select tasks 13–15.
+
 ## Present the project
 
 Start with the [final presentation package](presentation/README.md): editable

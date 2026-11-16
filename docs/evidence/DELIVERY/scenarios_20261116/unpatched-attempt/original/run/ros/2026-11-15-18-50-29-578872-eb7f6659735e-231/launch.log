@@ -1,0 +1,12 @@
+1794768629.5801375 [INFO] [launch]: All log files can be found below /tmp/cambot-scenarios-home/cambot-presentations/run.iEUfce/ros/2026-11-15-18-50-29-578872-eb7f6659735e-231
+1794768629.5803337 [INFO] [launch]: Default logging verbosity is set to INFO
+1794768629.8961306 [INFO] [robot_state_publisher-1]: process started with pid [268]
+1794768629.8963470 [INFO] [machine_tending_coordinator-2]: process started with pid [270]
+1794768629.8964281 [INFO] [rviz2-3]: process started with pid [272]
+1794768654.0796993 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+1794768654.0829046 [INFO] [rviz2-3]: sending signal 'SIGINT' to process[rviz2-3]
+1794768654.0834913 [INFO] [machine_tending_coordinator-2]: sending signal 'SIGINT' to process[machine_tending_coordinator-2]
+1794768654.0837691 [INFO] [robot_state_publisher-1]: sending signal 'SIGINT' to process[robot_state_publisher-1]
+1794768654.2054384 [INFO] [robot_state_publisher-1]: process has finished cleanly [pid 268]
+1794768654.2577775 [INFO] [rviz2-3]: process has finished cleanly [pid 272]
+1794768654.2968190 [INFO] [machine_tending_coordinator-2]: process has finished cleanly [pid 270]

@@ -44,3 +44,11 @@ Before the actual presentation, rehearse the prepared demo once and test the
 HTML/PDF fallback on the presentation machine. This is event preparation, not
 another research milestone. A live GUI run on the audience's machine cannot
 be promised by offline packaging checks.
+
+
+## User-requested presentation extension — 2026-11-16
+
+The user subsequently requested three additional visual scenes with increasing
+layout/coordination complexity. [These scenarios](DEMO_SCENARIOS.md) extend the
+presentation within visual scope. They do not reopen the deferred physical
+engineering tasks or change the sealed five-trial experiment.

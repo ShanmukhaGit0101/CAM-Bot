@@ -1,0 +1,36 @@
+{
+  "base_commit": "854f056e5823586efdd828c364b1476c1a7130ae",
+  "source_note": "Tested the working patch on a separate copy at this base. Exact tested source snapshots/hashes qualify the raw run SHA.",
+  "source_sha256": {
+    "src/carrier_control/carrier_control/visual_motion.py": "d20a6e6ef3ee0b08bb5e55dfdb49a85d9f9a8322d8cdba1730899d79dbb0c832",
+    "src/carrier_control/carrier_control/machine_tending_coordinator.py": "7a16f8a715ce93a28ea0137cc4b178d32c34a38ab6d263d3390e857cebec181c",
+    "src/carrier_control/test/test_visual_motion.py": "c993de12b2e4f7b8b438dda1dc0b2f9a0d349a6eb50dcae106a5b35792373e61",
+    "src/carrier_control/test/test_coordinator_runtime.py": "9a41a9e34f13cca81d73c1d0bed943a052de05dcfb19030aabe7b3bd2610e820",
+    "src/carrier_description/carrier_description/presentation_model.py": "c89ba4aa6b7045c2fb6a38844c9936f447fcf1fc71fcefb55b2557927987fd8e",
+    "src/carrier_description/test/test_presentation_model.py": "21418f3c0f01016e614a1f4ca26fa64f7a98d2dbdb0e53908a77cd30312f4c7b",
+    "src/carrier_description/launch/dual_arm_demo.launch.py": "7a6509871c675a7c347e29c8298b8f296c7817ee14e5fcbb238a7142b4ab3e46",
+    "tools/present_demo.sh": "a2d1768571c3f715b66f8c5430c530f278eeb1001fffd212025375fb61acca08"
+  },
+  "image_id": "sha256:70d582e659ce26b5f28519bd283e7a5f56ee43463721f666da1279ffbf2d7580",
+  "environment": "Humble apt RViz 11.2.29, Xvfb :92, software GL, ROS domain 121; no patched RViz overlay. Agent-run rendering, no new human or physical acceptance.",
+  "checks": {
+    "package_results": 90,
+    "errors": 0,
+    "failures": 0,
+    "copyright_skips": 2,
+    "analysis_tests": 14,
+    "success_cycle": true,
+    "final_state": "FINISHED_AT_S5",
+    "carrier_repositions": 5,
+    "joint_state_publishers": [
+      "machine_tending_coordinator"
+    ],
+    "unreachable_case": "PASS",
+    "injected_load_failure": "PASS",
+    "cancelled_case": "PASS"
+  },
+  "joint_limit_check": "Six visual routing intervals match the retained expanded stock UR5 URDF limits exactly.",
+  "raw_evidence": "separate visual-profile run; not pooled with sealed five-cycle dataset",
+  "grasp_verified": false,
+  "physical_operation_verified": false
+}

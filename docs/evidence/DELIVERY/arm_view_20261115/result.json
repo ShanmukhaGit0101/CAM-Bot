@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "final_workpiece": "FINISHED_AT_S5",
+  "joint_state_publishers": [
+    "machine_tending_coordinator"
+  ],
+  "screenshots": [
+    "S1_APPROACH",
+    "S3_LOAD",
+    "S5_PLACE"
+  ],
+  "scope": "headless RViz presentation view, visual simulation only"
+}

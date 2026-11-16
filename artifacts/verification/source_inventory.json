@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "source_commit": "b117d1805d1a9617a1583583f95c5aedc8d5804c",
-  "scope": "current tracked src bytes including optional four-joint mock; hashes authoritative, runtime evidence separate",
+  "source_commit": "eb65d61427be1a25dbff64f46b6c25c27721c61e",
+  "scope": "current src bytes with three additional assumed visual scenarios and local-motion logging; hashes authoritative",
   "historical_inventory": "docs/evidence/AY-13/cross_validation/source_inventory.json",
-  "count": 66,
+  "count": 74,
   "files": [
     {
       "path": "src/carrier_control/LICENSE",
@@ -50,7 +50,7 @@
     {
       "path": "src/carrier_control/carrier_control/machine_tending_coordinator.py",
       "kind": "python_source_or_test",
-      "sha256": "a0f6fdabf4ceafb0778789f2e7c07942f0c9bfaac1e7a441bd6e4ded49ea053d",
+      "sha256": "920d5e438eac245e12a65ad3d9b6ae4989eb705070fde2f383bcdad25cb45437",
       "evidence_level": "available_code"
     },
     {
@@ -84,6 +84,12 @@
       "evidence_level": "available_code"
     },
     {
+      "path": "src/carrier_control/carrier_control/visual_motion.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "d20a6e6ef3ee0b08bb5e55dfdb49a85d9f9a8322d8cdba1730899d79dbb0c832"
+    },
+    {
       "path": "src/carrier_control/carrier_control/waypoints.py",
       "kind": "python_source_or_test",
       "sha256": "90df4e4b4588f327f6655143234291ee53ceb987b8da7016ad9de9fb6442943d",
@@ -106,6 +112,24 @@
       "kind": "runtime_config_or_visualization",
       "sha256": "a973226b7e02b7da1cdb96954990e61abe12a07867bfad678bbd07b3f3c8a64e",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_control/config/scenario_compact.json",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "26d921a88feac3e608dca0d04eb8c8b0c3a91915744d757e4d20f266b43e801c"
+    },
+    {
+      "path": "src/carrier_control/config/scenario_precision.json",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "5a4482a9011b22ddda2f0558f7cb29c386054e6857957d1c43ce791fd8e2db49"
+    },
+    {
+      "path": "src/carrier_control/config/scenario_tiered.json",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "d22b43cdd26a24c67cd37617aec92b9dea731bf95cd793dd2c5765a3d5e6d5c7"
     },
     {
       "path": "src/carrier_control/config/waypoints.yaml",
@@ -153,7 +177,7 @@
       "path": "src/carrier_control/test/test_coordinator_runtime.py",
       "kind": "python_source_or_test",
       "evidence_level": "available_code",
-      "sha256": "600240373e9d331c6ad26fd74a4bdefbe5d33179f9de5b8065b34f18346fc5d7"
+      "sha256": "85d1cf593b057e28f48f599e0a6d5c28f3fab64411658dcea8ed3cb7f3fbf786"
     },
     {
       "path": "src/carrier_control/test/test_copyright.py",
@@ -208,6 +232,12 @@
       "kind": "python_source_or_test",
       "sha256": "a65cabeef7e3f8c2d119ff0f32019d4b1ba3ea1dc926515c7cb7db123f0bcf3a",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_control/test/test_visual_motion.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "c993de12b2e4f7b8b438dda1dc0b2f9a0d349a6eb50dcae106a5b35792373e61"
     },
     {
       "path": "src/carrier_control/test/test_workcell_contract.py",
@@ -276,9 +306,15 @@
       "evidence_level": "available_code"
     },
     {
+      "path": "src/carrier_description/carrier_description/presentation_model.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "a1c279bcbfa1b3f9dc038784def53061fe1c06edb536e68d8f365df471057869"
+    },
+    {
       "path": "src/carrier_description/launch/dual_arm_demo.launch.py",
       "kind": "python_source_or_test",
-      "sha256": "0ba531adbd4cb5c1d10756f438f0ba3945139d0e8d34c938e518aee5ecf46861",
+      "sha256": "7a6509871c675a7c347e29c8298b8f296c7817ee14e5fcbb238a7142b4ab3e46",
       "evidence_level": "available_code"
     },
     {
@@ -322,6 +358,12 @@
       "kind": "package_asset",
       "sha256": "8830d59b52c89b875b890c2c8082e7eeb7078535107ff27dfd6433ec4b211370",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_description/rviz/dual_arm_presentation.rviz",
+      "kind": "package_asset",
+      "evidence_level": "available_code",
+      "sha256": "a108601209262735c63e396df4ee273e378ebf96fc31f1e9142b3fe8da29f142"
     },
     {
       "path": "src/carrier_description/setup.cfg",
@@ -370,6 +412,12 @@
       "kind": "python_source_or_test",
       "sha256": "d87e2bf0020de445312ab4eaac6ede733ec9868399affafa50c5c59f8af6f01a",
       "evidence_level": "available_code"
+    },
+    {
+      "path": "src/carrier_description/test/test_presentation_model.py",
+      "kind": "python_source_or_test",
+      "evidence_level": "available_code",
+      "sha256": "a7038a7cb2c00e27b63e3f3dd4049ac9997dc7cc7eacc7b6382209bc9156f1ff"
     },
     {
       "path": "src/carrier_description/urdf/carrier_flange.xacro",
